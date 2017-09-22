@@ -37,7 +37,7 @@ echo '</pre>';
 	
 	<h1 class="block-header<?php echo (!empty($color)) ? " col-".$color:""; ?>"><?php if (!empty($icon)) {  echo '<i class="fa '.$icon.' fa-lg"></i>'; }?><?php echo $meetings->post_title; ?></h1>
 	
-	<?php include (STYLESHEETPATH . '/_/inc/meeting-rooms/banner-imgs.php'); ?>
+	<?php get_template_part( 'parts/meeting-rooms/banner', 'imgs' ); ?>
 
 	<?php if (!empty($meetings_page_content)) { ?>
 	<?php echo $meetings_page_content ; ?>
@@ -54,7 +54,7 @@ echo '</pre>';
 	
 	<?php if (isset($_GET['admin_request']) && $_GET['admin_request'] == "booking_request") { ?>
 	
-	<?php include (STYLESHEETPATH . '/_/inc/admin/notifications/admin-meeting-request.php'); ?>
+	<?php get_template_part( 'parts/admin/notifications/meeting', 'request' ); ?>
 	
 	<div class="rule"></div>
 
@@ -62,16 +62,15 @@ echo '</pre>';
 	
 	<!-- REQUEST AND ACTION ALERTS -->
 	<div class="alerts">
-		<?php include (STYLESHEETPATH . '/_/inc/meeting-rooms/notifications/alerts.php'); ?>
+		<?php get_template_part( 'parts/meeting-rooms/notifications/all', 'alerts' ); ?>
 	</div>
 	
 	<section class="page-section">
 		<div class="lists-wrap">
 			
-			<?php include (STYLESHEETPATH . '/_/inc/meeting-rooms/data-list-query.php'); ?>
-			
+			<?php get_template_part( 'parts/meeting-rooms/list', 'query' ); ?>
 			<!-- MEETINGS SECTION -->
-			<?php include (STYLESHEETPATH . '/_/inc/meeting-rooms/meeting-list.php'); ?>
+			<?php get_template_part( 'parts/meeting-rooms/meeting', 'list' ); ?>
 			<!-- MEETINGS SECTION END -->
 			
 			</div>

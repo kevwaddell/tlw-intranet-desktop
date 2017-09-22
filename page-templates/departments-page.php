@@ -23,7 +23,7 @@ $children = get_pages($child_args);
 		<article <?php post_class(); ?>>
 			<h1 class="block-header<?php echo (!empty($color)) ? " col-".$color:""; ?>"><?php if (!empty($icon)) {  echo '<i class="fa '.$icon.' fa-lg"></i>'; }?><?php the_title(); ?></h1>
 			
-			<?php include (STYLESHEETPATH . '/_/inc/global/banner-imgs.php'); ?>
+			<?php get_template_part( 'parts/global/banner', 'imgs' ); ?>
 			
 			<?php the_content(); ?>
 			

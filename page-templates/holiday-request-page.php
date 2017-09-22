@@ -22,41 +22,41 @@ $ical_page_split_url = explode('http://', get_permalink($ical_page->ID));
 		<article <?php post_class(); ?>>
 			<h1 class="block-header<?php echo (!empty($color)) ? " col-".$color:" col-gray"; ?>"><?php if (!empty($icon)) {  echo '<i class="fa '.$icon.' fa-lg"></i>'; }?><?php the_title(); ?></h1>
 			
-			<?php include (STYLESHEETPATH . '/_/inc/holiday-request/banner-imgs.php'); ?>
+			<?php get_template_part( 'parts/holiday-request/banner', 'imgs' ); ?>
 			
 			<?php the_content(); ?>
 			
 			<div class="rule"></div>
 			
 			<!-- ACTION BUTTONS -->
-			<?php include (STYLESHEETPATH . '/_/inc/holiday-request/action-btns.php'); ?>
+			<?php get_template_part( 'parts/holiday-request/action', 'btns' ); ?>
 						
 			<div class="rule"></div>
 			<!-- ADMIN ALERTS -->
-			<?php include (STYLESHEETPATH . '/_/inc/admin/notifications/holiday-alerts.php'); ?>
+			<?php get_template_part( 'parts/admin/notifications/holiday', 'alerts' ); ?>
 			
 			<!-- REQUEST AND ACTION ALERTS -->
 			<div class="alerts">
-			<?php include (STYLESHEETPATH . '/_/inc/holiday-request/notifications/alerts.php'); ?>				
+			<?php get_template_part( 'parts/holiday-request/notifications/all', 'alerts' ); ?>			
 			</div>
 			
 			<section class="page-section">
 				<div class="lists-wrap">
 					
-					<?php include (STYLESHEETPATH . '/_/inc/holiday-request/data-list-query.php'); ?>
+					<?php get_template_part( 'parts/holiday-request/list', 'query' ); ?>	
 					
 					<?php if ( !isset($_GET['admin_request']) ) { ?>
 					
 					<?php if ( $current_user_ID == $hb_admin['ID'] || current_user_can("administrator") ) { ?>
 					<!-- PENDING HOLIDAYS -->
-					<?php include (STYLESHEETPATH . '/_/inc/holiday-request/pending-holidays-list.php'); ?>
+					<?php get_template_part( 'parts/holiday-request/pending', 'list' ); ?>
 					<!-- PENDING HOLIDAYS END -->
 					<?php } ?>
 					
 					<?php } ?>
 					
 					<!-- OUT OF OFFICE SECTION -->
-					<?php include (STYLESHEETPATH . '/_/inc/holiday-request/out-of-office-list.php'); ?>
+					<?php get_template_part( 'parts/holiday-request/ooo', 'list' ); ?>
 					<!-- OUT OF OFFICE SECTION END -->
 					
 				</div>

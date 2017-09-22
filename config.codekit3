@@ -630,12 +630,6 @@
 		"oAP": "\/page-templates\/login-page.php",
 		"oF": 0
 		},
-	"\/page-templates\/meeting-rooms-page.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/page-templates\/meeting-rooms-page.php",
-		"oF": 0
-		},
 	"\/page-templates\/meetings-page.php": {
 		"ft": 8192,
 		"oA": 2,
@@ -666,52 +660,52 @@
 		"oAP": "\/page.php",
 		"oF": 0
 		},
-	"\/parts\/add-item\/add-event\/add-event-form.php": {
+	"\/parts\/add-item\/add-event\/event-form.php": {
 		"ft": 8192,
 		"oA": 2,
-		"oAP": "\/parts\/add-item\/add-event\/add-event-form.php",
+		"oAP": "\/parts\/add-item\/add-event\/event-form.php",
 		"oF": 0
 		},
-	"\/parts\/add-item\/add-event\/notifications\/add-event-action.php": {
+	"\/parts\/add-item\/add-event\/notifications\/event-add.php": {
 		"ft": 8192,
 		"oA": 2,
-		"oAP": "\/parts\/add-item\/add-event\/notifications\/add-event-action.php",
+		"oAP": "\/parts\/add-item\/add-event\/notifications\/event-add.php",
 		"oF": 0
 		},
-	"\/parts\/add-item\/add-event\/notifications\/add-event-email.php": {
+	"\/parts\/add-item\/add-event\/notifications\/event-confirm.php": {
 		"ft": 8192,
 		"oA": 2,
-		"oAP": "\/parts\/add-item\/add-event\/notifications\/add-event-email.php",
+		"oAP": "\/parts\/add-item\/add-event\/notifications\/event-confirm.php",
 		"oF": 0
 		},
-	"\/parts\/add-item\/add-event\/notifications\/confirm-event-action.php": {
+	"\/parts\/add-item\/add-event\/notifications\/event-email.php": {
 		"ft": 8192,
 		"oA": 2,
-		"oAP": "\/parts\/add-item\/add-event\/notifications\/confirm-event-action.php",
+		"oAP": "\/parts\/add-item\/add-event\/notifications\/event-email.php",
 		"oF": 0
 		},
-	"\/parts\/add-item\/add-post\/add-post-form.php": {
+	"\/parts\/add-item\/add-post\/notifications\/post-add.php": {
 		"ft": 8192,
 		"oA": 2,
-		"oAP": "\/parts\/add-item\/add-post\/add-post-form.php",
+		"oAP": "\/parts\/add-item\/add-post\/notifications\/post-add.php",
 		"oF": 0
 		},
-	"\/parts\/add-item\/add-post\/notifications\/add-post-action.php": {
+	"\/parts\/add-item\/add-post\/notifications\/post-confirm.php": {
 		"ft": 8192,
 		"oA": 2,
-		"oAP": "\/parts\/add-item\/add-post\/notifications\/add-post-action.php",
+		"oAP": "\/parts\/add-item\/add-post\/notifications\/post-confirm.php",
 		"oF": 0
 		},
-	"\/parts\/add-item\/add-post\/notifications\/add-post-email.php": {
+	"\/parts\/add-item\/add-post\/notifications\/post-email.php": {
 		"ft": 8192,
 		"oA": 2,
-		"oAP": "\/parts\/add-item\/add-post\/notifications\/add-post-email.php",
+		"oAP": "\/parts\/add-item\/add-post\/notifications\/post-email.php",
 		"oF": 0
 		},
-	"\/parts\/add-item\/add-post\/notifications\/confirm-post-action.php": {
+	"\/parts\/add-item\/add-post\/post-form.php": {
 		"ft": 8192,
 		"oA": 2,
-		"oAP": "\/parts\/add-item\/add-post\/notifications\/confirm-post-action.php",
+		"oAP": "\/parts\/add-item\/add-post\/post-form.php",
 		"oF": 0
 		},
 	"\/parts\/add-item\/btn-actions.php": {
@@ -786,12 +780,6 @@
 		"oAP": "\/parts\/admin\/notifications\/admin-holiday-request.php",
 		"oF": 0
 		},
-	"\/parts\/admin\/notifications\/admin-meeting-request.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/parts\/admin\/notifications\/admin-meeting-request.php",
-		"oF": 0
-		},
 	"\/parts\/admin\/notifications\/alerts.php": {
 		"ft": 8192,
 		"oA": 2,
@@ -802,6 +790,12 @@
 		"ft": 8192,
 		"oA": 2,
 		"oAP": "\/parts\/admin\/notifications\/holiday-alerts.php",
+		"oF": 0
+		},
+	"\/parts\/admin\/notifications\/meeting-request.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/parts\/admin\/notifications\/meeting-request.php",
 		"oF": 0
 		},
 	"\/parts\/category-page\/btn-actions.php": {
@@ -984,10 +978,10 @@
 		"oAP": "\/parts\/holiday-request\/banner-imgs.php",
 		"oF": 0
 		},
-	"\/parts\/holiday-request\/data-list-query.php": {
+	"\/parts\/holiday-request\/list-query.php": {
 		"ft": 8192,
 		"oA": 2,
-		"oAP": "\/parts\/holiday-request\/data-list-query.php",
+		"oAP": "\/parts\/holiday-request\/list-query.php",
 		"oF": 0
 		},
 	"\/parts\/holiday-request\/notifications\/add-form.php": {
@@ -1026,10 +1020,10 @@
 		"oAP": "\/parts\/holiday-request\/notifications\/add-holiday-request.php",
 		"oF": 0
 		},
-	"\/parts\/holiday-request\/notifications\/alerts.php": {
+	"\/parts\/holiday-request\/notifications\/all-alerts.php": {
 		"ft": 8192,
 		"oA": 2,
-		"oAP": "\/parts\/holiday-request\/notifications\/alerts.php",
+		"oAP": "\/parts\/holiday-request\/notifications\/all-alerts.php",
 		"oF": 0
 		},
 	"\/parts\/holiday-request\/notifications\/cancel-holiday-action.php": {
@@ -1044,16 +1038,16 @@
 		"oAP": "\/parts\/holiday-request\/notifications\/cancel-holiday-request.php",
 		"oF": 0
 		},
-	"\/parts\/holiday-request\/out-of-office-list.php": {
+	"\/parts\/holiday-request\/ooo-list.php": {
 		"ft": 8192,
 		"oA": 2,
-		"oAP": "\/parts\/holiday-request\/out-of-office-list.php",
+		"oAP": "\/parts\/holiday-request\/ooo-list.php",
 		"oF": 0
 		},
-	"\/parts\/holiday-request\/pending-holidays-list.php": {
+	"\/parts\/holiday-request\/pending-list.php": {
 		"ft": 8192,
 		"oA": 2,
-		"oAP": "\/parts\/holiday-request\/pending-holidays-list.php",
+		"oAP": "\/parts\/holiday-request\/pending-list.php",
 		"oF": 0
 		},
 	"\/parts\/meeting-rooms\/banner-imgs.php": {
@@ -1080,10 +1074,10 @@
 		"oAP": "\/parts\/meeting-rooms\/data-list-key.php",
 		"oF": 0
 		},
-	"\/parts\/meeting-rooms\/data-list-query.php": {
+	"\/parts\/meeting-rooms\/list-query.php": {
 		"ft": 8192,
 		"oA": 2,
-		"oAP": "\/parts\/meeting-rooms\/data-list-query.php",
+		"oAP": "\/parts\/meeting-rooms\/list-query.php",
 		"oF": 0
 		},
 	"\/parts\/meeting-rooms\/meeting-list.php": {
@@ -1092,160 +1086,160 @@
 		"oAP": "\/parts\/meeting-rooms\/meeting-list.php",
 		"oF": 0
 		},
-	"\/parts\/meeting-rooms\/notifications\/add-form.php": {
+	"\/parts\/meeting-rooms\/notifications\/add\/meeting-action.php": {
 		"ft": 8192,
 		"oA": 2,
-		"oAP": "\/parts\/meeting-rooms\/notifications\/add-form.php",
+		"oAP": "\/parts\/meeting-rooms\/notifications\/add\/meeting-action.php",
 		"oF": 0
 		},
-	"\/parts\/meeting-rooms\/notifications\/add-meeting-action.php": {
+	"\/parts\/meeting-rooms\/notifications\/add\/meeting-approval.php": {
 		"ft": 8192,
 		"oA": 2,
-		"oAP": "\/parts\/meeting-rooms\/notifications\/add-meeting-action.php",
+		"oAP": "\/parts\/meeting-rooms\/notifications\/add\/meeting-approval.php",
 		"oF": 0
 		},
-	"\/parts\/meeting-rooms\/notifications\/add-meeting-approval.php": {
+	"\/parts\/meeting-rooms\/notifications\/add\/meeting-email.php": {
 		"ft": 8192,
 		"oA": 2,
-		"oAP": "\/parts\/meeting-rooms\/notifications\/add-meeting-approval.php",
+		"oAP": "\/parts\/meeting-rooms\/notifications\/add\/meeting-email.php",
 		"oF": 0
 		},
-	"\/parts\/meeting-rooms\/notifications\/add-meeting-email.php": {
+	"\/parts\/meeting-rooms\/notifications\/add\/meeting-post.php": {
 		"ft": 8192,
 		"oA": 2,
-		"oAP": "\/parts\/meeting-rooms\/notifications\/add-meeting-email.php",
+		"oAP": "\/parts\/meeting-rooms\/notifications\/add\/meeting-post.php",
 		"oF": 0
 		},
-	"\/parts\/meeting-rooms\/notifications\/add-meeting-post.php": {
+	"\/parts\/meeting-rooms\/notifications\/add\/meeting-request.php": {
 		"ft": 8192,
 		"oA": 2,
-		"oAP": "\/parts\/meeting-rooms\/notifications\/add-meeting-post.php",
+		"oAP": "\/parts\/meeting-rooms\/notifications\/add\/meeting-request.php",
 		"oF": 0
 		},
-	"\/parts\/meeting-rooms\/notifications\/add-meeting-request.php": {
+	"\/parts\/meeting-rooms\/notifications\/add\/request-form.php": {
 		"ft": 8192,
 		"oA": 2,
-		"oAP": "\/parts\/meeting-rooms\/notifications\/add-meeting-request.php",
+		"oAP": "\/parts\/meeting-rooms\/notifications\/add\/request-form.php",
 		"oF": 0
 		},
-	"\/parts\/meeting-rooms\/notifications\/alerts.php": {
+	"\/parts\/meeting-rooms\/notifications\/all-alerts.php": {
 		"ft": 8192,
 		"oA": 2,
-		"oAP": "\/parts\/meeting-rooms\/notifications\/alerts.php",
+		"oAP": "\/parts\/meeting-rooms\/notifications\/all-alerts.php",
 		"oF": 0
 		},
-	"\/parts\/meeting-rooms\/notifications\/approve-meeting-action.php": {
+	"\/parts\/meeting-rooms\/notifications\/approve\/approve-meeting-action.php": {
 		"ft": 8192,
 		"oA": 2,
-		"oAP": "\/parts\/meeting-rooms\/notifications\/approve-meeting-action.php",
+		"oAP": "\/parts\/meeting-rooms\/notifications\/approve\/approve-meeting-action.php",
 		"oF": 0
 		},
-	"\/parts\/meeting-rooms\/notifications\/approve-meeting-email.php": {
+	"\/parts\/meeting-rooms\/notifications\/approve\/approve-meeting-email.php": {
 		"ft": 8192,
 		"oA": 2,
-		"oAP": "\/parts\/meeting-rooms\/notifications\/approve-meeting-email.php",
+		"oAP": "\/parts\/meeting-rooms\/notifications\/approve\/approve-meeting-email.php",
 		"oF": 0
 		},
-	"\/parts\/meeting-rooms\/notifications\/approve-meeting-request.php": {
+	"\/parts\/meeting-rooms\/notifications\/approve\/approve-meeting-request.php": {
 		"ft": 8192,
 		"oA": 2,
-		"oAP": "\/parts\/meeting-rooms\/notifications\/approve-meeting-request.php",
+		"oAP": "\/parts\/meeting-rooms\/notifications\/approve\/approve-meeting-request.php",
 		"oF": 0
 		},
-	"\/parts\/meeting-rooms\/notifications\/cancel-meeting-action.php": {
+	"\/parts\/meeting-rooms\/notifications\/cancel\/cancel-meeting-action.php": {
 		"ft": 8192,
 		"oA": 2,
-		"oAP": "\/parts\/meeting-rooms\/notifications\/cancel-meeting-action.php",
+		"oAP": "\/parts\/meeting-rooms\/notifications\/cancel\/cancel-meeting-action.php",
 		"oF": 0
 		},
-	"\/parts\/meeting-rooms\/notifications\/cancel-meeting-email.php": {
+	"\/parts\/meeting-rooms\/notifications\/cancel\/cancel-meeting-email.php": {
 		"ft": 8192,
 		"oA": 2,
-		"oAP": "\/parts\/meeting-rooms\/notifications\/cancel-meeting-email.php",
+		"oAP": "\/parts\/meeting-rooms\/notifications\/cancel\/cancel-meeting-email.php",
 		"oF": 0
 		},
-	"\/parts\/meeting-rooms\/notifications\/cancel-meeting-request.php": {
+	"\/parts\/meeting-rooms\/notifications\/cancel\/cancel-meeting-request.php": {
 		"ft": 8192,
 		"oA": 2,
-		"oAP": "\/parts\/meeting-rooms\/notifications\/cancel-meeting-request.php",
+		"oAP": "\/parts\/meeting-rooms\/notifications\/cancel\/cancel-meeting-request.php",
 		"oF": 0
 		},
-	"\/parts\/meeting-rooms\/notifications\/delete-meeting-action.php": {
+	"\/parts\/meeting-rooms\/notifications\/delete\/delete-meeting-action.php": {
 		"ft": 8192,
 		"oA": 2,
-		"oAP": "\/parts\/meeting-rooms\/notifications\/delete-meeting-action.php",
+		"oAP": "\/parts\/meeting-rooms\/notifications\/delete\/delete-meeting-action.php",
 		"oF": 0
 		},
-	"\/parts\/meeting-rooms\/notifications\/delete-meeting-request.php": {
+	"\/parts\/meeting-rooms\/notifications\/delete\/delete-meeting-request.php": {
 		"ft": 8192,
 		"oA": 2,
-		"oAP": "\/parts\/meeting-rooms\/notifications\/delete-meeting-request.php",
+		"oAP": "\/parts\/meeting-rooms\/notifications\/delete\/delete-meeting-request.php",
 		"oF": 0
 		},
-	"\/parts\/meeting-rooms\/notifications\/edit-form.php": {
+	"\/parts\/meeting-rooms\/notifications\/edit\/edit-form.php": {
 		"ft": 8192,
 		"oA": 2,
-		"oAP": "\/parts\/meeting-rooms\/notifications\/edit-form.php",
+		"oAP": "\/parts\/meeting-rooms\/notifications\/edit\/edit-form.php",
 		"oF": 0
 		},
-	"\/parts\/meeting-rooms\/notifications\/edit-meeting-action.php": {
+	"\/parts\/meeting-rooms\/notifications\/edit\/edit-meeting-action.php": {
 		"ft": 8192,
 		"oA": 2,
-		"oAP": "\/parts\/meeting-rooms\/notifications\/edit-meeting-action.php",
+		"oAP": "\/parts\/meeting-rooms\/notifications\/edit\/edit-meeting-action.php",
 		"oF": 0
 		},
-	"\/parts\/meeting-rooms\/notifications\/edit-meeting-email.php": {
+	"\/parts\/meeting-rooms\/notifications\/edit\/edit-meeting-email.php": {
 		"ft": 8192,
 		"oA": 2,
-		"oAP": "\/parts\/meeting-rooms\/notifications\/edit-meeting-email.php",
+		"oAP": "\/parts\/meeting-rooms\/notifications\/edit\/edit-meeting-email.php",
 		"oF": 0
 		},
-	"\/parts\/meeting-rooms\/notifications\/edit-meeting-request.php": {
+	"\/parts\/meeting-rooms\/notifications\/edit\/edit-meeting-request.php": {
 		"ft": 8192,
 		"oA": 2,
-		"oAP": "\/parts\/meeting-rooms\/notifications\/edit-meeting-request.php",
+		"oAP": "\/parts\/meeting-rooms\/notifications\/edit\/edit-meeting-request.php",
 		"oF": 0
 		},
-	"\/parts\/meeting-rooms\/notifications\/notify-attendees-cancel-action.php": {
+	"\/parts\/meeting-rooms\/notifications\/notify\/notify-attendees-cancel-action.php": {
 		"ft": 8192,
 		"oA": 2,
-		"oAP": "\/parts\/meeting-rooms\/notifications\/notify-attendees-cancel-action.php",
+		"oAP": "\/parts\/meeting-rooms\/notifications\/notify\/notify-attendees-cancel-action.php",
 		"oF": 0
 		},
-	"\/parts\/meeting-rooms\/notifications\/notify-attendees-cancel-email.php": {
+	"\/parts\/meeting-rooms\/notifications\/notify\/notify-attendees-cancel-email.php": {
 		"ft": 8192,
 		"oA": 2,
-		"oAP": "\/parts\/meeting-rooms\/notifications\/notify-attendees-cancel-email.php",
+		"oAP": "\/parts\/meeting-rooms\/notifications\/notify\/notify-attendees-cancel-email.php",
 		"oF": 0
 		},
-	"\/parts\/meeting-rooms\/notifications\/reject-meeting-action.php": {
+	"\/parts\/meeting-rooms\/notifications\/reject\/reject-meeting-action.php": {
 		"ft": 8192,
 		"oA": 2,
-		"oAP": "\/parts\/meeting-rooms\/notifications\/reject-meeting-action.php",
+		"oAP": "\/parts\/meeting-rooms\/notifications\/reject\/reject-meeting-action.php",
 		"oF": 0
 		},
-	"\/parts\/meeting-rooms\/notifications\/reject-meeting-email.php": {
+	"\/parts\/meeting-rooms\/notifications\/reject\/reject-meeting-email.php": {
 		"ft": 8192,
 		"oA": 2,
-		"oAP": "\/parts\/meeting-rooms\/notifications\/reject-meeting-email.php",
+		"oAP": "\/parts\/meeting-rooms\/notifications\/reject\/reject-meeting-email.php",
 		"oF": 0
 		},
-	"\/parts\/meeting-rooms\/notifications\/reject-meeting-request.php": {
+	"\/parts\/meeting-rooms\/notifications\/reject\/reject-meeting-request.php": {
 		"ft": 8192,
 		"oA": 2,
-		"oAP": "\/parts\/meeting-rooms\/notifications\/reject-meeting-request.php",
+		"oAP": "\/parts\/meeting-rooms\/notifications\/reject\/reject-meeting-request.php",
 		"oF": 0
 		},
-	"\/parts\/meeting-rooms\/notifications\/update-meeting-action.php": {
+	"\/parts\/meeting-rooms\/notifications\/update\/update-meeting-action.php": {
 		"ft": 8192,
 		"oA": 2,
-		"oAP": "\/parts\/meeting-rooms\/notifications\/update-meeting-action.php",
+		"oAP": "\/parts\/meeting-rooms\/notifications\/update\/update-meeting-action.php",
 		"oF": 0
 		},
-	"\/parts\/meeting-rooms\/notifications\/update-meeting-email.php": {
+	"\/parts\/meeting-rooms\/notifications\/update\/update-meeting-email.php": {
 		"ft": 8192,
 		"oA": 2,
-		"oAP": "\/parts\/meeting-rooms\/notifications\/update-meeting-email.php",
+		"oAP": "\/parts\/meeting-rooms\/notifications\/update\/update-meeting-email.php",
 		"oF": 0
 		},
 	"\/parts\/meeting-rooms\/past-canceled-meeting-list.php": {

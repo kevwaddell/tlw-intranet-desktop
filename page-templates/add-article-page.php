@@ -28,8 +28,8 @@ $news_editors = get_field('news_editors', 'options');
 		<div class="actions-wrap">
 			<div class="alerts-wrap">
 				
-			<?php include (STYLESHEETPATH . '/_/inc/add-item/add-post/notifications/add-post-action.php'); ?>	
-			<?php include (STYLESHEETPATH . '/_/inc/add-item/add-post/notifications/confirm-post-action.php'); ?>	
+			<?php get_template_part( 'parts/add-item/add-post/notifications/post', 'add' ); ?>	
+			<?php get_template_part( 'parts/add-item/add-post/notifications/post', 'confirm' ); ?>		
 			
 			</div>
 		</div>
@@ -50,17 +50,17 @@ $news_editors = get_field('news_editors', 'options');
 		<div class="editor-form-wrap">
 			<div class="row">
 				<div class="col-xs-11">
-					<?php include (STYLESHEETPATH . '/_/inc/add-item/add-post/add-post-form.php'); ?>
+					<?php get_template_part( 'parts/add-item/add-post/post', 'form' ); ?>	
 				</div>
 				<div class="col-xs-1">
-					<?php include (STYLESHEETPATH . '/_/inc/add-item/btn-actions.php'); ?>
+					<?php get_template_part( 'parts/add-item/btn', 'actions' ); ?>	
 				</div>
 			</div>
 		</div>
 		
 	</article>
 	
-	<?php include (STYLESHEETPATH . '/_/inc/add-item/help-video.php'); ?>
+	<?php get_template_part( 'parts/add-item/help', 'video' ); ?>	
 					
 <?php endwhile; ?>
 <?php endif; ?>

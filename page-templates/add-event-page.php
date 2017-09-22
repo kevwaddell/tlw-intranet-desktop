@@ -23,9 +23,9 @@ $return_url = urldecode($_GET['httpref']);
 	<?php if (isset($_GET['request']) || isset($_GET['action']) || $_SERVER['REQUEST_METHOD'] === 'POST' ) { ?>
 		<div class="actions-wrap">
 			<div class="alerts-wrap">
-				
-			<?php include (STYLESHEETPATH . '/_/inc/add-item/add-event/notifications/add-event-action.php'); ?>	
-			<?php include (STYLESHEETPATH . '/_/inc/add-item/add-event/notifications/confirm-event-action.php'); ?>	
+
+			<?php get_template_part( 'parts/add-item/add-event/notifications/event', 'add' ); ?>	
+			<?php get_template_part( 'parts/add-item/add-event/notifications/event', 'confirm' ); ?>	
 			
 			</div>
 		</div>
@@ -46,17 +46,17 @@ $return_url = urldecode($_GET['httpref']);
 		<div class="editor-form-wrap">
 			<div class="row">
 				<div class="col-xs-11">
-					<?php include (STYLESHEETPATH . '/_/inc/add-item/add-event/add-event-form.php'); ?>
+					<?php get_template_part( 'parts/add-item/add-event/event', 'form' ); ?>	
 				</div>
 				<div class="col-xs-1">
-					<?php include (STYLESHEETPATH . '/_/inc/add-item/btn-actions.php'); ?>
+					<?php get_template_part( 'parts/add-item/btn', 'actions' ); ?>	
 				</div>
 			</div>
 		</div>
 		
 	</article>
 	
-	<?php include (STYLESHEETPATH . '/_/inc/add-item/help-video.php'); ?>
+	<?php get_template_part( 'parts/add-item/help', 'video' ); ?>
 					
 <?php endwhile; ?>
 <?php endif; ?>
