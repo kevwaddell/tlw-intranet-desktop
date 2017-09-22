@@ -1,0 +1,160 @@
+.calendar-section {
+	
+	@prim-col: @red;
+	@sec-col: @redMid;
+	@prim-col-tint: lighten(@red, 50%);
+
+	.ics-calendar-header {
+		.font-size(1.6);
+		.mag-all(0);
+		.pad-all(0);
+		.h(5);
+		.line-h(5);
+		.bg-col(@grayDk);
+		.border(white; 0.2);
+		.col(white);
+			a {
+			.bg-col(@prim-col);
+			.col(white);
+			.pad(0;1;0;1);
+			.mag-all(0);
+			.h(4.6);
+			.line-h(4.6);
+			.block;
+			.no-text-dec;
+			}
+	}
+	
+	.ics-calendar-header small {
+	.fleft;	
+	}
+	
+	.ics-calendar-header p {
+	.fright;	
+		small {
+		float: none;	
+		}
+	}
+	.ics-calendar-header div, 
+	.ics-calendar-header p {
+		display:inline; 
+		margin:0;
+	}
+
+	.ics-calendar-table td {
+		height:160px;
+		.border(white; 0.2);
+		.bg-col(@grayLt);
+		/*font-size:10px;
+		white-space:nowrap;*/
+	}
+	
+	.ics-calendar-cell {
+		position:relative;
+	}
+	
+	.ics-calendar-days td {
+		.bg-col(@prim-col);
+		.col(white);
+		.h(3);
+		.caps;
+	}
+	
+	.ics-calendar-table td .date-holder, 
+	.ics-calendar-table td .old-date-holder, 
+	.ics-calendar-table td .date-holder p {
+		.h(3);
+		.pad-all(0.5);
+		margin:0;
+	}
+	.ics-calendar-table td .date-holder {
+		//background:#e8eef7;
+		.bg-col( @prim-col-tint );
+	}
+	.ics-calendar-table td .old-date-holder {
+		.bg-col(@gray);
+		.col(darken(@gray, 20%));
+	}
+	.ics-calendar-table td .ics-calendar-today {
+		.bg-col(@sec-col);
+		.col(white);
+	}
+	.ics-calendar-event {
+		.pad-all(0.5);
+		.bg-col(darken(@grayLt, 20%));
+		.mag-bot(0.2);
+	}
+	
+	.ics-calendar-event-box {
+		position:absolute;
+		.rounded(8px);
+		display:none;
+		width:350px;
+		.font-size(1.2);
+	}
+	
+	.ics-more-button { float:left; font-size:10px; }
+	
+	.ics-calendar-more-box {
+		.rounded(4px);
+		text-align:left;
+		display:none;
+		padding:6px;
+		position:absolute;
+		background:#FFFFFF;
+		border:1px solid #c3d9ff;
+	}
+	
+	.ics-calendar-permalink { font-size:10px; float:right; padding-left:4px; }
+	
+	&.col-purple {
+	@prim-col: @purple;
+	@sec-col: darken(@purple, 30%);
+	@prim-col-tint: lighten(@purple, 20%);	
+	
+		.ics-calendar-header {
+			a {
+			.bg-col(@prim-col);
+			}
+		}
+	
+		.ics-calendar-days td {
+		.bg-col(@prim-col);
+		}
+		
+		.ics-calendar-table td .date-holder {
+		.bg-col( @prim-col-tint );
+		}
+		.ics-calendar-table td .ics-calendar-today {
+		.bg-col(@sec-col);
+		}
+	}
+
+}
+
+table#wp-calendar {
+	width: 100%;
+	caption {
+	.bg-col(@grayDk);
+	.col(white);
+	.mag-bot(0.5);
+	.pad-all(0.3);
+	.font-size(1.2);
+	.caps;	
+	}
+	
+	thead {
+		tr {
+		.bg-col(@gray);
+		.col(white);	
+		}	
+		th {
+		text-align: center;	
+		.border-right(@grayLt; 0.1);
+			&[title="Sunday"] {
+			.no-border;	
+			}
+		}
+	}
+	
+}

@@ -1,0 +1,1 @@
+<?php include (STYLESHEETPATH . '/_/inc/meeting-single/notifications/attendee-approval-action.php'); ?>

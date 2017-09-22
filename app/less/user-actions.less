@@ -1,0 +1,304 @@
+.user-actions {
+.fixed;
+.top(0);
+.bottom(0);
+.bg-col(white);
+.w(30);
+.pad(1;0;4;2);
+z-index: 100;
+.transition(0.5s, ease-in-out);
+.border-left(@red; .5);
+
+	&.actions-open {
+	.right(0);	
+	}
+	
+	&.actions-closed {
+	.right(-30);	
+	}
+	
+	.user-actions-wrap {
+	.none;
+	.pad-right(2);
+	height: 100%;
+	}
+	
+	#user-links-box {
+		.user-title {
+		.mag-top(-1);
+		.mag-left(-2);
+		.mag-right(-2);
+		.mag-bot(0.2);
+		.bg-col(@red);
+		.h(4);	
+		.line-h(4);
+		.col(white);
+			span.user-avatar {
+			.block;
+			.fleft;
+			.h(4);	
+			.w(4);
+			.mag-right(2);	
+				img {
+				.block;	
+				}
+			}
+		}
+		
+		ul {
+		.mag-left(-2);
+		.mag-right(-2);
+			li {
+			.h(4);
+			.mag-bot(0.2);
+			.rel;
+				i {
+				.block;
+				.fleft;	
+				.h(4);
+				.w(4);
+				.line-h(4);
+				text-align: center;
+				.col(@gray);
+				.bg-col(@grayDk);
+				}
+				a {
+				.block;
+				.h(4);
+				.line-h(4);	
+				.indent(2);
+				.bg-col(@gray);
+				.col(white);
+				.no-text-dec;
+					&:after {
+					content: "\f105";
+					font-family: FontAwesome;	
+					.abs;
+					.right(0);
+					.top(0);
+					.line-h(4);
+					height: 100%;
+					.font-size(1.6);
+					.pad-right(1);
+					}
+					
+					&:hover, &:active, &:focus {
+					.bg-col(@grayDk);	
+					}
+				}	
+			}
+		}
+	}
+	
+	h3 {
+	.mag-top(0);
+	.col(@gray);
+	.caps;
+	.normal;
+	.font-size(1.8);	
+	}
+	
+	.user-btns {
+	.abs;
+	.right(30);
+	.top(4);
+	text-align: right;
+		
+		.user-btn {
+		.block;
+		.pad-all(0);
+		.no-rounded;
+		.no-border;
+		width: 100%;
+		text-align: center;
+		.bg-col(@gray);
+		.col(white);
+		.mag-bot(.5);
+		.line-h(4);
+		.w(4);
+		.rel;
+		outline: none;
+		
+			i {
+			.in-block;
+			.w(4);
+			text-align: center;
+			}
+			
+			span {
+			.transition(0.2s, ease-in-out);
+			.abs;
+			.top(0.5);
+			.right(-15);
+			.h(3);
+			.line-h(3);
+			.w(0);
+			.bg-col(@red);
+			.col(white);
+			.none;
+			.rounded(4px);
+			
+				&:after {
+				.abs;
+				.right(-1);
+				top: 50%;
+				.mag-top(-.5);
+				content: "";
+				.block;
+				.border-left(@red; 1);	
+				.border-top(transparent; 0.5);	
+				.border-bot(transparent; 0.5);
+				}
+			}
+			
+			&:hover, &:active, &:focus {	
+			.bg-col(@red);
+				span {
+				.right(5);
+				.block;
+				.w(15);
+				}
+			}
+			
+			&.active {
+			.bg-col(@red);	
+			.col(white);
+				&:hover, &:active, &:focus {	
+				.col(@grayDk);
+				
+					span {
+					.none;	
+					}
+				}
+				
+			}
+		}	
+	}	
+	button.favs-btn {
+	//.mag-bot(1);	
+	.border-bot(white, 0.2);
+	text-align: left;
+	.pad-all(0);
+	.h(3);
+	.line-h(3);
+	.bg-col(@gray);
+	.col(white);
+		
+		&:hover, &:active, &:focus {
+		.bg-col(@grayDk);
+		.col(white);
+		}
+		
+		i {
+		.h(3);
+		.w(3);
+		.line-h(3);
+		.fleft;
+		.bg-col(@grayDk);
+		.col(@gray);
+		text-align: center;	
+		.mag-right(1);
+		}
+		
+		&:after {
+		content: "\f055";
+		font-family: FontAwesome;	
+		.fright;
+		.in-block;
+		.font-size(1.6);
+		.pad-right(1);	
+		}
+		
+		&.active {
+			.bg-col(@red);
+			.col(white);
+			
+			i {
+			.bg-col(@redMid);
+			.col(@red);	
+			}
+			
+			&:after {
+			content: "\f056";
+			}	
+			
+			&:hover, &:focus, &:active {
+				i {
+				.col( lighten(@red, 30%) );	
+				}
+				&:after {
+				.col( lighten(@red, 30%) );
+				}
+			}
+		}
+	}
+}
+
+
+.user-favs-list {
+.transition(0.3s, ease);
+overflow: hidden;
+
+	&.list-closed {
+	.h(0);
+	}	
+	
+	&.list-open {
+	.max-h(50);
+	}	
+	
+	.user-favs-list-outer {
+	.max-h(50);
+	overflow-y: auto;
+	}
+
+	.user-favs-list-wrap {
+	.pad-top(1);
+	}
+	
+	.list-item {
+	.pad-bot(1);
+	.border-bot(@grayLt; 0.1);
+	.mag-bot(1);	
+	.font-size(1.4);
+	
+		a {
+		.block;
+		.no-text-dec;
+			span.title {
+			.col(@red);
+			.bold;	
+			.line-h(1.6);
+			}
+			
+			span.cat {
+			.col(@grayDk);
+			}
+			
+			span.date {
+			.col(@gray);
+			}
+			
+			&:hover, &:active, &:focus {
+			.opacity(0.5);	
+			}
+		}
+		
+		span {
+		.block;	
+		
+			&.title {
+			.mag-bot(0.5);	
+			}
+			
+			&.cat {
+			.font-size(1.4);	
+			}
+			
+			&.date {
+			.caps;
+			.font-size(1.2);	
+			}
+		}
+	}
+}
