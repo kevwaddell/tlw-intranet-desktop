@@ -6,7 +6,7 @@ Template Name: Users list page
 
 <?php get_header(); ?>
 
-<?php include (STYLESHEETPATH . '/_/inc/users-page/users-vars.php'); ?>
+<?php get_template_part( 'parts/users-page/users', 'vars' ); ?>	
 
 <article <?php post_class('page'); ?>>
 
@@ -22,20 +22,18 @@ Template Name: Users list page
 
 	<div class="user-list-inner">
 		
-		<?php include (STYLESHEETPATH . '/_/inc/users-page/user-filters.php'); ?>
-			
-		<?php include (STYLESHEETPATH . '/_/inc/users-page/pagination-top.php'); ?>
+		<?php get_template_part( 'parts/users-page/user', 'filters' ); ?>	
+		<?php get_template_part( 'parts/users-page/pagination', 'top' ); ?>	
 			
 		<?php if (!isset($_GET['list_style']) || $_GET['list_style'] == 'grid') { ?>
-			<?php include (STYLESHEETPATH . '/_/inc/users-page/users-grid.php'); ?>
+			<?php get_template_part( 'parts/users-page/users', 'grid' ); ?>	
 		<?php } ?>
 		
 		<?php if (isset($_GET['list_style']) && $_GET['list_style'] == 'list') { ?>
-			<?php include (STYLESHEETPATH . '/_/inc/users-page/users-list.php'); ?>
+			<?php get_template_part( 'parts/users-page/users', 'list' ); ?>	
 		<?php } ?>
 				
-		<?php include (STYLESHEETPATH . '/_/inc/users-page/pagination-bottom.php'); ?>
-		
+		<?php get_template_part( 'parts/users-page/pagination', 'bottom' ); ?>	
 	</div>
 	
 </div>
