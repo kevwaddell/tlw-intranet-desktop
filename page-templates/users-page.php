@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Users list page
+Template Name: Contact list page
 */
 ?>
 

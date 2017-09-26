@@ -9,7 +9,7 @@
 			<button class="close-panel-btn"><i class="fa fa-minus-circle fa-lg"></i><i class="fa fa-plus-circle fa-lg"></i></button>
 			
 			<div class="panel-content">
-			<?php include (STYLESHEETPATH . '/_/inc/dashboard/news-panel/latest-news-panel.php'); ?>
+			<?php get_template_part( 'parts/dashboard/news/latest', 'news' ); ?>	
 			</div>
 		</div>
 	
@@ -22,7 +22,7 @@
 			<button class="close-panel-btn"><i class="fa fa-minus-circle fa-lg"></i><i class="fa fa-plus-circle fa-lg"></i></button>
 			
 			<div class="panel-content">
-			<?php include (STYLESHEETPATH . '/_/inc/dashboard/announcments-panel.php'); ?>
+			<?php get_template_part( 'parts/dashboard/announcements', 'panel' ); ?>
 			</div>
 		</div>
 		
@@ -40,7 +40,7 @@
 			<button class="close-panel-btn"><i class="fa fa-minus-circle fa-lg"></i><i class="fa fa-plus-circle fa-lg"></i></button>
 			
 			<div class="panel-content">
-			<?php include (STYLESHEETPATH . '/_/inc/dashboard/jobs-board-panel.php'); ?>
+			<?php get_template_part( 'parts/dashboard/jobs', 'panel' ); ?>
 			</div>
 		</div>
 		
@@ -53,7 +53,7 @@
 			<button class="close-panel-btn"><i class="fa fa-minus-circle fa-lg"></i><i class="fa fa-plus-circle fa-lg"></i></button>
 			
 			<div class="panel-content">
-			<?php include (STYLESHEETPATH . '/_/inc/dashboard/meeting-rooms-panel.php'); ?>
+			<?php get_template_part( 'parts/dashboard/meetings', 'panel' ); ?>
 			</div>
 		</div>
 				
@@ -71,7 +71,7 @@
 			<button class="close-panel-btn"><i class="fa fa-minus-circle fa-lg"></i><i class="fa fa-plus-circle fa-lg"></i></button>
 			
 			<div class="panel-content">
-			<?php include (STYLESHEETPATH . '/_/inc/dashboard/employee-of-month-panel.php'); ?>
+			<?php get_template_part( 'parts/dashboard/employee', 'panel' ); ?>
 			</div>
 		</div>
 

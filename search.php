@@ -1,42 +1,5 @@
 <?php get_header(); ?>
 
-<?php 
-if (isset($_GET['type'])) {
-
-	switch ($_GET['type']) {
-		case "all": $search_args = array('s'=>$s, 'posts_per_page' => -1 );
-		break;
-		case "office-news":
-		case "company-news":
-		case "events":
-		case "announcements": 
-		$search_args = array('s'=>$s, 'post_type' => 'post' ,'posts_per_page' => -1, 'category_name' =>  $_GET['type']);
-		break;
-		case "meetings":
-		$search_args = array('s'=>$s, 'post_type' => 'tlw_meeting' ,'posts_per_page' => -1);
-		break;
-	}
-	
-} else {
-$search_args = array('s'=>$s, 'posts_per_page' => -1 );
-}
-
-$allsearch = new WP_Query($search_args); 
-wp_reset_query();
-$search_count = $allsearch->post_count;
-$search_query = get_search_query(); 
-$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-$search_args['paged'] = $paged;
-$search_args['posts_per_page'] = 10;
-$wp_query = new WP_Query( $search_args );
-//echo '<pre>';print_r($wp_query);echo '</pre>';
-?>
-
-<?php
-$icon = 'fa-search';
-$color = 'red';
-?>
-
 <article class="page">
 <h1 class="block-header<?php echo (!empty($color)) ? " col-".$color:" col-gray"; ?>"><?php if (!empty($icon)) {  echo '<i class="fa '.$icon.' fa-lg"></i>'; }?>Search Results</h1>
 	

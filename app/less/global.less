@@ -20,11 +20,12 @@ body {
 .rel;
 width: 100%;	
 height: 100%;
-.bg-col(@grayDk);
+.bg-col(@wht);
 -webkit-tap-highlight-color: transparent;
 -webkit-font-smoothing: antialiased;
 -moz-osx-font-smoothing: grayscale;
 .font-size(1.6);
+overflow: hidden;
 }
 
 a {
@@ -34,19 +35,18 @@ a {
 	}	
 }
 
-.content {
-/*
-min-width: 1200px;
-max-width: 1550px;
-*/
-.pad-right(8);
-.pad-left(34);
-.pad-bot(4);
+#app-wrapper {
+.abs;
+.left (0);
+.top (0);
+.right (0);
+.bottom (0);	
 }
 
-.rule {
-.mag(2;0;2;0);
-.border-top(@gray; 0.1);	
+section[role="main"] {
+width: 100%;
+height: 100%;
+.max-w(117);
 }
 
 #user_switching_switch_on {
@@ -64,107 +64,4 @@ max-width: 1550px;
 		.bg-col(@red);	
 		}
 	}	
-}
-
-.col-xs-5ths,
-.col-sm-5ths,
-.col-md-5ths,
-.col-lg-5ths {
-    position: relative;
-    min-height: 1px;
-    padding-right: 10px;
-    padding-left: 10px;
-}
-
-.col-xs-5ths {
-    width: 20%;
-    float: left;
-}
-@media (min-width: 768px) {
-.col-sm-5ths {
-        width: 20%;
-        float: left;
-    }
-}
-@media (min-width: 992px) {
-    .col-md-5ths {
-        width: 20%;
-        float: left;
-    }
-}
-@media (min-width: 1200px) {
-    .col-lg-5ths {
-        width: 20%;
-        float: left;
-    }
-}
-
-.pagination-links {
-.mag-top(1);
-.pad-top(1);
-.border-top(@gray; 0.1);
-.border-bot(@gray; 0.1);
-.pad-bot(1);
-.font-size(1.4);
-text-align: center;
-	
-	&.user-pag {
-	.mag-left(-0.5);
-	.mag-right(-0.5);
-	}
-
-	&.user-pag-top {
-	border-top: none;
-	.border-bot(@gray; 0.1);
-	.pad-top(0);
-	.pad-bot(1);
-	.mag-bot(2);
-	}
-	
-	&.top {
-	.mag-bot(2);
-	}
-	
-	&.user-pag-bot {
-	.mag-top(2);
-	}
-	
-	span.current, a.page-numbers, a.page, a.nextpostslink, a.previouspostslink {
-	.in-block;
-	.w(3);
-	.h(3);
-	.line-h(3);	
-	.mag-right(0.2);
-	}
-	span.current {
-	.bg-col(@grayDk);
-	.col(white);
-	}
-	span.pages {
-	.mag-right(2);	
-	}
-	a.page-numbers, a.page, a.nextpostslink, a.previouspostslink {
-	.no-text-dec;
-	.bg-col(@grayLt);	
-	.col(@grayDk);
-		&:hover {
-		.bg-col(@gray);	
-		.col(white);
-		}
-	}
-	
-	a.next, a.nextpostslink, a.prev, a.previouspostslink {
-	width: auto;
-	.pad(0;1.5;0;1.5);
-	.mag-right(0);	
-	.no-text-dec;
-	}
-	
-	a.next, a.nextpostslink {
-	.fright;
-	}
-	
-	a.prev, a.previouspostslink {
-	.fleft;
-	}
 }

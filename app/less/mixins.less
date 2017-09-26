@@ -145,6 +145,14 @@ clear: both;
 }
 
 /* POSITION */
+.center-align(@position: relative) {
+  position: @position;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
 .abs {
 position: absolute;
 }
@@ -290,6 +298,10 @@ box-sizing: content-box;
 -webkit-border-radius: 0px;
 -moz-border-radius: 0px;
 border-radius: 0px;
+}
+
+.bg-grad(@from: @red; @to: @redMid; @opacity: 1 ) {
+background: linear-gradient(to bottom, rgba(red(@from),green(@from),blue(@from), @opacity) 0%, rgba(red(@to),green(@to),blue(@to),@opacity) 100%);	
 }
 
 .no-transition {

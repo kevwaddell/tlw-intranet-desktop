@@ -19,6 +19,46 @@
 		"oF": 0,
 		"oS": 3
 		},
+	"\/app\/css\/fonts\/fontawesome-webfont.eot": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/app\/css\/fonts\/fontawesome-webfont.eot",
+		"oF": 0
+		},
+	"\/app\/css\/fonts\/fontawesome-webfont.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "\/app\/css\/fonts\/fontawesome-webfont.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
+	"\/app\/css\/fonts\/fontawesome-webfont.ttf": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/app\/css\/fonts\/fontawesome-webfont.ttf",
+		"oF": 0
+		},
+	"\/app\/css\/fonts\/fontawesome-webfont.woff": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/app\/css\/fonts\/fontawesome-webfont.woff",
+		"oF": 0
+		},
+	"\/app\/css\/fonts\/fontawesome-webfont.woff2": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/app\/css\/fonts\/fontawesome-webfont.woff2",
+		"oF": 0
+		},
+	"\/app\/css\/fonts\/FontAwesome.otf": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/app\/css\/fonts\/FontAwesome.otf",
+		"oF": 0
+		},
 	"\/app\/css\/fonts\/OpenSans-Light-webfont.eot": {
 		"ft": 8192,
 		"oA": 2,
@@ -101,6 +141,72 @@
 		"oF": 0,
 		"oS": 3
 		},
+	"\/app\/functions\/afc_options_functions.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/app\/functions\/afc_options_functions.php",
+		"oF": 0
+		},
+	"\/app\/functions\/afc_relationship_filter.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/app\/functions\/afc_relationship_filter.php",
+		"oF": 0
+		},
+	"\/app\/functions\/afc_save_post.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/app\/functions\/afc_save_post.php",
+		"oF": 0
+		},
+	"\/app\/functions\/change-meta-box-title.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/app\/functions\/change-meta-box-title.php",
+		"oF": 0
+		},
+	"\/app\/functions\/custom-posts-order.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/app\/functions\/custom-posts-order.php",
+		"oF": 0
+		},
+	"\/app\/functions\/gravity-forms-delete-entry.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/app\/functions\/gravity-forms-delete-entry.php",
+		"oF": 0
+		},
+	"\/app\/functions\/gravity-forms-functions.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/app\/functions\/gravity-forms-functions.php",
+		"oF": 0
+		},
+	"\/app\/functions\/meetings-cpt.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/app\/functions\/meetings-cpt.php",
+		"oF": 0
+		},
+	"\/app\/functions\/post_row_actions.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/app\/functions\/post_row_actions.php",
+		"oF": 0
+		},
+	"\/app\/functions\/rooms-tax.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/app\/functions\/rooms-tax.php",
+		"oF": 0
+		},
+	"\/app\/functions\/theme-init.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/app\/functions\/theme-init.php",
+		"oF": 0
+		},
 	"\/app\/img\/holiday_img1.jpg": {
 		"ft": 16384,
 		"iS": 29213,
@@ -131,24 +237,24 @@
 		"opt": 0,
 		"q": 100
 		},
-	"\/app\/js\/bootstrap-tabs.js": {
+	"\/app\/js\/bootstrap-min.js": {
 		"ft": 64,
 		"ma": 0,
 		"mi": 1,
-		"oA": 0,
-		"oAP": "\/app\/js\/bootstrap-tabs-min.js",
-		"oF": 2,
-		"sC": 0,
+		"oA": 1,
+		"oAP": "\/app\/js\/min\/bootstrap-min-min.js",
+		"oF": 1,
+		"sC": 1,
 		"tS": 0
 		},
-	"\/app\/js\/bootstrap-tooltip.js": {
+	"\/app\/js\/functions-min.js": {
 		"ft": 64,
 		"ma": 0,
 		"mi": 1,
 		"oA": 0,
-		"oAP": "\/app\/js\/bootstrap-tooltip-min.js",
-		"oF": 2,
-		"sC": 0,
+		"oAP": "\/app\/js\/min\/functions-min-min.js",
+		"oF": 0,
+		"sC": 1,
 		"tS": 0
 		},
 	"\/app\/js\/functions.js": {
@@ -161,22 +267,22 @@
 		"sC": 0,
 		"tS": 0
 		},
-	"\/app\/js\/jquery.scrollTo.min.js": {
-		"ft": 64,
-		"ma": 0,
-		"mi": 1,
-		"oA": 1,
-		"oAP": "\/app\/js\/min\/jquery.scrollTo.min-min.js",
-		"oF": 1,
-		"sC": 0,
-		"tS": 0
-		},
 	"\/app\/js\/jquery.slimscroll.min.js": {
 		"ft": 64,
 		"ma": 0,
 		"mi": 1,
 		"oA": 1,
 		"oAP": "\/app\/js\/min\/jquery.slimscroll.min-min.js",
+		"oF": 1,
+		"sC": 1,
+		"tS": 0
+		},
+	"\/app\/js\/modernizr-min.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 1,
+		"oAP": "\/app\/js\/min\/modernizr-min-min.js",
 		"oF": 1,
 		"sC": 1,
 		"tS": 0
@@ -191,6 +297,57 @@
 		"ma": 1,
 		"oA": 1,
 		"oAP": "\/app\/css\/alerts.css",
+		"oF": 0,
+		"oS": 0,
+		"rU": 0,
+		"sI": 0,
+		"sM": 0,
+		"sU": 0
+		},
+	"\/app\/less\/animate.less": {
+		"aP": 0,
+		"bl": 0,
+		"dJ": 0,
+		"ft": 1,
+		"ie": 1,
+		"iI": 0,
+		"ma": 1,
+		"oA": 1,
+		"oAP": "\/app\/css\/animate.css",
+		"oF": 0,
+		"oS": 0,
+		"rU": 0,
+		"sI": 0,
+		"sM": 0,
+		"sU": 0
+		},
+	"\/app\/less\/bootstrap-select.less": {
+		"aP": 0,
+		"bl": 0,
+		"dJ": 0,
+		"ft": 1,
+		"ie": 1,
+		"iI": 0,
+		"ma": 1,
+		"oA": 1,
+		"oAP": "\/app\/css\/bootstrap-select.css",
+		"oF": 0,
+		"oS": 0,
+		"rU": 0,
+		"sI": 0,
+		"sM": 0,
+		"sU": 0
+		},
+	"\/app\/less\/bootstrap.less": {
+		"aP": 0,
+		"bl": 0,
+		"dJ": 0,
+		"ft": 1,
+		"ie": 1,
+		"iI": 0,
+		"ma": 1,
+		"oA": 1,
+		"oAP": "\/app\/css\/bootstrap.css",
 		"oF": 0,
 		"oS": 0,
 		"rU": 0,
@@ -293,6 +450,23 @@
 		"ma": 1,
 		"oA": 1,
 		"oAP": "\/app\/css\/elements.css",
+		"oF": 0,
+		"oS": 0,
+		"rU": 0,
+		"sI": 0,
+		"sM": 0,
+		"sU": 0
+		},
+	"\/app\/less\/font-awesome.less": {
+		"aP": 0,
+		"bl": 0,
+		"dJ": 0,
+		"ft": 1,
+		"ie": 1,
+		"iI": 0,
+		"ma": 1,
+		"oA": 1,
+		"oAP": "\/app\/css\/font-awesome.css",
 		"oF": 0,
 		"oS": 0,
 		"rU": 0,
@@ -528,12 +702,6 @@
 		"oAP": "\/footer.php",
 		"oF": 0
 		},
-	"\/forum.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/forum.php",
-		"oF": 0
-		},
 	"\/front-page.php": {
 		"ft": 8192,
 		"oA": 2,
@@ -544,12 +712,6 @@
 		"ft": 8192,
 		"oA": 2,
 		"oAP": "\/functions.php",
-		"oF": 0
-		},
-	"\/header-user.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/header-user.php",
 		"oF": 0
 		},
 	"\/header.php": {
@@ -810,10 +972,10 @@
 		"oAP": "\/parts\/category-page\/cats-query.php",
 		"oF": 0
 		},
-	"\/parts\/dashboard\/announcments-panel.php": {
+	"\/parts\/dashboard\/announcements-panel.php": {
 		"ft": 8192,
 		"oA": 2,
-		"oAP": "\/parts\/dashboard\/announcments-panel.php",
+		"oAP": "\/parts\/dashboard\/announcements-panel.php",
 		"oF": 0
 		},
 	"\/parts\/dashboard\/dashboard-panels.php": {
@@ -822,52 +984,46 @@
 		"oAP": "\/parts\/dashboard\/dashboard-panels.php",
 		"oF": 0
 		},
-	"\/parts\/dashboard\/employee-of-month-panel.php": {
+	"\/parts\/dashboard\/employee-panel.php": {
 		"ft": 8192,
 		"oA": 2,
-		"oAP": "\/parts\/dashboard\/employee-of-month-panel.php",
+		"oAP": "\/parts\/dashboard\/employee-panel.php",
 		"oF": 0
 		},
-	"\/parts\/dashboard\/jobs-board-panel.php": {
+	"\/parts\/dashboard\/jobs-panel.php": {
 		"ft": 8192,
 		"oA": 2,
-		"oAP": "\/parts\/dashboard\/jobs-board-panel.php",
+		"oAP": "\/parts\/dashboard\/jobs-panel.php",
 		"oF": 0
 		},
-	"\/parts\/dashboard\/meeting-rooms-panel.php": {
+	"\/parts\/dashboard\/meeting-panel.php": {
 		"ft": 8192,
 		"oA": 2,
-		"oAP": "\/parts\/dashboard\/meeting-rooms-panel.php",
+		"oAP": "\/parts\/dashboard\/meeting-panel.php",
 		"oF": 0
 		},
-	"\/parts\/dashboard\/news-panel\/company-news.php": {
+	"\/parts\/dashboard\/news\/company-news.php": {
 		"ft": 8192,
 		"oA": 2,
-		"oAP": "\/parts\/dashboard\/news-panel\/company-news.php",
+		"oAP": "\/parts\/dashboard\/news\/company-news.php",
 		"oF": 0
 		},
-	"\/parts\/dashboard\/news-panel\/events.php": {
+	"\/parts\/dashboard\/news\/events-news.php": {
 		"ft": 8192,
 		"oA": 2,
-		"oAP": "\/parts\/dashboard\/news-panel\/events.php",
+		"oAP": "\/parts\/dashboard\/news\/events-news.php",
 		"oF": 0
 		},
-	"\/parts\/dashboard\/news-panel\/latest-news-panel.php": {
+	"\/parts\/dashboard\/news\/latest-news.php": {
 		"ft": 8192,
 		"oA": 2,
-		"oAP": "\/parts\/dashboard\/news-panel\/latest-news-panel.php",
+		"oAP": "\/parts\/dashboard\/news\/latest-news.php",
 		"oF": 0
 		},
-	"\/parts\/dashboard\/news-panel\/office-news.php": {
+	"\/parts\/dashboard\/news\/office-news.php": {
 		"ft": 8192,
 		"oA": 2,
-		"oAP": "\/parts\/dashboard\/news-panel\/office-news.php",
-		"oF": 0
-		},
-	"\/parts\/dashboard\/out-of-office.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/parts\/dashboard\/out-of-office.php",
+		"oAP": "\/parts\/dashboard\/news\/office-news.php",
 		"oF": 0
 		},
 	"\/parts\/global\/banner-imgs.php": {
@@ -880,12 +1036,6 @@
 		"ft": 8192,
 		"oA": 2,
 		"oAP": "\/parts\/global\/favourites-list.php",
-		"oF": 0
-		},
-	"\/parts\/global\/loader.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/parts\/global\/loader.php",
 		"oF": 0
 		},
 	"\/parts\/global\/notifications\/action-add-to-favourites.php": {
@@ -940,6 +1090,12 @@
 		"ft": 8192,
 		"oA": 2,
 		"oAP": "\/parts\/global\/notifications\/request-remove-favourite.php",
+		"oF": 0
+		},
+	"\/parts\/global\/site-loader.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/parts\/global\/site-loader.php",
 		"oF": 0
 		},
 	"\/parts\/global\/todays-date.php": {
@@ -1518,154 +1674,118 @@
 		"oAP": "\/parts\/single-post\/vacancy-details-box.php",
 		"oF": 0
 		},
-	"\/parts\/user\/alerts.php": {
+	"\/parts\/user\/all-alerts.php": {
 		"ft": 8192,
 		"oA": 2,
-		"oAP": "\/parts\/user\/alerts.php",
+		"oAP": "\/parts\/user\/all-alerts.php",
 		"oF": 0
 		},
-	"\/parts\/user\/extra_days_code.php": {
+	"\/parts\/user\/announcements\/announcements-list.php": {
 		"ft": 8192,
 		"oA": 2,
-		"oAP": "\/parts\/user\/extra_days_code.php",
+		"oAP": "\/parts\/user\/announcements\/announcements-list.php",
 		"oF": 0
 		},
-	"\/parts\/user\/holidays-check-init.php": {
+	"\/parts\/user\/announcements\/announcements-query.php": {
 		"ft": 8192,
 		"oA": 2,
-		"oAP": "\/parts\/user\/holidays-check-init.php",
+		"oAP": "\/parts\/user\/announcements\/announcements-query.php",
 		"oF": 0
 		},
-	"\/parts\/user\/holidays-check.php": {
+	"\/parts\/user\/data-query.php": {
 		"ft": 8192,
 		"oA": 2,
-		"oAP": "\/parts\/user\/holidays-check.php",
+		"oAP": "\/parts\/user\/data-query.php",
 		"oF": 0
 		},
-	"\/parts\/user\/notifications\/user-message-confirm.php": {
+	"\/parts\/user\/events\/events-list.php": {
 		"ft": 8192,
 		"oA": 2,
-		"oAP": "\/parts\/user\/notifications\/user-message-confirm.php",
+		"oAP": "\/parts\/user\/events\/events-list.php",
 		"oF": 0
 		},
-	"\/parts\/user\/notifications\/user-message-email.php": {
+	"\/parts\/user\/events\/events-query.php": {
 		"ft": 8192,
 		"oA": 2,
-		"oAP": "\/parts\/user\/notifications\/user-message-email.php",
+		"oAP": "\/parts\/user\/events\/events-query.php",
 		"oF": 0
 		},
-	"\/parts\/user\/notifications\/user-message-form.php": {
+	"\/parts\/user\/favourites\/favourites-list.php": {
 		"ft": 8192,
 		"oA": 2,
-		"oAP": "\/parts\/user\/notifications\/user-message-form.php",
+		"oAP": "\/parts\/user\/favourites\/favourites-list.php",
 		"oF": 0
 		},
-	"\/parts\/user\/notifications\/user-message-send.php": {
+	"\/parts\/user\/favourites\/favourites-query.php": {
 		"ft": 8192,
 		"oA": 2,
-		"oAP": "\/parts\/user\/notifications\/user-message-send.php",
+		"oAP": "\/parts\/user\/favourites\/favourites-query.php",
 		"oF": 0
 		},
-	"\/parts\/user\/user-announcements-query.php": {
+	"\/parts\/user\/meetings\/meetings-list.php": {
 		"ft": 8192,
 		"oA": 2,
-		"oAP": "\/parts\/user\/user-announcements-query.php",
+		"oAP": "\/parts\/user\/meetings\/meetings-list.php",
 		"oF": 0
 		},
-	"\/parts\/user\/user-announcements.php": {
+	"\/parts\/user\/meetings\/meetings-query.php": {
 		"ft": 8192,
 		"oA": 2,
-		"oAP": "\/parts\/user\/user-announcements.php",
+		"oAP": "\/parts\/user\/meetings\/meetings-query.php",
 		"oF": 0
 		},
-	"\/parts\/user\/user-data-query.php": {
+	"\/parts\/user\/meetings\/user-message-form.php": {
 		"ft": 8192,
 		"oA": 2,
-		"oAP": "\/parts\/user\/user-data-query.php",
+		"oAP": "\/parts\/user\/meetings\/user-message-form.php",
 		"oF": 0
 		},
-	"\/parts\/user\/user-events-query.php": {
+	"\/parts\/user\/news\/news-list.php": {
 		"ft": 8192,
 		"oA": 2,
-		"oAP": "\/parts\/user\/user-events-query.php",
+		"oAP": "\/parts\/user\/news\/news-list.php",
 		"oF": 0
 		},
-	"\/parts\/user\/user-events.php": {
+	"\/parts\/user\/news\/news-query.php": {
 		"ft": 8192,
 		"oA": 2,
-		"oAP": "\/parts\/user\/user-events.php",
+		"oAP": "\/parts\/user\/news\/news-query.php",
 		"oF": 0
 		},
-	"\/parts\/user\/user-favourites-query.php": {
+	"\/parts\/user\/notifications\/message-confirm.php": {
 		"ft": 8192,
 		"oA": 2,
-		"oAP": "\/parts\/user\/user-favourites-query.php",
+		"oAP": "\/parts\/user\/notifications\/message-confirm.php",
 		"oF": 0
 		},
-	"\/parts\/user\/user-favourites.php": {
+	"\/parts\/user\/notifications\/message-email.php": {
 		"ft": 8192,
 		"oA": 2,
-		"oAP": "\/parts\/user\/user-favourites.php",
+		"oAP": "\/parts\/user\/notifications\/message-email.php",
 		"oF": 0
 		},
-	"\/parts\/user\/user-holidays-query.php": {
+	"\/parts\/user\/notifications\/message-form.php": {
 		"ft": 8192,
 		"oA": 2,
-		"oAP": "\/parts\/user\/user-holidays-query.php",
+		"oAP": "\/parts\/user\/notifications\/message-form.php",
 		"oF": 0
 		},
-	"\/parts\/user\/user-holidays.php": {
+	"\/parts\/user\/notifications\/message-send.php": {
 		"ft": 8192,
 		"oA": 2,
-		"oAP": "\/parts\/user\/user-holidays.php",
+		"oAP": "\/parts\/user\/notifications\/message-send.php",
+		"oF": 0
+		},
+	"\/parts\/user\/profile-info.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/parts\/user\/profile-info.php",
 		"oF": 0
 		},
 	"\/parts\/user\/user-links.php": {
 		"ft": 8192,
 		"oA": 2,
 		"oAP": "\/parts\/user\/user-links.php",
-		"oF": 0
-		},
-	"\/parts\/user\/user-meetings-query.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/parts\/user\/user-meetings-query.php",
-		"oF": 0
-		},
-	"\/parts\/user\/user-meetings.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/parts\/user\/user-meetings.php",
-		"oF": 0
-		},
-	"\/parts\/user\/user-message-form.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/parts\/user\/user-message-form.php",
-		"oF": 0
-		},
-	"\/parts\/user\/user-news-query.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/parts\/user\/user-news-query.php",
-		"oF": 0
-		},
-	"\/parts\/user\/user-news.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/parts\/user\/user-news.php",
-		"oF": 0
-		},
-	"\/parts\/user\/user-profile-info-old.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/parts\/user\/user-profile-info-old.php",
-		"oF": 0
-		},
-	"\/parts\/user\/user-profile-info.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/parts\/user\/user-profile-info.php",
 		"oF": 0
 		},
 	"\/parts\/user\/user-vars.php": {
@@ -1757,12 +1877,6 @@
 		"oAP": "\/searchform.php",
 		"oF": 0
 		},
-	"\/sidebar-forum.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/sidebar-forum.php",
-		"oF": 0
-		},
 	"\/sidebar-single.php": {
 		"ft": 8192,
 		"oA": 2,
@@ -1802,12 +1916,6 @@
 		"oAP": "\/style-min.css",
 		"oF": 1,
 		"oS": 3
-		},
-	"\/tag.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/tag.php",
-		"oF": 0
 		}
 	},
 "hooks": [
