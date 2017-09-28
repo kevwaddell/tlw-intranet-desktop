@@ -47,35 +47,8 @@ if ( function_exists( 'register_sidebar' ) ) {
 	'after_title'   => '</div>' 
 	);
 	
-	register_sidebar( $login_sb_args );	
-	
-	$question_pan_args = array(
-	'name'          => "Dashboard question of the day",
-	'id'            => "dashboard-poll",
-	'description'   => 'Panel for dashboard question of the day',
-	'class'         => 'dash-panel',
-	'before_widget' => '',
-	'after_widget'  => '',
-	'before_title'  => '',
-	'after_title'   => '' 
-	);
-	
-	register_sidebar( $question_pan_args );	
-	
-	$quiz_pan_args = array(
-	'name'          => "Quiz of the day",
-	'id'            => "quiz-of-the-day",
-	'description'   => 'Panel for dashboard quiz of the day',
-	'class'         => 'dash-panel',
-	'before_widget' => '',
-	'after_widget'  => '',
-	'before_title'  => '',
-	'after_title'   => '' 
-	);
-	
-	register_sidebar( $quiz_pan_args );	
+	register_sidebar( $login_sb_args );		
 
-	
 }
 
 // Use shortcodes in text widgets.
@@ -143,6 +116,9 @@ require_once(STYLESHEETPATH . '/app/functions/afc_options_functions.php');
 
 /* CUSTOM ROW ACTIONS */
 require_once(STYLESHEETPATH . '/app/functions/post_row_actions.php');
+
+/* GET GRAVATAR URL FUNCTION */
+//require_once(STYLESHEETPATH . '/app/functions/get-gravatar-url.php');
 
 //holder_add_theme( 'wordpress', '333333', 'eeeeee' );
 holder_add_theme( 'lite-gray', '888888', 'eeeeee' );

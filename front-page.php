@@ -6,7 +6,7 @@
 	<div class="launchpad-wrap-inner">
 		<?php wp_nav_menu(array( 
 		'container' => 'false', 
-		'menu' => 'Main Menu', 
+		'menu' => 'Launchpad Menu', 
 		'menu_class'  => 'menu list-inline',
 		'fallback_cb' => false 
 		) ); 

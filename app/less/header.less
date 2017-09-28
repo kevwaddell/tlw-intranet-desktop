@@ -1,10 +1,12 @@
 header[role="banner"] {
-.fixed;
+.abs;
 .left(0);
 .top(0);
 .right(0);
-.h(5);
+.h(5.1);
 z-index: 1000;
+.trans-bg(@wht; 0.7);
+.border-bot(@grayDk; 0.1);
 
 	a#logo {
 	.block;
@@ -14,8 +16,100 @@ z-index: 1000;
 	.bg-repeat(no-repeat);
 	background-position: left center;
 	.bg-size(contain);
+	margin: auto;
 		&:hover {
 		.opacity(0.5);	
+		}
+	}
+	
+	#main-nav-btn {
+	.w(5);
+	.h(5);
+	.pad-all(0);
+	.bg-col(@trans);
+	.mag-left(-1.5);
+	.border-right(@grayDk; 0.1);
+	.fleft;
+		i {
+		.block;
+		.line-h(5);	
+		}	
+		&:hover, &:active, &:focus {
+		.col(@red);
+		.inner-shadow(0,0,0,0.0);
+		.bg-col(@trans);
+		}	
+		
+		&.nav-open {
+		.bg-col(@grayDk);
+		.col(@wht);	
+		}
+	}
+	
+	.title {
+	.font-size(2.5);
+	.line-h(5);
+	.fleft;
+	.pad-left(3);
+	.caps;
+	font-weight: 300;
+		i {
+		.fleft;
+		.font-size(2.5);
+		.line-h(5);
+		.pad-right(0.8);
+		.col(@gray);
+		}
+	}
+	
+	.user-banner-links {
+	.rel;
+	.mag-right(-1.5);
+		.btn {
+		.bg-col(@trans);
+		.col(@grayDk);
+		.h(5);
+		.pad-all(0);
+		.line-h(5);
+			&:hover, &:active, &:focus {
+			.col(@red);
+			.inner-shadow(0,0,0,0.0);
+			.bg-col(@trans);
+			}	
+			
+			span {
+			.block;
+			.fleft;
+			.font-size(2.5);
+			.line-h(5);
+			.pad-right(1);
+			.pad-left(1);	
+			}
+		}
+		
+		.user-link {
+		.w(5);
+		.border-left(@grayDk; 0.1);
+			i {
+			.block;	
+			.line-h(5);
+			text-align: center;
+			}
+		}
+		
+		.user-dropdown {
+			.btn {
+			.border-left(@grayDk; 0.1);	
+			.caps;	
+				i {
+				.block;
+				.fright;
+				.pad-right(1);
+				.pad-left(1);
+				.line-h(5);	
+				}
+			}
+			
 		}
 	}
 	

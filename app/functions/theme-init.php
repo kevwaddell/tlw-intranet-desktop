@@ -12,9 +12,7 @@ if (!is_admin()) {
 		'jquery',
 		'bootstrap-min',
 		'bootstrap-select', 
-		'jquery-cookie', 
 		'slim-scroll',
-		'widow-fix'
 		);
 		wp_deregister_script('jquery-core');
 		wp_deregister_script('jquery');

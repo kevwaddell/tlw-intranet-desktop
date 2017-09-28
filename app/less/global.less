@@ -4,7 +4,7 @@ height: 100%;
 .mag-top(0)!important;	
 }
 
-pre {
+pre.debug {
 	top: 0px;
 	left: 0px;
 	position: fixed;
@@ -26,6 +26,11 @@ height: 100%;
 -moz-osx-font-smoothing: grayscale;
 .font-size(1.6);
 overflow: hidden;
+	&.nav-open {
+		#app-wrapper {
+		transform: translateY(calc(~"100% - 50px"));
+		}
+	}
 }
 
 a {
@@ -41,12 +46,22 @@ a {
 .top (0);
 .right (0);
 .bottom (0);	
+.bg-col(@wht);
+.transition(0.4s, ease-in-out);
 }
 
 section[role="main"] {
-width: 100%;
-height: 100%;
-.max-w(117);
+position: absolute;
+.top(0);
+.left(0);
+.right(0);
+.bottom (0);
+.pad-top(5);
+.min-w(117);
+}
+
+.container-fluid {
+.min-w(117);	
 }
 
 #user_switching_switch_on {

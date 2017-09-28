@@ -542,6 +542,23 @@
 		"sM": 0,
 		"sU": 0
 		},
+	"\/app\/less\/hidden-nav.less": {
+		"aP": 0,
+		"bl": 0,
+		"dJ": 0,
+		"ft": 1,
+		"ie": 1,
+		"iI": 0,
+		"ma": 1,
+		"oA": 1,
+		"oAP": "\/app\/css\/hidden-nav.css",
+		"oF": 0,
+		"oS": 0,
+		"rU": 0,
+		"sI": 0,
+		"sM": 0,
+		"sU": 0
+		},
 	"\/app\/less\/mixins.less": {
 		"aP": 0,
 		"bl": 0,
@@ -586,23 +603,6 @@
 		"ma": 1,
 		"oA": 1,
 		"oAP": "\/app\/css\/sections.css",
-		"oF": 0,
-		"oS": 0,
-		"rU": 0,
-		"sI": 0,
-		"sM": 0,
-		"sU": 0
-		},
-	"\/app\/less\/side-nav.less": {
-		"aP": 0,
-		"bl": 0,
-		"dJ": 0,
-		"ft": 1,
-		"ie": 1,
-		"iI": 0,
-		"ma": 1,
-		"oA": 1,
-		"oAP": "\/app\/css\/side-nav.css",
 		"oF": 0,
 		"oS": 0,
 		"rU": 0,
@@ -756,6 +756,12 @@
 		"oAP": "\/page-templates\/add-event-page.php",
 		"oF": 0
 		},
+	"\/page-templates\/contacts-page.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/page-templates\/contacts-page.php",
+		"oF": 0
+		},
 	"\/page-templates\/department-page.php": {
 		"ft": 8192,
 		"oA": 2,
@@ -808,12 +814,6 @@
 		"ft": 8192,
 		"oA": 2,
 		"oAP": "\/page-templates\/rescources-page.php",
-		"oF": 0
-		},
-	"\/page-templates\/users-page.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/page-templates\/users-page.php",
 		"oF": 0
 		},
 	"\/page.php": {
