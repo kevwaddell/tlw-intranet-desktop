@@ -37,6 +37,9 @@ line-height: ~"@{pxValue}px";
 .col(@col) {
 color: @col;
 }
+.col-linkedIn {
+.col(@linkedIn_blue);	
+}
 .caps {
 text-transform: uppercase;
 }
@@ -69,7 +72,6 @@ background-color: @col;
 @bgsize: @size;	
  -webkit-background-size: ~"@{bgsize}";
 -moz-background-size:  ~"@{bgsize}";
--o-background-size:  ~"@{bgsize}";
 background-size:  ~"@{bgsize}";		
 }
 .trans-bg(@color; @alpha) {

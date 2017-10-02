@@ -11,7 +11,7 @@ $reminders_pg = get_page_by_path( 'reminders' );
 <div class="user-banner-links btn-group pull-right" role="group">
 	
 	 <div class="user-dropdown btn-group" role="group">
-	    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	    <button type="button" class="btn btn-default no-rounded dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 	      <span class="fa fa-user-circle fa-2x"></span> <?php echo $firstname. " " .$lastname; ?> <i class="fa fa-angle-down"></i>
 	    </button>
 	    <ul class="dropdown-menu">
@@ -21,7 +21,7 @@ $reminders_pg = get_page_by_path( 'reminders' );
 	    </ul>
 	 </div>
 	  
-	  <a href="<?php echo get_permalink($help_pg); ?>" class="user-link btn btn-default"><i class="fa fa-question-circle fa-2x"></i></a>
-	  <a href="<?php echo wp_login_url(); ?>" class="user-link btn btn-default"><i class="fa fa-power-off fa-2x"></i></a>
+	  <a href="<?php echo get_permalink($help_pg); ?>" class="user-link btn btn-default no-rounded"><i class="fa fa-question-circle fa-2x"></i></a>
+	  <a href="<?php echo wp_login_url(); ?>" class="user-link btn btn-defaul no-rounded"><i class="fa fa-power-off fa-2x"></i></a>
   
  </div>

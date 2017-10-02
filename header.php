@@ -20,7 +20,7 @@
 <body <?php body_class('nav-closed'); ?>>
 	
 	<?php if (!is_front_page()) { ?>
-	<nav id="hidden-nav">
+	<nav id="hidden-nav" class="nav-closed">
 		<?php wp_nav_menu(array( 
 		'container' => 'false', 
 		'menu' => 'Hidden menu', 
@@ -38,10 +38,10 @@
 			<div class="container-fluid"><div class="row">
 				<div class="col-xs-4">
 					<?php if (!is_front_page()) { ?>
-					<button id="main-nav-btn" class="btn btn-default"><i class="fa fa-bars fa-2x"></i></button>			
+					<button id="main-nav-btn" class="btn btn-default no-rounded"><i class="fa fa-bars fa-2x"></i></button>			
 					<?php } ?>
 					<?php if (!empty($pg_icon)) { ?>
-					<div class="title"><i class="fa <?php echo $pg_icon; ?> fa-lg"></i><?php the_title() ?></div>
+					<div class="title"><i class="fa <?php echo $pg_icon; ?> fa-lg"></i><a href="<?php the_permalink(); ?>"><?php the_title() ?></a></div>
 					<?php } ?>
 				</div>
 				

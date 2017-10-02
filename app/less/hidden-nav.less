@@ -5,6 +5,15 @@ nav#hidden-nav {
 .bottom(5);
 .right(0);
 .bg-col(@grayDk);
+.transition(0.3s, ease-in);
+
+	&.nav-closed {
+	.opacity(0.0);
+	}
+	
+	&.nav-open {
+	.opacity(1.0);
+	}
 	
 	.menu {
 	.abs;

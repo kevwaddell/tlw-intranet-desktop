@@ -247,6 +247,26 @@
 		"sC": 1,
 		"tS": 0
 		},
+	"\/app\/js\/contact-functions-min.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/app\/js\/min\/contact-functions-min-min.js",
+		"oF": 0,
+		"sC": 1,
+		"tS": 0
+		},
+	"\/app\/js\/contact-functions.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/app\/js\/contact-functions-min.js",
+		"oF": 2,
+		"sC": 0,
+		"tS": 0
+		},
 	"\/app\/js\/functions-min.js": {
 		"ft": 64,
 		"ma": 0,
@@ -265,16 +285,6 @@
 		"oAP": "\/app\/js\/functions-min.js",
 		"oF": 2,
 		"sC": 0,
-		"tS": 0
-		},
-	"\/app\/js\/jquery.slimscroll.min.js": {
-		"ft": 64,
-		"ma": 0,
-		"mi": 1,
-		"oA": 1,
-		"oAP": "\/app\/js\/min\/jquery.slimscroll.min-min.js",
-		"oF": 1,
-		"sC": 1,
 		"tS": 0
 		},
 	"\/app\/js\/modernizr-min.js": {
@@ -970,6 +980,42 @@
 		"ft": 8192,
 		"oA": 2,
 		"oAP": "\/parts\/category-page\/cats-query.php",
+		"oF": 0
+		},
+	"\/parts\/contacts-page\/add-contact.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/parts\/contacts-page\/add-contact.php",
+		"oF": 0
+		},
+	"\/parts\/contacts-page\/add-group.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/parts\/contacts-page\/add-group.php",
+		"oF": 0
+		},
+	"\/parts\/contacts-page\/contact-alerts.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/parts\/contacts-page\/contact-alerts.php",
+		"oF": 0
+		},
+	"\/parts\/contacts-page\/contact-info.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/parts\/contacts-page\/contact-info.php",
+		"oF": 0
+		},
+	"\/parts\/contacts-page\/contact-list.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/parts\/contacts-page\/contact-list.php",
+		"oF": 0
+		},
+	"\/parts\/contacts-page\/contact-vars.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/parts\/contacts-page\/contact-vars.php",
 		"oF": 0
 		},
 	"\/parts\/dashboard\/announcements-panel.php": {
@@ -1792,42 +1838,6 @@
 		"ft": 8192,
 		"oA": 2,
 		"oAP": "\/parts\/user\/user-vars.php",
-		"oF": 0
-		},
-	"\/parts\/users-page\/pagination-bottom.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/parts\/users-page\/pagination-bottom.php",
-		"oF": 0
-		},
-	"\/parts\/users-page\/pagination-top.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/parts\/users-page\/pagination-top.php",
-		"oF": 0
-		},
-	"\/parts\/users-page\/user-filters.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/parts\/users-page\/user-filters.php",
-		"oF": 0
-		},
-	"\/parts\/users-page\/users-grid.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/parts\/users-page\/users-grid.php",
-		"oF": 0
-		},
-	"\/parts\/users-page\/users-list.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/parts\/users-page\/users-list.php",
-		"oF": 0
-		},
-	"\/parts\/users-page\/users-vars.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/parts\/users-page\/users-vars.php",
 		"oF": 0
 		},
 	"\/profile-form.php": {

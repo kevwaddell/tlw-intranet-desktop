@@ -6,11 +6,11 @@ height: 100%;
 
 pre.debug {
 	top: 0px;
-	left: 0px;
+	right: 0px;
 	position: fixed;
 	z-index: 1000;
 	height: 100%;
-	width: 50%;
+	width: 30%;
 	overflow: auto;
 	background-color: black;
 	color: white;
@@ -34,7 +34,7 @@ overflow: hidden;
 }
 
 a {
-.col(@gray);
+.col(@red);
 	&:hover, &:active, &:focus {
 		.col(@grayDk);
 	}	
@@ -48,6 +48,7 @@ a {
 .bottom (0);	
 .bg-col(@wht);
 .transition(0.4s, ease-in-out);
+.min-h(50);
 }
 
 section[role="main"] {

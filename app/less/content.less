@@ -6,17 +6,34 @@ article.page {
 .left(50);
 .min-w(70);
 .pad(8;5;0;6);
-	figure.profile-img {
+	.profile-img {
 	.rounded(100%);
-	.border(@grayDk; 0.1);
+	.border(@grayDk; 0.4);
 	.w(20);
 	.h(20);
 	background-repeat: no-repeat;
 	background-position: center center;
-	.bg-size(cover);
+	.bg-size();
 	}
 	
 	.table {
 	.border-bot(@grayDk; 0.1);	
+		input.input-name {
+		display: inline;
+		.no-border;
+		.font-size(3.6);
+		.line-h(3.6);	
+		height: auto;
+		min-width: 80px;
+		max-width: 500px;
+		box-shadow: none;	
+		.pad-all(0);
+			&:focus {
+			outline-width: 0px;
+			outline-offset: 0px;
+			outline-color: white;
+			outline-style: none;
+			}
+		}
 	}
 }

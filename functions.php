@@ -24,16 +24,6 @@ if ( function_exists( 'register_nav_menus' ) ) {
 		);
 }
 
-function in_array_r($needle, $haystack, $strict = false) {
-    foreach ($haystack as $item) {
-        if (($strict ? $item === $needle : $item == $needle) || (is_array($item) && in_array_r($needle, $item, $strict))) {
-            return true;
-        }
-    }
-
-    return false;
-}
-
 if ( function_exists( 'register_sidebar' ) ) {
 	
 	$login_sb_args = array(
@@ -149,6 +139,19 @@ function floorToFraction($number, $denominator = 1) {
     $x = floor($x);
     $x = $x / $denominator;
     return $x;
+}
+
+function in_array_r($item , $array){
+    return preg_match('/"'.$item.'"/i' , json_encode($array));
+}
+
+function getArraykey($item, $array) {
+   foreach ($array as $key => $val) {
+       if ($val['email'] ===$item) {
+           return $key;
+       }
+   }
+   return null;
 }
 
 ?>
