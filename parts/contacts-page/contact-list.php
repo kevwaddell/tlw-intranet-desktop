@@ -5,7 +5,7 @@ global $user_contacts;
 global $active_contacts;
 ?>
 
-<?php if (isset($_GET['private']) || isset($_GET['add-contact']) || isset($_GET['add-group'])) { ?>
+<?php if (isset($_GET['private']) || isset($_GET['add-group'])) { ?>
 
 <?php if (count($active_contacts) == 0) { ?>
 <?php

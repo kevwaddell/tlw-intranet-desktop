@@ -252,21 +252,22 @@ if (isset($_GET['contacts'])) {
 if (isset($_GET['id'])) {
 $active_contact = get_userdata( $_GET['id'] );
 }
-if (isset($_GET['private']) || isset($_GET['add-contact'])  && !$contact_deleted && !$group_deleted) {
+if ( isset($_GET['private']) ) {
 $alpha_contacts = array();
 $active_contacts = array();
 	foreach ($user_contacts as $k => $uc) {
 	$lastname = $uc['lname'];
-	$group = $uc['group'];
+	$u_group = $uc['group'];
 	$current_letter = $lastname[0];
 		if ($uc['id'] == $_GET['private-id']) {
 		$active_contact = $user_contacts[$k];
 		}
-		if (!in_array($current_letter, $alpha_contacts)) {
-		$alpha_contacts[] = $current_letter;	
-		}
-		if ($_GET['private'] == $group) {
+		
+		if ($_GET['private'] == $group || $_GET['private'] == $u_group) {
 		$active_contacts[] = $uc;
+			if (!in_array($current_letter, $alpha_contacts)) {
+			$alpha_contacts[] = $current_letter;	
+			}
 		}
 	}
 }
@@ -278,7 +279,8 @@ print_r($users_groups);
 print_r("------------------------------<br>");
 print_r($user_contacts);
 print_r("------------------------------<br>");
-print_r(count($active_contacts));
+print_r($group);
+print_r($_GET['private']);
 echo '</pre>';
 */
 ?>
@@ -317,13 +319,10 @@ echo '</pre>';
 	  <a href="?contacts=admin" class="private address-group-item<?php echo($_GET['contacts'] == 'admin') ? ' active':''; ?>">TLW Admin</a>
 	  <?php foreach ($users_groups as $ug) { 
 		  $active = "";
-		  if ($_GET['private'] == $ug[1]) {
+		  if ($_GET['private'] == $ug[1] || $_GET['private'] == $ug[0] ) {
 			$active = " active";  
 		  }
-		  if ( isset($_GET['add-contact']) && $group_name == $ug[1] ) {
-			$active = " active";    
-		  }
-		   if ( isset($_GET['add-group']) && $$_GET['new-private'] == $ug[0] ) {
+		   if ( isset($_GET['add-group']) && $_GET['new-private'] == $ug[0] ) {
 			$active = " active";    
 		  }
 	  ?>
