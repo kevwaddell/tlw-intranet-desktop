@@ -131,16 +131,6 @@
 		"oT": 1,
 		"q": 100
 		},
-	"\/app\/css\/styles.css": {
-		"aP": 1,
-		"bl": 0,
-		"ft": 16,
-		"ma": 0,
-		"oA": 0,
-		"oAP": "\/app\/css\/styles-min.css",
-		"oF": 0,
-		"oS": 3
-		},
 	"\/app\/functions\/afc_options_functions.php": {
 		"ft": 8192,
 		"oA": 2,
@@ -434,23 +424,6 @@
 		"ma": 1,
 		"oA": 1,
 		"oAP": "\/app\/css\/calendar.css",
-		"oF": 0,
-		"oS": 0,
-		"rU": 0,
-		"sI": 0,
-		"sM": 0,
-		"sU": 0
-		},
-	"\/app\/less\/content.less": {
-		"aP": 0,
-		"bl": 0,
-		"dJ": 0,
-		"ft": 1,
-		"ie": 1,
-		"iI": 0,
-		"ma": 1,
-		"oA": 1,
-		"oAP": "\/app\/css\/content.css",
 		"oF": 0,
 		"oS": 0,
 		"rU": 0,
