@@ -30,6 +30,11 @@ overflow: hidden;
 		background: @grayDk; 
 	}
 	
+	.sb-inner {
+	height: 100%;
+	overflow: auto;	
+	}
+	
 	.no-name-message {
 	.bg-col(@grayLt);
 	.pad-all(2);
@@ -96,9 +101,16 @@ overflow: hidden;
 	}
 
 	.address-books {
-	height: 100%;
 	.pad-bot(5);
-	overflow: auto;
+		h3 {
+		.mag-all(0);
+		.pad-all(1.5);	
+		.bg-col(@grayDk);
+		.col(@wht);
+		.caps;
+		.font-size(1.6);
+		.line-h(1.6);
+		}
 		a {	
 		.block;
 		.pad-all(1.5);
@@ -119,9 +131,7 @@ overflow: hidden;
 	}
 	
 	.contact-names {
-	height: 100%;
 	.pad-bot(3.2);
-	overflow: auto;
 		.letter-label {
 		.pad(0.5;1;0.5;1);	
 		.bg-col(@grayLt);
@@ -141,7 +151,8 @@ overflow: hidden;
 				}
 			}
 			
-			&.active-contact {
+			&.contact-active {
+			border-bottom: none;
 				a {
 				.bg-col(@grayDk);	
 				.col(@wht);

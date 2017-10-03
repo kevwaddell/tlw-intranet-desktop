@@ -237,6 +237,48 @@
 		"opt": 0,
 		"q": 100
 		},
+	"\/app\/inc\/contact-page-vars\/add-contact.inc": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/app\/inc\/contact-page-vars\/add-contact.inc",
+		"oF": 0
+		},
+	"\/app\/inc\/contact-page-vars\/add-group.inc": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/app\/inc\/contact-page-vars\/add-group.inc",
+		"oF": 0
+		},
+	"\/app\/inc\/contact-page-vars\/delete-contact.inc": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/app\/inc\/contact-page-vars\/delete-contact.inc",
+		"oF": 0
+		},
+	"\/app\/inc\/contact-page-vars\/delete-group.inc": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/app\/inc\/contact-page-vars\/delete-group.inc",
+		"oF": 0
+		},
+	"\/app\/inc\/contact-page-vars\/edit-contact.inc": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/app\/inc\/contact-page-vars\/edit-contact.inc",
+		"oF": 0
+		},
+	"\/app\/inc\/contact-page-vars\/edit-group.inc": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/app\/inc\/contact-page-vars\/edit-group.inc",
+		"oF": 0
+		},
+	"\/app\/inc\/contact-page-vars\/internal-users.inc": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/app\/inc\/contact-page-vars\/internal-users.inc",
+		"oF": 0
+		},
 	"\/app\/js\/bootstrap-min.js": {
 		"ft": 64,
 		"ma": 0,
@@ -1016,6 +1058,24 @@
 		"ft": 8192,
 		"oA": 2,
 		"oAP": "\/parts\/contacts-page\/contact-vars.php",
+		"oF": 0
+		},
+	"\/parts\/contacts-page\/edit-group.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/parts\/contacts-page\/edit-group.php",
+		"oF": 0
+		},
+	"\/parts\/contacts-page\/private-info.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/parts\/contacts-page\/private-info.php",
+		"oF": 0
+		},
+	"\/parts\/contacts-page\/private-list.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/parts\/contacts-page\/private-list.php",
 		"oF": 0
 		},
 	"\/parts\/dashboard\/announcements-panel.php": {

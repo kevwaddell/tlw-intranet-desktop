@@ -145,11 +145,21 @@ function in_array_r($item , $array){
     return preg_match('/"'.$item.'"/i' , json_encode($array));
 }
 
+function in_array_key($item , $array){
+
+	foreach ($array as $key => $val) {
+    	if (in_array($item, $val)) {
+	    return $key;
+    	}
+    }
+   
+}
+
 function getArraykey($item, $array) {
    foreach ($array as $key => $val) {
-       if ($val['email'] ===$item) {
+       if ($val['id'] === $item) {
            return $key;
-       }
+       } 
    }
    return null;
 }
