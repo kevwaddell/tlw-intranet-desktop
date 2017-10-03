@@ -22,11 +22,12 @@ if ( isset($_POST['add-group']) ) {
 		$group_added = update_user_meta($current_user->ID, 'users_groups', serialize($users_groups), $users_groups_raw);	
 		$users_groups_raw = get_user_meta($current_user->ID, 'users_groups', true);	
 		$users_groups = unserialize($users_groups_raw);
-		array_multisort($users_groups);
 	}
 	
+/*
 	echo '<pre class="debug">';
 	print_r($users_groups);
 	echo '</pre>';	
+*/
 }	
 ?>

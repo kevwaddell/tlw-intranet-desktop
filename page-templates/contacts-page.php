@@ -12,7 +12,6 @@ global $current_user;
 include (STYLESHEETPATH . '/app/inc/contact-page-vars/internal-users.inc');
 
 //USER CONTACTS FUNCTIONS AND ARRAYS
-$add_contact_errors = array();
 $users_groups_raw = get_user_meta($current_user->ID, 'users_groups', true);	
 $user_contacts_raw = get_user_meta($current_user->ID, 'user_contacts', true);	
 
@@ -33,7 +32,6 @@ $user_contacts_raw = get_user_meta($current_user->ID, 'user_contacts', true);
 $user_contacts = unserialize($user_contacts_raw);
 array_multisort($user_contacts);
 $users_groups = unserialize($users_groups_raw);
-array_multisort($users_groups);
 
 // ADD, EDIT AND DELETE - CONTACT AND GROUP FUNCTIONS
 include (STYLESHEETPATH . '/app/inc/contact-page-vars/add-contact.inc');
@@ -95,12 +93,7 @@ echo '</pre>';
 
 /*
 echo '<pre class="debug">';
-print_r($users_groups);
-print_r("------------------------------<br>");
-print_r($user_contacts);
-print_r("------------------------------<br>");
-print_r($group);
-print_r($_GET['group-id']);
+print_r($active_contacts);
 echo '</pre>';
 */
 ?>
@@ -108,17 +101,17 @@ echo '</pre>';
 	
 	<div class="entry">
 				
-		<?php if ( isset($_POST['add-contact']) || isset($_POST['add-group']) || isset($_POST['edit-contact']) ) { ?>
+		<?php if ( $contact_added  || $group_added || $contact_updated || $group_updated  || $contact_deleted || $group_deleted) { ?>
 			<?php  get_template_part( 'parts/contacts-page/contact', 'alerts' ); ?>
 		<?php } ?>
 		
-		<?php if ($_GET['contact-actions'] || !empty($add_group_errors) || !empty($add_contact_errors) ) { ?>
+		<?php if ($_GET['contact-actions'] || !empty($add_group_errors) || !empty($add_contact_errors) || !empty($edit_group_errors)) { ?>
 			
 			<?php if ($_GET['contact-actions'] == "add-group" || !empty($add_group_errors)) { ?>
 			<?php get_template_part( 'parts/contacts-page/add', 'group' ); ?>
 			<?php } ?>
 			
-			<?php if ($_GET['contact-actions'] == "edit-group") { ?>
+			<?php if ($_GET['contact-actions'] == "edit-group" || !empty($edit_group_errors)) { ?>
 			<?php get_template_part( 'parts/contacts-page/edit', 'group' ); ?>
 			<?php } ?>
 			
@@ -132,7 +125,7 @@ echo '</pre>';
 			<?php  get_template_part( 'parts/contacts-page/contact', 'info' ); ?>
 		<?php } ?>
 		
-		<?php if ( isset($_REQUEST['private-id']) ) { ?>
+		<?php if ( isset($_REQUEST['private-id']) && !$contact_deleted) { ?>
 			<?php  get_template_part( 'parts/contacts-page/private', 'info' ); ?>
 		<?php } ?>
 		
@@ -148,7 +141,8 @@ echo '</pre>';
 		  <a href="?contacts=admin" class="address-group-item<?php echo($_GET['contacts'] == 'admin') ? ' active':''; ?>">TLW Admin</a>
 		  <?php if (count($users_groups) > 0) { ?>
 		  <h3>Private contacts</h3>
-		  <?php foreach ($users_groups as $ug) { ?>
+		  <?php usort($users_groups, "cmp");
+			  foreach ($users_groups as $ug) { ?>
 			  <a href="?group-id=<?php echo $ug[0]; ?>" class="address-group-item<?php echo ($_REQUEST['group-id'] == $ug[0]) ? ' active':'' ?>"><?php echo $ug[1]; ?></a>
 			  <?php } ?>
 	
@@ -165,9 +159,10 @@ echo '</pre>';
 			  <ul class="dropdown-menu">
 			    <li><a href="?contact-actions=delete-group&group-id=<?php echo $_REQUEST['group-id']; ?>"<?php echo (isset($_REQUEST['group-id']) && empty($active_contacts)) ? '':' class="disabled"'; ?>>Delete group</a></li>
 			    <li><a href="?contact-actions=edit-group&group-id=<?php echo $_REQUEST['group-id']; ?>"<?php echo (isset($_REQUEST['group-id'])) ? '':' class="disabled"'; ?>>Edit group</a></li>
-				
-				<li><a href="?contact-actions=edit-contact&private-id=<?php echo $_REQUEST['private-id']; ?>&group-id=<?php echo $_REQUEST['group-id']; ?>"<?php echo ( !isset($_REQUEST['private-id']) ) ? ' class="disabled"':''; ?>>Edit contact</a></li>
-			    <li><a href="?contact-actions=delete-contact&private-id=<?php echo $_REQUEST['private-id']; ?>&group-id=<?php echo $_REQUEST['group-id']; ?>"<?php echo ( !isset($_REQUEST['private-id']) ) ? ' class="disabled"':''; ?>>Delete contact</a></li>
+				<?php if (!empty($active_contacts)) { ?>
+				<li><a href="?contact-actions=edit-contact&private-id=<?php echo $_REQUEST['private-id']; ?>&group-id=<?php echo $_REQUEST['group-id']; ?>"<?php echo ( !isset($_REQUEST['private-id'])) ? ' class="disabled"':''; ?>>Edit contact</a></li>
+			    <li><a href="?contact-actions=delete-contact&private-id=<?php echo $_REQUEST['private-id']; ?>&group-id=<?php echo $_REQUEST['group-id']; ?>"<?php echo ( !isset($_REQUEST['private-id']) ) ? ' class="disabled"':''; ?>>Delete contact</a></li>				
+			    <?php } ?>
 			  </ul>
 			</div>			
 			<?php } ?>
@@ -187,10 +182,9 @@ echo '</pre>';
 <aside id="names-list" class="scrollable sb-right">
 	<div class="sb-inner">
 		
-		<?php  if ( isset($_REQUEST['group-id']) ) { ?>
+		<?php  if ( isset($_REQUEST['group-id']) && !$group_deleted) { ?>
 		<?php if (count($active_contacts) == 0) { ?>
 		<div class="no-name-message text-center">
-			<?php echo '<pre>';print_r(count($active_contacts));echo '</pre>'; ?>
 			<i class="fa fa-user-circle fa-4x block sb-icon"></i>
 			<a href="?contact-actions=add-contact&group-id=<?php echo sanitize_title($_REQUEST['group-id']); ?>" id="add-contact" class="btn btn-default btn-block caps"><i class="fa fa-plus-circle pull-left"></i> Add contact</a>
 		</div>
@@ -207,7 +201,7 @@ echo '</pre>';
 		</div>
 		<?php } ?>		
 		
-		<?php if ( empty($_REQUEST) ) { ?>
+		<?php if ( empty($_REQUEST) || $group_deleted) { ?>
 		<div class="no-name-message text-center">
 			<i class="fa fa-group fa-4x block"></i>
 			Select a contact group

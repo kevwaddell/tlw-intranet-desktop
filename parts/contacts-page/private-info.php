@@ -18,7 +18,7 @@ $ac_mobile = $active_contact['mobile'];
 	<?php } ?>
 	<thead>
 		<tr>
-			<th width="20%"><i class="fa fa-user-circle fa-5x pull-right"></i></th>
+			<th width="170" class="text-right"><i class="private-icon fa fa-user-circle"></i></th>
 			<th>
 				<?php if ($_GET['contact-actions'] == 'edit-contact') { ?>
 				<input type="text" class="input-name" name="fname" value="<?php echo $ac_fname; ?>"><br>

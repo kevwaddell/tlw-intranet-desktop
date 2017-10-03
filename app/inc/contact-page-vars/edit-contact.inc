@@ -36,6 +36,6 @@ global $user_contacts;
 		$user_contacts = unserialize($user_contacts_raw);
 		array_multisort($user_contacts);
 		
-	echo '<pre class="debug">';print_r($contact_updated);echo '</pre>';	
+	//echo '<pre class="debug">';print_r($contact_updated);echo '</pre>';	
 }	
 ?>

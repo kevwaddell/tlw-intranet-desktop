@@ -32,13 +32,19 @@ overflow: auto;
 	}
 
 	.profile-img {
-	.rounded(100%);
+	display: inline-block;
+	.rounded(20px);
 	.border(@grayDk; 0.4);
-	.w(20);
-	.h(20);
+	.w(14);
+	.h(14);
 	background-repeat: no-repeat;
 	background-position: center center;
 	.bg-size();
+	background-clip: content-box;
+	}
+	
+	.private-icon {
+	.font-size(10);	
 	}
 	
 	.table {
