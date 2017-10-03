@@ -3,6 +3,7 @@ global $group_added;
 global $contact_updated;
 global $contact_deleted;	
 global $group_deleted;
+global $contact_added;
 ?>
 <?php if ($group_added) { ?>
 <div class="alert alert-success alert-dismissible" role="alert">
@@ -27,5 +28,11 @@ global $group_deleted;
 <div class="alert alert-success alert-dismissible" role="alert">
 	<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 	<p><i class="fa fa-check-circle"></i> Contact updated successfully</p>	
+</div>
+<?php } ?>
+<?php if ($contact_added) { ?>
+<div class="alert alert-success alert-dismissible" role="alert">
+	<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	<p><i class="fa fa-check-circle"></i> Contact added successfully</p>	
 </div>
 <?php } ?>
