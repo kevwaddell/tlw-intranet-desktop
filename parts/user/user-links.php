@@ -22,6 +22,6 @@ $reminders_pg = get_page_by_path( 'reminders' );
 	 </div>
 	  
 	  <a href="<?php echo get_permalink($help_pg); ?>" class="user-link btn btn-default no-rounded"><i class="fa fa-question-circle fa-2x"></i></a>
-	  <a href="<?php echo wp_login_url(); ?>" class="user-link btn btn-defaul no-rounded"><i class="fa fa-power-off fa-2x"></i></a>
+	  <a href="<?php echo wp_logout_url( get_option('home') ); ?>" class="user-link btn btn-defaul no-rounded"><i class="fa fa-power-off fa-2x"></i></a>
   
  </div>

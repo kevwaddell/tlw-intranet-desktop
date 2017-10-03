@@ -1,11 +1,36 @@
 article.page {
 .abs;
-.top(0);
+.top(5);
 .bottom(0);
 .right(0);
 .left(50);
 .min-w(70);
-.pad(8;5;0;6);
+.pad(2;5;0;6);
+overflow: auto;
+
+	&::-webkit-scrollbar {
+	    width: 10px;
+	    border-left: 1px solid @grayDk;
+	}
+	 
+	/* Track */
+	&::-webkit-scrollbar-track {
+	    -webkit-box-shadow: none; 
+	    -webkit-border-radius: 0px;
+	    border-radius: 0px;
+	}
+	 
+	/* Handle */
+	&::-webkit-scrollbar-thumb {
+	    -webkit-border-radius: 0px;
+	    border-radius: 0px;
+	    background: @grayDk; 
+	    -webkit-box-shadow: none; 
+	}
+	&::-webkit-scrollbar-thumb:window-inactive {
+		background: @grayDk; 
+	}
+
 	.profile-img {
 	.rounded(100%);
 	.border(@grayDk; 0.4);

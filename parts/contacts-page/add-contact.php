@@ -7,14 +7,14 @@ global $add_contact_errors;
 	<table class="table table-striped">
 		<thead>
 			<tr>
-				<th width="20%"><i class="fa fa-user-circle fa-4x"></i></th>
+				<th width="30%"><i class="fa fa-user-circle fa-4x"></i></th>
 				<th><h1>Add contact</h1></th>
 			</tr>
 		</thead>
 		<tbody>
 			<?php if (empty($users_groups)) { ?>
 			<tr<?php echo (array_key_exists ('new-private' , $add_contact_errors )) ? ' class="danger"':''; ?>>
-				<td class="bold text-right<?php echo (array_key_exists ('new-private' , $add_contact_errors )) ? ' text-danger':''; ?>" width="20%"><span class="text-danger">*</span> Contact group</td>
+				<td class="bold text-right<?php echo (array_key_exists ('new-private' , $add_contact_errors )) ? ' text-danger':''; ?>"><span class="text-danger">*</span> Contact group</td>
 				<td>
 					<div class="form-group<?php echo (array_key_exists ('new-private' , $add_contact_errors )) ? ' has-error':''; ?>">
 					<input type="text" class="form-control input-lg" name="new-private" value="<?php echo (isset($_GET['new-private'])) ? $_GET['new-private']:''; ?>">
@@ -24,7 +24,7 @@ global $add_contact_errors;
 			</tr>
 			<?php } else { ?>
 			<tr<?php echo (array_key_exists ('private' , $add_contact_errors )) ? ' class="danger"':''; ?>>
-				<td class="bold text-right<?php echo (array_key_exists ('private' , $add_contact_errors )) ? ' text-danger':''; ?>" width="20%"><span class="text-danger">*</span> Contact group</td>
+				<td class="bold text-right<?php echo (array_key_exists ('private' , $add_contact_errors )) ? ' text-danger':''; ?>"><span class="text-danger">*</span> Contact group</td>
 				<td>
 					<div class="form-group<?php echo (array_key_exists ('private' , $add_contact_errors )) ? ' has-error':''; ?>">
 					<select name="private" class="selectpicker">
