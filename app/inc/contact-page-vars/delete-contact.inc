@@ -5,9 +5,7 @@ if ( isset($_GET['contact-actions']) && $_GET['contact-actions'] == 'delete-cont
 		if ($uc['id'] == $_GET['private-id']) {
 		$fname = $uc['fname'];
 		$lname = $uc['lname'];
-		
 		unset( $user_contacts[ $k ] );
-		$contact_deleted = "Your contact <strong>$fname $lname</strong> has been deleted.";
 		}	
 	}
 	

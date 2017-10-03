@@ -164,4 +164,8 @@ function getArraykey($item, $array) {
    return null;
 }
 
+function cmp($a, $b) {
+	return strcmp($a[1], $b[1]);
+}
+
 ?>

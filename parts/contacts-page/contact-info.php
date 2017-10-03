@@ -14,8 +14,8 @@ $profile_img = wp_get_attachment_image_src($profile_img_id, 'img-3-col-crop' );
 <table class="table table-striped">
 	<thead>
 		<tr>
-			<th width="20%"><div class="profile-img" style="background-image: url(<?php echo $profile_img[0]; ?>)"></div></th>
-			<th><h1><?php echo $ac_firstname; ?> <?php echo $ac_lastname; ?></h1></th>
+			<th width="170" class="text-right"><div class="profile-img" style="background-image: url(<?php echo $profile_img[0]; ?>)"></div></th>
+			<th><h1><?php echo $ac_firstname; ?><br><?php echo $ac_lastname; ?></h1></th>
 		</tr>
 	</thead>
 	<tbody>

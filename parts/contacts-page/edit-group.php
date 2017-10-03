@@ -3,7 +3,6 @@ global $edit_group_errors;
 global $users_groups;
 $group_title_raw = $users_groups[in_array_key($_REQUEST['group-id'], $users_groups)]['1'];
 $group_title = strtolower($group_title_raw);
-//echo '<pre>';print_r( in_array_key($_REQUEST['group-id'], $users_groups) );echo '</pre>';
 ?>
 
 <form action="<?php the_permalink() ?>" method="post">
@@ -20,7 +19,7 @@ $group_title = strtolower($group_title_raw);
 				<td>
 					<div class="form-group<?php echo (array_key_exists ('group-title' , $edit_group_errors )) ? ' has-error':''; ?>">
 					<input type="text" class="form-control input-lg" name="group-title" value="<?php echo (isset($_REQUEST['group-title'])) ? $_REQUEST['group-title']:ucfirst($group_title); ?>">
-					<?php echo (array_key_exists ('group-title' , $edit_group_errors )) ? $edit_group_errors['private']:''; ?>
+					<?php echo (array_key_exists ('group-title' , $edit_group_errors )) ? $edit_group_errors['group-title']:''; ?>
 					</div>
 				</td>
 			</tr>
