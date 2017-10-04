@@ -27,11 +27,11 @@ if (!is_admin()) {
 		}
 		
 		if ($post->ID == 1211) {
-		wp_enqueue_script( 'notes-functions', get_stylesheet_directory_uri() . '/app/js/notes-functions-min.js', $functions_dep, filemtime( get_stylesheet_directory().'/app/js/notes-functions.js' ), true );	
+		wp_enqueue_script( 'drag-functions', 'https://cdnjs.cloudflare.com/ajax/libs/interact.js/1.2.9/interact.min.js', $functions_dep, '1.2.9', true);
+		wp_enqueue_script( 'notes-functions', get_stylesheet_directory_uri() . '/app/js/notes-functions-min.js', array('drag-functions'), filemtime( get_stylesheet_directory().'/app/js/notes-functions.js' ), true );	
 		}
 		
 	}
 	add_action( 'wp_enqueue_scripts', 'tlw_scripts' );
 }
-	
 ?>

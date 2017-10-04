@@ -5,6 +5,9 @@
 .right(0);
 .bottom(0);
 overflow: hidden;
+	form {
+	height: 100%;	
+	}
 	.note-canvas-actions {
 	.abs;
 	left: 50%;
@@ -29,16 +32,14 @@ overflow: hidden;
 		}
 	}
 	.note {
-	.abs;
 	.w(25);
 	.h(25);	
+	.abs;
 	//.pad-all(2);
 	.drop-shadow(0, 3px, 10px, 0.7);
 	//.transition(0.3s,ease-in);
 		&.new-note {
-		left: 50%;
-		top: 50%;	
-		transform: translate(-50%; -50%);
+		//transform: translate(0%, 0%);
 		z-index: 1000;
 		}
 		
@@ -96,6 +97,9 @@ overflow: hidden;
 				outline: none;
 				box-shadow: none;	
 				}
+				&.move-btn {
+				cursor: move;	
+				}
 			}
 		}
 		
@@ -103,9 +107,6 @@ overflow: hidden;
 			.note-actions {
 			.block;	
 			.fadeIn;
-			}
-			div.note-txt {
-			cursor: move;	
 			}
 		}
 		
