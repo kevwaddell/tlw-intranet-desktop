@@ -100,7 +100,7 @@
 		},
 	"\/app\/css\/img\/logo.png": {
 		"ft": 32768,
-		"iS": 4592,
+		"iS": 7197,
 		"oA": 0,
 		"oAP": "\/app\/css\/img\/logo.png",
 		"oF": 0,
@@ -364,9 +364,9 @@
 		"ma": 0,
 		"mi": 1,
 		"oA": 0,
-		"oAP": "\/app\/js\/notes-functions-min.js",
-		"oF": 2,
-		"sC": 0,
+		"oAP": "\/app\/js\/min\/notes-functions-min.js",
+		"oF": 0,
+		"sC": 1,
 		"tS": 0
 		},
 	"\/app\/less\/alerts.less": {
