@@ -2,31 +2,36 @@
 	
 	/* DOCUMENT READY FUNCTIONS */
 	$(document).ready(function (){
-	
-	$(".note").on("dragover",function(e){
-    e.preventDefault();
-    //console.log(e);
-	});
+
+	interact('.draggable', {allowFrom: '.move-btn'})
+		.draggable({
+		inertia: true,
+		onstart: listener,
+		restrict: {
+			restriction: "parent",
+			endOnly: true,
+			elementRect: { top: 0, left: 0, bottom: 1, right: 1 }
+			},
+		onmove: dragMoveListener,
+  		});	
+  		
+  	function dragMoveListener (event) {
+    var target = event.target,
+        // keep the dragged position in the data-x/data-y attributes
+        x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx,
+        y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
+
+    // translate the element
+    target.style.webkitTransform =
+    target.style.transform =
+      'translate(' + x + 'px, ' + y + 'px)';
+
+    // update the posiion attributes
+    target.setAttribute('data-x', x);
+    target.setAttribute('data-y', y);
+  	}
   	
-	$(".note").on("dragstart",function(e){
-		e.originalEvent.dataTransfer.setData("Text",e.target.id);
-		 $(this).addClass('dragging');
-  	});
-    
-    $(".note").on("dragend",function(e){
-		e.preventDefault();
-		var data = e.originalEvent.dataTransfer.getData("Text");
-		var percent_l = e.pageX / $(window).width() * 100;
-		var percent_t = e.pageY / $(window).width() * 100;
-		
-		$(this).css({top: percent_t+'%', left: percent_l+'%'}).removeClass('dragging');
-		$(this).find('input[name="p-top"]').val(Math.round(percent_t));
-		$(this).find('input[name="p-left"]').val(Math.round(percent_l));
-		$(this).parent().submit();
-		
-		 console.log(percent_l);
-		 console.log(percent_t);
-	});
+  	window.dragMoveListener = dragMoveListener;
 
 	});
 		

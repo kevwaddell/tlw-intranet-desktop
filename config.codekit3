@@ -364,9 +364,9 @@
 		"ma": 0,
 		"mi": 1,
 		"oA": 0,
-		"oAP": "\/app\/js\/min\/notes-functions-min.js",
-		"oF": 0,
-		"sC": 1,
+		"oAP": "\/app\/js\/notes-functions-min.js",
+		"oF": 2,
+		"sC": 0,
 		"tS": 0
 		},
 	"\/app\/less\/alerts.less": {
