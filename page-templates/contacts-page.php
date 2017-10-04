@@ -65,37 +65,6 @@ $group = $_REQUEST['group-id'];
 }
 
 $cur_user_meta = get_user_meta($current_user->ID);
-
-/*
-if ( isset($_GET['group-id']) ) {
-echo '<pre class="debug">';
-print_r($_GET);
-print_r("------------------------------<br>");
-print_r($user_contacts);
-echo '</pre>';	
-}
-
-if ( isset($_POST['group-id']) ) {
-echo '<pre class="debug">';
-print_r($_POST);
-echo '</pre>';	
-}
-*/
-
-/*
-if ( isset($_REQUEST['private-id']) ) {
-echo '<pre class="debug">';
-print_r( $active_contacts );
-print_r( getArraykey( $_REQUEST['private-id'] , $active_contacts) );
-echo '</pre>';	
-}
-*/
-
-/*
-echo '<pre class="debug">';
-print_r($active_contacts);
-echo '</pre>';
-*/
 ?>
 <article <?php post_class(); ?>>
 	
@@ -209,6 +178,5 @@ echo '</pre>';
 		<?php } ?>	
 	</div>
 </aside>
-
 
 <?php get_footer(); ?>

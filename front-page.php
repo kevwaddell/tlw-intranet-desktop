@@ -3,7 +3,7 @@
 <?php if ( have_posts() ): while ( have_posts() ) : the_post(); ?>	
 
 <div id="launchpad-nav" class="launchpad-wrap hp-lp" role="navigation">
-	<div class="launchpad-wrap-inner">
+	<div class="launchpad-wrap-inner animated fadeIn">
 		<?php wp_nav_menu(array( 
 		'container' => 'false', 
 		'menu' => 'Launchpad Menu', 

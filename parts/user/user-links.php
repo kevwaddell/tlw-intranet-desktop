@@ -18,10 +18,13 @@ $reminders_pg = get_page_by_path( 'reminders' );
 	      <li><a href="<?php echo get_permalink( $settings_pg); ?>"><i class="fa fa-cogs"></i> <?php echo get_the_title( $settings_pg ); ?></a></li>
 	      <li><a href="<?php echo get_permalink( $notes_pg); ?>"><i class="fa fa-pencil"></i> <?php echo get_the_title( $notes_pg ); ?></a></li>
 	      <li><a href="<?php echo get_permalink( $reminders_pg); ?>"><i class="fa fa-bell"></i> <?php echo get_the_title( $reminders_pg ); ?></a></li>
+	      <?php if (current_user_can("administrator")) { ?>
+	      	<li><a href="<?php echo admin_url(); ?>" target="_blank"><i class="fa fa-dashboard"></i> Admin</a></li>		
+	      <?php } ?>
 	    </ul>
 	 </div>
 	  
 	  <a href="<?php echo get_permalink($help_pg); ?>" class="user-link btn btn-default no-rounded"><i class="fa fa-question-circle fa-2x"></i></a>
-	  <a href="<?php echo wp_logout_url( get_option('home') ); ?>" class="user-link btn btn-defaul no-rounded"><i class="fa fa-power-off fa-2x"></i></a>
+	  <a href="<?php echo wp_logout_url(); ?>" class="user-link btn btn-defaul no-rounded"><i class="fa fa-power-off fa-2x"></i></a>
   
  </div>

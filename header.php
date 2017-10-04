@@ -19,7 +19,7 @@
 
 <body <?php body_class('nav-closed'); ?>>
 	
-	<?php if (!is_front_page()) { ?>
+	<?php if (!is_front_page() && is_user_logged_in() ) { ?>
 	<nav id="hidden-nav" class="nav-closed">
 		<?php wp_nav_menu(array( 
 		'container' => 'false', 
@@ -37,7 +37,7 @@
 		<header role="banner">
 			<div class="container-fluid"><div class="row">
 				<div class="col-xs-4">
-					<?php if (!is_front_page()) { ?>
+					<?php if (!is_front_page() && is_user_logged_in()) { ?>
 					<button id="main-nav-btn" class="btn btn-default no-rounded"><i class="fa fa-bars fa-2x"></i></button>			
 					<?php } ?>
 					<?php if (!empty($pg_icon)) { ?>

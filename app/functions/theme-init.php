@@ -26,6 +26,10 @@ if (!is_admin()) {
 		wp_enqueue_script( 'contact-functions', get_stylesheet_directory_uri() . '/app/js/contact-functions-min.js', $functions_dep, filemtime( get_stylesheet_directory().'/app/js/contact-functions.js' ), true );	
 		}
 		
+		if ($post->ID == 1211) {
+		wp_enqueue_script( 'notes-functions', get_stylesheet_directory_uri() . '/app/js/notes-functions-min.js', $functions_dep, filemtime( get_stylesheet_directory().'/app/js/notes-functions.js' ), true );	
+		}
+		
 	}
 	add_action( 'wp_enqueue_scripts', 'tlw_scripts' );
 }

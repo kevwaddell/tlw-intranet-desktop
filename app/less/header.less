@@ -12,7 +12,7 @@ z-index: 1000;
 	.block;
 	.w(22);
 	.h(5);
-	.bg-img("logo.png");
+	.bg-img("logo.svg");
 	.bg-repeat(no-repeat);
 	background-position: left center;
 	.bg-size(contain);
@@ -39,6 +39,8 @@ z-index: 1000;
 		.col(@red);
 		.inner-shadow(0,0,0,0.0);
 		.bg-col(@trans);
+		outline: none;
+		box-shadow: none;
 		}	
 		
 		&.nav-open {
@@ -60,6 +62,9 @@ z-index: 1000;
 		.line-h(5);
 		.pad-right(0.8);
 		.col(@gray);
+		}
+		a {
+		.no-text-dec;	
 		}
 	}
 	
@@ -100,7 +105,10 @@ z-index: 1000;
 		}
 		
 		.user-dropdown {
+		.min-w(25);
 			.btn {
+			width: 100%;
+			text-align: left;
 			.no-border;
 			.border-left(@grayDk; 0.1);	
 			.caps;	
