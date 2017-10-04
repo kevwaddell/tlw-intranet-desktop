@@ -109,6 +109,16 @@
 		"oT": 1,
 		"q": 100
 		},
+	"\/app\/css\/img\/logo.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "\/app\/css\/img\/logo.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
 	"\/app\/css\/img\/stripes.png": {
 		"ft": 32768,
 		"iS": 127,
@@ -337,6 +347,26 @@
 		"oAP": "\/app\/js\/min\/modernizr-min-min.js",
 		"oF": 1,
 		"sC": 1,
+		"tS": 0
+		},
+	"\/app\/js\/notes-functions-min.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/app\/js\/min\/notes-functions-min-min.js",
+		"oF": 0,
+		"sC": 1,
+		"tS": 0
+		},
+	"\/app\/js\/notes-functions.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/app\/js\/notes-functions-min.js",
+		"oF": 2,
+		"sC": 0,
 		"tS": 0
 		},
 	"\/app\/less\/alerts.less": {
@@ -766,6 +796,12 @@
 		"oAP": "\/functions.php",
 		"oF": 0
 		},
+	"\/header-user.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/header-user.php",
+		"oF": 0
+		},
 	"\/header.php": {
 		"ft": 8192,
 		"oA": 2,
@@ -854,6 +890,12 @@
 		"ft": 8192,
 		"oA": 2,
 		"oAP": "\/page-templates\/meetings-page.php",
+		"oF": 0
+		},
+	"\/page-templates\/notes-page.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/page-templates\/notes-page.php",
 		"oF": 0
 		},
 	"\/page-templates\/profile-page.php": {
@@ -1694,6 +1736,12 @@
 		"ft": 8192,
 		"oA": 2,
 		"oAP": "\/parts\/meeting-single\/user-actions.php",
+		"oF": 0
+		},
+	"\/parts\/notes-page\/note-template.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/parts\/notes-page\/note-template.php",
 		"oF": 0
 		},
 	"\/parts\/rescources-page\/banner-imgs.php": {

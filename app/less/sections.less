@@ -1,27 +1,156 @@
-#rooms-list {
+#notes-canvas {
+.abs;
+.left(0);
+.top(5);
+.right(0);
+.bottom(0);
+overflow: hidden;
+	.note-canvas-actions {
+	.abs;
+	left: 50%;
+	.bottom(2);
+	transform: translateX(-50%);
+	z-index: 10000;
+		.btn {
+		.no-border;
+		.rounded(100%);
+		.pad-all(0);
+		.h(6);
+		.w(6);
+		.bg-col(@grayDk);
+		.col(@wht);
+			i {
+			.block;
+			.line-h(6);	
+			}	
+			&:hover, &:active, &:focus {
+			.bg-col(@red);
+			}
+		}
+	}
+	.note {
+	.abs;
+	.w(25);
+	.h(25);	
+	//.pad-all(2);
+	.drop-shadow(0, 3px, 10px, 0.7);
+	//.transition(0.3s,ease-in);
+		&.new-note {
+		left: 50%;
+		top: 50%;	
+		transform: translate(-50%; -50%);
+		z-index: 1000;
+		}
+		
+		.note-txt {
+		height: 100%;
+		.pad-all(2);	
+		}
+		
+		&.dragging {
+		.opacity(0.5);	
+		box-shadow: none;
+		}
+		
+		&[draggable=true] {
+		-moz-user-select: none;
+		-webkit-user-select: none;
+		user-select: none;
+		-webkit-user-drag: element;
+		}
+		
+		textarea.note-txt {
+		width: 100%;	
+		resize: none;
+		.no-border;
+			&:focus {
+			outline: none;
+			box-shadow: none;	
+			}
+		}
+		
+		.note-actions {
+		.pad-top(1);
+		.none;
+		.animated;
+		.fadeIn;
+		text-align: center;
 
-}
-
-.data-list-key {
-
-}
-
-.page-section {
-
-}
-
-/* USER LIST */
-.user-list {
-	
-}
-
-/* MEETING DETAILS */
-.meeting-details, .user-details {
-
-}
-
-/* DEPARTMENTS LISTS */
-
-#departments-list {
-	
+			.note-btn {
+			.w(4);
+			.h(4);
+			.in-block;
+			.bg-col(@grayDk);
+			.col(@wht);
+			.no-border;
+			.pad-all(0);
+			.rounded(100%);
+			.no-text-dec;
+				i {
+				.block;
+				.line-h(4);
+				text-align: center;	
+				}
+				&:hover, &:active, &:focus {
+				.bg-col(@red);
+				outline: none;
+				box-shadow: none;	
+				}
+			}
+		}
+		
+		&:hover, &:active {
+			.note-actions {
+			.block;	
+			.fadeIn;
+			}
+			div.note-txt {
+			cursor: move;	
+			}
+		}
+		
+		&.edit-note {
+		cursor: text;	
+			.note-actions {
+			.block;	
+			.fadeIn;
+			}
+		}
+		
+		&.bg-yellow  {
+			note-txt {
+			.bg-col(lighten(yellow, 30%));	
+			}
+		}
+		
+		&.bg-purple{
+			 .note-txt {
+			 .bg-col(lighten(@purple, 20%));	
+			}
+		}
+		
+		&.bg-green {
+			 .note-txt {
+			 .bg-col(lighten(@green, 30%));	
+			}
+		}
+		
+		&.bg-pink {
+			.note-txt {
+			.bg-col(lighten(@pink, 20%));
+			}	
+		}
+		
+		&.bg-orange {
+			.note-txt {
+			.bg-col(lighten(@orange, 20%));	
+			}
+		}
+		
+		&.bg-blue {
+			.note-txt {
+			.bg-col(lighten(@blue, 30%));
+			}
+		}
+	}
 }
