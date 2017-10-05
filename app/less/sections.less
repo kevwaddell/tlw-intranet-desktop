@@ -1,3 +1,4 @@
+//NOTES PAGE STYLES
 #notes-canvas {
 .abs;
 .left(0);
@@ -5,6 +6,12 @@
 .right(0);
 .bottom(0);
 overflow: hidden;
+.bg-col(@wht);
+z-index: 2;
+transform: translate(0px, 0px);	
+	&.trash-open {
+	transform: translateX(-300px);	
+	}
 	form {
 	.abs;
 	width: 100%;
@@ -24,12 +31,18 @@ overflow: hidden;
 		.w(6);
 		.bg-col(@grayDk);
 		.col(@wht);
+		.rel;
 			i {
 			.block;
 			.line-h(6);	
 			}	
 			&:hover, &:active, &:focus {
 			.bg-col(@red);
+			}
+			span.label {
+			.abs;
+			.left(0);
+			.top(0);	
 			}
 		}
 	}
@@ -167,5 +180,56 @@ overflow: hidden;
 			.bg-col(lighten(@blue, 30%));
 			}
 		}
+	}
+}
+
+#trash-notes {
+	.abs;
+	.right(0);
+	.top(5);
+	.bottom(0);
+	.w(30);
+	.bg-col(@grayDk);
+	&.trash-closed {
+	transform: translateX(100%);	
+	}
+	&.trash-open {
+	transform: translateX(0%);	
+	}
+	
+	#trash-notes-list {
+	width: 100%;
+	height: 100%;
+	.pad(2;2;0;2);
+	overflow: auto;	
+	}
+	
+	ul {
+	.pad-bot(4);
+		li {
+		.font-note;
+		.pad-all(1);
+		.max-h(4);	
+		text-overflow: ellipsis;
+		.mag-bot(1);
+			&.bg-yellow {
+			.bg-col(lighten(yellow, 30%));		
+			}
+			&.bg-purple {
+			.bg-col(lighten(@purple, 30%));		
+			}
+			&.bg-green {
+			.bg-col(lighten(@green, 30%));		
+			}
+			&.bg-pink {
+			.bg-col(lighten(@pink, 30%));		
+			}
+			&.bg-orange {
+			.bg-col(lighten(@orange, 30%));		
+			}
+			&.bg-blue {
+			.bg-col(lighten(@blue, 30%));		
+			}
+		}	
 	}
 }
