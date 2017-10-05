@@ -6,32 +6,65 @@
 	interact('.draggable', {allowFrom: '.move-btn'})
 		.draggable({
 		inertia: true,
-		onstart: listener,
 		restrict: {
 			restriction: "parent",
 			endOnly: true,
 			elementRect: { top: 0, left: 0, bottom: 1, right: 1 }
 			},
-		onmove: dragMoveListener,
-  		});	
+		onstart: dragNoteStart,
+		onmove: dragNoteListener,
+		onend: dragNoteEnd
+  	});	
+  	
+  	function dragNoteStart (event) {
+		var target = event.target; 	
+		$(target).addClass('dragging');
+  	}
   		
-  	function dragMoveListener (event) {
-    var target = event.target,
-        // keep the dragged position in the data-x/data-y attributes
-        x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx,
-        y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
-
+  	function dragNoteEnd (event) {
+	 	var target = event.target;
+		var end_x = target.getAttribute('data-x');
+		var end_y = target.getAttribute('data-y');
+    
+		var note_id = $(target).data('note');
+		var input_x = $(target).find('input.x_pos');
+		var input_y = $(target).find('input.y_pos');
+		
+		$(input_x).val(end_x);
+		$(input_y).val(end_y);
+		
+		console.log("--------------------------");
+		console.log(end_x);
+		console.log(end_y);
+		$(target).removeClass('dragging');
+		$(target).parent().submit();
+			
+  	}	
+  		
+  	function dragNoteListener (event) {
+    var target = event.target;
+    var x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx;
+    var y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
+		
     // translate the element
-    target.style.webkitTransform =
-    target.style.transform =
-      'translate(' + x + 'px, ' + y + 'px)';
+    target.style.webkitTransform = target.style.transform = 'translate(' + x + 'px, ' + y + 'px)';
 
     // update the posiion attributes
     target.setAttribute('data-x', x);
     target.setAttribute('data-y', y);
+	
+	//console.log(x);
+	//console.log(y);
   	}
   	
-  	window.dragMoveListener = dragMoveListener;
+  	window.dragNoteListener = dragNoteListener;
+  	
+  	$('.save-note-btn').on('click', function(){
+	 
+	$(this).parents('form').submit();
+	 
+	 return false;	
+  	});
 
 	});
 		

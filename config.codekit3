@@ -100,7 +100,7 @@
 		},
 	"\/app\/css\/img\/logo.png": {
 		"ft": 32768,
-		"iS": 7197,
+		"iS": 4592,
 		"oA": 0,
 		"oAP": "\/app\/css\/img\/logo.png",
 		"oF": 0,
@@ -287,6 +287,18 @@
 		"ft": 8192,
 		"oA": 2,
 		"oAP": "\/app\/inc\/contact-page-vars\/internal-users.inc",
+		"oF": 0
+		},
+	"\/app\/inc\/notes-page-vars\/get-note.inc": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/app\/inc\/notes-page-vars\/get-note.inc",
+		"oF": 0
+		},
+	"\/app\/inc\/notes-page-vars\/post-note.inc": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/app\/inc\/notes-page-vars\/post-note.inc",
 		"oF": 0
 		},
 	"\/app\/js\/bootstrap-min.js": {
