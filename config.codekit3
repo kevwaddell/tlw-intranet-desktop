@@ -916,6 +916,12 @@
 		"oAP": "\/page-templates\/profile-page.php",
 		"oF": 0
 		},
+	"\/page-templates\/reminders-page.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/page-templates\/reminders-page.php",
+		"oF": 0
+		},
 	"\/page-templates\/rescources-page.php": {
 		"ft": 8192,
 		"oA": 2,

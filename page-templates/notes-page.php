@@ -10,7 +10,6 @@ global $current_user;
 $user_notes_raw = get_user_meta($current_user->ID, 'user_notes', true);
 $trash_notes_raw = get_user_meta($current_user->ID, 'trash_notes', true);
 
-
 if (empty($user_notes_raw)) {
 $user_notes = array();
 add_user_meta($current_user->ID, 'user_notes', serialize($user_notes),true);	
@@ -33,7 +32,7 @@ include (STYLESHEETPATH . '/app/inc/notes-page-vars/post-note.inc');
 include (STYLESHEETPATH . '/app/inc/notes-page-vars/get-note.inc');
 ?>		
 <?php if ( have_posts() ): while ( have_posts() ) : the_post(); ?>	
-<div id="notes-canvas">
+<div id="notes-canvas" class="trash-closed">
 	<?php if (!empty($user_notes)) { ?>
 	<form action="<?php the_permalink(); ?>" method="post"> 
 			<?php foreach ($user_notes as $k => $note) { ?>
@@ -64,6 +63,9 @@ include (STYLESHEETPATH . '/app/inc/notes-page-vars/get-note.inc');
 			
 			<div class="note-canvas-actions">
 			<a href="?note-action=add-note" class="btn btn-default"><i class="fa fa-plus fa-2x"></i><span class="sr-only">Add note</span></a>
+			<?php if (!empty($trash_notes)) { ?>
+			<button id="open-trash-btn" class="btn btn-default"><span class="label label-success"><?php echo count($trash_notes); ?></span><i class="fa fa-trash fa-2x"></i><span class="sr-only">Open trash</span></button>
+			<?php } ?>	
 			</div>	
 	</form>
 	<?php } ?>	
@@ -75,6 +77,23 @@ include (STYLESHEETPATH . '/app/inc/notes-page-vars/get-note.inc');
 	<?php } ?>	
 	
 </div>	
+
+<?php if (!empty($trash_notes)) { ?>
+<aside id="trash-notes" class="hidden-sb sb-closed">
+	<div id="trash-notes-list">
+		<ul class="list-unstyled">
+			<?php foreach ($trash_notes as $k => $tn) { ?>
+			<li class="bg-<?php echo $tn['bg-col']; ?>">
+				<a href="?note-action=restore-note&note-id=<?php echo $tn['note-id']; ?>">
+					<?php echo $tn['note-txt']; ?>
+					<span><i class="fa fa-mail-reply"></i></span>
+				</a>
+			</li>
+			<?php } ?>
+		</ul>
+	</div>
+</aside>
+<?php } ?>	
 
 <?php endwhile; ?>
 <?php endif; ?>

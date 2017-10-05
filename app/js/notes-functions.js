@@ -60,10 +60,15 @@
   	window.dragNoteListener = dragNoteListener;
   	
   	$('.save-note-btn').on('click', function(){
-	 
-	$(this).parents('form').submit();
-	 
-	 return false;	
+		$(this).parents('form').submit();
+		return false;	
+  	});
+  	
+  	$('#open-trash-btn').on('click', function(){
+	  	$(this).toggleClass('active');
+		$('#notes-canvas').toggleClass('trash-closed trash-open');
+		$('#trash-notes').toggleClass('sb-closed sb-open');
+		return false;	
   	});
 
 	});

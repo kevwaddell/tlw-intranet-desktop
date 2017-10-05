@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Meetings page
+Template Name: Reminders page
 */
 ?>
 
