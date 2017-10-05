@@ -100,7 +100,7 @@
 		},
 	"\/app\/css\/img\/logo.png": {
 		"ft": 32768,
-		"iS": 7197,
+		"iS": 4592,
 		"oA": 0,
 		"oAP": "\/app\/css\/img\/logo.png",
 		"oF": 0,
@@ -914,6 +914,12 @@
 		"ft": 8192,
 		"oA": 2,
 		"oAP": "\/page-templates\/profile-page.php",
+		"oF": 0
+		},
+	"\/page-templates\/reminders-page.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/page-templates\/reminders-page.php",
 		"oF": 0
 		},
 	"\/page-templates\/rescources-page.php": {

@@ -32,7 +32,7 @@ include (STYLESHEETPATH . '/app/inc/notes-page-vars/post-note.inc');
 include (STYLESHEETPATH . '/app/inc/notes-page-vars/get-note.inc');
 ?>		
 <?php if ( have_posts() ): while ( have_posts() ) : the_post(); ?>	
-<div id="notes-canvas" class="trash-open">
+<div id="notes-canvas" class="trash-closed">
 	<?php if (!empty($user_notes)) { ?>
 	<form action="<?php the_permalink(); ?>" method="post"> 
 			<?php foreach ($user_notes as $k => $note) { ?>
@@ -64,7 +64,7 @@ include (STYLESHEETPATH . '/app/inc/notes-page-vars/get-note.inc');
 			<div class="note-canvas-actions">
 			<a href="?note-action=add-note" class="btn btn-default"><i class="fa fa-plus fa-2x"></i><span class="sr-only">Add note</span></a>
 			<?php if (!empty($trash_notes)) { ?>
-			<button id="open-trash-btn" class="btn btn-default"><span class="label label-danger"><?php echo count($trash_notes); ?></span><i class="fa fa-trash fa-2x"></i><span class="sr-only">Open trash</span></button>
+			<button id="open-trash-btn" class="btn btn-default"><span class="label label-success"><?php echo count($trash_notes); ?></span><i class="fa fa-trash fa-2x"></i><span class="sr-only">Open trash</span></button>
 			<?php } ?>	
 			</div>	
 	</form>
@@ -84,10 +84,10 @@ include (STYLESHEETPATH . '/app/inc/notes-page-vars/get-note.inc');
 		<ul class="list-unstyled">
 			<?php foreach ($trash_notes as $k => $tn) { ?>
 			<li class="bg-<?php echo $tn['bg-col']; ?>">
-				<div class="note-txt">
-				<?php echo $tn['note-txt']; ?>	
-				</div>
-				<a href="?note-action=restore-note&note-id=<?php echo $tn['note-id']; ?>"><i class="fa fa-refresh"></i> Restore</a>
+				<a href="?note-action=restore-note&note-id=<?php echo $tn['note-id']; ?>">
+					<?php echo $tn['note-txt']; ?>
+					<span><i class="fa fa-mail-reply"></i></span>
+				</a>
 			</li>
 			<?php } ?>
 		</ul>
