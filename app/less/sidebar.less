@@ -68,7 +68,7 @@ overflow: hidden;
 	.left(0);
 	.bottom(0);
 	.right(0);
-	.h(5);
+	.h(5.1);
 	.border-top(@grayDk; 0.1);
 	.bg-col(@wht);
 		.btn {
@@ -87,16 +87,15 @@ overflow: hidden;
 			.bg-col(@grayDk);
 			.col(@wht);
 			}
+			&.pull-right {
+			.border-left(@grayDk; 0.1);	
+			}
 		}
 		
 		a.disabled {
 		.col(@gray);
 		pointer-events: none;	
 		}
-	}
-	
-	button#colapse-sb {
-	.border-left(@grayDk; 0.1);
 	}
 	
 	button#add-contact-actions {
@@ -108,7 +107,7 @@ overflow: hidden;
 	}
 
 	.address-books {
-	.pad-bot(5);
+	.pad-bot(3.2);
 		h3 {
 		.mag-all(0);
 		.pad(0.5;1;0.5;1);	
@@ -282,10 +281,12 @@ overflow: hidden;
 
 aside.sb-left {
 .left(0);	
+.pad-bot(5.1);
 }
 
 aside.sb-right {
 .left(25);
+.pad-bot(5.1);
 }
 
 aside.sb-wide {

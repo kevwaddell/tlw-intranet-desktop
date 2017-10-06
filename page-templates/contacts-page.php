@@ -101,7 +101,7 @@ $cur_user_meta = get_user_meta($current_user->ID);
 	
 </article>
 
-<aside class="scrollable sb-left">
+<aside id="groups-list" class="scrollable sb-left">
 	<div class="sb-inner">
 		<div class="address-books">
 		  <a href="?contacts=team" class="address-group-item<?php echo($_GET['contacts'] == 'team') ? ' active':''; ?>">TLW Team</a>
@@ -127,22 +127,10 @@ $cur_user_meta = get_user_meta($current_user->ID);
 			  <ul class="dropdown-menu">
 			    <li><a href="?contact-actions=delete-group&group-id=<?php echo $_REQUEST['group-id']; ?>"<?php echo (isset($_REQUEST['group-id']) && empty($active_contacts)) ? '':' class="disabled"'; ?>>Delete group</a></li>
 			    <li><a href="?contact-actions=edit-group&group-id=<?php echo $_REQUEST['group-id']; ?>"<?php echo (isset($_REQUEST['group-id'])) ? '':' class="disabled"'; ?>>Edit group</a></li>
-				<?php if (!empty($active_contacts)) { ?>
-				<li><a href="?contact-actions=edit-contact&private-id=<?php echo $_REQUEST['private-id']; ?>&group-id=<?php echo $_REQUEST['group-id']; ?>"<?php echo ( !isset($_REQUEST['private-id'])) ? ' class="disabled"':''; ?>>Edit contact</a></li>
-			    <li><a href="?contact-actions=delete-contact&private-id=<?php echo $_REQUEST['private-id']; ?>&group-id=<?php echo $_REQUEST['group-id']; ?>"<?php echo ( !isset($_REQUEST['private-id']) ) ? ' class="disabled"':''; ?>>Delete contact</a></li>				
-			    <?php } ?>
 			  </ul>
 			</div>			
 			<?php } ?>
-			<div class="btn-group dropup pull-right">
-			  <button id="add-contact-actions" class="btn btn-default btn-lg no-rounded dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-			    <i class="fa fa-plus fa-lg"></i>
-			  </button>
-			  <ul class="dropdown-menu">
-			    <li><a href="?contact-actions=add-group" id="add-group">Add group</a></li>
-				<li><a href="?contact-actions=add-contact<?php echo (isset($_REQUEST['group-id'])) ? '&group-id='.$_REQUEST['group-id']:''; ?>" id="add-contact" <?php echo ( isset($_REQUEST['group-id']) ) ? '':' class="disabled"'; ?>>Add contact</a></li>
-			  </ul>
-			</div>
+			<a href="?contact-actions=add-group" class="btn btn-default btn-lg no-rounded pull-right" id="add-group"><i class="fa fa-plus fa-lg"></i><span class="sr-only">Add Group</span></a>
 		</div>
 	</div>			
 </aside>
@@ -175,6 +163,24 @@ $cur_user_meta = get_user_meta($current_user->ID);
 			Select a contact group
 		</div>
 		<?php } ?>	
+	</div>
+	<div class="sb-actions">
+		<div class="actions-inner">
+			<?php if ($_REQUEST['private-id']) { ?>
+			<div class="btn-group dropup pull-left">
+			  <button id="contact-actions" class="btn btn-default btn-lg no-rounded dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			    <i class="fa fa-cogs fa-lg"></i>
+			  </button>
+			  <ul class="dropdown-menu">
+				<li><a href="?contact-actions=edit-contact&private-id=<?php echo $_REQUEST['private-id']; ?>&group-id=<?php echo $_REQUEST['group-id']; ?>">Edit contact</a></li>
+			    <li><a href="?contact-actions=delete-contact&private-id=<?php echo $_REQUEST['private-id']; ?>&group-id=<?php echo $_REQUEST['group-id']; ?>">Delete contact</a></li>				
+			  </ul>
+			</div>	
+			 <?php } ?>			
+			<?php if (isset($_REQUEST['group-id'])) { ?>
+			<a href="?contact-actions=add-contact<?php echo (isset($_REQUEST['group-id'])) ? '&group-id='.$_REQUEST['group-id']:''; ?>" class="btn btn-default btn-lg no-rounded pull-right" id="add-contact" ><i class="fa fa-plus fa-lg"></i><span class="sr-only">Add contact</span></a>
+			<?php } ?>
+		</div>
 	</div>
 </aside>
 
