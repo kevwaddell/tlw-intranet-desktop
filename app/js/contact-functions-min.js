@@ -1,1 +1,1 @@
-!function($){var c;c=Modernizr.touch?"touchstart":"click",$(document).ready(function(){})}(window.jQuery);
+!function($){var n="click";$(document).ready(function(){})}(window.jQuery);

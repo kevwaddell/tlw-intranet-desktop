@@ -5,7 +5,9 @@ aside.scrollable {
 .w(25);
 .min-h(45);
 .border-right(@grayDk; 0.1);
+.bg-col(@wht);
 overflow: hidden;
+.transition();
 	
 	::-webkit-scrollbar {
 	    width: 10px;
@@ -61,13 +63,14 @@ overflow: hidden;
 		}
 	}
 	
-	.contact-actions {
+	.sb-actions {
 	.abs;
 	.left(0);
 	.bottom(0);
 	.right(0);
-	.line-h(5);
+	.h(5);
 	.border-top(@grayDk; 0.1);
+	.bg-col(@wht);
 		.btn {
 		.no-border;	
 		.pad-all(0);
@@ -90,6 +93,10 @@ overflow: hidden;
 		.col(@gray);
 		pointer-events: none;	
 		}
+	}
+	
+	button#colapse-sb {
+	.border-left(@grayDk; 0.1);
 	}
 	
 	button#add-contact-actions {
@@ -162,6 +169,115 @@ overflow: hidden;
 			}
 		}
 	}
+	
+	.icon-list {
+	.over-hide;
+	.pad-bot(5);
+	.mag-bot(0);
+		li {
+		.fleft;
+		width: 50%;	
+		text-align: center;
+		.border-bot(@grayDk; 0.1);
+		.border-right(@grayDk; 0.1);
+		.h(12.1);
+			&:nth-child(2n) {
+			border-right: none;
+			}
+		}
+		a.grid-list-item {
+		.block;
+		text-align: center;
+		.no-text-dec;
+		.col(@grayDk);
+		height: 100%;
+		.rel;
+		.over-hide;
+			i {
+			.abs;
+			.left(0);
+			.top(0);
+			height: 100%;
+			width: 100%;
+			margin: auto;
+			.col(@red);
+			.line-h(12);
+			.font-size(7);
+			text-align: center;
+			}	
+			
+			span.title {
+			.rel;
+			z-index: 2;
+			.block;
+			.bg-col(@grayDk);
+			.line-h(12);
+			transform: translate(101%, 0%);
+			.transition();
+				span {
+				.in-block;
+				.pad(0;2;0;2);
+				.font-size(1.6);
+				.line-h(1.6);
+				//.h(10);
+				.caps;	
+				.col(@wht);
+				vertical-align: middle;
+				}
+			}
+			
+			&:hover, &:active, &:focus {
+				span.title {
+				transform: translate(0%, 0%);	
+				}
+			}
+			
+			&.active {
+				span.title {
+				transform: translate(0%, 0%);	
+				}
+			}
+		}
+	}
+	
+	&.sb-sml {
+		sb-inner {
+		overflow: hidden;	
+		}
+		.icon-list {
+			li {
+			.no-float;
+			width: 100%;
+			border-right: none;
+			.h(5.1);	
+			}
+			
+			a.grid-list-item {
+				i {
+				.line-h(5);
+				.font-size(2.5);	
+				}	
+				span.title {
+				.none;
+				}
+				
+				&:hover, &:active, &:focus {
+				.bg-col(@grayDk);
+					i {
+					.col(@wht);	
+					}
+				}
+				
+				&.active {
+				.bg-col(@grayDk);
+					i {
+					.col(@wht);	
+					}
+				}
+				
+			}	
+		}
+	}
 }
 
 aside.sb-left {
@@ -171,4 +287,12 @@ aside.sb-left {
 aside.sb-right {
 .left(25);
 }
+
+aside.sb-wide {
+.w(50);	
+}
+
+aside.sb-sml {
+.w(5);	
+} 
 

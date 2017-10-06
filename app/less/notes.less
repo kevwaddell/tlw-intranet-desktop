@@ -1,0 +1,303 @@
+//NOTES PAGE STYLES
+#notes-canvas {
+.abs;
+.left(0);
+.top(5);
+.right(0);
+.bottom(0);
+overflow: hidden;
+.bg-col(@wht);
+z-index: 2;
+transform: translate(0px, 0px);	
+.transition;
+	&.trash-open {
+	transform: translateX(-300px);	
+	}
+	form {
+	.abs;
+	width: 100%;
+	height: 100%;	
+	}
+	.note-canvas-actions {
+	.abs;
+	width: 100%;
+	.bottom(2);
+	z-index: 10000;
+	text-align: center;
+		.btn {
+		.no-border;
+		.rounded(100%);
+		.pad-all(0);
+		.h(6);
+		.w(6);
+		.bg-col(@grayDk);
+		.col(@wht);
+		.rel;
+		.transition;
+		transform: translateX(50%);
+			i {
+			.block;
+			.line-h(6);	
+			}	
+			&:hover, &:active, &:focus {
+			.bg-col(@red);
+			}
+			span.label {
+			.abs;
+			.left(0);
+			.top(0);	
+			}
+			&#open-trash-btn {
+			.fright;
+			.mag-right(2);	
+			transform: translateX(0%);
+			}
+			&.active {
+			.bg-col(@gray);
+				&:hover, &:active, &:focus {
+				.bg-col(@grayDk);
+				}	
+			}
+		}
+	}
+	.note {
+	.w(25);
+	.h(25);	
+	.abs;
+	//.pad-all(2);
+	//.transition(0.3s,ease-in);
+				
+		.note-txt {
+		height: 100%;
+		.pad-all(2);	
+		.drop-shadow(0, 3px, 10px, 0.7);
+		.font-size(2);
+		.font-note;
+		}
+		
+		
+		&.new-note {
+		left: 50vw;
+		top: 25vw;
+		//transform: translate(0%, 0%);
+		z-index: 1000;
+			.note-actions {
+			.block;	
+			}
+		}
+
+		&.dragging {
+		z-index: 1000;
+			.note-txt {
+			.opacity(0.5);	
+			box-shadow: none;
+			}
+		}
+		
+		&[draggable=true] {
+		-moz-user-select: none;
+		-webkit-user-select: none;
+		user-select: none;
+		-webkit-user-drag: element;
+		}
+		
+		textarea.note-txt {
+		width: 100%;	
+		resize: none;
+		.no-border;
+			&:focus {
+			outline: none;
+			}
+		}
+		
+		.note-actions {
+		//.pad-top(0.5);
+		.mag-top(-2);
+		.none;
+		.animated;
+		.fadeIn;
+		text-align: center;
+
+			.note-btn {
+			.w(4);
+			.h(4);
+			.in-block;
+			.bg-col(@grayDk);
+			.col(@wht);
+			.no-border;
+			.pad-all(0);
+			.rounded(100%);
+			.no-text-dec;
+				i {
+				.block;
+				.line-h(4);
+				text-align: center;	
+				}
+				&:hover, &:active, &:focus {
+				.bg-col(@red);
+				outline: none;
+				box-shadow: none;	
+				}
+				&.move-btn {
+				cursor: move;	
+				}
+			}
+		}
+		
+		&:hover, &:active {
+			.note-actions {
+			.block;	
+			.fadeIn;
+			}
+		}
+		
+		&.edit-note {
+		cursor: text;	
+			.note-actions {
+			.block;	
+			.fadeIn;
+			}
+		}
+		
+		&.bg-yellow  {
+			.note-txt {
+			.bg-col(lighten(yellow, 30%));	
+			}
+		}
+		
+		&.bg-purple{
+			 .note-txt {
+			 .bg-col(lighten(@purple, 20%));	
+			}
+		}
+		
+		&.bg-green {
+			 .note-txt {
+			 .bg-col(lighten(@green, 30%));	
+			}
+		}
+		
+		&.bg-pink {
+			.note-txt {
+			.bg-col(lighten(@pink, 20%));
+			}	
+		}
+		
+		&.bg-orange {
+			.note-txt {
+			.bg-col(lighten(@orange, 20%));	
+			}
+		}
+		
+		&.bg-blue {
+			.note-txt {
+			.bg-col(lighten(@blue, 30%));
+			}
+		}
+	}
+}
+
+.hidden-sb {
+	.abs;
+	.right(0);
+	.top(5);
+	.bottom(0);
+	.w(30);
+	.bg-col(@grayDk);
+	z-index: 1;
+	.transition;
+	&.sb-closed {
+	transform: translateX(100%);	
+	}
+	&.sb-open {
+	transform: translateX(0%);	
+	}
+	
+	#trash-notes-list {
+	width: 100%;
+	height: 100%;
+	.pad(2;2;0;2);
+	overflow: auto;	
+	}
+	
+	ul {
+	.pad-bot(4);
+		li {
+		.font-note;	
+		.mag-bot(1);
+			a {
+			.block;
+			.rel;	
+			.pad-all(1);
+			.h(4);
+			.over-hide;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+			.no-text-dec;
+			.col(@grayDk);
+			.font-size(1.6);
+			.line-h(2);
+				span {
+				.abs;
+				.top(0);
+				.right(0);
+				.bottom(0);
+				.w(4);
+				.bg-col(@wht);
+				.col(@grayDk);
+				.font-size(1.2);
+				.line-h(4);
+				.caps;	
+				.font-normal;
+				text-align: center;
+				transform: translateX(100%);
+				.transition(0.2s, ease-in);
+					i {
+					.font-size(1.4);
+					.line-h(4);
+					}
+				}
+				&:hover, &:active, &:focus {
+					span {
+					transform: translateX(0%);	
+					}
+				}
+			}
+			&.bg-yellow  {
+			a {
+			.bg-col(lighten(yellow, 30%));	
+				}
+			}
+			
+			&.bg-purple{
+				 a {
+				 .bg-col(lighten(@purple, 20%));	
+				}
+			}
+			
+			&.bg-green {
+				 a {
+				 .bg-col(lighten(@green, 30%));	
+				}
+			}
+			
+			&.bg-pink {
+				a {
+				.bg-col(lighten(@pink, 20%));
+				}	
+			}
+			
+			&.bg-orange {
+				a {
+				.bg-col(lighten(@orange, 20%));	
+				}
+			}
+			
+			&.bg-blue {
+				a {
+				.bg-col(lighten(@blue, 30%));
+				}
+			}
+		}	
+	}
+}

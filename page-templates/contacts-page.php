@@ -8,7 +8,6 @@ Template Name: Contact list page
 
 <?php 
 global $current_user;
-
 include (STYLESHEETPATH . '/app/inc/contact-page-vars/internal-users.inc');
 
 //USER CONTACTS FUNCTIONS AND ARRAYS
@@ -118,8 +117,8 @@ $cur_user_meta = get_user_meta($current_user->ID);
 		  <?php } ?>
 		 </div>
 	</div>
-	<div class="contact-actions">
-		<div class="contact-actions-inner">
+	<div class="sb-actions">
+		<div class="actions-inner">
 			<?php if ( isset($_REQUEST['group-id']) ) { ?>
 			<div class="btn-group dropup pull-left">
 			  <button id="contact-actions" class="btn btn-default btn-lg no-rounded dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

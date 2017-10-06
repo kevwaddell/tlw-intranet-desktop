@@ -1,7 +1,7 @@
 <?php
 //ADD PRIVATE CONTACT META
-if ( isset($_POST['add-contact']) ) {
 $add_contact_errors = array();
+if ( isset($_POST['add-contact']) ) {
 global $users_groups_raw;
 global $users_groups;
 global $user_contacts_raw;

@@ -1,0 +1,1 @@
+!function($){var e="click";$(document).ready(function(){$("#colapse-sb").on("click",function(){return $("#departments-page").toggleClass("sb-in sb-out"),$("#departments-list").toggleClass("sb-wide sb-sml"),$(this).find("i").toggleClass("fa-arrow-circle-left fa-arrow-circle-right"),!1})})}(window.jQuery);
