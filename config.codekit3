@@ -331,6 +331,26 @@
 		"sC": 0,
 		"tS": 0
 		},
+	"\/app\/js\/departments-functions-min.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/app\/js\/min\/departments-functions-min-min.js",
+		"oF": 0,
+		"sC": 1,
+		"tS": 0
+		},
+	"\/app\/js\/departments-functions.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/app\/js\/departments-functions-min.js",
+		"oF": 2,
+		"sC": 0,
+		"tS": 0
+		},
 	"\/app\/js\/functions-min.js": {
 		"ft": 64,
 		"ma": 0,
@@ -670,6 +690,23 @@
 		"sM": 0,
 		"sU": 0
 		},
+	"\/app\/less\/notes.less": {
+		"aP": 0,
+		"bl": 0,
+		"dJ": 0,
+		"ft": 1,
+		"ie": 1,
+		"iI": 0,
+		"ma": 1,
+		"oA": 1,
+		"oAP": "\/app\/css\/notes.css",
+		"oF": 0,
+		"oS": 0,
+		"rU": 0,
+		"sI": 0,
+		"sM": 0,
+		"sU": 0
+		},
 	"\/app\/less\/panels.less": {
 		"aP": 0,
 		"bl": 0,
@@ -776,12 +813,6 @@
 		"ft": 8192,
 		"oA": 2,
 		"oAP": "\/author.php",
-		"oF": 0
-		},
-	"\/category.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/category.php",
 		"oF": 0
 		},
 	"\/footer-user.php": {
@@ -1072,18 +1103,6 @@
 		"oAP": "\/parts\/admin\/notifications\/meeting-request.php",
 		"oF": 0
 		},
-	"\/parts\/category-page\/btn-actions.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/parts\/category-page\/btn-actions.php",
-		"oF": 0
-		},
-	"\/parts\/category-page\/cats-query.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/parts\/category-page\/cats-query.php",
-		"oF": 0
-		},
 	"\/parts\/contacts-page\/add-contact.php": {
 		"ft": 8192,
 		"oA": 2,
@@ -1138,58 +1157,16 @@
 		"oAP": "\/parts\/contacts-page\/private-list.php",
 		"oF": 0
 		},
-	"\/parts\/dashboard\/announcements-panel.php": {
+	"\/parts\/departments-page\/department-info.php": {
 		"ft": 8192,
 		"oA": 2,
-		"oAP": "\/parts\/dashboard\/announcements-panel.php",
+		"oAP": "\/parts\/departments-page\/department-info.php",
 		"oF": 0
 		},
-	"\/parts\/dashboard\/dashboard-panels.php": {
+	"\/parts\/departments-page\/departments-grid.php": {
 		"ft": 8192,
 		"oA": 2,
-		"oAP": "\/parts\/dashboard\/dashboard-panels.php",
-		"oF": 0
-		},
-	"\/parts\/dashboard\/employee-panel.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/parts\/dashboard\/employee-panel.php",
-		"oF": 0
-		},
-	"\/parts\/dashboard\/jobs-panel.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/parts\/dashboard\/jobs-panel.php",
-		"oF": 0
-		},
-	"\/parts\/dashboard\/meeting-panel.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/parts\/dashboard\/meeting-panel.php",
-		"oF": 0
-		},
-	"\/parts\/dashboard\/news\/company-news.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/parts\/dashboard\/news\/company-news.php",
-		"oF": 0
-		},
-	"\/parts\/dashboard\/news\/events-news.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/parts\/dashboard\/news\/events-news.php",
-		"oF": 0
-		},
-	"\/parts\/dashboard\/news\/latest-news.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/parts\/dashboard\/news\/latest-news.php",
-		"oF": 0
-		},
-	"\/parts\/dashboard\/news\/office-news.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/parts\/dashboard\/news\/office-news.php",
+		"oAP": "\/parts\/departments-page\/departments-grid.php",
 		"oF": 0
 		},
 	"\/parts\/global\/banner-imgs.php": {

@@ -7,7 +7,12 @@ article.page {
 .min-w(70);
 .pad(2;5;0;6);
 overflow: auto;
-
+.transition();
+	
+	&.sb-in {
+	.left(5);	
+	}
+	
 	&::-webkit-scrollbar {
 	    width: 10px;
 	    border-left: 1px solid @grayDk;

@@ -31,6 +31,10 @@ if (!is_admin()) {
 		wp_enqueue_script( 'notes-functions', get_stylesheet_directory_uri() . '/app/js/notes-functions-min.js', array('drag-functions'), filemtime( get_stylesheet_directory().'/app/js/notes-functions.js' ), true );	
 		}
 		
+		if ($post->ID == 119) {
+		wp_enqueue_script( 'departments-functions', get_stylesheet_directory_uri() . '/app/js/departments-functions-min.js', $functions_dep, filemtime( get_stylesheet_directory().'/app/js/departments-functions.js' ), true );	
+		}
+		
 	}
 	add_action( 'wp_enqueue_scripts', 'tlw_scripts' );
 }

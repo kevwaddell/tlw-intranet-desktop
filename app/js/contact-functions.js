@@ -1,11 +1,7 @@
 (function($){
-	var event_type;
 	
-	if (Modernizr.touch){
-	 event_type = 'touchstart';
-	} else {
-	 event_type = 'click';	
-	}
+	var event_type = 'click';
+
 	
 	/* DOCUMENT READY FUNCTIONS */
 	$(document).ready(function (){

@@ -121,6 +121,23 @@ z-index: 1000;
 				}
 			}
 			
+		.dropdown-menu {
+			width: 100%;
+			.mag-top(0);
+			.no-rounded;
+			.border(@grayDk; 0.1);
+			
+			a {
+			.col(@grayDk);
+				i {
+				.pad-right(1);
+				}
+				&:hover, &:active, &:focus {
+				.col(@red);
+				}	
+			}
+		}
+			
 		}
 	}
 	

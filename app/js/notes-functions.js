@@ -1,5 +1,7 @@
 (function($){
 	
+	var event_type = 'click';
+	
 	/* DOCUMENT READY FUNCTIONS */
 	$(document).ready(function (){
 
@@ -59,12 +61,12 @@
   	
   	window.dragNoteListener = dragNoteListener;
   	
-  	$('.save-note-btn').on('click', function(){
+  	$('.save-note-btn').on(event_type, function(){
 		$(this).parents('form').submit();
 		return false;	
   	});
   	
-  	$('#open-trash-btn').on('click', function(){
+  	$('#open-trash-btn').on(event_type, function(){
 	  	$(this).toggleClass('active');
 		$('#notes-canvas').toggleClass('trash-closed trash-open');
 		$('#trash-notes').toggleClass('sb-closed sb-open');
