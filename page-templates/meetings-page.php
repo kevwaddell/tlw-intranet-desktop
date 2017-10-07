@@ -13,7 +13,9 @@ $rooms = get_terms('tlw_rooms_tax', 'hide_empty=0');
 
 <article <?php post_class('page'); ?>>
 	<div class="entry">
-		
+		<?php if ( isset($_REQUEST['meeting-id']) ) { ?>
+			<?php  get_template_part( 'parts/meetings-page/meetings', 'info' ); ?>
+		<?php } ?>
 	</div>
 </article>
 
@@ -29,7 +31,19 @@ $rooms = get_terms('tlw_rooms_tax', 'hide_empty=0');
 
 <aside id="meetings-list" class="scrollable sb-right">
 	<div class="sb-inner">
+		<?php  if ( isset($_REQUEST['room-id']) ) { ?>
+		<div class="meetings">
+		<?php get_template_part( 'parts/meetings-page/meetings', 'list' ); ?>
+		</div>
+		<?php } ?>		
 		
+		<?php if ( empty($_REQUEST)) { ?>
+		<div class="no-name-message text-center">
+			<i class="fa fa-group fa-4x block"></i>
+			Select a meeting room
+		</div>
+		<?php } ?>	
+
 	</div>
 	<div class="sb-actions">
 		<div class="actions-inner">

@@ -35,7 +35,7 @@ $dep_members = get_users( $user_args );
 	<div class="member-profile">
 		<div class="profile-img" style="background-image: url(<?php echo $profile_img[0]; ?>)"></div>
 		<div class="profile-info">
-			<div class="name"><a href="<?php echo get_permalink($contacts_pg->ID); ?>?id=<?php echo $id; ?>&contacts=team"><?php echo $fname; ?> <?php echo $lname; ?></a></div>
+			<a href="<?php echo get_permalink($contacts_pg->ID); ?>?id=<?php echo $id; ?>&contacts=team#contact-id-<?php echo $id; ?>" class="name"><?php echo $fname; ?> <?php echo $lname; ?></a>
 			<div class="job-title">Role: <strong><?php echo $job_title; ?></strong></div>
 			<div class="ext">Ext: <strong><?php echo $extension; ?></strong></div>
 			<?php if (!empty($linkedIn)) { ?>

@@ -12399,7 +12399,7 @@ pre.debug {
   position: fixed;
   z-index: 1000;
   height: 100%;
-  width: 20%;
+  width: 30%;
   overflow: auto;
   background-color: black;
   color: white;
@@ -13347,6 +13347,9 @@ article.page {
   /* Track */
   /* Handle */
 }
+article.page.sb-out {
+  left: 300px;
+}
 article.page.sb-in {
   left: 50px;
 }
@@ -13383,7 +13386,8 @@ article.page .profile-img {
   background-size: cover;
   background-clip: content-box;
 }
-article.page .private-icon {
+article.page .private-icon,
+article.page .meeting-icon {
   font-size: 100px;
 }
 article.page .table {
@@ -13480,6 +13484,7 @@ aside.scrollable .sb-actions {
   height: 51px;
   border-top: 1px solid #4b4b4b;
   background-color: #fff;
+  z-index: 2;
 }
 aside.scrollable .sb-actions .btn {
   border: none;
@@ -13587,7 +13592,7 @@ aside.scrollable .icon-list li {
   text-align: center;
   border-bottom: 1px solid #4b4b4b;
   border-right: 1px solid #4b4b4b;
-  height: 121px;
+  height: 91px;
 }
 aside.scrollable .icon-list li:nth-child(2n) {
   border-right: none;
@@ -13609,8 +13614,8 @@ aside.scrollable .icon-list a.grid-list-item i {
   width: 100%;
   margin: auto;
   color: #C60751;
-  line-height: 120px;
-  font-size: 70px;
+  line-height: 90px;
+  font-size: 50px;
   text-align: center;
 }
 aside.scrollable .icon-list a.grid-list-item span.title {
@@ -13618,7 +13623,7 @@ aside.scrollable .icon-list a.grid-list-item span.title {
   z-index: 2;
   display: block;
   background-color: #4b4b4b;
-  line-height: 120px;
+  line-height: 90px;
   transform: translate(101%, 0%);
   -webkit-transition: all 0.2s ease-out;
   -moz-transition: all 0.2s ease-out;
@@ -13628,8 +13633,8 @@ aside.scrollable .icon-list a.grid-list-item span.title {
 aside.scrollable .icon-list a.grid-list-item span.title span {
   display: inline-block;
   padding: 0px 20px 0px 20px;
-  font-size: 16px;
-  line-height: 16px;
+  font-size: 14px;
+  line-height: 14px;
   text-transform: uppercase;
   color: #fff;
   vertical-align: middle;
@@ -13649,11 +13654,11 @@ aside.scrollable.sb-sml .icon-list li {
   float: none;
   width: 100%;
   border-right: none;
-  height: 51px;
+  height: 41px;
 }
 aside.scrollable.sb-sml .icon-list a.grid-list-item i {
-  line-height: 50px;
-  font-size: 25px;
+  line-height: 40px;
+  font-size: 20px;
 }
 aside.scrollable.sb-sml .icon-list a.grid-list-item span.title {
   display: none;
@@ -13683,7 +13688,7 @@ aside.sb-right {
   padding-bottom: 51px;
 }
 aside.sb-wide {
-  width: 500px;
+  width: 300px;
 }
 aside.sb-sml {
   width: 50px;
@@ -14017,9 +14022,10 @@ aside.sb-sml {
   font-weight: 300;
   font-stretch: normal;
   text-transform: uppercase;
-  margin-bottom: 5px;
+  margin-bottom: 8px;
   font-size: 25px;
   line-height: 25px;
+  text-decoration: none;
 }
 #team-grid .member-profile .profile-info .ext {
   margin-bottom: 10px;
