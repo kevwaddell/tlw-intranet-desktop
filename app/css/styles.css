@@ -13393,6 +13393,21 @@ article.page .meeting-icon {
 article.page .table {
   border-bottom: 1px solid #4b4b4b;
 }
+article.page .table a.attendee span.name {
+  display: inline-block;
+  min-width: 150px;
+  line-height: 20px;
+}
+article.page .table a.attendee .label {
+  display: inline-block;
+  width: 100px;
+  line-height: 20px;
+  padding: 0px 10px 0px 0px;
+}
+article.page .table a.attendee .label i {
+  padding-left: 10px;
+  line-height: 20px;
+}
 article.page .table input.input-name {
   display: inline;
   border: none;
@@ -13457,6 +13472,13 @@ aside.scrollable .no-name-message i.sb-icon {
   color: #918F8F;
   margin-bottom: 10px;
 }
+aside.scrollable .no-name-message span {
+  text-transform: uppercase;
+  display: block;
+  line-height: 16px;
+  padding-top: 10px;
+  font-weight: bold;
+}
 aside.scrollable .no-name-message a.btn {
   padding: 0px;
   height: 42px;
@@ -13518,10 +13540,12 @@ aside.scrollable button#add-contact-actions {
 aside.scrollable button#contact-actions {
   border-right: 1px solid #4b4b4b;
 }
-aside.scrollable .address-books {
+aside.scrollable .address-books,
+aside.scrollable .locations {
   padding-bottom: 32px;
 }
-aside.scrollable .address-books h3 {
+aside.scrollable .address-books h3,
+aside.scrollable .locations h3 {
   margin: 0px;
   padding: 5px 10px 5px 10px;
   background-color: #4b4b4b;
@@ -13530,7 +13554,8 @@ aside.scrollable .address-books h3 {
   font-size: 16px;
   line-height: 22px;
 }
-aside.scrollable .address-books a {
+aside.scrollable .address-books a,
+aside.scrollable .locations a {
   display: block;
   padding: 5px 10px 5px 10px;
   line-height: 22px;
@@ -13540,46 +13565,76 @@ aside.scrollable .address-books a {
   text-transform: uppercase;
 }
 aside.scrollable .address-books a:hover,
+aside.scrollable .locations a:hover,
 aside.scrollable .address-books a:active,
-aside.scrollable .address-books a:focus {
+aside.scrollable .locations a:active,
+aside.scrollable .address-books a:focus,
+aside.scrollable .locations a:focus {
   background-color: #E9E9E9;
 }
-aside.scrollable .address-books a.active {
+aside.scrollable .address-books a.active,
+aside.scrollable .locations a.active {
   background-color: #C60751;
   color: #fff;
   font-weight: bold;
   pointer-events: none;
 }
-aside.scrollable .contact-names {
+aside.scrollable .contact-names,
+aside.scrollable .meetings {
   padding-bottom: 32px;
 }
-aside.scrollable .contact-names .letter-label {
+aside.scrollable .contact-names .list-label,
+aside.scrollable .meetings .list-label {
   padding: 5px 10px 5px 10px;
   background-color: #E9E9E9;
   color: #4b4b4b;
   border-bottom: 1px solid #4b4b4b;
 }
-aside.scrollable .contact-names .contact-list-item {
+aside.scrollable .contact-names .list-item,
+aside.scrollable .meetings .list-item {
   border-bottom: 1px solid #4b4b4b;
 }
-aside.scrollable .contact-names .contact-list-item a {
+aside.scrollable .contact-names .list-item a,
+aside.scrollable .meetings .list-item a {
   display: block;
   padding: 5px 10px 5px 10px;
   color: #4b4b4b;
   text-decoration: none;
 }
-aside.scrollable .contact-names .contact-list-item a:hover,
-aside.scrollable .contact-names .contact-list-item a:active,
-aside.scrollable .contact-names .contact-list-item a:focus {
+aside.scrollable .contact-names .list-item a span,
+aside.scrollable .meetings .list-item a span {
+  display: block;
+}
+aside.scrollable .contact-names .list-item a .date,
+aside.scrollable .meetings .list-item a .date {
+  font-weight: bold;
+  color: #C60751;
+}
+aside.scrollable .contact-names .list-item a .title,
+aside.scrollable .meetings .list-item a .title {
+  font-size: 14px;
+}
+aside.scrollable .contact-names .list-item a:hover,
+aside.scrollable .meetings .list-item a:hover,
+aside.scrollable .contact-names .list-item a:active,
+aside.scrollable .meetings .list-item a:active,
+aside.scrollable .contact-names .list-item a:focus,
+aside.scrollable .meetings .list-item a:focus {
   background-color: #E9E9E9;
 }
-aside.scrollable .contact-names .contact-list-item.contact-active {
+aside.scrollable .contact-names .list-item.active,
+aside.scrollable .meetings .list-item.active {
   border-bottom: none;
 }
-aside.scrollable .contact-names .contact-list-item.contact-active a {
+aside.scrollable .contact-names .list-item.active a,
+aside.scrollable .meetings .list-item.active a {
   background-color: #4b4b4b;
   color: #fff;
   pointer-events: none;
+}
+aside.scrollable .contact-names .list-item.active a .date,
+aside.scrollable .meetings .list-item.active a .date {
+  color: #AED45D;
 }
 aside.scrollable .icon-list {
   overflow: hidden;

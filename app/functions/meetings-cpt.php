@@ -22,7 +22,7 @@ function register_cpt_tlw_meeting() {
         'labels' => $labels,
         'hierarchical' => false,
         'description' => 'TLW Intranet Meeting CPT.',
-        'supports' => array( 'author' ),
+        'supports' => array( 'author', 'title' ),
         'public' => true,
         'show_ui' => true,
         'show_in_menu' => true,

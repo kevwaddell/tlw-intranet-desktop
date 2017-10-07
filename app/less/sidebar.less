@@ -46,6 +46,14 @@ overflow: hidden;
 		.mag-bot(1);	
 		}
 		
+		span {
+		.caps;
+		.block;
+		.line-h(1.6);
+		.pad-top(1);
+		.bold;	
+		}
+		
 		a.btn {
 		.pad-all(0);
 		.h(4.2);
@@ -107,7 +115,7 @@ overflow: hidden;
 	.border-right(@grayDk; 0.1);
 	}
 
-	.address-books {
+	.address-books, .locations {
 	.pad-bot(3.2);
 		h3 {
 		.mag-all(0);
@@ -138,33 +146,46 @@ overflow: hidden;
 		}	
 	}
 	
-	.contact-names {
+	.contact-names, .meetings {
 	.pad-bot(3.2);
-		.letter-label {
+		.list-label {
 		.pad(0.5;1;0.5;1);	
 		.bg-col(@grayLt);
 		.col(@grayDk);
 		.border-bot(@grayDk; 0.1);
 		}
 		
-		.contact-list-item {	
+		.list-item {	
 		.border-bot(@grayDk; 0.1);
 			a {
 			.block;
 			.pad(0.5;1;0.5;1);	
 			.col(@grayDk);
 			.no-text-dec;
+				span {
+				.block;	
+				}
+				.date {
+				.bold;
+				.col(@red);	
+				}
+				.title {
+				.font-size(1.4);	
+				}
 				&:hover, &:active, &:focus {
 				.bg-col(@grayLt);
 				}
 			}
 			
-			&.contact-active {
+			&.active {
 			border-bottom: none;
 				a {
 				.bg-col(@grayDk);	
 				.col(@wht);
 				pointer-events: none;
+					.date {
+					.col(@green);	
+					}
 				}
 			}
 		}
