@@ -9,7 +9,7 @@ Template Name: Meetings page
 <?php  
 $locations = get_terms('tlw_rooms_tax', 'hide_empty=0');
 $first_meeting_post = get_posts(array('posts_per_page' => 1, 'post_type' => 'tlw_meeting', 'orderby' => 'date', 'order' => 'ASC')); 
-//echo '<pre class="debug">';print_r($first_meeting_post);echo '</pre>';
+//echo '<pre class="debug">';print_r($locations);echo '</pre>';
 ?>
 
 <article <?php post_class('page'); ?>>

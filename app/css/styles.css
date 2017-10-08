@@ -13408,6 +13408,12 @@ article.page .table a.attendee .label i {
   padding-left: 10px;
   line-height: 20px;
 }
+article.page .table td {
+  vertical-align: middle;
+}
+article.page .table tdvtop {
+  vertical-align: top;
+}
 article.page .table input.input-name {
   display: inline;
   border: none;
