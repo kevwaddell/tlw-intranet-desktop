@@ -38,17 +38,18 @@ include (STYLESHEETPATH . '/app/inc/meetings-page-vars/add-meeting.inc');
 
 <aside id="rooms-list" class="scrollable sb-left">
 	<div class="sb-inner">
-		<div class="locations">
-		  <?php foreach ($locations as $location) { ?>
-			<a href="?location-id=<?php echo $location->term_id; ?>" class="location-item<?php echo ($_REQUEST['location-id'] == $location->term_id) ? ' active':'' ?>"><?php echo $location->name; ?></a>
-		  <?php } ?>
+		<div class="dates">
+			<a href="?meeting-day=<?php echo date('dmY'); ?>">Today</a>
+			<a href="?meeting-day=<?php echo date('dmY', strtotime("Monday this week")); ?>&meeting-day-to=<?php echo date('dmY', strtotime("Friday this week")); ?>">This week</a>
+			<a href="?meeting-day=<?php echo date('dmY', strtotime("first day of this month")); ?>&meeting-day-to=<?php echo date('dmY', strtotime("last day of this month")); ?>">This month</a>
+			<a href="?meeting-day=<?php echo date('dmY', strtotime("first day of next month")); ?>&meeting-day-to=<?php echo date('dmY', strtotime("last day of next month")); ?>">Next month</a>
 		  <?php if (strtotime($first_meeting_post[0]->post_date) < strtotime("Now")) { 
 			$year_x = date("Y", strtotime($first_meeting_post[0]->post_date));
 			$now_year = date("Y");
 		  ?>
 		   <h3>Meeting archives</h3>
 		   <?php while ($now_year >= $year_x) { ?>
-		   <a href="?location-id=0&meeting-year=<?php echo $now_year; ?>" class="location-item<?php echo ($_REQUEST['meeting-year'] == $now_year) ? ' active':'' ?>"><?php echo $now_year; ?></a>
+		   <a href="?meeting-year=<?php echo $now_year; ?>"<?php echo ($_REQUEST['meeting-year'] == $now_year) ? ' class="active"':'' ?>><?php echo $now_year; ?></a>
 		   <?php $now_year--; ?>
 		   <?php } ?>
 		   

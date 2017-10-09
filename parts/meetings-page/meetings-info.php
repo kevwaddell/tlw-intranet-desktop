@@ -21,7 +21,7 @@ $meeting_approved = get_field( 'meeting_approved', $id );
 
 $now = strtotime('now');
 //echo '<pre>';print_r($attendees_staff);echo '</pre>';
-debug($meeting_date);
+//debug($meeting_date);
 ?>
 <table class="table table-striped">
 	<thead>
