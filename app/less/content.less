@@ -8,6 +8,10 @@ article.page {
 .pad(2;5;0;6);
 overflow: auto;
 .transition();
+
+	&.sb-out {
+	.left(30);	
+	}
 	
 	&.sb-in {
 	.left(5);	
@@ -48,12 +52,35 @@ overflow: auto;
 	background-clip: content-box;
 	}
 	
-	.private-icon {
+	.private-icon, .meeting-icon {
 	.font-size(10);	
 	}
 	
 	.table {
 	.border-bot(@grayDk; 0.1);	
+		a.attendee {
+			span.name {
+			.in-block;
+			.min-w(15);	
+			.line-h(2);
+			}
+			.label {
+			.in-block;
+			.w(10);	
+			.line-h(2);
+			.pad(0;1;0;0);
+				i {
+				.pad-left(1);
+				.line-h(2);	
+				}
+			}	
+		}
+		td {
+		vertical-align: middle;	
+			&vtop {
+			vertical-align: top;	
+			}
+		}
 		input.input-name {
 		display: inline;
 		.no-border;

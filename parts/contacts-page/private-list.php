@@ -8,7 +8,7 @@ sort($pr_alpha_contacts);
 
 <div id="letter-<?php echo $alpha; ?>" class="contact-list-group">
 	
-	<div class="letter-label"><?php echo $alpha; ?></div>
+	<div class="list-label"><?php echo $alpha; ?></div>
 
 <?php foreach ($active_contacts as $k => $uc) { ?>
 	<?php
@@ -19,7 +19,7 @@ sort($pr_alpha_contacts);
 	$first_letter = $lastname[0];
 	?>
 	<?php if ($first_letter == $alpha) { ?>
-	<div id="contact-id-<?php echo $id ; ?>" class="contact-list-item<?php echo ($_REQUEST['private-id'] == $id) ? ' contact-active': ''; ?>">
+	<div id="contact-id-<?php echo $id ; ?>" class="list-item<?php echo ($_REQUEST['private-id'] == $id) ? ' active': ''; ?>">
 		<a href="?private-id=<?php echo $id ; ?>&group-id=<?php echo $group; ?>"><?php echo $firstname; ?> <strong><?php echo $lastname; ?></strong></a>
 	</div>
 	<?php } ?>

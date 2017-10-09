@@ -8,14 +8,6 @@ function my_acf_save_post( $post_id )
 	
 	//var_dump($current_screen);
 	
-	if ($current_screen->id == 'tlw_meeting') {
-	
-		$slug = sanitize_title($_POST['acf']['field_5395d707861af'].' '.$_POST['acf']['field_533be32c54fbc']); 
-		$title = $_POST['fields']['field_5395d707861af'];
-		
-		wp_update_post( array( 'ID' => $post_id, 'post_title' => $title, 'post_name' => $slug) );
-	}	
-	
 	if ($current_screen->id == 'tlw_holiday') {
 	
 		//echo '<pre>';print_r(strtotime($_POST['acf']['field_53c67357805e5']));echo '</pre>';

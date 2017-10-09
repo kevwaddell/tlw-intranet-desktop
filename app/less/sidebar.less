@@ -46,6 +46,14 @@ overflow: hidden;
 		.mag-bot(1);	
 		}
 		
+		span {
+		.caps;
+		.block;
+		.line-h(1.6);
+		.pad-top(1);
+		.bold;	
+		}
+		
 		a.btn {
 		.pad-all(0);
 		.h(4.2);
@@ -68,9 +76,10 @@ overflow: hidden;
 	.left(0);
 	.bottom(0);
 	.right(0);
-	.h(5);
+	.h(5.1);
 	.border-top(@grayDk; 0.1);
 	.bg-col(@wht);
+	z-index: 2;
 		.btn {
 		.no-border;	
 		.pad-all(0);
@@ -87,16 +96,15 @@ overflow: hidden;
 			.bg-col(@grayDk);
 			.col(@wht);
 			}
+			&.pull-right {
+			.border-left(@grayDk; 0.1);	
+			}
 		}
 		
 		a.disabled {
 		.col(@gray);
 		pointer-events: none;	
 		}
-	}
-	
-	button#colapse-sb {
-	.border-left(@grayDk; 0.1);
 	}
 	
 	button#add-contact-actions {
@@ -107,8 +115,8 @@ overflow: hidden;
 	.border-right(@grayDk; 0.1);
 	}
 
-	.address-books {
-	.pad-bot(5);
+	.address-books, .locations {
+	.pad-bot(3.2);
 		h3 {
 		.mag-all(0);
 		.pad(0.5;1;0.5;1);	
@@ -138,33 +146,46 @@ overflow: hidden;
 		}	
 	}
 	
-	.contact-names {
+	.contact-names, .meetings {
 	.pad-bot(3.2);
-		.letter-label {
+		.list-label {
 		.pad(0.5;1;0.5;1);	
 		.bg-col(@grayLt);
 		.col(@grayDk);
 		.border-bot(@grayDk; 0.1);
 		}
 		
-		.contact-list-item {	
+		.list-item {	
 		.border-bot(@grayDk; 0.1);
 			a {
 			.block;
 			.pad(0.5;1;0.5;1);	
 			.col(@grayDk);
 			.no-text-dec;
+				span {
+				.block;	
+				}
+				.date {
+				.bold;
+				.col(@red);	
+				}
+				.title {
+				.font-size(1.4);	
+				}
 				&:hover, &:active, &:focus {
 				.bg-col(@grayLt);
 				}
 			}
 			
-			&.contact-active {
+			&.active {
 			border-bottom: none;
 				a {
 				.bg-col(@grayDk);	
 				.col(@wht);
 				pointer-events: none;
+					.date {
+					.col(@green);	
+					}
 				}
 			}
 		}
@@ -180,7 +201,7 @@ overflow: hidden;
 		text-align: center;
 		.border-bot(@grayDk; 0.1);
 		.border-right(@grayDk; 0.1);
-		.h(12.1);
+		.h(9.1);
 			&:nth-child(2n) {
 			border-right: none;
 			}
@@ -201,8 +222,8 @@ overflow: hidden;
 			width: 100%;
 			margin: auto;
 			.col(@red);
-			.line-h(12);
-			.font-size(7);
+			.line-h(9);
+			.font-size(5);
 			text-align: center;
 			}	
 			
@@ -211,14 +232,14 @@ overflow: hidden;
 			z-index: 2;
 			.block;
 			.bg-col(@grayDk);
-			.line-h(12);
+			.line-h(9);
 			transform: translate(101%, 0%);
 			.transition();
 				span {
 				.in-block;
 				.pad(0;2;0;2);
-				.font-size(1.6);
-				.line-h(1.6);
+				.font-size(1.4);
+				.line-h(1.4);
 				//.h(10);
 				.caps;	
 				.col(@wht);
@@ -249,13 +270,13 @@ overflow: hidden;
 			.no-float;
 			width: 100%;
 			border-right: none;
-			.h(5.1);	
+			.h(4.1);	
 			}
 			
 			a.grid-list-item {
 				i {
-				.line-h(5);
-				.font-size(2.5);	
+				.line-h(4);
+				.font-size(2);	
 				}	
 				span.title {
 				.none;
@@ -282,14 +303,16 @@ overflow: hidden;
 
 aside.sb-left {
 .left(0);	
+.pad-bot(5.1);
 }
 
 aside.sb-right {
 .left(25);
+.pad-bot(5.1);
 }
 
 aside.sb-wide {
-.w(50);	
+.w(30);	
 }
 
 aside.sb-sml {
