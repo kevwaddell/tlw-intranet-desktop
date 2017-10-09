@@ -39,10 +39,10 @@ include (STYLESHEETPATH . '/app/inc/meetings-page-vars/add-meeting.inc');
 <aside id="rooms-list" class="scrollable sb-left">
 	<div class="sb-inner">
 		<div class="dates">
-			<a href="?meeting-day=<?php echo date('dmY'); ?>">Today</a>
-			<a href="?meeting-day=<?php echo date('dmY', strtotime("Monday this week")); ?>&meeting-day-to=<?php echo date('dmY', strtotime("Friday this week")); ?>">This week</a>
-			<a href="?meeting-day=<?php echo date('dmY', strtotime("first day of this month")); ?>&meeting-day-to=<?php echo date('dmY', strtotime("last day of this month")); ?>">This month</a>
-			<a href="?meeting-day=<?php echo date('dmY', strtotime("first day of next month")); ?>&meeting-day-to=<?php echo date('dmY', strtotime("last day of next month")); ?>">Next month</a>
+			<a href="?meeting-day=<?php echo date('Ymd'); ?>">Today</a>
+			<a href="?meeting-day=<?php echo date('Ymd', strtotime("Monday this week")); ?>&meeting-day-to=<?php echo date('Ymd', strtotime("Friday this week")); ?>">This week</a>
+			<a href="?meeting-day=<?php echo date('Ymd', strtotime("first day of this month")); ?>&meeting-day-to=<?php echo date('Ymd', strtotime("last day of this month")); ?>">This month</a>
+			<a href="?meeting-day=<?php echo date('Ymd', strtotime("first day of next month")); ?>&meeting-day-to=<?php echo date('Ymd', strtotime("last day of next month")); ?>">Next month</a>
 		  <?php if (strtotime($first_meeting_post[0]->post_date) < strtotime("Now")) { 
 			$year_x = date("Y", strtotime($first_meeting_post[0]->post_date));
 			$now_year = date("Y");
@@ -60,7 +60,7 @@ include (STYLESHEETPATH . '/app/inc/meetings-page-vars/add-meeting.inc');
 
 <aside id="meetings-list" class="scrollable sb-right">
 	<div class="sb-inner">
-		<?php  if ( isset($_REQUEST['location-id']) ) { ?>
+		<?php  if ( isset($_REQUEST['meeting-day']) || isset($_REQUEST['meeting-year'])) { ?>
 		<?php get_template_part( 'parts/meetings-page/meetings', 'list' ); ?>
 		<?php } ?>		
 		
@@ -74,9 +74,7 @@ include (STYLESHEETPATH . '/app/inc/meetings-page-vars/add-meeting.inc');
 	</div>
 	<div class="sb-actions">
 		<div class="actions-inner">
-		<?php if (isset($_REQUEST['location-id']) && $_REQUEST['location-id'] != 0) { ?>
-			<a href="?meeting-actions=add-meeting<?php echo (isset($_REQUEST['location-id'])) ? '&location-id='.$_REQUEST['location-id']:''; ?>" class="btn btn-default btn-lg no-rounded pull-right" id="add-meeting"><i class="fa fa-plus fa-lg"></i><span class="sr-only">Book room</span></a>
-			<?php } ?>	
+			<a href="?meeting-actions=add-meeting" class="btn btn-default btn-lg no-rounded pull-right" id="add-meeting"><i class="fa fa-plus fa-lg"></i><span class="sr-only">Book room</span></a>	
 		</div>
 	</div>
 </aside>

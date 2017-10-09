@@ -1,14 +1,9 @@
 <?php
 global $current_user;
 $current_meeting = get_post( $_REQUEST['meeting-id']);
-$current_location = get_term( $_REQUEST['location-id'] );
-
-if ($_REQUEST['location-id'] == 0) {
-$locations = wp_get_post_terms( $current_meeting, 'tlw_rooms_tax');
-$current_location = $locations[0];	
-}
-
 $id = $current_meeting->ID; 
+$locations = wp_get_post_terms( $id, 'tlw_rooms_tax');
+$current_location = $locations[0];	
 $booked_by = $current_meeting->post_author;	
 $meeting_description = get_field('meeting_description', $id);
 $meeting_date = strtotime(get_field( 'meeting_date', $id ));
@@ -104,8 +99,10 @@ $now = strtotime('now');
 		<tr>
 			<td></td>
 			<td>
-				<a href="?meeting-actions=add-attendees&location-id=<?php echo $ac_id; ?>&meeting-id=<?php echo $id; ?>" class="btn btn-default caps"><i class="fa fa-plus"></i> Add attendees</a>
-				<a href="?meeting-actions=cancel-meeting&location-id=<?php echo $ac_id; ?>&meeting-id=<?php echo $id; ?>" class="btn btn-default caps"><i class="fa fa-times"></i> Cancel meeting</a>
+				<?php if ($meeting_approved) { ?>
+				<a href="?meeting-actions=add-attendees&meeting-id=<?php echo $id; ?>" class="btn btn-default caps"><i class="fa fa-plus"></i> Add attendees</a>
+				<?php } ?>
+				<a href="?meeting-actions=cancel-meeting&meeting-id=<?php echo $id; ?>" class="btn btn-default caps"><i class="fa fa-times"></i> Cancel meeting</a>
 			</td>
 		</tr>
 		<?php } ?>
