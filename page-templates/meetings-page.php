@@ -9,7 +9,18 @@ Template Name: Meetings page
 <?php  
 $locations = get_terms('tlw_rooms_tax', 'hide_empty=0');
 $first_meeting_post = get_posts(array('posts_per_page' => 1, 'post_type' => 'tlw_meeting', 'orderby' => 'date', 'order' => 'ASC')); 
-//echo '<pre class="debug">';print_r($locations);echo '</pre>';
+$add_meeting_errors = array();
+$excluded_users = array(1, 60, 69);
+
+$users_args = array(
+'exclude'	=> $excluded_users,
+'meta_key' => 'last_name',
+'orderby'	=> 'meta_value'
+);
+$all_users = get_users($users_args);
+//echo '<pre class="debug">';print_r($all_users);echo '</pre>';
+
+include (STYLESHEETPATH . '/app/inc/meetings-page-vars/add-meeting.inc');
 ?>
 
 <article <?php post_class('page'); ?>>
@@ -17,8 +28,8 @@ $first_meeting_post = get_posts(array('posts_per_page' => 1, 'post_type' => 'tlw
 		<?php if ( isset($_REQUEST['meeting-id']) ) { ?>
 			<?php  get_template_part( 'parts/meetings-page/meetings', 'info' ); ?>
 		<?php } ?>
-		<?php if ( isset($_GET['meeting-actions']) ) { ?>
-			<?php if ($_GET['meeting-actions'] == 'add-meeting') { ?>
+		<?php if ( isset($_GET['meeting-actions']) || isset($_POST['add-meeting'])) { ?>
+			<?php if ($_GET['meeting-actions'] == 'add-meeting' || !empty($add_meeting_errors)) { ?>
 			<?php  get_template_part( 'parts/meetings-page/add', 'meeting' ); ?>
 			<?php } ?>
 		<?php } ?>
@@ -35,7 +46,7 @@ $first_meeting_post = get_posts(array('posts_per_page' => 1, 'post_type' => 'tlw
 			$year_x = date("Y", strtotime($first_meeting_post[0]->post_date));
 			$now_year = date("Y");
 		  ?>
-		   <h3>Past Meetings</h3>
+		   <h3>Meeting archives</h3>
 		   <?php while ($now_year >= $year_x) { ?>
 		   <a href="?location-id=0&meeting-year=<?php echo $now_year; ?>" class="location-item<?php echo ($_REQUEST['meeting-year'] == $now_year) ? ' active':'' ?>"><?php echo $now_year; ?></a>
 		   <?php $now_year--; ?>
@@ -63,7 +74,7 @@ $first_meeting_post = get_posts(array('posts_per_page' => 1, 'post_type' => 'tlw
 	<div class="sb-actions">
 		<div class="actions-inner">
 		<?php if (isset($_REQUEST['location-id']) && $_REQUEST['location-id'] != 0) { ?>
-			<a href="?meeting-actions=add-meeting<?php echo (isset($_REQUEST['location-id'])) ? '&location-id='.$_REQUEST['location-id']:''; ?>" class="btn btn-default btn-lg no-rounded pull-right" id="add-contact" ><i class="fa fa-plus fa-lg"></i><span class="sr-only">Add Meeting</span></a>
+			<a href="?meeting-actions=add-meeting<?php echo (isset($_REQUEST['location-id'])) ? '&location-id='.$_REQUEST['location-id']:''; ?>" class="btn btn-default btn-lg no-rounded pull-right" id="add-meeting"><i class="fa fa-plus fa-lg"></i><span class="sr-only">Book room</span></a>
 			<?php } ?>	
 		</div>
 	</div>

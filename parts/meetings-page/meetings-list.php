@@ -16,15 +16,14 @@ $meetings_args = array(
 	),
 
 );
-if ($_REQUEST['location-id'] == 0) {
+if (isset($_REQUEST['meeting-year'])) {
 unset($meetings_args['tax_query']);
-	if ($_REQUEST['meeting-year'] == date("Y")) {
-	$meetings_args['date_query'] = array( array('after' => date('d/m/Y', strtotime("january ".$_REQUEST['meeting-year'])) ), array('before' => date('d/m/Y', strtotime("Today")) ));	
-	} else {
-	$meetings_args['date_query'] = array( array('year' => $_REQUEST['meeting-year']));	
-	}
+$meetings_args['date_query'] = array( array('year' => $_REQUEST['meeting-year']));	
 }
 $meetings = get_posts($meetings_args);
+
+//debug($meetings_args);
+
 $meeting_months = array();
 foreach ($meetings as $m) {
 
@@ -48,10 +47,13 @@ $location = get_term( $_REQUEST['location-id']);
 	<?php
 	$meeting_title = $meeting->post_title;
 	$meeting_date = strtotime( get_field( 'meeting_date', $meeting->ID ) );
+	$locations = wp_get_post_terms( $meeting->ID, 'tlw_rooms_tax');
+	$location_id = $locations[0]->term_id;
+	//debug($locations[0]);
 	?>
 	<?php if (date("F", $meeting_date) == $mm) { ?>
 	<div id="meeting-id-<?php echo $meeting->ID; ?>" class="list-item<?php echo($_REQUEST['meeting-id'] == $meeting->ID) ? ' active':''; ?>">
-		<a href="?meeting-id=<?php echo $meeting->ID; ?>&location-id=<?php echo $_REQUEST['location-id'] ?>&meeting-year=<?php echo date("Y", strtotime( get_field( 'meeting_date', $meeting->ID ) )); ?>">
+		<a href="?meeting-id=<?php echo $meeting->ID; ?>&location-id=<?php echo $location_id; ?>&meeting-year=<?php echo date("Y", strtotime( get_field( 'meeting_date', $meeting->ID ) )); ?>">
 			<span class="date"><?php echo date('D jS M Y', $meeting_date); ?></span>
 			<span class="title"><?php echo get_the_title( $meeting->ID ); ?></span>
 		</a>
@@ -69,7 +71,7 @@ $location = get_term( $_REQUEST['location-id']);
 	<p>There are no meetings in<span><?php echo $_REQUEST['meeting-year']; ?></span></p>
 	<?php } else { ?>
 	<p>There are no meetings booked for<span><?php echo $location->name; ?></span></p>
-	<a href="?meeting-actions=add-meeting&location-id=<?php echo $_REQUEST['location-id']; ?>" id="add-meeting" class="btn btn-default btn-block caps"><i class="fa fa-plus-circle pull-left"></i> Add meeting</a>
+	<a href="?meeting-actions=add-meeting&location-id=<?php echo $_REQUEST['location-id']; ?>" id="add-meeting" class="btn btn-default btn-block caps"><i class="fa fa-plus-circle pull-left"></i> Book room</a>
 	<?php } ?>
 </div>
 <?php } ?>

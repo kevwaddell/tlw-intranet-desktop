@@ -59,6 +59,40 @@
 		"oAP": "\/app\/css\/fonts\/FontAwesome.otf",
 		"oF": 0
 		},
+	"\/app\/css\/fonts\/glyphicons-halflings-regular.eot": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/app\/css\/fonts\/glyphicons-halflings-regular.eot",
+		"oF": 0
+		},
+	"\/app\/css\/fonts\/glyphicons-halflings-regular.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "\/app\/css\/fonts\/glyphicons-halflings-regular.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
+	"\/app\/css\/fonts\/glyphicons-halflings-regular.ttf": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/app\/css\/fonts\/glyphicons-halflings-regular.ttf",
+		"oF": 0
+		},
+	"\/app\/css\/fonts\/glyphicons-halflings-regular.woff": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/app\/css\/fonts\/glyphicons-halflings-regular.woff",
+		"oF": 0
+		},
+	"\/app\/css\/fonts\/glyphicons-halflings-regular.woff2": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/app\/css\/fonts\/glyphicons-halflings-regular.woff2",
+		"oF": 0
+		},
 	"\/app\/css\/fonts\/OpenSans-Light-webfont.eot": {
 		"ft": 8192,
 		"oA": 2,
@@ -295,6 +329,12 @@
 		"oAP": "\/app\/inc\/contact-page-vars\/internal-users.inc",
 		"oF": 0
 		},
+	"\/app\/inc\/meetings-page-vars\/add-meeting.inc": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/app\/inc\/meetings-page-vars\/add-meeting.inc",
+		"oF": 0
+		},
 	"\/app\/inc\/notes-page-vars\/get-note.inc": {
 		"ft": 8192,
 		"oA": 2,
@@ -372,9 +412,9 @@
 		"ma": 0,
 		"mi": 1,
 		"oA": 0,
-		"oAP": "\/app\/js\/min\/functions-min.js",
-		"oF": 0,
-		"sC": 1,
+		"oAP": "\/app\/js\/functions-min.js",
+		"oF": 2,
+		"sC": 0,
 		"tS": 0
 		},
 	"\/app\/js\/modernizr-min.js": {
