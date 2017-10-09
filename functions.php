@@ -168,4 +168,10 @@ function cmp($a, $b) {
 	return strcmp($a[1], $b[1]);
 }
 
+function debug($data) {
+	echo '<pre class="debug">';
+	print_r($data);	
+	echo '</pre>';	
+}
+
 ?>

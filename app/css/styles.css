@@ -255,8 +255,8 @@ th {
 }
 @font-face {
   font-family: 'Glyphicons Halflings';
-  src: url('/wp-content/themes/tlwsolicitors-desktop-v5/_/css/fonts/glyphicons-halflings-regular.eot');
-  src: url('/wp-content/themes/tlwsolicitors-desktop-v5/_/css/fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('/wp-content/themes/tlwsolicitors-desktop-v5/_/css/fonts/glyphicons-halflings-regular.woff2') format('woff2'), url('/wp-content/themes/tlwsolicitors-desktop-v5/_/css/fonts/glyphicons-halflings-regular.woff') format('woff'), url('/wp-content/themes/tlwsolicitors-desktop-v5/_/css/fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('/wp-content/themes/tlwsolicitors-desktop-v5/_/css/fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+  src: url('/wp-content/themes/tlw-intranet-desktop/app/css/fonts/glyphicons-halflings-regular.eot');
+  src: url('/wp-content/themes/tlw-intranet-desktop/app/css/fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('/wp-content/themes/tlw-intranet-desktop/app/css/fonts/glyphicons-halflings-regular.woff2') format('woff2'), url('/wp-content/themes/tlw-intranet-desktop/app/css/fonts/glyphicons-halflings-regular.woff') format('woff'), url('/wp-content/themes/tlw-intranet-desktop/app/css/fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('/wp-content/themes/tlw-intranet-desktop/app/css/fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
 }
 .glyphicon {
   position: relative;
@@ -12404,6 +12404,10 @@ pre.debug {
   background-color: black;
   color: white;
 }
+pre.debug.left {
+  left: 0px;
+  right: auto;
+}
 body {
   position: relative;
   width: 100%;
@@ -13408,11 +13412,11 @@ article.page .table a.attendee .label i {
   padding-left: 10px;
   line-height: 20px;
 }
-article.page .table td {
-  vertical-align: middle;
+article.page .table td label {
+  line-height: 34px;
 }
-article.page .table tdvtop {
-  vertical-align: top;
+article.page .table td .form-group {
+  margin-bottom: 0px;
 }
 article.page .table input.input-name {
   display: inline;
