@@ -38,17 +38,18 @@ include (STYLESHEETPATH . '/app/inc/meetings-page-vars/add-meeting.inc');
 
 <aside id="rooms-list" class="scrollable sb-left">
 	<div class="sb-inner">
-		<div class="locations">
-		  <?php foreach ($locations as $location) { ?>
-			<a href="?location-id=<?php echo $location->term_id; ?>" class="location-item<?php echo ($_REQUEST['location-id'] == $location->term_id) ? ' active':'' ?>"><?php echo $location->name; ?></a>
-		  <?php } ?>
+		<div class="dates">
+			<a href="?meeting-day=<?php echo date('Ymd'); ?>">Today</a>
+			<a href="?meeting-day=<?php echo date('Ymd', strtotime("Monday this week")); ?>&meeting-day-to=<?php echo date('Ymd', strtotime("Friday this week")); ?>">This week</a>
+			<a href="?meeting-day=<?php echo date('Ymd', strtotime("first day of this month")); ?>&meeting-day-to=<?php echo date('Ymd', strtotime("last day of this month")); ?>">This month</a>
+			<a href="?meeting-day=<?php echo date('Ymd', strtotime("first day of next month")); ?>&meeting-day-to=<?php echo date('Ymd', strtotime("last day of next month")); ?>">Next month</a>
 		  <?php if (strtotime($first_meeting_post[0]->post_date) < strtotime("Now")) { 
 			$year_x = date("Y", strtotime($first_meeting_post[0]->post_date));
 			$now_year = date("Y");
 		  ?>
 		   <h3>Meeting archives</h3>
 		   <?php while ($now_year >= $year_x) { ?>
-		   <a href="?location-id=0&meeting-year=<?php echo $now_year; ?>" class="location-item<?php echo ($_REQUEST['meeting-year'] == $now_year) ? ' active':'' ?>"><?php echo $now_year; ?></a>
+		   <a href="?meeting-year=<?php echo $now_year; ?>"<?php echo ($_REQUEST['meeting-year'] == $now_year) ? ' class="active"':'' ?>><?php echo $now_year; ?></a>
 		   <?php $now_year--; ?>
 		   <?php } ?>
 		   
@@ -59,7 +60,7 @@ include (STYLESHEETPATH . '/app/inc/meetings-page-vars/add-meeting.inc');
 
 <aside id="meetings-list" class="scrollable sb-right">
 	<div class="sb-inner">
-		<?php  if ( isset($_REQUEST['location-id']) ) { ?>
+		<?php  if ( isset($_REQUEST['meeting-day']) || isset($_REQUEST['meeting-year'])) { ?>
 		<?php get_template_part( 'parts/meetings-page/meetings', 'list' ); ?>
 		<?php } ?>		
 		
@@ -73,9 +74,7 @@ include (STYLESHEETPATH . '/app/inc/meetings-page-vars/add-meeting.inc');
 	</div>
 	<div class="sb-actions">
 		<div class="actions-inner">
-		<?php if (isset($_REQUEST['location-id']) && $_REQUEST['location-id'] != 0) { ?>
-			<a href="?meeting-actions=add-meeting<?php echo (isset($_REQUEST['location-id'])) ? '&location-id='.$_REQUEST['location-id']:''; ?>" class="btn btn-default btn-lg no-rounded pull-right" id="add-meeting"><i class="fa fa-plus fa-lg"></i><span class="sr-only">Book room</span></a>
-			<?php } ?>	
+			<a href="?meeting-actions=add-meeting" class="btn btn-default btn-lg no-rounded pull-right" id="add-meeting"><i class="fa fa-plus fa-lg"></i><span class="sr-only">Book room</span></a>	
 		</div>
 	</div>
 </aside>
