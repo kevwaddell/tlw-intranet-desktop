@@ -329,10 +329,28 @@
 		"oAP": "\/app\/inc\/contact-page-vars\/internal-users.inc",
 		"oF": 0
 		},
+	"\/app\/inc\/meetings-page-vars\/add-attendees.inc": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/app\/inc\/meetings-page-vars\/add-attendees.inc",
+		"oF": 0
+		},
 	"\/app\/inc\/meetings-page-vars\/add-meeting.inc": {
 		"ft": 8192,
 		"oA": 2,
 		"oAP": "\/app\/inc\/meetings-page-vars\/add-meeting.inc",
+		"oF": 0
+		},
+	"\/app\/inc\/meetings-page-vars\/cancel-meeting.inc": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/app\/inc\/meetings-page-vars\/cancel-meeting.inc",
+		"oF": 0
+		},
+	"\/app\/inc\/meetings-page-vars\/meeting-booked-email.inc": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/app\/inc\/meetings-page-vars\/meeting-booked-email.inc",
 		"oF": 0
 		},
 	"\/app\/inc\/notes-page-vars\/get-note.inc": {
@@ -1395,10 +1413,22 @@
 		"oAP": "\/parts\/holiday-request\/pending-list.php",
 		"oF": 0
 		},
+	"\/parts\/meetings-page\/add-attendees.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/parts\/meetings-page\/add-attendees.php",
+		"oF": 0
+		},
 	"\/parts\/meetings-page\/add-meeting.php": {
 		"ft": 8192,
 		"oA": 2,
 		"oAP": "\/parts\/meetings-page\/add-meeting.php",
+		"oF": 0
+		},
+	"\/parts\/meetings-page\/alerts\/meeting-alerts.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/parts\/meetings-page\/alerts\/meeting-alerts.php",
 		"oF": 0
 		},
 	"\/parts\/meetings-page\/meetings-info.php": {

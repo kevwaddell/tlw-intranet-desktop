@@ -12,19 +12,21 @@
 		
 		$('#meeting-datepicker').datetimepicker({
 			format: 'dddd Do MMMM, YYYY',
+			minDate: moment().toNow(),
 			daysOfWeekDisabled: [0, 6],
+			useCurrent: false,
 			minDate: moment(),
 		});
 		
 		$('#meeting-startpicker').datetimepicker({
-			format: 'LT',
-			stepping: 5,
+			format: 'H:mm',
+			stepping: 30,
 			disabledTimeIntervals: [[moment({ h: 0 }), moment({ h: 8 })], [moment({ h: 18 }), moment({ h: 24 })]]
 		});
 		
 		$('#meeting-endpicker').datetimepicker({
-			format: 'LT',
-			stepping: 5,
+			format: 'H:mm',
+			stepping: 30,
 			useCurrent: false,
 			disabledTimeIntervals: [[moment({ h: 0 }), moment({ h: 9 })], [moment({ h: 19 }), moment({ h: 24 })]]
 		});

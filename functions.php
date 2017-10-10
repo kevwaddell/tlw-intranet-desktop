@@ -169,9 +169,11 @@ function cmp($a, $b) {
 }
 
 function debug($data) {
+	if (current_user_can("administrator")) {
 	echo '<pre class="debug">';
 	print_r($data);	
 	echo '</pre>';	
+	}
 }
 
 ?>

@@ -6,6 +6,7 @@ $meetings_args = array(
 );
 if (isset($_REQUEST['meeting-day']) ) {
 	$meetings_args['orderby'] = 'meta_value';
+	$meetings_args['order'] = 'ASC';
 	$meetings_args['meta_key'] = 'meeting_date';
 	
 	if (isset($_REQUEST['meeting-day-to'])) {
@@ -22,7 +23,7 @@ $meetings_args['year'] = $_REQUEST['meeting-year'];
 
 $meetings = get_posts($meetings_args);
 
-//debug($meetings_args);
+//debug($meetings);
 
 $meeting_months = array();
 foreach ($meetings as $m) {
@@ -33,10 +34,6 @@ $month = date('F', strtotime(get_field( 'meeting_date', $m->ID )));
 	}
 }
 //echo '<pre class="debug">';print_r($meeting_months);echo '</pre>';
-if ($_REQUEST['location-id'] != 0) {
-$location = get_term( $_REQUEST['location-id']);	
-//echo '<pre class="debug">';print_r($location);echo '</pre>';
-}	
 ?>
 <?php if (!empty($meetings)) { ?>
 
@@ -48,15 +45,12 @@ $location = get_term( $_REQUEST['location-id']);
 	<?php foreach ($meetings as $meeting) { ?>
 	<?php
 	$meeting_title = $meeting->post_title;
-	$meeting_date = strtotime( get_field( 'meeting_date', $meeting->ID ) );
-	$locations = wp_get_post_terms( $meeting->ID, 'tlw_rooms_tax');
-	$location_id = $locations[0]->term_id;
-	//debug($locations[0]);
+	$meeting_date = get_field( 'meeting_date', $meeting->ID );
 	?>
-	<?php if (date("F", $meeting_date) == $mm) { ?>
+	<?php if (date("F", strtotime($meeting_date)) == $mm) { ?>
 	<div id="meeting-id-<?php echo $meeting->ID; ?>" class="list-item<?php echo($_REQUEST['meeting-id'] == $meeting->ID) ? ' active':''; ?>">
-		<a href="?meeting-id=<?php echo $meeting->ID; ?>&meeting-year=<?php echo date("Y", strtotime( get_field( 'meeting_date', $meeting->ID ) )); ?>">
-			<span class="date"><?php echo date('D jS M Y', $meeting_date); ?></span>
+		<a href="?meeting-id=<?php echo $meeting->ID; ?>&meeting-year=<?php echo date("Y", strtotime( $meeting_date ) ); ?>">
+			<span class="date"><?php echo date('l jS', strtotime($meeting_date)); ?></span>
 			<span class="title"><?php echo get_the_title( $meeting->ID ); ?></span>
 		</a>
 	</div>
@@ -76,8 +70,8 @@ $location = get_term( $_REQUEST['location-id']);
 	//debug($locations[0]);
 	?>
 	<div id="meeting-id-<?php echo $meeting->ID; ?>" class="list-item<?php echo($_REQUEST['meeting-id'] == $meeting->ID) ? ' active':''; ?>">
-		<a href="?meeting-id=<?php echo $meeting->ID; ?>&meeting-day=<?php echo $_REQUEST['meeting-day']; ?>">
-			<span class="date"><?php echo date('D jS M Y', $meeting_date); ?></span>
+		<a href="?meeting-id=<?php echo $meeting->ID; ?>&meeting-day=<?php echo $_REQUEST['meeting-day']; ?><?php echo ( isset($_REQUEST['meeting-day-to']) ) ? '&meeting-day-to='.$_REQUEST['meeting-day-to']:''; ?>">
+			<span class="date"><?php echo date('l jS M', $meeting_date); ?></span>
 			<span class="title"><?php echo get_the_title( $meeting->ID ); ?></span>
 		</a>
 	</div>
@@ -91,8 +85,8 @@ $location = get_term( $_REQUEST['location-id']);
 	<?php if (isset($_REQUEST['meeting-year'])) { ?>
 	<p>There are no meetings in<span><?php echo $_REQUEST['meeting-year']; ?></span></p>
 	<?php } else { ?>
-	<p>There are no meetings booked for<span><?php echo strtotime($_REQUEST['meeting-day']); ?></span></p>
-	<a href="?meeting-actions=add-meeting" id="add-meeting" class="btn btn-default btn-block caps"><i class="fa fa-plus-circle pull-left"></i> Book room</a>
+	<p>There are no meetings booked <?php echo (isset($_REQUEST['meeting-day-to'])) ? 'from':'for';?><span><?php echo date('jS F', strtotime($_REQUEST['meeting-day'])); ?></span><?php echo (isset($_REQUEST['meeting-day-to'])) ? ' to <span>'.date('jS F', strtotime($_REQUEST['meeting-day-to'])).'</span>':''; ?></p>
+	<a href="?meeting-actions=add-meeting" id="add-meeting" class="btn btn-default btn-block caps"><i class="fa fa-plus-circle pull-left"></i> Book a room</a>
 	<?php } ?>
 </div>
 <?php } ?>
