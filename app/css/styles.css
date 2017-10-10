@@ -13412,7 +13412,8 @@ article.page .table a.attendee .label i {
   padding-left: 10px;
   line-height: 20px;
 }
-article.page .table td label {
+article.page .table td label,
+article.page .table td small {
   line-height: 34px;
 }
 article.page .table td .form-group {
@@ -13589,6 +13590,10 @@ aside.scrollable .dates a.active {
   font-weight: bold;
   pointer-events: none;
 }
+aside.scrollable .address-books a.lg-link,
+aside.scrollable .dates a.lg-link {
+  padding: 15px 10px 15px 10px;
+}
 aside.scrollable .contact-names,
 aside.scrollable .meetings {
   padding-bottom: 32px;
@@ -13623,6 +13628,10 @@ aside.scrollable .meetings .list-item a .date {
 aside.scrollable .contact-names .list-item a .title,
 aside.scrollable .meetings .list-item a .title {
   font-size: 14px;
+  height: 20px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 aside.scrollable .contact-names .list-item a:hover,
 aside.scrollable .meetings .list-item a:hover,

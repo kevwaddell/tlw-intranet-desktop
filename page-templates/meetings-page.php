@@ -10,6 +10,7 @@ Template Name: Meetings page
 $locations = get_terms('tlw_rooms_tax', 'hide_empty=0');
 $first_meeting_post = get_posts(array('posts_per_page' => 1, 'post_type' => 'tlw_meeting', 'orderby' => 'date', 'order' => 'ASC')); 
 $add_meeting_errors = array();
+$add_attendee_errors = array();
 $excluded_users = array(1, 60, 69);
 
 $users_args = array(
@@ -21,11 +22,20 @@ $all_users = get_users($users_args);
 //echo '<pre class="debug">';print_r($all_users);echo '</pre>';
 
 include (STYLESHEETPATH . '/app/inc/meetings-page-vars/add-meeting.inc');
+include (STYLESHEETPATH . '/app/inc/meetings-page-vars/cancel-meeting.inc');
+include (STYLESHEETPATH . '/app/inc/meetings-page-vars/add-attendees.inc');
+
+if ($meeting_added) {
+//include (STYLESHEETPATH . '/app/inc/meetings-page-vars/meeting-booked-email.inc');	
+}
 ?>
 
 <article <?php post_class('page'); ?>>
 	<div class="entry">
-		<?php if ( isset($_REQUEST['meeting-id']) ) { ?>
+		<?php if ( $booking_email_sent || $meeting_canceled) { ?>
+			<?php  get_template_part( 'parts/meetings-page/alerts/meeting', 'alerts' ); ?>
+		<?php } ?>
+		<?php if ( isset($_REQUEST['meeting-id']) || $meeting_added ) { ?>
 			<?php  get_template_part( 'parts/meetings-page/meetings', 'info' ); ?>
 		<?php } ?>
 		<?php if ( isset($_GET['meeting-actions']) || isset($_POST['add-meeting'])) { ?>
@@ -39,10 +49,10 @@ include (STYLESHEETPATH . '/app/inc/meetings-page-vars/add-meeting.inc');
 <aside id="rooms-list" class="scrollable sb-left">
 	<div class="sb-inner">
 		<div class="dates">
-			<a href="?meeting-day=<?php echo date('Ymd'); ?>">Today</a>
-			<a href="?meeting-day=<?php echo date('Ymd', strtotime("Monday this week")); ?>&meeting-day-to=<?php echo date('Ymd', strtotime("Friday this week")); ?>">This week</a>
-			<a href="?meeting-day=<?php echo date('Ymd', strtotime("first day of this month")); ?>&meeting-day-to=<?php echo date('Ymd', strtotime("last day of this month")); ?>">This month</a>
-			<a href="?meeting-day=<?php echo date('Ymd', strtotime("first day of next month")); ?>&meeting-day-to=<?php echo date('Ymd', strtotime("last day of next month")); ?>">Next month</a>
+			<a href="?meeting-day=<?php echo date('Ymd'); ?>" class="lg-link<?php echo ($_REQUEST['meeting-day'] == date('Ymd') && !isset($_REQUEST['meeting-day-to'])) ? ' active':'' ?>">Today</a>
+			<a href="?meeting-day=<?php echo date('Ymd'); ?>&meeting-day-to=<?php echo date('Ymd', strtotime("Friday this week")); ?>" class="lg-link<?php echo ($_REQUEST['meeting-day-to'] == date('Ymd', strtotime("Friday this week"))) ? ' active':'' ?>">This week</a>
+			<a href="?meeting-day=<?php echo date('Ymd'); ?>&meeting-day-to=<?php echo date('Ymd', strtotime("last day of this month")); ?>" class="lg-link<?php echo ($_REQUEST['meeting-day-to'] == date('Ymd', strtotime("last day of this month"))) ? ' active':'' ?>">This month</a>
+			<a href="?meeting-day=<?php echo date('Ymd', strtotime("first day of next month")); ?>&meeting-day-to=<?php echo date('Ymd', strtotime("last day of next month")); ?>" class="lg-link<?php echo ($_REQUEST['meeting-day'] == date('Ymd', strtotime("first day of next month"))) ? ' active':'' ?>">Next month</a>
 		  <?php if (strtotime($first_meeting_post[0]->post_date) < strtotime("Now")) { 
 			$year_x = date("Y", strtotime($first_meeting_post[0]->post_date));
 			$now_year = date("Y");
@@ -64,10 +74,10 @@ include (STYLESHEETPATH . '/app/inc/meetings-page-vars/add-meeting.inc');
 		<?php get_template_part( 'parts/meetings-page/meetings', 'list' ); ?>
 		<?php } ?>		
 		
-		<?php if ( empty($_REQUEST)) { ?>
+		<?php if ( empty($_REQUEST) || $_GET['meeting-actions'] == 'add-meeting' || $m_id) { ?>
 		<div class="no-name-message text-center">
-			<i class="fa fa-group fa-4x block"></i>
-			Select a location or year
+			<i class="fa fa-calendar-check-o fa-4x block sb-icon"></i>
+			<p class="caps">Select a date</p>
 		</div>
 		<?php } ?>	
 
