@@ -35,9 +35,11 @@
 		$(input_x).val(end_x);
 		$(input_y).val(end_y);
 		
+/*
 		console.log("--------------------------");
 		console.log(end_x);
 		console.log(end_y);
+*/
 		$(target).removeClass('dragging');
 		$(target).parent().submit();
 			

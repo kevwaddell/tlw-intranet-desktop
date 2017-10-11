@@ -32,7 +32,7 @@ if ($meeting_added) {
 
 <article <?php post_class('page'); ?>>
 	<div class="entry">
-		<?php if ( $booking_email_sent || $meeting_canceled) { ?>
+		<?php if ( $meeting_added || $meeting_canceled) { ?>
 			<?php  get_template_part( 'parts/meetings-page/alerts/meeting', 'alerts' ); ?>
 		<?php } ?>
 		<?php if ( isset($_REQUEST['meeting-id']) || $meeting_added ) { ?>
@@ -74,7 +74,7 @@ if ($meeting_added) {
 		<?php get_template_part( 'parts/meetings-page/meetings', 'list' ); ?>
 		<?php } ?>		
 		
-		<?php if ( empty($_REQUEST) || $_GET['meeting-actions'] == 'add-meeting' || $m_id) { ?>
+		<?php if ( empty($_REQUEST) ) { ?>
 		<div class="no-name-message text-center">
 			<i class="fa fa-calendar-check-o fa-4x block sb-icon"></i>
 			<p class="caps">Select a date</p>
@@ -84,7 +84,7 @@ if ($meeting_added) {
 	</div>
 	<div class="sb-actions">
 		<div class="actions-inner">
-			<a href="?meeting-actions=add-meeting" class="btn btn-default btn-lg no-rounded pull-right" id="add-meeting"><i class="fa fa-plus fa-lg"></i><span class="sr-only">Book room</span></a>	
+			<a href="?meeting-actions=add-meeting<?php echo (isset($_REQUEST['meeting-day'])) ? '&meeting-day='.$_REQUEST['meeting-day']:'' ?><?php echo (isset($_REQUEST['meeting-day-to'])) ? '&meeting-day-to='.$_REQUEST['meeting-day-to']:'' ?>" class="btn btn-default btn-lg no-rounded pull-right" id="add-meeting"><i class="fa fa-plus fa-lg"></i><span class="sr-only">Book room</span></a>	
 		</div>
 	</div>
 </aside>

@@ -5,6 +5,13 @@ global $all_users;
 global $add_attendee_errors;
 //echo '<pre class="debug">';print_r($all_users);echo '</pre>';
 ?>
+<?php if (!empty($add_attendee_errors)) { ?>
+<div class="alert alert-danger alert-dismissible" role="alert">
+	<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	<p><i class="fa fa-times-circle"></i> <?php echo (array_key_exists ('no-attendees' , $add_attendee_errors )) ?$add_attendee_errors['no-attendees']:''; ?></p>	
+</div>
+<?php } ?>
+
 <form action="<?php the_permalink(); ?><?php echo (isset($_REQUEST['meeting-day'])) ? '?meeting-day='.$_REQUEST['meeting-day']:'' ?><?php echo (isset($_REQUEST['meeting-day-to'])) ? '&meeting-day-to='.$_REQUEST['meeting-day-to']:'' ?>" method="post">
 	<table class="table table-striped">
 	<thead>
@@ -16,13 +23,13 @@ global $add_attendee_errors;
 	<tbody>
 		<tr>
 			<td class="text-right"><label>Internal staff</label></td>
-			<td><small>*Staff members will be notified of the meeting.</small></td>
+			<td><small>*Search and choose multiple names from dropdown.</small></td>
 		</tr>
 		<tr>
-			<td class="text-right"><button class="add-staff-btn btn btn-default text-center"><i class="fa fa-plus fa-lg"></i></button></td>
+			<td></td>
 			<td>
 				<div class="form-group">
-					<select name="attendees-staff[]" class="selectpicker" data-width="100%" title="Choose a staff member">
+					<select name="attendees-staff[]" class="selectpicker" multiple data-live-search="true" data-width="100%" title="Choose a staff members">
 					<?php foreach ($all_users as $user) { 
 					$fname = get_user_meta( $user->ID, "first_name", true );
 					$lname = get_user_meta( $user->ID, "last_name", true );
@@ -38,12 +45,10 @@ global $add_attendee_errors;
 			<td><small>*Enter the visitors full name.</small></td>
 		</tr>
 		<tr>
-			<td class="text-right">
-				<button class="add-client-btn btn btn-default text-center"><i class="fa fa-plus fa-lg"></i></button>
-			</td>
+			<td></td>
 			<td>
 				<div class="form-group">
-					<input type="text" class="form-control" name="attendees-clients[]" placeholder="Enter full name" value="" />
+					<textarea class="form-control" rows="5" name="attendees-clients" placeholder="Enter each name on a seperate line"></textarea>
 				</div>
 			</td>
 		</tr>

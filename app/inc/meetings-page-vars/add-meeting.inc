@@ -1,12 +1,12 @@
 <?php
 global $add_meeting_errors;
-global $send_booking_email;
 if ( isset($_POST['add-meeting']) ) {
 	
 	$location_id = $_POST['location-id'];
 	$meeting_title = trim($_POST['meeting-title']);
 	$meeting_description = trim($_POST['meeting-description']);
 	$meeting_date = date('Ymd', strtotime( trim($_POST['meeting-date']) ) );
+	$meeting_year = date('Y', strtotime( trim($_POST['meeting-date']) ) );
 	$start_time = date('G:i', strtotime(trim($_POST['start-time'])));
 	$end_time = date('G:i', strtotime(trim($_POST['end-time'])));
 	$booked_by = $_POST['booked-by-id'];
@@ -60,7 +60,7 @@ if ( isset($_POST['add-meeting']) ) {
 	$add_meeting_errors['booked'] = true;		
 	}
 	
-	//debug($_POST);
+	//debug($add_meeting_errors);
 			
 	if (empty($add_meeting_errors)) {
 	
@@ -75,21 +75,29 @@ if ( isset($_POST['add-meeting']) ) {
 		//debug($add_meeting_args);
 		
 		$meeting_added = wp_insert_post($add_meeting_args);
+		$meeting_description_key = acf_get_field_key('meeting_description', $meeting_added);
+		$meeting_date_key = acf_get_field_key('meeting_date', $meeting_added);
+		$meeting_year_key = acf_get_field_key('meeting_year', $meeting_added);
+		$start_time_key = acf_get_field_key('start_time', $meeting_added);
+		$end_time_key = acf_get_field_key('end_time', $meeting_added);
+		$attendees_staff_key = acf_get_field_key('attendees_staff', $meeting_added);
+		$attendees_clients_key = acf_get_field_key('attendees_clients', $meeting_added);
 		
 		if ($meeting_added) {
 		wp_set_post_terms( $meeting_added, array($location_id), 'tlw_rooms_tax');
-		add_post_meta($meeting_added, '_meeting_description', 'field_5395d707861af'); 
+		add_post_meta($meeting_added, '_meeting_description', $meeting_description_key); 
 		add_post_meta($meeting_added, 'meeting_description', $meeting_description); 
-		add_post_meta($meeting_added, '_meeting_date', 'field_533be32c54fbc');  
-		add_post_meta($meeting_added, 'meeting_date', $meeting_date);  
-		add_post_meta($meeting_added, '_start_time', 'field_533be5353ffec');  
+		add_post_meta($meeting_added, '_meeting_date', $meeting_date_key);  
+		add_post_meta($meeting_added, 'meeting_date', $meeting_date); 
+		add_post_meta($meeting_added, '_meeting_year', $meeting_year_key); 
+		add_post_meta($meeting_added, 'meeting_year', $meeting_year); 
+		add_post_meta($meeting_added, '_start_time', $start_time_key);  
 		add_post_meta($meeting_added, 'start_time', $s_time);  
-		add_post_meta($meeting_added, '_end_time', 'field_533be5d13ffed'); 
-		add_post_meta($$meeting_added, 'end_time', $e_time); 
-		add_post_meta($meeting_added, '_end_time', 'field_533be5d13ffed');
-		add_post_meta($meeting_added, '_attendees_staff', 'field_539877b3fecd7');
+		add_post_meta($meeting_added, '_end_time', $end_time_key); 
+		add_post_meta($meeting_added, 'end_time', $e_time); 
+		add_post_meta($meeting_added, '_attendees_staff', $attendees_staff_key);
 		add_post_meta($meeting_added, 'attendees_staff', '');
-		add_post_meta($meeting_added, '_attendees_clients', 'field_539878dcfecd9');
+		add_post_meta($meeting_added, '_attendees_clients', $attendees_clients_key);
 		add_post_meta($meeting_added, 'attendees_clients', '');
 		}
 		

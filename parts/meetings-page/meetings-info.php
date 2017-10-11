@@ -55,38 +55,48 @@ $now = strtotime('now');
 			<td><?php echo date('l - jS F - Y', $meeting_date); ?></td>
 		</tr>
 		<tr>
-			<td class="bold text-right">Start time</td>
-			<td><?php echo $start_time; ?></td>
-		</tr>
-		<tr>
-			<td class="bold text-right">End time</td>
-			<td>
-				<?php echo $end_time; ?>
-			</td>
+			<td class="bold text-right">Time</td>
+			<td><?php echo $start_time; ?> - <?php echo $end_time; ?></td>
 		</tr>
 		<?php if ($attendees_staff) { ?>
 		<tr>
 			<td class="bold text-right">Internal attendees</td>
 			<td>
-				<?php foreach ($attendees_staff as $staff) { 
+				<div class="label label-success">Accepted <i class="fa fa-check fa-lg pull-right"></i> </div>
+				<div class="label label-info">Pending <i class="fa fa-clock-o fa-lg pull-right"></i></div>
+			</td>
+		</tr>
+		<?php foreach ($attendees_staff as $staff) { 
 				$att_id = $staff['attendee_staff']['ID'];
+				$att_fname = get_user_meta( $att_id, "first_name", true );
+				$att_lname = get_user_meta( $att_id, "last_name", true );
 				$status = $staff['status'];
-				?>	
-					<?php if ($status != 'rejected') { ?>
-					<a href="<?php echo get_permalink($contacts_pg->ID); ?>?id=<?php echo $att_id; ?>&contacts=team#contact-id-<?php echo $id; ?>" class="attendee">
-						<span class="name"><?php echo $staff['attendee_staff']['display_name']; ?></span>
-						<div class="label label-<?php echo ($status == 'accepted') ? 'success':'warning'; ?>">
-						<?php if ($status == 'accepted') { ?>
-						<i class="fa fa-check fleft"></i> Accepted
-						<?php } else { ?>
-						<i class="fa fa-clock-o fleft"></i> Pending
-						<?php } ?>	
-						</div>
-					</a><br>
-					<?php } ?>
+				?>
+		<?php if ($status != 'rejected') { ?>	
+		<tr class="<?php echo ($status == 'accepted') ? 'success': 'info'; ?>">
+			<td>
+				<?php if ($status == 'accepted') { ?>
+				<i class="fa fa-check fa-2x pull-right text-success"></i>
+				<?php } else { ?>
+				<i class="fa fa-clock-o fa-2x pull-right text-info"></i>
+				<?php } ?>	
+			</td>
+			<td>
+				<a href="<?php echo get_permalink($contacts_pg->ID); ?>?id=<?php echo $att_id; ?>&contacts=team#contact-id-<?php echo $id; ?>" class="attendee">
+					<span class="name"><?php echo $att_fname; ?> <?php echo $att_lname; ?></span>
+				</a>
+				<?php if ($current_user->ID == $booked_by && $meeting_date >= $now && $status == 'pending') { ?>
+				<a href="?meeting-actions=notify-user&user-id=<?php echo $att_id; ?>&meeting-id=<?php echo $id; ?><?php echo (isset($_REQUEST['meeting-day'])) ? '&meeting-day='.$_REQUEST['meeting-day']:'' ?><?php echo (isset($_REQUEST['meeting-day-to'])) ? '&meeting-day-to='.$_REQUEST['meeting-day-to']:'' ?>" class="notify-btn btn btn-default">Notify <?php echo $att_fname; ?> <i class="fa fa-envelope"></i></a>
+				<?php } ?>
+				<?php if ($current_user->ID == $att_id && $meeting_date >= $now && $status == 'pending') { ?>
+				<a href="?meeting-actions=user-status&status=accept&meeting-id=<?php echo $id; ?><?php echo (isset($_REQUEST['meeting-day'])) ? '&meeting-day='.$_REQUEST['meeting-day']:'' ?><?php echo (isset($_REQUEST['meeting-day-to'])) ? '&meeting-day-to='.$_REQUEST['meeting-day-to']:'' ?>" class="notify-btn btn btn-success">Accept <i class="fa fa-check"></i></a>
+				<a href="?meeting-actions=user-status&status=rejected&meeting-id=<?php echo $id; ?><?php echo (isset($_REQUEST['meeting-day'])) ? '&meeting-day='.$_REQUEST['meeting-day']:'' ?><?php echo (isset($_REQUEST['meeting-day-to'])) ? '&meeting-day-to='.$_REQUEST['meeting-day-to']:'' ?>" class="notify-btn btn btn-danger">Reject <i class="fa fa-times"></i></a>
 				<?php } ?>
 			</td>
 		</tr>
+		<?php } ?>
+		<?php } ?>
+		
 		<?php } ?>
 		<?php if (!empty($attendees_clients)) { ?>
 		<tr>
