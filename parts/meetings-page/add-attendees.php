@@ -8,11 +8,18 @@ global $add_attendee_errors;
 <?php if (!empty($add_attendee_errors)) { ?>
 <div class="alert alert-danger alert-dismissible" role="alert">
 	<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-	<p><i class="fa fa-times-circle"></i> <?php echo (array_key_exists ('no-attendees' , $add_attendee_errors )) ?$add_attendee_errors['no-attendees']:''; ?></p>	
+	<p>
+		<?php echo (array_key_exists ('no-attendees' , $add_attendee_errors )) ? $add_attendee_errors['no-attendees']:''; ?>
+		<?php if ( array_key_exists ('attendee-exists' , $add_attendee_errors ) ) { ?>
+			<?php foreach ( $add_attendee_errors['attendee-exists'] as $error) { ?>
+			<?php echo $error; ?><br>
+			<?php } ?>
+		<?php } ?>
+	</p>	
 </div>
 <?php } ?>
 
-<form action="<?php the_permalink(); ?><?php echo (isset($_REQUEST['meeting-day'])) ? '?meeting-day='.$_REQUEST['meeting-day']:'' ?><?php echo (isset($_REQUEST['meeting-day-to'])) ? '&meeting-day-to='.$_REQUEST['meeting-day-to']:'' ?>" method="post">
+<form action="<?php echo wp_nonce_url(the_permalink()); ?><?php echo (isset($_REQUEST['meeting-day'])) ? '&meeting-day='.$_REQUEST['meeting-day']:'' ?><?php echo (isset($_REQUEST['meeting-day-to'])) ? '&meeting-day-to='.$_REQUEST['meeting-day-to']:'' ?>" method="post">
 	<table class="table table-striped">
 	<thead>
 		<tr>

@@ -134,7 +134,7 @@
 		},
 	"\/app\/css\/img\/logo.png": {
 		"ft": 32768,
-		"iS": 7197,
+		"iS": 4592,
 		"oA": 0,
 		"oAP": "\/app\/css\/img\/logo.png",
 		"oF": 0,
@@ -1431,6 +1431,12 @@
 		"ft": 8192,
 		"oA": 2,
 		"oAP": "\/parts\/holiday-request\/pending-list.php",
+		"oF": 0
+		},
+	"\/parts\/meetings-page\/add-attendees-acf.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/parts\/meetings-page\/add-attendees-acf.php",
 		"oF": 0
 		},
 	"\/parts\/meetings-page\/add-attendees.php": {

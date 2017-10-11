@@ -1,5 +1,6 @@
 <?php  
 global $locations;
+global $meeting_added;
 $meetings_args = array(
 	'post_type'	=> 'tlw_meeting',
 	'posts_per_page' => -1,
@@ -67,9 +68,13 @@ $month = date('F', strtotime(get_field( 'meeting_date', $m->ID )));
 	<?php
 	$meeting_title = $meeting->post_title;
 	$meeting_date = strtotime( get_field( 'meeting_date', $meeting->ID ) );
+	$m_id = $_REQUEST['meeting-id'];
+	if ($meeting_added) {
+	$m_id = $meeting_added;	
+	}
 	//debug($locations[0]);
 	?>
-	<div id="meeting-id-<?php echo $meeting->ID; ?>" class="list-item<?php echo($_REQUEST['meeting-id'] == $meeting->ID) ? ' active':''; ?>">
+	<div id="meeting-id-<?php echo $meeting->ID; ?>" class="list-item<?php echo($m_id == $meeting->ID) ? ' active':''; ?>">
 		<a href="?meeting-id=<?php echo $meeting->ID; ?>&meeting-day=<?php echo $_REQUEST['meeting-day']; ?><?php echo ( isset($_REQUEST['meeting-day-to']) ) ? '&meeting-day-to='.$_REQUEST['meeting-day-to']:''; ?>">
 			<span class="date"><?php echo date('l jS M', $meeting_date); ?></span>
 			<span class="title"><?php echo get_the_title( $meeting->ID ); ?></span>
