@@ -13342,7 +13342,7 @@ article.page {
   right: 0px;
   left: 500px;
   min-width: 700px;
-  padding: 20px 50px 0px 60px;
+  padding: 20px 50px 40px 60px;
   overflow: auto;
   -webkit-transition: all 0.2s ease-out;
   -moz-transition: all 0.2s ease-out;

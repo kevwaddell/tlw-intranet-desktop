@@ -22,7 +22,6 @@
 		$('#meeting-endpicker').datetimepicker({
 			format: 'H:mm',
 			stepping: 30,
-			useCurrent: false,
 			disabledTimeIntervals: [[moment({ h: 0 }), moment({ h: 9 })], [moment({ h: 19 }), moment({ h: 24 })]]
 		});
 		

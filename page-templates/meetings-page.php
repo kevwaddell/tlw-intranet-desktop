@@ -32,10 +32,10 @@ if ($meeting_added) {
 
 <article <?php post_class('page'); ?>>
 	<div class="entry">
-		<?php if ( $meeting_added || $meeting_canceled) { ?>
+		<?php if ( $meeting_added || $meeting_canceled || $attendees_added) { ?>
 			<?php  get_template_part( 'parts/meetings-page/alerts/meeting', 'alerts' ); ?>
 		<?php } ?>
-		<?php if ( isset($_REQUEST['meeting-id']) || $meeting_added ) { ?>
+		<?php if ( isset($_REQUEST['meeting-id']) || $meeting_added || $attendees_added) { ?>
 			<?php  get_template_part( 'parts/meetings-page/meetings', 'info' ); ?>
 		<?php } ?>
 		<?php if ( isset($_GET['meeting-actions']) || isset($_POST['add-meeting'])) { ?>

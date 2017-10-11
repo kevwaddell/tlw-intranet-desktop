@@ -1,71 +1,93 @@
 <?php
 global $add_attendee_errors;
-$notify_staff = false;
+$attendees_added = false;
 
 if ( isset($_POST['add-attendees']) ) {
-$meeting_id = $_POST['meeting-id'];
-$attendees_staff_total = get_post_meta($meeting_id , 'attendees_staff', true);
-$attendees_clients_total = get_post_meta($meeting_id , 'attendees_clients', true);
+$m_id = $_POST['meeting-id'];
+$attendees_staff_total = intval(get_post_meta($m_id , 'attendees_staff', true));
+$attendees_staff_orig = get_field( 'attendees_staff', $m_id );
+$attendees_clients_total = intval(get_post_meta($m_id , 'attendees_clients', true));
+$attendees_clients_orig = get_field( 'attendees_clients', $m_id );
 
-	//echo '<pre class="debug">';
-	//print_r((empty($attendees_staff_total)) ? 0 : $attendees_staff_total);
+//VARS FOR ADDING AND UPDATING META
+$update_attendees_staff = $_POST['attendees-staff'];
+$as_counter = (empty($attendees_staff_total)) ? 0 : $attendees_staff_total;
+if (!empty(trim($_POST['attendees-clients']))) {
+$update_attendees_clients = preg_split('/\r\n|[\r\n]/', ucwords($_POST['attendees-clients'])) ;	
+}
+$ac_counter = (empty($attendees_clients_total)) ? 0 : $attendees_clients_total;
+	
+	if (!empty($attendees_staff_orig)) {
+	foreach($attendees_staff_orig as $staff) {
+		if ( in_array_r($staff['attendee_staff']['ID'], $update_attendees_staff) ) {
+		$fname = get_user_meta( $staff['attendee_staff']['ID'], "first_name", true );
+		$lname = get_user_meta( $staff['attendee_staff']['ID'], "last_name", true );
+		$add_attendee_errors['attendee-exists'][] = '<i class="fa fa-times-circle"></i> '.$fname.' '. $lname .' is already attending.';		
+		}
+	}
+	}
+	
+	if (!empty($attendees_clients_orig)) {
+		foreach($attendees_clients_orig as $client) {
+			if ( in_array_r($client['attendee_client'], $update_attendees_clients) ) {
+			$add_attendee_errors['attendee-exists'][] = '<i class="fa fa-times-circle"></i> '. $client['attendee_client'] .' is already attending.';		
+			}
+		}
+	}
+
+	echo '<pre class="debug">';
+	//print_r($attendees_staff_orig);
+	//print_r($add_attendee_errors);
 	//print_r("<br>---------------------<br>");
 	//print_r((empty($attendees_clients_total)) ? 0 : $attendees_clients_total);
 	//print_r("<br>---------------------<br>");
 	
 	if (empty($_POST['attendees-staff'][0]) && empty($_POST['attendees-clients'][0])) {
-	$add_attendee_errors['no-attendees'] = "You have not chosen or entered any attendees.";	
+	$add_attendee_errors['no-attendees'] = '<i class="fa fa-times-circle"></i> You have not chosen or entered any attendees.';	
 	}
 	
 	if (empty($add_attendee_errors)) {
-	$attendees_staff = $_POST['attendees-staff'];
-	$as_counter = (empty($attendees_staff_total)) ? 0 : $attendees_staff_total;
-	if (!empty(trim($_POST['attendees-clients']))) {
-	$attendees_clients = preg_split('/\r\n|[\r\n]/', $_POST['attendees-clients']) ;	
-	}
-	$ac_counter = (empty($attendees_clients_total)) ? 0 : $attendees_clients_total;
-	
-	//print_r($attendees_staff);
-	//print_r($attendees_clients);
+	$attendee_key = acf_get_field_key('attendee', $m_id);
+	$status_key = acf_get_field_key('status', $m_id);
+	$attendee_client_key = acf_get_field_key('attendee_client', $m_id);
+	//print_r($attendee_key);
+	//print_r("<br>---------------------<br>");
+	//print_r($status_key);
 		
-		if (!empty($attendees_staff)) {
-			foreach ($attendees_staff as $s_attendee) {
-			//print_r('attendees_staff_'.$as_counter.'_attendee_staff = '.ucwords($s_attendee));
-			//print_r("<br>");
-			//print_r('attendees_staff_'.$as_counter.'_status = pending');
-			//print_r("<br>---------------------<br>");
-			add_post_meta($meeting_id, '_attendees_staff_'.$as_counter.'_attendee_staff', 'field_539878dcfecd9');
-			add_post_meta($meeting_id, 'attendees_staff_'.$as_counter.'_attendee_staff', $s_attendee);
-			add_post_meta($meeting_id, '_attendees_staff_'.$as_counter.'_status', 'field_5399ae2a892eb');
-			add_post_meta($meeting_id, 'attendees_staff_'.$as_counter.'_status', 'pending');
+		if (!empty($update_attendees_staff)) {
+			foreach ($update_attendees_staff as $s_attendee) {
+			add_post_meta($m_id, '_attendees_staff_'.$as_counter.'_attendee', $attendee_key);
+			add_post_meta($m_id, 'attendees_staff_'.$as_counter.'_attendee', $s_attendee);
+			add_post_meta($m_id, '_attendees_staff_'.$as_counter.'_status', $status_key);
+			add_post_meta($m_id, 'attendees_staff_'.$as_counter.'_status', 'pending');
 			$as_counter++;
 			}	
 		}
 		
-		if (!empty($attendees_clients)) {
-			foreach ($attendees_clients as $c_attendee) {
-			//print_r('attendees_clients_'.$ac_counter.'_attendee_client = '.$c_attendee);
-			//print_r("<br>---------------------<br>");
-			add_post_meta($meeting_id, '_attendees_clients_'.$ac_counter.'_attendee_client', 'field_539878fafecda');
-			add_post_meta($meeting_id, 'attendees_clients_'.$ac_counter.'_attendee_client', $c_attendee);
+		if (!empty($update_attendees_clients)) {
+			foreach ($update_attendees_clientss as $c_attendee) {
+			add_post_meta($m_id, '_attendees_clients_'.$ac_counter.'_attendee_client', $attendee_client_key);
+			add_post_meta($m_id, 'attendees_clients_'.$ac_counter.'_attendee_client', $c_attendee);
 			$ac_counter++;
 			}	
 		}
-		
+			
 		if ($as_counter > $attendees_staff_total) {
-		//print_r($as_counter);
-		update_post_meta( $meeting_id, 'attendees_staff', $as_counter, $attendees_staff_total);
+		$attendees_staff_updated = update_post_meta( $m_id, 'attendees_staff', $as_counter, $attendees_staff_total);
 		}
 		
 		if ($ac_counter > $attendees_clients_total) {
-		//print_r("<br>---------------------<br>");
-		//print_r($ac_counter);
-		update_post_meta( $meeting_id, 'attendees_clients', $ac_counter, $attendees_clients_total);
+		$attendees_clients_updated = update_post_meta( $m_id, 'attendees_clients', $ac_counter, $attendees_clients_total);
 		}
 		
+		if ($attendees_clients_updated || $attendees_staff_updated) {
+		$attendees_added = true;
+		
+		}
+		
+		print_r($attendees_added);
 	}
-	
-	//echo '</pre>';
+	echo '</pre>';
 }
 	
 ?>
