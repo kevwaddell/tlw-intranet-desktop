@@ -19,7 +19,7 @@ global $add_attendee_errors;
 </div>
 <?php } ?>
 
-<form action="<?php echo wp_nonce_url(the_permalink()); ?><?php echo (isset($_REQUEST['meeting-day'])) ? '&meeting-day='.$_REQUEST['meeting-day']:'' ?><?php echo (isset($_REQUEST['meeting-day-to'])) ? '&meeting-day-to='.$_REQUEST['meeting-day-to']:'' ?>" method="post">
+<form action="<?php the_permalink(); ?><?php echo (isset($_REQUEST['meeting-day'])) ? '?meeting-day='.$_REQUEST['meeting-day']:'' ?><?php echo (isset($_REQUEST['meeting-day-to'])) ? '&meeting-day-to='.$_REQUEST['meeting-day-to']:'' ?>" method="post">
 	<table class="table table-striped">
 	<thead>
 		<tr>

@@ -3,8 +3,8 @@ global $current_user;
 global $meeting_added;
 global $add_attendee_errors;
 global $attendees_added;
-global $attendees_staff_updated;
-global $attendees_clients_updated;
+global $current_attendees_staff;
+global $current_attendees_clients;
 
 $id = $_REQUEST['meeting-id'];
 if ($meeting_added) {
@@ -20,8 +20,8 @@ $meeting_description = get_field('meeting_description', $current_meeting->ID);
 $meeting_date = strtotime(get_field( 'meeting_date', $current_meeting->ID ));
 $start_time = get_field( 'start_time', $current_meeting->ID);
 $end_time = get_field( 'end_time', $current_meeting->ID);
-$current_attendees_staff = get_field( 'attendees_staff', $current_meeting->ID );
-$current_attendees_clients = get_field('attendees_clients', $current_meeting->ID);	
+$current_attendees_staff = get_field('attendees_staff', $current_meeting->ID);
+$current_attendees_clients = get_field('attendees_clients', $current_meeting->ID);		
 $contacts_pg = get_page_by_path( 'contacts' );
 ?>
 
