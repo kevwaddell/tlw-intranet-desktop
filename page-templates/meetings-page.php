@@ -8,7 +8,14 @@ Template Name: Meetings page
 
 <?php  
 $locations = get_terms('tlw_rooms_tax', 'hide_empty=0');
-$first_meeting_post = get_posts(array('posts_per_page' => 1, 'post_type' => 'tlw_meeting', 'orderby' => 'date', 'order' => 'ASC')); 
+$meeting_years = get_posts(array('posts_per_page' => -1, 'post_type' => 'tlw_meeting', 'meta_key' => 'meeting_year','orderby' => 'meta_value', 'order' => 'ASC')); 
+$archive_years = array();
+foreach ($meeting_years as $y) {
+$meeting_year = get_field('meeting_year', $y->ID);	
+	if (!in_array($meeting_year, $archive_years)) {
+	$archive_years[] = $meeting_year;	
+	}
+}
 $add_meeting_errors = array();
 $add_attendee_errors = array();
 $excluded_users = array(1, 60, 69);
@@ -19,7 +26,7 @@ $users_args = array(
 'orderby'	=> 'meta_value'
 );
 $all_users = get_users($users_args);
-//echo '<pre class="debug">';print_r($all_users);echo '</pre>';
+//echo '<pre class="debug">';print_r($first_meeting_post);echo '</pre>';
 
 include (STYLESHEETPATH . '/app/inc/meetings-page-vars/add-meeting.inc');
 include (STYLESHEETPATH . '/app/inc/meetings-page-vars/cancel-meeting.inc');
@@ -53,17 +60,12 @@ if ($meeting_added) {
 			<a href="?meeting-day=<?php echo date('Ymd'); ?>&meeting-day-to=<?php echo date('Ymd', strtotime("Friday this week")); ?>" class="lg-link<?php echo ($_REQUEST['meeting-day-to'] == date('Ymd', strtotime("Friday this week"))) ? ' active':'' ?>">This week</a>
 			<a href="?meeting-day=<?php echo date('Ymd'); ?>&meeting-day-to=<?php echo date('Ymd', strtotime("last day of this month")); ?>" class="lg-link<?php echo ($_REQUEST['meeting-day-to'] == date('Ymd', strtotime("last day of this month"))) ? ' active':'' ?>">This month</a>
 			<a href="?meeting-day=<?php echo date('Ymd', strtotime("first day of next month")); ?>&meeting-day-to=<?php echo date('Ymd', strtotime("last day of next month")); ?>" class="lg-link<?php echo ($_REQUEST['meeting-day'] == date('Ymd', strtotime("first day of next month"))) ? ' active':'' ?>">Next month</a>
-		  <?php if (strtotime($first_meeting_post[0]->post_date) < strtotime("Now")) { 
-			$year_x = date("Y", strtotime($first_meeting_post[0]->post_date));
-			$now_year = date("Y");
-		  ?>
 		   <h3>Meeting archives</h3>
-		   <?php while ($now_year >= $year_x) { ?>
-		   <a href="?meeting-year=<?php echo $now_year; ?>"<?php echo ($_REQUEST['meeting-year'] == $now_year) ? ' class="active"':'' ?>><?php echo $now_year; ?></a>
-		   <?php $now_year--; ?>
+		   <?php 
+			rsort($archive_years);
+			foreach ($archive_years as $ay) { ?>
+		   <a href="?meeting-year=<?php echo $ay; ?>"<?php echo ($_REQUEST['meeting-year'] == $ay) ? ' class="active"':'' ?>><?php echo $ay; ?></a>
 		   <?php } ?>
-		   
-		  <?php } ?>
 		 </div>
 	</div>
 </aside>
