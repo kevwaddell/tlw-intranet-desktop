@@ -12,12 +12,12 @@ global $room;
 	<p><i class="fa fa-check-circle"></i> The meeting room <span class="bold"><?php echo $room->name; ?></span> is already booked at <span class="bold"><?php echo $_REQUEST['start-time'] ?></span> on <span class="bold"><?php echo $_REQUEST['meeting-date']; ?></span>.</p>	
 </div>		
 <?php } ?>
-<form action="<?php the_permalink(); ?>" method="post">
+<form action="<?php the_permalink(); ?><?php echo (isset($_REQUEST['meeting-day'])) ? '?meeting-day='.$_REQUEST['meeting-day']:'' ?><?php echo (isset($_REQUEST['meeting-day-to'])) ? '&meeting-day-to='.$_REQUEST['meeting-day-to']:'' ?>" method="post">
 <table class="table table-striped">
 	<thead>
 		<tr>
 			<th width="200" class="text-right"><i class="fa fa-calendar-plus-o fa-4x"></i></th>
-			<th><h1>Add meeting</h1></th>
+			<th><h1>Book meeting room</h1></th>
 		</tr>
 	</thead>
 	<tbody>
@@ -91,8 +91,8 @@ global $room;
 			<td></td>
 			<td colspan="2">
 				<input type="hidden" name="booked-by-id" value="<?php echo $current_user->ID ?>">
-				<button type="submit" class="btn btn-default caps" name="add-meeting">Check availability <i class="fa fa-check"></i></button>
-				<a href="<?php the_permalink(); ?>" class="btn btn-default caps">Cancel <i class="fa fa-times"></i></a>
+				<button type="submit" class="btn btn-default caps" name="add-meeting">Book room <i class="fa fa-check"></i></button>
+				<a href="<?php the_permalink(); ?><?php echo (isset($_REQUEST['meeting-day'])) ? '?meeting-day='.$_REQUEST['meeting-day']:'' ?><?php echo (isset($_REQUEST['meeting-day-to'])) ? '&meeting-day-to='.$_REQUEST['meeting-day-to']:'' ?>" class="btn btn-default caps">Cancel <i class="fa fa-times"></i></a>
 			</td>
 		</tr>
 	</tbody>

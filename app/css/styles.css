@@ -13399,18 +13399,39 @@ article.page .table {
 }
 article.page .table a.attendee span.name {
   display: inline-block;
-  min-width: 150px;
-  line-height: 20px;
+  line-height: 34px;
+  min-width: 285px;
 }
-article.page .table a.attendee .label {
+article.page .table a.notify-btn {
+  text-align: left;
+  min-width: 200px;
+  position: relative;
+}
+article.page .table a.notify-btn i {
+  position: absolute;
+  right: 10px;
+  top: 0px;
+  line-height: 34px;
+}
+article.page .table i.fa-2x {
+  line-height: 34px;
+}
+article.page .table .label {
   display: inline-block;
-  width: 100px;
-  line-height: 20px;
-  padding: 0px 10px 0px 0px;
+  min-width: 34px;
+  line-height: 34px;
+  padding: 0px;
+  text-indent: 10px;
 }
-article.page .table a.attendee .label i {
-  padding-left: 10px;
-  line-height: 20px;
+article.page .table .label i {
+  display: inline-block;
+  width: 34px;
+  text-align: center;
+  line-height: 34px;
+  text-indent: 0px;
+}
+article.page .table td {
+  line-height: 34px;
 }
 article.page .table td label,
 article.page .table td small {

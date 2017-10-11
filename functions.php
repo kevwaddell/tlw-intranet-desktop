@@ -176,4 +176,29 @@ function debug($data) {
 	}
 }
 
+function acf_get_field_key($field_name, $post_id)
+{
+    global $wpdb;
+    $acf_fields = $wpdb->get_results($wpdb->prepare('SELECT ID,post_parent,post_name FROM ' . $wpdb->posts . ' WHERE post_excerpt=%s AND post_type=%s', $field_name, 'acf-field'));
+    switch (count($acf_fields)) {
+        case 0:
+            return false;
+        case 1:
+            return $acf_fields[0]->post_name;
+    }
+    $field_groups_ids = array();
+    $field_groups = acf_get_field_groups(array(
+        'post_id' => $post_id,
+    ));
+    foreach ($field_groups as $field_group) {
+        $field_groups_ids[] = $field_group['ID'];
+    }
+    foreach ($acf_fields as $acf_field) {
+        if (in_array($acf_field->post_parent, $field_groups_ids)) {
+            return $acf_field->post_name;
+        }
+    }
+    return false;
+}
+
 ?>

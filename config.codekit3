@@ -134,7 +134,7 @@
 		},
 	"\/app\/css\/img\/logo.png": {
 		"ft": 32768,
-		"iS": 4592,
+		"iS": 7197,
 		"oA": 0,
 		"oAP": "\/app\/css\/img\/logo.png",
 		"oF": 0,
@@ -390,9 +390,9 @@
 		"ma": 0,
 		"mi": 1,
 		"oA": 0,
-		"oAP": "\/app\/js\/min\/contact-functions-min.js",
-		"oF": 0,
-		"sC": 1,
+		"oAP": "\/app\/js\/contact-functions-min.js",
+		"oF": 2,
+		"sC": 0,
 		"tS": 0
 		},
 	"\/app\/js\/departments-functions-min.js": {
@@ -410,9 +410,9 @@
 		"ma": 0,
 		"mi": 1,
 		"oA": 0,
-		"oAP": "\/app\/js\/min\/departments-functions-min.js",
-		"oF": 0,
-		"sC": 1,
+		"oAP": "\/app\/js\/departments-functions-min.js",
+		"oF": 2,
+		"sC": 0,
 		"tS": 0
 		},
 	"\/app\/js\/functions-min.js": {
@@ -431,6 +431,26 @@
 		"mi": 1,
 		"oA": 0,
 		"oAP": "\/app\/js\/functions-min.js",
+		"oF": 2,
+		"sC": 0,
+		"tS": 0
+		},
+	"\/app\/js\/meetings-functions-min.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/app\/js\/min\/meetings-functions-min-min.js",
+		"oF": 0,
+		"sC": 1,
+		"tS": 0
+		},
+	"\/app\/js\/meetings-functions.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/app\/js\/meetings-functions-min.js",
 		"oF": 2,
 		"sC": 0,
 		"tS": 0
@@ -460,9 +480,9 @@
 		"ma": 0,
 		"mi": 1,
 		"oA": 0,
-		"oAP": "\/app\/js\/min\/notes-functions-min.js",
-		"oF": 0,
-		"sC": 1,
+		"oAP": "\/app\/js\/notes-functions-min.js",
+		"oF": 2,
+		"sC": 0,
 		"tS": 0
 		},
 	"\/app\/less\/alerts.less": {

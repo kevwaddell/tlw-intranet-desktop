@@ -2,10 +2,10 @@
 global $locations;
 $meetings_args = array(
 	'post_type'	=> 'tlw_meeting',
-	'posts_per_page' => -1
+	'posts_per_page' => -1,
+	'orderby' => 'meta_value'
 );
 if (isset($_REQUEST['meeting-day']) ) {
-	$meetings_args['orderby'] = 'meta_value';
 	$meetings_args['order'] = 'ASC';
 	$meetings_args['meta_key'] = 'meeting_date';
 	
@@ -17,8 +17,8 @@ if (isset($_REQUEST['meeting-day']) ) {
 }
 
 if (isset($_REQUEST['meeting-year']) ) {
-$meetings_args['orderby'] = 'date';	
-$meetings_args['year'] = $_REQUEST['meeting-year'];
+$meetings_args['meta_key'] = 'meeting_year';
+$meetings_args['meta_value'] = $_REQUEST['meeting-year'];
 }
 
 $meetings = get_posts($meetings_args);
@@ -86,7 +86,7 @@ $month = date('F', strtotime(get_field( 'meeting_date', $m->ID )));
 	<p>There are no meetings in<span><?php echo $_REQUEST['meeting-year']; ?></span></p>
 	<?php } else { ?>
 	<p>There are no meetings booked <?php echo (isset($_REQUEST['meeting-day-to'])) ? 'from':'for';?><span><?php echo date('jS F', strtotime($_REQUEST['meeting-day'])); ?></span><?php echo (isset($_REQUEST['meeting-day-to'])) ? ' to <span>'.date('jS F', strtotime($_REQUEST['meeting-day-to'])).'</span>':''; ?></p>
-	<a href="?meeting-actions=add-meeting" id="add-meeting" class="btn btn-default btn-block caps"><i class="fa fa-plus-circle pull-left"></i> Book a room</a>
+	<a href="?meeting-actions=add-meeting<?php echo (isset($_REQUEST['meeting-day'])) ? '&meeting-day='.$_REQUEST['meeting-day']:'' ?><?php echo (isset($_REQUEST['meeting-day-to'])) ? '&meeting-day-to='.$_REQUEST['meeting-day-to']:'' ?>" id="add-meeting" class="btn btn-default btn-block caps"><i class="fa fa-plus-circle pull-left"></i> Book a room</a>
 	<?php } ?>
 </div>
 <?php } ?>
