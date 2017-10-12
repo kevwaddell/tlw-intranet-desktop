@@ -97,10 +97,6 @@ $now = $now_time->getTimestamp();
 				<a href="?meeting-actions=notify-user&user-id=<?php echo $att_id; ?>&meeting-id=<?php echo $current_meeting->ID; ?><?php echo (isset($_REQUEST['meeting-day'])) ? '&meeting-day='.$_REQUEST['meeting-day']:'' ?><?php echo (isset($_REQUEST['meeting-day-to'])) ? '&meeting-day-to='.$_REQUEST['meeting-day-to']:'' ?>" class="notify-btn btn btn-default">Notify <?php echo $att_fname; ?> <i class="fa fa-envelope"></i></a>
 				<a href="?meeting-actions=remove-attendee&user-id=<?php echo $att_id; ?>&meeting-id=<?php echo $current_meeting->ID; ?><?php echo (isset($_REQUEST['meeting-day'])) ? '&meeting-day='.$_REQUEST['meeting-day']:'' ?><?php echo (isset($_REQUEST['meeting-day-to'])) ? '&meeting-day-to='.$_REQUEST['meeting-day-to']:'' ?>" class="btn btn-default"><i class="fa fa-trash"></i></a>
 				<?php } ?>
-				<?php if ($current_user->ID == $att_id && $meeting_date_time <= $now && $status == 'pending') { ?>
-				<a href="?meeting-actions=user-status&status=accept&meeting-id=<?php echo $current_meeting->ID; ?><?php echo (isset($_REQUEST['meeting-day'])) ? '&meeting-day='.$_REQUEST['meeting-day']:'' ?><?php echo (isset($_REQUEST['meeting-day-to'])) ? '&meeting-day-to='.$_REQUEST['meeting-day-to']:'' ?>" class="notify-btn btn btn-success">Accept <i class="fa fa-check"></i></a>
-				<a href="?meeting-actions=user-status&status=rejected&meeting-id=<?php echo $current_meeting->ID; ?><?php echo (isset($_REQUEST['meeting-day'])) ? '&meeting-day='.$_REQUEST['meeting-day']:'' ?><?php echo (isset($_REQUEST['meeting-day-to'])) ? '&meeting-day-to='.$_REQUEST['meeting-day-to']:'' ?>" class="notify-btn btn btn-danger">Reject <i class="fa fa-times"></i></a>
-				<?php } ?>
 			</td>
 		</tr>
 		<?php } ?>

@@ -12408,6 +12408,13 @@ pre.debug.left {
   left: 0px;
   right: auto;
 }
+pre.debug table th {
+  padding: 10px;
+}
+pre.debug table td {
+  padding: 10px;
+  color: #4b4b4b;
+}
 body {
   position: relative;
   width: 100%;
