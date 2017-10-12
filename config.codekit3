@@ -353,6 +353,12 @@
 		"oAP": "\/app\/inc\/meetings-page-vars\/meeting-booked-email.inc",
 		"oF": 0
 		},
+	"\/app\/inc\/meetings-page-vars\/meeting-notify-email.inc": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/app\/inc\/meetings-page-vars\/meeting-notify-email.inc",
+		"oF": 0
+		},
 	"\/app\/inc\/notes-page-vars\/get-note.inc": {
 		"ft": 8192,
 		"oA": 2,

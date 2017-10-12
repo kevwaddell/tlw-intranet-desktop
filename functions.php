@@ -201,4 +201,24 @@ function acf_get_field_key($field_name, $post_id)
     return false;
 }
 
+add_action( 'phpmailer_init', 'mailer_config', 10, 1);
+function mailer_config(PHPMailer $mailer){
+  $mailer->IsSMTP();
+  $mailer->Host = gethostbyname("tlwserv02.tlwsolicitors.local"); // your SMTP server
+  $mailer->Port = 25;
+  $mailer->SMTPDebug = 0;
+  $mailer->CharSet = "utf-8";
+  $mailer->Username = 'kwaddell';
+  $mailer->Password = '1609legal';
+  $mailer->SMTPAuth = false;
+  $mailer->SMTPSecure = 'tls';
+  $mailer->SMTPOptions = array(
+    'ssl' => array(
+        'verify_peer' => false,
+        'verify_peer_name' => false,
+        'allow_self_signed' => true
+    )
+	);
+}
+
 ?>
