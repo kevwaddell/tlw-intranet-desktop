@@ -13358,6 +13358,10 @@ article.page {
   /* Track */
   /* Handle */
 }
+article.page.no-sbs {
+  left: 0px;
+  padding: 20px 0px 40px 0px;
+}
 article.page.sb-out {
   left: 300px;
 }

@@ -40,9 +40,14 @@ $headers[] = "Content-Type: text/html; charset=UTF-8";
 $headers[] = "From: $fname $lname <$from_email>";
 $headers[] = "Reply-To: $fname $lname <$from_email>";
 
-$live = true;
+if ($_SERVER[SERVER_ADMIN] == "home-laptop@localhost") {
+$live = false;
+} else {
+$live = true;	
+}
 
 debug($message);
+
 
 if ($live) {
 $notify_email_sent = wp_mail( "kwaddell@tlwsolicitors.co.uk", $subject, $message, $headers );	

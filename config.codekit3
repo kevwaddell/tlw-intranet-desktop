@@ -1019,6 +1019,12 @@
 		"oAP": "\/page-templates\/login-page.php",
 		"oF": 0
 		},
+	"\/page-templates\/meetings-approval-page.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/page-templates\/meetings-approval-page.php",
+		"oF": 0
+		},
 	"\/page-templates\/meetings-page.php": {
 		"ft": 8192,
 		"oA": 2,

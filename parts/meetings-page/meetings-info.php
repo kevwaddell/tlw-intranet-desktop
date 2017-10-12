@@ -32,7 +32,7 @@ $mdate_time = new DateTime(get_field( 'meeting_date', $current_meeting->ID )." "
 $now_time = new DateTime(null, new DateTimeZone($timeZone));
 $meeting_date_time = $mdate_time->getTimestamp();
 $now = $now_time->getTimestamp();
-//debug(date('l - jS F - Y G:i', $meeting_date_time).'<br>'.date('l - jS F - Y G:i', $now) );
+//debug($_SERVER[SERVER_ADMIN]);
 ?>
 <table class="table table-striped">
 	<thead>
