@@ -1055,6 +1055,12 @@
 		"oAP": "\/page-templates\/rescources-page.php",
 		"oF": 0
 		},
+	"\/page-templates\/single-ical-template.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/page-templates\/single-ical-template.php",
+		"oF": 0
+		},
 	"\/page.php": {
 		"ft": 8192,
 		"oA": 2,
@@ -1748,12 +1754,6 @@
 		"ft": 8192,
 		"oA": 2,
 		"oAP": "\/sidebar.php",
-		"oF": 0
-		},
-	"\/single-ical-template.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/single-ical-template.php",
 		"oF": 0
 		},
 	"\/single-tlw_meeting.php": {

@@ -33,7 +33,7 @@ include (STYLESHEETPATH . '/app/inc/meetings-page-vars/cancel-meeting.inc');
 include (STYLESHEETPATH . '/app/inc/meetings-page-vars/add-attendees.inc');
 
 if ($meeting_added) {
-//include (STYLESHEETPATH . '/app/inc/meetings-page-vars/meeting-booked-email.inc');	
+include (STYLESHEETPATH . '/app/inc/meetings-page-vars/meeting-booked-email.inc');	
 }
 if ($_REQUEST['meeting-actions'] == 'notify-user') {
 include (STYLESHEETPATH . '/app/inc/meetings-page-vars/meeting-notify-email.inc');	
@@ -42,7 +42,7 @@ include (STYLESHEETPATH . '/app/inc/meetings-page-vars/meeting-notify-email.inc'
 
 <article <?php post_class('page'); ?>>
 	<div class="entry">
-		<?php if ( $meeting_added || $meeting_canceled || $attendees_added || $notify_email_sent) { ?>
+		<?php if ( $booking_email_sent || $meeting_canceled || $attendees_added || $notify_email_sent) { ?>
 			<?php  get_template_part( 'parts/meetings-page/alerts/meeting', 'alerts' ); ?>
 		<?php } ?>
 		<?php if ( isset($_REQUEST['meeting-id']) || $meeting_added || $attendees_added) { ?>

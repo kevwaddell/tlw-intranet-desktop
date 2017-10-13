@@ -16,25 +16,32 @@ $m_user = get_user_by( 'id', $_REQUEST['user-id'] );
 $to_email = $m_user->data->user_email;
 $user_fname = get_user_meta( $_REQUEST['user-id'], 'first_name', true );
 $user_lname = get_user_meta( $_REQUEST['user-id'], 'last_name', true );
+$request_params = "";
+if (isset($_REQUEST['meeting-day'])) {
+$request_params .= '&meeting-day='.$_REQUEST['meeting-day'];	
+}
+if (isset($_REQUEST['meeting-day-to'])) {
+$request_params .= '&meeting-day-to='.$_REQUEST['meeting-day-to'];	
+}
 
 $from = get_user_by( 'id', $booked_by );
 $from_email = $from->data->user_email;
 
 $subject = "Meeting attendance request from $fname $lname";
-$message = "<h3><font style=\"color: red;\">$fname $lname</font> has requested you attend a meeting.</h3>";
-$message .= "<br>";
+$message = "<h1 style=\"font-size:25px; line-height: 30px;\"><font style=\"color: red;\">$fname $lname</font> has requested you attend a meeting.</h1>";
 $message .= "<table width=\"100%\" border=\"0\" cellspacing=\"2\" cellpadding=\"10\"><tbody><thead>";
 $message .= "<tr><th colspan=\"2\" style=\"background-color: #999;\">MEETING DETAILS</th></tr></thead>";
 $message .= "<tbody><tr><td style=\"background-color: #CCC;\">Meeting room:</td><td style=\"background-color: #EEE;\"><strong>".  $locations[0]->name ."</strong></td></tr>";
 $message .= "<tr><td style=\"background-color: #CCC;\">Meeting title:</td><td style=\"background-color: #EEE;\"><strong>". get_the_title( $meeting->ID ) ."</strong></td></tr>";
-$message .= "<tr><td style=\"background-color: #CCC;\">Meeting description:</td><td style=\"background-color: #EEE;\"><strong>". $meeting_description ."</strong></td></tr>";
-$message .= "<tr><td style=\"background-color: #CCC;\">Date:</td><td style=\"background-color: #EEE;\"><strong>".  date('D jS F Y', strtotime($meeting_date)) ."</strong></td></tr>";
-$message .= "<tr><td style=\"background-color: #CCC;\">Time:</td><td style=\"background-color: #EEE;\"><strong>".  $start_time ." - ".$end_time. "</strong></td></tr></tbody>";
-$message .= "<tfoot><tr><td style=\"background-color: #CCC;\">Requested on:</td><td style=\"background-color: #EEE;\"><strong>". $now_time->format('D jS F Y @ H:i') . "</strong></td></tr>";
+if (!empty($meeting_description)) {
+$message .= "<tr><td style=\"background-color: #CCC;\">Meeting description:</td><td style=\"background-color: #EEE;\"><strong>". $meeting_description ."</strong></td></tr>";			
+}
+$message .= "<tr><td style=\"background-color: #CCC;\">Meeting Date/time:</td><td style=\"background-color: #EEE;\"><strong>".  date('D jS F Y', strtotime($meeting_date)) ." @ ".$start_time ." - ".$end_time."</strong></td></tr></tbody>";
+$message .= "<tfoot><tr><td style=\"background-color: #CCC;\">Request sent on:</td><td style=\"background-color: #EEE;\"><strong>". $now_time->format('D jS F Y @ H:i') . "</strong></td></tr>";
 $message .= "<tr><td style=\"background-color: #CCC;\">Booked by:</td><td style=\"background-color: #EEE;\"><strong>". $fname ." ". $lname . "</strong></td></tr></tfoot>";
 $message .= "</table><br><br>";
-$message .= "Please use the link below to view meeting details and accept or reject the booking request.<br><br>";
-$message .= "<a href=\"".get_permalink($meeting_approval_pg->ID)."?meeting-actions=attendee-approval&meeting-id=".$meeting->ID."&user-id=".$_REQUEST['user-id']."\">View request >></a><br><br>";
+$message .= "<p style=\"font-size:16px; line-height: 20px;\">Please use the link below to view meeting details and accept or reject the booking request.<br><br>";
+$message .= "<a href=\"".get_permalink($meeting_approval_pg->ID)."?meeting-actions=attendee-approval&meeting-id=".$meeting->ID."&user-id=".$_REQUEST['user-id'].$request_params."\" style=\"display: block; text-decoration: none; padding: 10px; background-color: red; color: white; text-align: center; text-transform: uppercase; \">View request >></a></p>";
 $headers = array();
 $headers[] = "Content-Type: text/html; charset=UTF-8";
 $headers[] = "From: $fname $lname <$from_email>";
