@@ -12287,6 +12287,15 @@ Copyright (c) 2014 Daniel Eden
 .col-linkedIn {
   color: #0084bf;
 }
+.col-gray {
+  color: #918F8F;
+}
+.col-red {
+  color: #C60751;
+}
+.col-red-mid {
+  color: #7A1039;
+}
 .caps {
   text-transform: uppercase;
 }
@@ -12394,7 +12403,7 @@ html {
   margin-top: 0px !important;
 }
 pre.debug {
-  top: 0px;
+  top: 50px;
   right: 0px;
   position: fixed;
   z-index: 1000;
@@ -13431,15 +13440,13 @@ article.page .table .label {
   display: inline-block;
   min-width: 34px;
   line-height: 34px;
-  padding: 0px;
-  text-indent: 10px;
+  padding: 0px 10px 0px 0px;
 }
 article.page .table .label i {
   display: inline-block;
   width: 34px;
   text-align: center;
   line-height: 34px;
-  text-indent: 0px;
 }
 article.page .table td {
   line-height: 34px;
@@ -13467,6 +13474,9 @@ article.page .table input.input-name:focus {
   outline-offset: 0px;
   outline-color: white;
   outline-style: none;
+}
+article.page .alert h3 {
+  margin-top: 0px;
 }
 aside.scrollable {
   position: absolute;

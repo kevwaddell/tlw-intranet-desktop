@@ -23,6 +23,7 @@ $end_time = get_field( 'end_time', $current_meeting->ID);
 $current_attendees_staff = get_field('attendees_staff', $current_meeting->ID);
 $current_attendees_clients = get_field('attendees_clients', $current_meeting->ID);		
 $contacts_pg = get_page_by_path( 'contacts' );
+$ical_pg = get_page_by_path( 'meetings/single-ical-event');
 ?>
 
 <?php if ($_GET['meeting-actions'] != 'add-attendees' && empty($add_attendee_errors)) { ?>
@@ -32,6 +33,17 @@ $mdate_time = new DateTime(get_field( 'meeting_date', $current_meeting->ID )." "
 $now_time = new DateTime(null, new DateTimeZone($timeZone));
 $meeting_date_time = $mdate_time->getTimestamp();
 $now = $now_time->getTimestamp();
+if ($meeting_date_time < $now && !empty($current_attendees_staff)) {
+	foreach ($current_attendees_staff as $k => $cas) {
+		if ($cas['status'] == 'pending') {
+		unset($current_attendees_staff[$k]);
+		}
+	}
+	
+	$attendee_staff_key = acf_get_field_key('attendees_staff', $_REQUEST['meeting-id']);
+	update_field( $attendee_staff_key, $current_attendees_staff, $_REQUEST['meeting-id'] );
+}
+
 //debug($_SERVER[SERVER_ADMIN]);
 ?>
 <table class="table table-striped">
@@ -70,8 +82,10 @@ $now = $now_time->getTimestamp();
 		<tr>
 			<td class="bold text-right">Internal attendees</td>
 			<td>
-				<div class="label label-success">Accepted <i class="fa fa-check fa-lg pull-right"></i> </div>
-				<div class="label label-info">Pending <i class="fa fa-clock-o fa-lg pull-right"></i></div>
+				<div class="label label-success"><i class="fa fa-check fa-lg pull-left"></i> <?php echo ($meeting_date_time > $now) ? 'Accepted' : 'Attended' ?></div>
+				<?php if ($meeting_date_time > $now) { ?>
+				<div class="label label-info"><i class="fa fa-clock-o fa-lg pull-left"></i> Pending</div>
+				<?php } ?>
 			</td>
 		</tr>
 		<?php foreach ($current_attendees_staff as $staff) { 
@@ -80,14 +94,15 @@ $now = $now_time->getTimestamp();
 				$att_lname = get_user_meta( $att_id, "last_name", true );
 				$status = $staff['status'];
 				?>
-		<?php if ($status != 'rejected') { ?>	
 		<tr class="<?php echo ($status == 'accepted') ? 'success': 'info'; ?>">
 			<td>
 				<?php if ($status == 'accepted') { ?>
+
 				<i class="fa fa-check fa-2x pull-right text-success"></i>
 				<?php } else { ?>
 				<i class="fa fa-clock-o fa-2x pull-right text-info"></i>
-				<?php } ?>	
+											
+				<?php } ?>
 			</td>
 			<td>
 				<a href="<?php echo get_permalink($contacts_pg->ID); ?>?id=<?php echo $att_id; ?>&contacts=team#contact-id-<?php echo $id; ?>" class="attendee <?php echo ($status == 'accepted') ? 'text-success': 'text-info'; ?>">
@@ -99,7 +114,6 @@ $now = $now_time->getTimestamp();
 				<?php } ?>
 			</td>
 		</tr>
-		<?php } ?>
 		<?php } ?>
 		
 		<?php } ?>
@@ -113,13 +127,16 @@ $now = $now_time->getTimestamp();
 			</td>
 		</tr>			
 		<?php } ?>
-		<?php if ($current_user->ID == $booked_by && $meeting_date_time > $now) { ?>
+		<?php if ($meeting_date_time > $now) { ?>
 		<tr>
 			<td></td>
 			<td>
+				<?php if ($current_user->ID == $booked_by && $meeting_date_time > $now) { ?>
 				<a href="?meeting-actions=add-attendees&meeting-id=<?php echo $current_meeting->ID; ?><?php echo (isset($_REQUEST['meeting-day'])) ? '&meeting-day='.$_REQUEST['meeting-day']:'' ?><?php echo (isset($_REQUEST['meeting-day-to'])) ? '&meeting-day-to='.$_REQUEST['meeting-day-to']:'' ?>" class="btn btn-default caps"><i class="fa fa-plus"></i> Add attendees</a>
 				<a href="?meeting-actions=edit-meeting&meeting-id=<?php echo $current_meeting->ID; ?><?php echo (isset($_REQUEST['meeting-day'])) ? '&meeting-day='.$_REQUEST['meeting-day']:'' ?><?php echo (isset($_REQUEST['meeting-day-to'])) ? '&meeting-day-to='.$_REQUEST['meeting-day-to']:'' ?>" class="btn btn-default caps"><i class="fa fa-pencil"></i> Change meeting</a>
 				<a href="?meeting-actions=cancel-meeting&meeting-id=<?php echo $current_meeting->ID; ?><?php echo (isset($_REQUEST['meeting-day'])) ? '&meeting-day='.$_REQUEST['meeting-day']:'' ?><?php echo (isset($_REQUEST['meeting-day-to'])) ? '&meeting-day-to='.$_REQUEST['meeting-day-to']:'' ?>" class="btn btn-default caps"><i class="fa fa-times"></i> Cancel meeting</a>
+				<?php } ?>
+				<a href="<?php echo get_permalink( $ical_pg->ID ); ?>?meeting-id=<?php echo $current_meeting->ID; ?>" target="_blank" class="btn btn-default caps"><i class="fa fa-calendar-plus-o"></i> Add to calendar</a>
 			</td>
 		</tr>
 		<?php } ?>

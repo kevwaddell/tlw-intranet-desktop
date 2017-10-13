@@ -1,8 +1,7 @@
 <?php 
-$default_tz = date_default_timezone_get();
-date_default_timezone_set('Europe/London'); 
-$now = strtotime("now");
-$meetings_pg = get_page_by_path("meetings/meeting-approval");
+$timeZone = 'Europe/London';
+$now_time = new DateTime(null, new DateTimeZone($timeZone));
+$meetings_pg = get_page_by_path("meetings");
 
 global $meeting_added;
 global $location_id;
@@ -14,39 +13,41 @@ global $end_time;
 global $booked_by;
 global $room;
 
-$from = get_user_by( 'id', $booked_by );
-
-$from_name = $from->data->display_name;
+$from = get_user_by( 'id', 1 );
+$fname = get_user_meta( 1, 'first_name', true );
+$lname = get_user_meta( 1, 'last_name', true );
 $from_email = $from->data->user_email;
+$to = get_user_by( 'id', $booked_by );
+$to_email = $to->data->user_email;
 
-$subject = "Meeting room booking request from $from_name";
-$message = "<h3><font style=\"color: red;\">$from_name</font> has requested a meeting room.</h3>";
-$message .= "<br>";
-$message .= "<table width=\"100%\" border=\"0\" cellspacing=\"2\" cellpadding=\"10\"><tbody><thead>";
-$message .= "<tr><th colspan=\"2\" style=\"background-color: #999;\">MEETING DETAILS</th></tr></thead>";
-$message .= "<tbody><tr><td style=\"background-color: #CCC;\">Meeting room:</td><td style=\"background-color: #EEE;\"><strong>".  $room->name ."</strong></td></tr>";
-$message .= "<tr><td style=\"background-color: #CCC;\">Meeting title:</td><td style=\"background-color: #EEE;\"><strong>". $meeting_title ."</strong></td></tr>";
-$message .= "<tr><td style=\"background-color: #CCC;\">Date:</td><td style=\"background-color: #EEE;\"><strong>".  date('D jS F Y', strtotime($meeting_date)) ."</strong></td></tr>";
-$message .= "<tr><td style=\"background-color: #CCC;\">Time:</td><td style=\"background-color: #EEE;\"><strong>".  $start_time ." - ".$end_time. "</strong></td></tr></tbody>";
-$message .= "<tfoot><tr><td style=\"background-color: #CCC;\">Requested on:</td><td style=\"background-color: #EEE;\"><strong>". date('D jS F Y', $now) ." at ". date('H:i', $now)  . "</strong></td></tr>";
-$message .= "<tr><td style=\"background-color: #CCC;\">Booked by:</td><td style=\"background-color: #EEE;\"><strong>". $from_name . "</strong></td></tr></tfoot>";
-$message .= "</table><br><br>";
-$message .= "Please use the link below to view meeting details and accept or reject the booking request.<br><br>";
-$message .= "<a href=\"".get_permalink($meetings_pg->ID)."?booking-approval=booking-approval&meeting-id=".$meeting_added."\">View request >></a><br><br>";
-$headers = "From: $from_name <$from_email>";
-
-debug($message);
-
-function wps_set_content_type(){
-return "text/html";
+$request_params = "";
+if (isset($_REQUEST['meeting-day'])) {
+$request_params .= '&meeting-day='.$_REQUEST['meeting-day'];	
+}
+if (isset($_REQUEST['meeting-day-to'])) {
+$request_params .= '&meeting-day-to='.$_REQUEST['meeting-day-to'];	
 }
 
-add_filter( 'wp_mail_content_type','wps_set_content_type' );
+$subject = "Meeting room booking";
+$message = "<h1 style=\"font-size:25px; line-height: 30px;\"><font style=\"color: red;\">".$room->name."</font> has been booked.</h1>";
+$message .= "<table width=\"100%\" border=\"0\" cellspacing=\"2\" cellpadding=\"10\"><tbody><thead>";
+$message .= "<tr><th colspan=\"2\" style=\"background-color: #999;\">MEETING DETAILS</th></tr></thead>";
+$message .= "<tbody><tr><td style=\"background-color: #CCC;\">Meeting title:</td><td style=\"background-color: #EEE;\"><strong>". $meeting_title ."</strong></td></tr>";
+if (!empty($meeting_description)) {
+$message .= "<tr><td style=\"background-color: #CCC;\">Meeting description:</td><td style=\"background-color: #EEE;\"><strong>". $meeting_description ."</strong></td></tr>";			
+}
+$message .= "<tr><td style=\"background-color: #CCC;\">Meeting Date/time:</td><td style=\"background-color: #EEE;\"><strong>".  date('D jS F Y', strtotime($meeting_date)) ." @ ".$start_time ." - ".$end_time."</strong></td></tr></tbody>";
+$message .= "<tfoot><tr><td style=\"background-color: #CCC;\">Requested date/time:</td><td style=\"background-color: #EEE;\"><strong>". $now_time->format('D jS F Y @ H:i')  . "</strong></td></tr></tfoot>";
+$message .= "</table><br><br>";
+$message .= "Please use the link below to view your meeting details.<br><br>";
+$message .= "<a href=\"".get_permalink($meetings_pg->ID)."?meeting-id=".$meeting_added.$request_params."\" style=\"display: block; text-align: center; text-transform: uppercase; text-decoration: none; padding: 10px; background-color: red; color: white; \">View request >></a><br><br>";
+$headers = array();
+$headers[] = "Content-Type: text/html; charset=UTF-8";
+$headers[] = "From: $fname $lname <$from_email>";
+$headers[] = "Reply-To: $fname $lname <$from_email>";
 
-$booking_email_sent = ( "kevwaddell@mac.com", $subject, $message, $headers );
+//debug($message);
+$booking_email_sent = wp_mail("kwaddell@tlwsolicitors.co.uk", $subject, $message, $headers );
+//debug($booking_email_sent);
 //$booking_email_sent = true;
-
-remove_filter( 'wp_mail_content_type', 'set_html_content_type' );
-
-date_default_timezone_set($default_tz); 
 ?>

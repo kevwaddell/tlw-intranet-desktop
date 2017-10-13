@@ -4,7 +4,7 @@ global $meeting_added;
 $meetings_args = array(
 	'post_type'	=> 'tlw_meeting',
 	'posts_per_page' => -1,
-	'orderby' => 'meta_value'
+	'orderby' => 'meta_value_num'
 );
 if (isset($_REQUEST['meeting-day']) ) {
 	$meetings_args['order'] = 'ASC';
@@ -18,13 +18,16 @@ if (isset($_REQUEST['meeting-day']) ) {
 }
 
 if (isset($_REQUEST['meeting-year']) ) {
+$meetings_args['meta_query'] = array( array( 'key' => 'meeting_year', 'value'	=> $_REQUEST['meeting-year']), array('key'	=> 'meeting_date') );
+/*
 $meetings_args['meta_key'] = 'meeting_year';
 $meetings_args['meta_value'] = $_REQUEST['meeting-year'];
+*/
 }
 
 $meetings = get_posts($meetings_args);
 
-//debug($meetings);
+debug($meetings_args);
 
 $meeting_months = array();
 foreach ($meetings as $m) {
