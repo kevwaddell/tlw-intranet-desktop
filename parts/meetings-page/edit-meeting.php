@@ -6,7 +6,7 @@ global $add_meeting_errors;
 global $room;
 //echo '<pre class="debug">';print_r($all_users);echo '</pre>';
 ?>
-<?php if (array_key_exists ('booked' , $add_meeting_errors )) { ?>
+<?php if (array_key_exists ('booked' , $edit_meeting_errors )) { ?>
 <div class="alert alert-danger alert-dismissible" role="alert">
 	<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 	<p><i class="fa fa-check-circle"></i> The meeting room <span class="bold"><?php echo $room->name; ?></span> is already booked at <span class="bold"><?php echo $_REQUEST['start-time'] ?></span> on <span class="bold"><?php echo $_REQUEST['meeting-date']; ?></span>.</p>	
@@ -90,8 +90,9 @@ global $room;
 		<tr>
 			<td></td>
 			<td colspan="2">
+				<input type="hidden" name="meeting-id" value="<?php echo $_REQUEST['meeting-id']; ?>">
 				<input type="hidden" name="booked-by-id" value="<?php echo $current_user->ID ?>">
-				<button type="submit" class="btn btn-default caps" name="edit-meeting">Book room <i class="fa fa-check"></i></button>
+				<button type="submit" class="btn btn-default caps" name="edit-meeting">Update meeting <i class="fa fa-check"></i></button>
 				<a href="<?php the_permalink(); ?><?php echo (isset($_REQUEST['meeting-day'])) ? '?meeting-day='.$_REQUEST['meeting-day']:'' ?><?php echo (isset($_REQUEST['meeting-day-to'])) ? '&meeting-day-to='.$_REQUEST['meeting-day-to']:'' ?>" class="btn btn-default caps">Cancel <i class="fa fa-times"></i></a>
 			</td>
 		</tr>

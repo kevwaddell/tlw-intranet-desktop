@@ -18,6 +18,7 @@ $meeting_year = get_field('meeting_year', $y->ID);
 }
 $add_meeting_errors = array();
 $add_attendee_errors = array();
+$edit_meeting_errors = array();
 $excluded_users = array(1, 60, 69);
 
 $users_args = array(
@@ -29,8 +30,11 @@ $all_users = get_users($users_args);
 //echo '<pre class="debug">';print_r($first_meeting_post);echo '</pre>';
 
 include (STYLESHEETPATH . '/app/inc/meetings-page-vars/add-meeting.inc');
+include (STYLESHEETPATH . '/app/inc/meetings-page-vars/edit-meeting.inc');
 include (STYLESHEETPATH . '/app/inc/meetings-page-vars/cancel-meeting.inc');
 include (STYLESHEETPATH . '/app/inc/meetings-page-vars/add-attendees.inc');
+include (STYLESHEETPATH . '/app/inc/meetings-page-vars/update-attendee.inc');
+include (STYLESHEETPATH . '/app/inc/meetings-page-vars/remove-attendee.inc');
 
 if ($meeting_added) {
 include (STYLESHEETPATH . '/app/inc/meetings-page-vars/meeting-booked-email.inc');	
@@ -38,17 +42,19 @@ include (STYLESHEETPATH . '/app/inc/meetings-page-vars/meeting-booked-email.inc'
 if ($_REQUEST['meeting-actions'] == 'notify-user') {
 include (STYLESHEETPATH . '/app/inc/meetings-page-vars/meeting-notify-email.inc');	
 }
+
+//debug($show_alert);
 ?>
 
 <article <?php post_class('page'); ?>>
 	<div class="entry">
-		<?php if ( $booking_email_sent || $meeting_canceled || $attendees_added || $notify_email_sent) { ?>
+		<?php if ( $show_alert || $attendee_updated || $attendee_removed ) { ?>
 			<?php  get_template_part( 'parts/meetings-page/alerts/meeting', 'alerts' ); ?>
 		<?php } ?>
-		<?php if ( isset($_REQUEST['meeting-id']) || $meeting_added || $attendees_added) { ?>
+		<?php if ( isset($_REQUEST['meeting-id']) || $meeting_added || $attendees_added ) { ?>
 			<?php  get_template_part( 'parts/meetings-page/meetings', 'info' ); ?>
 		<?php } ?>
-		<?php if ( isset($_GET['meeting-actions']) || isset($_POST['add-meeting'])) { ?>
+		<?php if ( isset($_GET['meeting-actions']) || isset($_POST['add-meeting']) || isset($_POST['edit-meeting'])) { ?>
 			<?php if ($_GET['meeting-actions'] == 'add-meeting' || !empty($add_meeting_errors)) { ?>
 			<?php  get_template_part( 'parts/meetings-page/add', 'meeting' ); ?>
 			<?php } ?>

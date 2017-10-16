@@ -12,10 +12,10 @@ $ac_company = $active_contact['company'];
 $ac_tel = $active_contact['tel'];
 $ac_mobile = $active_contact['mobile'];
 ?>
+<?php if ($_GET['contact-actions'] == 'edit-contact') { ?>
+	<form action="<?php the_permalink(); ?>" method="post">		
+<?php } ?>
 <table class="table table-striped">
-	<?php if ($_GET['contact-actions'] == 'edit-contact') { ?>
-		<form action="<?php the_permalink(); ?>" method="post">		
-	<?php } ?>
 	<thead>
 		<tr>
 			<th width="170" class="text-right"><i class="private-icon fa fa-user-circle"></i></th>

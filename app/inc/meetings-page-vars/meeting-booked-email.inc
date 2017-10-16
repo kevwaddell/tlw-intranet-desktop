@@ -2,6 +2,7 @@
 $timeZone = 'Europe/London';
 $now_time = new DateTime(null, new DateTimeZone($timeZone));
 $meetings_pg = get_page_by_path("meetings");
+$show_alert = false;
 
 global $meeting_added;
 global $location_id;
@@ -48,6 +49,7 @@ $headers[] = "Reply-To: $fname $lname <$from_email>";
 
 //debug($message);
 $booking_email_sent = wp_mail("kwaddell@tlwsolicitors.co.uk", $subject, $message, $headers );
+$show_alert = true;
 //debug($booking_email_sent);
 //$booking_email_sent = true;
 ?>
