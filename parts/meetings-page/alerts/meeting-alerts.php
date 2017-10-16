@@ -6,6 +6,8 @@ global $attendees_added;
 global $meeting_updated;
 global $attendee_removed;
 global $attendee_updated;
+global $meeting_canceled;
+global $meeting_deleted;
 global $room;
 ?>
 <?php if ( $booking_email_sent ) { ?>
@@ -47,18 +49,16 @@ global $notify_user_emails;
 ?>
 <div class="alert alert-success alert-dismissible" role="alert">
 	<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-	<p><i class="fa fa-check-circle"></i> <span class="bold"><?php echo get_the_title( $meeting->ID ); ?></span> meeting has canceled.</p>	
-	<?php if (!empty($notify_user_emails)) { 
-		echo '<pre>';
-	?>
+	<h3><i class="fa fa-check-circle"></i> <span class="bold"><?php echo get_the_title( $meeting->ID ); ?></span> meeting has been canceled.</h3>	
+	<?php if (!empty($notify_user_emails)) { ?>
+	<ul>
 		<?php foreach ($notify_user_emails as $ue) { 
 		$n_user = get_user_by_email( $ue );
 		?>
-		<?php print_r($n_user); ?>
-		<?php } ?>		
-	<?php 
-		echo '</pre>';
-		} ?>
+		<li><strong><?php echo $n_user->display_name; ?></strong> has been notified.</li>
+		<?php } ?>	
+	</ul>	
+	<?php } ?>
 </div>
 <?php } ?>
 
@@ -66,5 +66,12 @@ global $notify_user_emails;
 <div class="alert alert-success alert-dismissible" role="alert">
 	<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 	<p><i class="fa fa-check-circle"></i> Meeting updated successfully.</p>	
+</div>
+<?php } ?>
+
+<?php if ( $meeting_deleted ) { ?>
+<div class="alert alert-success alert-dismissible" role="alert">
+	<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	<p><i class="fa fa-check-circle"></i> Meeting has been deleted successfully.</p>	
 </div>
 <?php } ?>

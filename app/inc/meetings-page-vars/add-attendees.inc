@@ -1,9 +1,9 @@
 <?php
-global $add_attendee_errors;
-$attendees_added = false;
-$show_alert = false;
-
 if ( isset($_POST['add-attendees']) ) {
+global $add_attendee_errors;
+global $attendees_added;
+global $show_alert;
+
 $m_id = $_POST['meeting-id'];
 $attendees_staff_total = intval(get_post_meta($m_id , 'attendees_staff', true));
 $attendees_staff_orig = get_field( 'attendees_staff', $m_id );

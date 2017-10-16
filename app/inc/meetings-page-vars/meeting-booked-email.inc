@@ -2,8 +2,7 @@
 $timeZone = 'Europe/London';
 $now_time = new DateTime(null, new DateTimeZone($timeZone));
 $meetings_pg = get_page_by_path("meetings");
-$show_alert = false;
-
+global $show_alert;
 global $meeting_added;
 global $location_id;
 global $meeting_title;
