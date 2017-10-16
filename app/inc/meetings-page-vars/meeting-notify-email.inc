@@ -1,8 +1,8 @@
 <?php 
+global $show_alert;
 $timeZone = 'Europe/London';
 $now_time = new DateTime(null, new DateTimeZone($timeZone));
 $meeting_approval_pg = get_page_by_path("meetings/meeting-approval");
-$show_alert = false;
 
 $meeting = get_post($_REQUEST['meeting-id']);
 $locations = wp_get_post_terms( $_REQUEST['meeting-id'], 'tlw_rooms_tax');

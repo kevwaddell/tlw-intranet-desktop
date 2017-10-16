@@ -1,8 +1,7 @@
 <?php
-$attendee_updated = false;
-$show_alert = false;
-
 if ( isset($_POST['update-attendee'])) {
+	global $attendee_updated;
+	global $show_alert;
 	$m_id = $_POST['meeting-id'];
 	$client_key = $_POST['client-key'];
 	$attendees_clients_orig = get_field( 'attendees_clients', $m_id );

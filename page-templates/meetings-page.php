@@ -19,6 +19,13 @@ $meeting_year = get_field('meeting_year', $y->ID);
 $add_meeting_errors = array();
 $add_attendee_errors = array();
 $edit_meeting_errors = array();
+$meeting_updated = false;
+$attendees_added = false;
+$meeting_canceled = false;
+$attendee_removed = false;
+$attendee_updated = false;
+$meeting_deleted = false;
+$show_alert = false;
 $excluded_users = array(1, 60, 69);
 
 $users_args = array(
@@ -32,6 +39,7 @@ $all_users = get_users($users_args);
 include (STYLESHEETPATH . '/app/inc/meetings-page-vars/add-meeting.inc');
 include (STYLESHEETPATH . '/app/inc/meetings-page-vars/edit-meeting.inc');
 include (STYLESHEETPATH . '/app/inc/meetings-page-vars/cancel-meeting.inc');
+include (STYLESHEETPATH . '/app/inc/meetings-page-vars/delete-meeting.inc');
 include (STYLESHEETPATH . '/app/inc/meetings-page-vars/add-attendees.inc');
 include (STYLESHEETPATH . '/app/inc/meetings-page-vars/update-attendee.inc');
 include (STYLESHEETPATH . '/app/inc/meetings-page-vars/remove-attendee.inc');
@@ -42,13 +50,13 @@ include (STYLESHEETPATH . '/app/inc/meetings-page-vars/meeting-booked-email.inc'
 if ($_REQUEST['meeting-actions'] == 'notify-user') {
 include (STYLESHEETPATH . '/app/inc/meetings-page-vars/meeting-notify-email.inc');	
 }
-
+//debug($show_alert);
 //debug($show_alert);
 ?>
 
 <article <?php post_class('page'); ?>>
 	<div class="entry">
-		<?php if ( $show_alert || $attendee_updated || $attendee_removed ) { ?>
+		<?php if ( $show_alert) { ?>
 			<?php  get_template_part( 'parts/meetings-page/alerts/meeting', 'alerts' ); ?>
 		<?php } ?>
 		<?php if ( isset($_REQUEST['meeting-id']) || $meeting_added || $attendees_added ) { ?>

@@ -347,6 +347,12 @@
 		"oAP": "\/app\/inc\/meetings-page-vars\/cancel-meeting.inc",
 		"oF": 0
 		},
+	"\/app\/inc\/meetings-page-vars\/delete-meeting.inc": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/app\/inc\/meetings-page-vars\/delete-meeting.inc",
+		"oF": 0
+		},
 	"\/app\/inc\/meetings-page-vars\/edit-meeting.inc": {
 		"ft": 8192,
 		"oA": 2,
@@ -1502,7 +1508,13 @@
 	"\/parts\/meetings-page\/meetings-info.php": {
 		"ft": 8192,
 		"oA": 2,
-		"oAP": "\/parts\/meetings-page\/meetings-info.php",
+		"oAP": "\/parts\/meetings-page\/meetings-info.php.sb-5d0de468-xCTexH",
+		"oF": 0
+		},
+	"\/parts\/meetings-page\/meetings-info.php.sb-5d0de468-xCTexH": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/parts\/meetings-page\/meetings-info.php.sb-5d0de468-xCTexH",
 		"oF": 0
 		},
 	"\/parts\/meetings-page\/meetings-list.php": {

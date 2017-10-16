@@ -1,9 +1,10 @@
 <?php
-global $edit_meeting_errors;
+
 if ( isset($_POST['edit-meeting']) ) {
+	global $edit_meeting_errors;
 	
-	$meeting_updated = false;
-	$show_alert = false;
+	global $meeting_updated;
+	global $show_alert;
 	
 	$meeting_id = $_POST['meeting-id'];
 	$location_id = $_POST['location-id'];

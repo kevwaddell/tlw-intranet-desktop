@@ -1,8 +1,7 @@
 <?php
-$attendee_removed = false;
-$show_alert = false;
-
 if ( isset($_GET['meeting-actions']) && $_GET['meeting-actions'] == 'remove-attendee') {
+	global $attendee_removed;
+	global $show_alert;
 	$m_id = $_REQUEST['meeting-id'];
 	
 	if (isset($_GET['client-key'])) {
