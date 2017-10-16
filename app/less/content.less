@@ -63,12 +63,10 @@ overflow: auto;
 	
 	.table {
 	.border-bot(@grayDk; 0.1);	
-		a.attendee {
-			span.name {
-			.in-block;
-			.line-h(3.4);
-			.min-w(28.5);
-			}
+		span.name {
+		.in-block;
+		.line-h(3.4);
+		.min-w(28.5);
 		}
 		a.notify-btn {
 		text-align: left;
@@ -105,6 +103,13 @@ overflow: auto;
 			.mag-bot(0);	
 			}
 		}
+		.attendee-client-input {
+			input[type='text'] {
+			.w(28);	
+			.mag-right(0.5);
+			.font-size(1.6);
+			}
+		}
 		input.input-name {
 		display: inline;
 		.no-border;
@@ -113,6 +118,22 @@ overflow: auto;
 		height: auto;
 		min-width: 80px;
 		max-width: 500px;
+		box-shadow: none;	
+		.pad-all(0);
+			&:focus {
+			outline-width: 0px;
+			outline-offset: 0px;
+			outline-color: white;
+			outline-style: none;
+			}
+		}
+		input.input-title {
+		display: block;
+		.no-border;
+		.font-size(3.6);
+		.line-h(3.6);	
+		height: auto;
+		width: 100%;
 		box-shadow: none;	
 		.pad-all(0);
 			&:focus {

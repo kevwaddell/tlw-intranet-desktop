@@ -1,6 +1,7 @@
 <?php
 global $add_attendee_errors;
 $attendees_added = false;
+$show_alert = false;
 
 if ( isset($_POST['add-attendees']) ) {
 $m_id = $_POST['meeting-id'];
@@ -91,7 +92,7 @@ $ac_counter = (empty($attendees_clients_total)) ? 0 : $attendees_clients_total;
 		}
 			
 		$attendees_added = true;
-		
+		$show_alert = true;
 		//print_r($attendees_added);
 	}
 	//echo '</pre>';

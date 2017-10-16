@@ -13417,7 +13417,7 @@ article.page .meeting-icon {
 article.page .table {
   border-bottom: 1px solid #4b4b4b;
 }
-article.page .table a.attendee span.name {
+article.page .table span.name {
   display: inline-block;
   line-height: 34px;
   min-width: 285px;
@@ -13458,6 +13458,11 @@ article.page .table td small {
 article.page .table td .form-group {
   margin-bottom: 0px;
 }
+article.page .table .attendee-client-input input[type='text'] {
+  width: 280px;
+  margin-right: 5px;
+  font-size: 16px;
+}
 article.page .table input.input-name {
   display: inline;
   border: none;
@@ -13470,6 +13475,22 @@ article.page .table input.input-name {
   padding: 0px;
 }
 article.page .table input.input-name:focus {
+  outline-width: 0px;
+  outline-offset: 0px;
+  outline-color: white;
+  outline-style: none;
+}
+article.page .table input.input-title {
+  display: block;
+  border: none;
+  font-size: 36px;
+  line-height: 36px;
+  height: auto;
+  width: 100%;
+  box-shadow: none;
+  padding: 0px;
+}
+article.page .table input.input-title:focus {
   outline-width: 0px;
   outline-offset: 0px;
   outline-color: white;
