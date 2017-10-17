@@ -49,20 +49,11 @@ $headers[] = "From: $fname $lname <$from_email>";
 $headers[] = "Reply-To: $fname $lname <$from_email>";
 
 if ($_SERVER[SERVER_ADMIN] == "home-laptop@localhost") {
-$live = false;
-} else {
-$live = true;	
-}
-
 debug($message);
-
-
-if ($live) {
-$notify_email_sent = wp_mail( "kwaddell@tlwsolicitors.co.uk", $subject, $message, $headers );	
-$show_alert = true;
 } else {
-$notify_email_sent = wp_mail( "kwaddelltlw@icloud.com", $subject, $message, $headers );	
-$show_alert = true;
+$notify_email_sent = wp_mail( $to_email, $subject, $message, $headers );	
 }
-//$booking_email_sent = true;
+	
+$show_alert = true;
+
 ?>

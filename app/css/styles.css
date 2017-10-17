@@ -13496,6 +13496,35 @@ article.page .table input.input-title:focus {
   outline-color: white;
   outline-style: none;
 }
+article.page .alerts-pop {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  z-index: 100;
+  background-color: #4b4b4b;
+  background-color: rgba(75, 75, 75, 0.7);
+}
+article.page .alerts-pop .alert {
+  position: absolute;
+  text-align: center;
+  width: 500px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
+}
+article.page .alerts-pop .alert a.btn {
+  margin-top: 20px;
+  text-transform: uppercase;
+}
+article.page .alerts-pop .alert a.btn i {
+  display: block;
+  line-height: 20px;
+}
 article.page .alert h3 {
   margin-top: 0px;
 }

@@ -19,12 +19,12 @@ if (isset($_REQUEST['meeting-day']) ) {
 
 if (isset($_REQUEST['meeting-year']) ) {
 //$meetings_args['meta_query'] = array( array( 'key' => 'meeting_year', 'value'	=> $_REQUEST['meeting-year']), array('key'	=> 'meeting_date') );
-$meetings_args['order'] = 'ASC';
-$meetings_args['meta_query'] = array( 'value' => array(date('Ymd', strtotime("first day of January ". $_REQUEST['meeting-year']) ), date('Ymd', strtotime("last day of December ". $_REQUEST['meeting-year']) )), 'compare' => 'BETWEEN' );
-/*
-$meetings_args['meta_key'] = 'meeting_year';
-$meetings_args['meta_value'] = $_REQUEST['meeting-year'];
-*/
+	$meetings_args['order'] = 'ASC';
+	if ($_REQUEST['meeting-year'] == date('Y')) {
+	$meetings_args['meta_query'] = array( 'value' => array(date('Ymd', strtotime("first day of January ". $_REQUEST['meeting-year']) ), date('Ymd', strtotime("yesterday") )), 'compare' => 'BETWEEN' );	
+	} else {
+	$meetings_args['meta_query'] = array( 'value' => array(date('Ymd', strtotime("first day of January ". $_REQUEST['meeting-year']) ), date('Ymd', strtotime("last day of December ". $_REQUEST['meeting-year']) )), 'compare' => 'BETWEEN' );	
+	}
 }
 
 $meetings = get_posts($meetings_args);
