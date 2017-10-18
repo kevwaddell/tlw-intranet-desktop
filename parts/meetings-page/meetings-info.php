@@ -200,7 +200,8 @@ if ($meeting_date_time < $now && !empty($current_attendees_staff)) {
 				<a href="?meeting-actions=remove-attendee&user-id=<?php echo $att_id; ?>&meeting-id=<?php echo $current_meeting->ID; ?><?php echo (isset($_REQUEST['meeting-day'])) ? '&meeting-day='.$_REQUEST['meeting-day']:'' ?><?php echo (isset($_REQUEST['meeting-day-to'])) ? '&meeting-day-to='.$_REQUEST['meeting-day-to']:'' ?>" class="btn btn-danger"><i class="fa fa-trash"></i></a>
 				<?php } ?>
 				<?php if ($current_user->ID == $att_id && $meeting_date_time > $now && $status == 'accepted') { ?>
-				<a href="?meeting-actions=add-reminder&user-id=<?php echo $att_id; ?>&meeting-id=<?php echo $current_meeting->ID; ?><?php echo (isset($_REQUEST['meeting-day'])) ? '&meeting-day='.$_REQUEST['meeting-day']:'' ?><?php echo (isset($_REQUEST['meeting-day-to'])) ? '&meeting-day-to='.$_REQUEST['meeting-day-to']:'' ?>" class="btn btn-danger"><i class="fa fa-bell"></i></a>
+				<a href="?meeting-actions=add-reminder&user-id=<?php echo $att_id; ?>&meeting-id=<?php echo $current_meeting->ID; ?><?php echo (isset($_REQUEST['meeting-month'])) ? '&meeting-month='.$_REQUEST['meeting-month']:'' ?><?php echo (isset($_REQUEST['meeting-year'])) ? '&meeting-year='.$_REQUEST['meeting-year']:'' ?><?php echo (isset($_REQUEST['meeting-day'])) ? '&meeting-day='.$_REQUEST['meeting-day']:'' ?><?php echo (isset($_REQUEST['meeting-day-to'])) ? '&meeting-day-to='.$_REQUEST['meeting-day-to']:'' ?>" class="btn btn-danger"><i class="fa fa-bell"></i></a>
+				<a href="<?php echo get_permalink( $ical_pg->ID ); ?>?meeting-id=<?php echo $current_meeting->ID; ?>" class="btn btn-primary" target="_blank"><i class="fa fa-calendar-plus-o"></i></a>
 				<?php } ?>
 			</td>
 		</tr>
@@ -266,9 +267,9 @@ if ($meeting_date_time < $now && !empty($current_attendees_staff)) {
 						<li><a href="?meeting-actions=add-attendees&meeting-id=<?php echo $current_meeting->ID; ?><?php echo (isset($_REQUEST['meeting-day'])) ? '&meeting-day='.$_REQUEST['meeting-day']:'' ?><?php echo (isset($_REQUEST['meeting-day-to'])) ? '&meeting-day-to='.$_REQUEST['meeting-day-to']:'' ?>"><i class="fa fa-plus"></i> Add attendees</a></li>
 						<li><a href="?meeting-actions=edit-meeting&meeting-id=<?php echo $current_meeting->ID; ?><?php echo (isset($_REQUEST['meeting-day'])) ? '&meeting-day='.$_REQUEST['meeting-day']:'' ?><?php echo (isset($_REQUEST['meeting-day-to'])) ? '&meeting-day-to='.$_REQUEST['meeting-day-to']:'' ?>"><i class="fa fa-pencil"></i> Change meeting</a></li>
 						<li><a href="?meeting-actions=cancel-meeting&meeting-id=<?php echo $current_meeting->ID; ?><?php echo (isset($_REQUEST['meeting-day'])) ? '&meeting-day='.$_REQUEST['meeting-day']:'' ?><?php echo (isset($_REQUEST['meeting-day-to'])) ? '&meeting-day-to='.$_REQUEST['meeting-day-to']:'' ?>"><i class="fa fa-times"></i> Cancel meeting</a></li>
+						<li><a href="?meeting-actions=add-reminder&user-id=<?php echo $booked_by; ?>&meeting-id=<?php echo $current_meeting->ID; ?><?php echo (isset($_REQUEST['meeting-day'])) ? '&meeting-day='.$_REQUEST['meeting-day']:'' ?><?php echo (isset($_REQUEST['meeting-day-to'])) ? '&meeting-day-to='.$_REQUEST['meeting-day-to']:'' ?>"><i class="fa fa-bell"></i> Add reminder</a></li>
 					<?php } ?>
 						<li><a href="<?php echo get_permalink( $ical_pg->ID ); ?>?meeting-id=<?php echo $current_meeting->ID; ?>" target="_blank"><i class="fa fa-calendar-plus-o"></i> Add to calendar</a></li>
-						<li><a href="?meeting-actions=add-reminder&user-id=<?php echo $booked_by; ?>&meeting-id=<?php echo $current_meeting->ID; ?><?php echo (isset($_REQUEST['meeting-day'])) ? '&meeting-day='.$_REQUEST['meeting-day']:'' ?><?php echo (isset($_REQUEST['meeting-day-to'])) ? '&meeting-day-to='.$_REQUEST['meeting-day-to']:'' ?>"><i class="fa fa-bell"></i> Add reminder</a></li>
 					 </ul>
 				</div>
 			</td>

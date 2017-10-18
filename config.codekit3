@@ -245,6 +245,12 @@
 		"oAP": "\/app\/functions\/post_row_actions.php",
 		"oF": 0
 		},
+	"\/app\/functions\/reminders-cpt.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/app\/functions\/reminders-cpt.php",
+		"oF": 0
+		},
 	"\/app\/functions\/rooms-tax.php": {
 		"ft": 8192,
 		"oA": 2,

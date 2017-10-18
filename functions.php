@@ -93,6 +93,9 @@ require_once(STYLESHEETPATH . '/app/functions/gravity-forms-delete-entry.php');
 require_once(STYLESHEETPATH . '/app/functions/meetings-cpt.php');
 require_once(STYLESHEETPATH . '/app/functions/custom-posts-order.php');
 
+/* REMINDERS CPT */
+require_once(STYLESHEETPATH . '/app/functions/reminders-cpt.php');
+
 /* ROOMS TAX */
 require_once(STYLESHEETPATH . '/app/functions/rooms-tax.php');
 
