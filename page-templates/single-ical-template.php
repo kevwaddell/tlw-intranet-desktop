@@ -6,7 +6,7 @@ Template Name: Single iCal template
 <?php
 
 header('Content-type: text/calendar; charset=utf-8');
-header('Content-Disposition: attachment; filename="meeting_ical.ics"'); 
+header('Content-Disposition: attachment; filename="'.sanitize_title(get_the_title($_GET['meeting-id'])).'_ical.ics"'); 
 
 $eol = "\r\n";
 $meeting_id = $_GET['meeting-id'];

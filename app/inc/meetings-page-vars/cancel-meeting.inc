@@ -8,7 +8,7 @@ $notify_user_emails = array();
 
 	if (!empty($attendees_staff_orig)) {
 		foreach($attendees_staff_orig as $k => $as) {
-			if ($as['status'] == 'pending') {
+			if ($as['status'] == 'accepted') {
 			$notify_user_emails[] = $as['attendee']['user_email'];	
 			}
 		}
@@ -47,9 +47,9 @@ $notify_user_emails = array();
 		$headers[] = "From: $fname $lname <$from_email>";
 		$headers[] = "Reply-To: $fname $lname <$from_email>";
 		
-		$notify_test_emails = array('kwaddell@tlwsolicitors.co.uk', 'webmaster@tlwsolicitors.co.uk');
+		//$notify_test_emails = array('kwaddell@tlwsolicitors.co.uk', 'webmaster@tlwsolicitors.co.uk');
 		
-		//$notify_emails_sent = wp_mail( $notify_test_emails, $subject, $message, $headers );	
+		$notify_emails_sent = wp_mail( $notify_user_emails, $subject, $message, $headers );	
 	}	
 	
 	if (wp_trash_post($m_id)) {
@@ -57,7 +57,7 @@ $notify_user_emails = array();
 	$meeting_canceled = true;
 	$show_alert = true;	
 	}
-	//debug($meeting_canceled);
+	debug($notify_user_emails);
 	
 	
 }	

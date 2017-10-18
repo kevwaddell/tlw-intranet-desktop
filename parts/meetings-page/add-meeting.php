@@ -91,7 +91,7 @@ global $room;
 			<td></td>
 			<td colspan="2">
 				<input type="hidden" name="booked-by-id" value="<?php echo $current_user->ID ?>">
-				<button type="submit" class="btn btn-default caps" name="edit-meeting">Book room <i class="fa fa-check"></i></button>
+				<button type="submit" class="btn btn-default caps" name="add-meeting">Book room <i class="fa fa-check"></i></button>
 				<a href="<?php the_permalink(); ?><?php echo (isset($_REQUEST['meeting-day'])) ? '?meeting-day='.$_REQUEST['meeting-day']:'' ?><?php echo (isset($_REQUEST['meeting-day-to'])) ? '&meeting-day-to='.$_REQUEST['meeting-day-to']:'' ?>" class="btn btn-default caps">Cancel <i class="fa fa-times"></i></a>
 			</td>
 		</tr>
