@@ -30,6 +30,7 @@ $reminders_completed = unserialize($reminders_completed_raw);
 
 include (STYLESHEETPATH . '/app/inc/reminders-page-vars/add-group.inc');
 include (STYLESHEETPATH . '/app/inc/reminders-page-vars/add-reminder.inc');
+include (STYLESHEETPATH . '/app/inc/reminders-page-vars/update-reminder.inc');
 
 if (isset($_REQUEST['group-id'])) {
 $current_group = $_REQUEST['group-id'];		
