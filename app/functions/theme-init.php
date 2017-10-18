@@ -42,6 +42,10 @@ if (!is_admin()) {
 		wp_enqueue_script( 'meetings-functions', get_stylesheet_directory_uri() . '/app/js/meetings-functions-min.js', $functions_dep, filemtime( get_stylesheet_directory().'/app/js/meetings-functions.js' ), true );	
 		}
 		
+		if ($post->ID == 1208) {
+		wp_enqueue_script( 'reminders-functions', get_stylesheet_directory_uri() . '/app/js/reminders-functions-min.js', $functions_dep, filemtime( get_stylesheet_directory().'/app/js/reminders-functions.js' ), true );	
+		}
+		
 	}
 	add_action( 'wp_enqueue_scripts', 'tlw_scripts' );
 }

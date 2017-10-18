@@ -13374,6 +13374,10 @@ article.page.no-sbs {
 article.page.sb-out {
   left: 300px;
 }
+article.page.sb-wide {
+  left: 400px;
+  min-width: 600px;
+}
 article.page.sb-in {
   left: 50px;
 }
@@ -13637,6 +13641,38 @@ aside.scrollable .sb-actions a.disabled {
   color: #918F8F;
   pointer-events: none;
 }
+aside.scrollable .sb-actions-top {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  right: 0px;
+  height: 51px;
+  border-bottom: 1px solid #4b4b4b;
+  background-color: #fff;
+  z-index: 2;
+}
+aside.scrollable .sb-actions-top .btn {
+  border: none;
+  padding: 0px;
+  height: 50px;
+  width: 50px;
+  line-height: 50px;
+}
+aside.scrollable .sb-actions-top .btn i {
+  display: block;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+}
+aside.scrollable .sb-actions-top .btn:hover,
+aside.scrollable .sb-actions-top .btn:active,
+aside.scrollable .sb-actions-top .btn:focus {
+  background-color: #4b4b4b;
+  color: #fff;
+}
+aside.scrollable .sb-actions-top .btn.pull-right {
+  border-left: 1px solid #4b4b4b;
+}
 aside.scrollable button#add-contact-actions {
   border-left: 1px solid #4b4b4b;
 }
@@ -13855,6 +13891,9 @@ aside.sb-right {
 }
 aside.sb-wide {
   width: 300px;
+}
+aside.sb-ex-wide {
+  width: 400px;
 }
 aside.sb-sml {
   width: 50px;
@@ -14238,6 +14277,10 @@ aside.sb-sml {
 #team-grid .member-profile a.btn:active i,
 #team-grid .member-profile a.btn:focus i {
   color: #fff;
+}
+#reminder-group-wrapper {
+  max-width: 950px;
+  margin: auto;
 }
 .calendar-section .ics-calendar-header {
   font-size: 16px;

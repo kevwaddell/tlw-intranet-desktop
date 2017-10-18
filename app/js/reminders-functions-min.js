@@ -1,0 +1,1 @@
+!function($){var n="click";$(document).ready(function(){})}(window.jQuery);

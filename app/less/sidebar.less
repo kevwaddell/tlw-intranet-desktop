@@ -107,6 +107,37 @@ overflow: hidden;
 		}
 	}
 	
+	.sb-actions-top {
+	.abs;
+	.left(0);
+	.top(0);
+	.right(0);
+	.h(5.1);
+	.border-bot(@grayDk; 0.1);
+	.bg-col(@wht);
+	z-index: 2;
+		.btn {
+		.no-border;	
+		.pad-all(0);
+		.h(5);
+		.w(5);
+		.line-h(5);
+			i {
+			.block;
+			.h(5);
+			.line-h(5);	
+			text-align: center;
+			}
+			&:hover, &:active, &:focus {
+			.bg-col(@grayDk);
+			.col(@wht);
+			}
+			&.pull-right {
+			.border-left(@grayDk; 0.1);	
+			}
+		}
+	}
+	
 	button#add-contact-actions {
 	.border-left(@grayDk; 0.1);
 	}
@@ -321,6 +352,10 @@ aside.sb-right {
 
 aside.sb-wide {
 .w(30);	
+}
+
+aside.sb-ex-wide {
+.w(40);	
 }
 
 aside.sb-sml {
