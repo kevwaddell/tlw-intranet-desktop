@@ -3,12 +3,14 @@ global $current_group;
 global $reminder_groups;
 global $reminders_completed;
 $current_completed = array();
+$exclude_completed = array();
 
 if (!empty($reminders_completed)) {
 	foreach ($reminders_completed as $k => $comp) { 
 		
 		if ($comp['group-id'] == $current_group) {
 		$current_completed[] = $reminders_completed[$k];
+		$exclude_completed[] = $comp['reminder-id'];
 		}
 	}
 }
@@ -31,29 +33,78 @@ $reminders_args = array(
 	)
 );
 
+if (!empty($exclude_completed)) {
+$reminders_args['exclude'] = $exclude_completed;
+$completed_reminders_args = array(
+	'posts_per_page' => -1,
+	'post_type' => 'tlw_reminder',
+	'meta_key' => 'reminder_date',
+	'orderby' => 'meta_value_num',
+	'include'	=> $exclude_completed
+	);	
+$completed_reminders = get_posts($completed_reminders_args);
+}
+
 $reminders = get_posts($reminders_args);
 //debug($reminders);
 ?>
 
 <div id="reminder-group-wrapper" class="group-col-<?php echo (empty($group_color)) ? 'red':$group_color;  ?>">
 	<header class="reminder-header over-hide">
-		<h1 class="pull-left"><?php echo $group_title; ?></h1>
-		<a href="?reminder-actions=options" class="pull-right">Options</a>
+		<h1><?php echo $group_title; ?></h1>
+		<a href="?reminder-actions=options">Options</a>
 	</header>
 	<div class="reminders-list">
-		<div class="completed-list closed">
+		<div class="completed-list">
 			<div class="list-header over-hide">
+				<div class="header-btn pull-left">
 				<?php if (!empty($current_completed)) { ?>
-				<button id="show-completed" class="btn btn-default pull-left"><i class="fa fa-arrow-right fa-2x"></i></button>
+				<button id="show-completed" class="btn btn-default"><i class="fa fa-arrow-right fa-lg"></i></button>
 				<?php } ?>
-				<div class="counter-label"><?php echo count($current_completed); ?> Completed</div>
+				</div>
+				<div class="counter-label in-block"><?php echo count($current_completed); ?> Completed</div>
 				<?php if (!empty($current_completed)) { ?>
-				<a href="?reminder-actions=clear-completed&group-id=scheduled" class="pull-right">Clear Completed</a>			
+				<div class="header-link pull-right">
+					<a href="?reminder-actions=clear-completed&group-id=<?php echo $group_id; ?>">Clear Completed</a>	
+				</div>		
 				<?php } ?>
 			</div>
-			<?php if (count($reminders_completed) > 0) { ?>
-			<div class="reminders">
-				
+			<?php if (!empty($completed_reminders)) { ?>
+			<div class="reminders completed">
+				<form action="<?php the_permalink(); ?>" method="post">
+				<?php foreach ($completed_reminders as $item) { ?>
+					<?php  
+					$reminder_date = get_field('reminder_date', $item->ID);	
+					$rem_time = get_field('reminder_time', $item->ID);	
+					$reminder_priority = get_field('reminder_priority', $item->ID);	
+					$rem_date = date('D jS Y', strtotime($reminder_date));
+					//echo '<pre>';print_r($reminder_date);echo '</pre>';
+					if ( date('Ymd') == $reminder_date ) {
+					$rem_date = "Today";	
+					}	
+					switch($reminder_priority){
+					case  "low": $priority = "! ";
+					break;
+					case  "med": $priority = "!! ";
+					break;
+					case  "high": $priority = "!!! ";
+					break;
+					default: $priority = "";
+					}
+					?>
+					<div class="reminder">
+					<div class="change-status in-block">
+						<input name="change-status" value="<?php echo $item->ID; ?>" checked="checked" type="checkbox" onchange="this.form.submit()">	
+					</div>
+					<div class="details">
+						<h3><span><?php echo $priority; ?></span><?php echo get_the_title($item->ID); ?></h3>
+						<time class="text-uppercase"><?php echo $rem_date; ?> @ <?php echo $rem_time; ?></time>
+					</div>
+				</div>
+				<?php } ?>
+				<input type="hidden" name="group-id" value="<?php echo $group_id; ?>">
+				<input type="submit" name="uncomplete-reminder" style="display:none;">
+				</form>
 			</div>
 			<?php } ?>
 		</div>
@@ -83,13 +134,13 @@ $reminders = get_posts($reminders_args);
 				?>
 				<div class="reminder">
 					<div class="change-status in-block">
-						<input name="status[]" value="<?php echo $item->ID; ?>" type="checkbox" onchange="this.form.submit()">	
+						<input name="status" value="<?php echo $item->ID; ?>" type="checkbox" onchange="this.form.submit()">	
 					</div>
-					<div class="details in-block">
+					<div class="details">
 						<h3><span><?php echo $priority; ?></span><?php echo get_the_title($item->ID); ?></h3>
 						<time class="text-uppercase"><?php echo $rem_date; ?> @ <?php echo $rem_time; ?></time>
 					</div>
-					<div class="details-link pull-right">
+					<div class="details-link">
 						<a href="">Details</a>
 					</div>
 					<div class="hidden-info hidden">
@@ -98,7 +149,7 @@ $reminders = get_posts($reminders_args);
 				</div>
 				<?php } ?>	
 				<input type="hidden" name="group-id" value="<?php echo $group_id; ?>">
-				<input type="submit" name="update-status" value="" style="display:none;">
+				<input type="submit" name="update-reminder" style="display:none;">
 			</form>	
 			<?php } ?>
 			

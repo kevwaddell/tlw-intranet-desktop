@@ -413,6 +413,12 @@
 		"oAP": "\/app\/inc\/reminders-page-vars\/add-reminder.inc",
 		"oF": 0
 		},
+	"\/app\/inc\/reminders-page-vars\/update-reminder.inc": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/app\/inc\/reminders-page-vars\/update-reminder.inc",
+		"oF": 0
+		},
 	"\/app\/js\/bootstrap-min.js": {
 		"ft": 64,
 		"ma": 0,
@@ -1545,9 +1551,9 @@
 		},
 	"\/parts\/meetings-page\/meetings-info.php": {
 		"ft": 8192,
-		"oA": 1,
-		"oAP": "\/parts\/meetings-page\/meetings-info.php.php",
-		"oF": 1
+		"oA": 2,
+		"oAP": "\/parts\/meetings-page\/meetings-info.php.sb-5d0de468-xCTexH",
+		"oF": 0
 		},
 	"\/parts\/meetings-page\/meetings-list.php": {
 		"ft": 8192,

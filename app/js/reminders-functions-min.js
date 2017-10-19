@@ -1,1 +1,1 @@
-!function($){var n="click";$(document).ready(function(){})}(window.jQuery);
+!function($){var o="click";$(document).ready(function(){$("#show-completed").on("click",function(){return $(this).toggleClass("open"),$(".completed-list").toggleClass("open"),!1})})}(window.jQuery);
