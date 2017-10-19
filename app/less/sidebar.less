@@ -107,6 +107,37 @@ overflow: hidden;
 		}
 	}
 	
+	.sb-actions-top {
+	.abs;
+	.left(0);
+	.top(0);
+	.right(0);
+	.h(5.1);
+	.border-bot(@grayDk; 0.1);
+	.bg-col(@wht);
+	z-index: 2;
+		.btn {
+		.no-border;	
+		.pad-all(0);
+		.h(5);
+		.w(5);
+		.line-h(5);
+			i {
+			.block;
+			.h(5);
+			.line-h(5);	
+			text-align: center;
+			}
+			&:hover, &:active, &:focus {
+			.bg-col(@grayDk);
+			.col(@wht);
+			}
+			&.pull-right {
+			.border-left(@grayDk; 0.1);	
+			}
+		}
+	}
+	
 	button#add-contact-actions {
 	.border-left(@grayDk; 0.1);
 	}
@@ -194,6 +225,52 @@ overflow: hidden;
 					.date {
 					.col(@green);	
 					}
+				}
+			}
+		}
+	}
+	
+	.reminder-types-list {
+	.mag-bot(0);
+		li {
+		.border-bot(@grayDk; 0.1);
+		.rel;
+			a {
+			.block;
+			.pad-left(5);
+			//.pad-right(5);
+			.line-h(5);	
+			.caps;
+			.no-text-dec;
+				i {
+				.abs;
+				.left(0);
+				.top(0);
+				.w(5);
+				.h(5);
+				.line-h(5);
+				.text-center;
+				}
+				&:hover, &:active, &:focus {
+				.bg-col(@grayLt);
+				}
+			}	
+			button {
+			.abs;
+			.right(0);
+			.top(0);
+			.no-border;
+			.no-rounded;
+			.bg-col(@trans);
+			.w(5);
+			.h(5);
+			.col(@gray);	
+			}
+			&.active {
+				a {
+				.bg-col(@grayDk);
+				.col(@wht);
+				pointer-events: none;	
 				}
 			}
 		}
@@ -321,6 +398,10 @@ aside.sb-right {
 
 aside.sb-wide {
 .w(30);	
+}
+
+aside.sb-ex-wide {
+.w(35);	
 }
 
 aside.sb-sml {

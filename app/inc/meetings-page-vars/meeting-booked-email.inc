@@ -2,7 +2,7 @@
 $timeZone = 'Europe/London';
 $now_time = new DateTime(null, new DateTimeZone($timeZone));
 $meetings_pg = get_page_by_path("meetings");
-
+global $show_alert;
 global $meeting_added;
 global $location_id;
 global $meeting_title;
@@ -40,7 +40,7 @@ $message .= "<tr><td style=\"background-color: #CCC;\">Meeting Date/time:</td><t
 $message .= "<tfoot><tr><td style=\"background-color: #CCC;\">Requested date/time:</td><td style=\"background-color: #EEE;\"><strong>". $now_time->format('D jS F Y @ H:i')  . "</strong></td></tr></tfoot>";
 $message .= "</table><br><br>";
 $message .= "Please use the link below to view your meeting details.<br><br>";
-$message .= "<a href=\"".get_permalink($meetings_pg->ID)."?meeting-id=".$meeting_added.$request_params."\" style=\"display: block; text-align: center; text-transform: uppercase; text-decoration: none; padding: 10px; background-color: red; color: white; \">View request >></a><br><br>";
+$message .= "<a href=\"".get_permalink($meetings_pg->ID)."?meeting-id=".$meeting_added.$request_params."\" target=\"_blank\" style=\"display: block; text-align: center; text-transform: uppercase; text-decoration: none; padding: 10px; background-color: red; color: white; \">View request >></a><br><br>";
 $headers = array();
 $headers[] = "Content-Type: text/html; charset=UTF-8";
 $headers[] = "From: $fname $lname <$from_email>";
@@ -48,6 +48,7 @@ $headers[] = "Reply-To: $fname $lname <$from_email>";
 
 //debug($message);
 $booking_email_sent = wp_mail("kwaddell@tlwsolicitors.co.uk", $subject, $message, $headers );
+$show_alert = true;
 //debug($booking_email_sent);
 //$booking_email_sent = true;
 ?>

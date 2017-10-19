@@ -50,10 +50,14 @@ if (isset($_POST['send-comment'])) {
 	
 	if ($attendee_removed) {
 	$subject = "Meeting attendance request";
-	$message = "<h1 style=\"font-size:25px; line-height: 30px;\">Sorry <font style=\"color: red;\">$booked_by_fname</font> I can not attend your meeting</h1>";
-	$message .= "<p style=\"font-size:16px; line-height: 20px;\"><font style=\"color: red;\">$user_fname $user_lname</font> can not attend the meeting <font style=\"color: red;\">\"$meeting_title\"</font> on <font style=\"color: red;\">".date('l - jS F - Y', $meeting_date)."</font> at <font style=\"color: red;\">".$start_time."</font></p>";
+	$message = "<div style=\"text-align: center;\">";
+	$message .= "<h1 style=\"font-size:25px; line-height: 30px;\">Sorry <font style=\"color: red;\">$booked_by_fname</font> I can not attend your meeting</h1>";
+	$message .= "<p style=\"font-size:16px; line-height: 20px;\"><font style=\"color: red; font-weight: bold;\">$user_fname $user_lname</font> can not attend the meeting<br><font style=\"color: red; font-weight: bold;\">$meeting_title</font> on<br><font style=\"color: red; font-weight: bold;\">".date('l - jS F - Y', $meeting_date)."</font> at <font style=\"color: red; font-weight: bold;\">".$start_time."</font></p>";
+	$message .= "</div>";
 	if (!empty($comment)) {
+	$message .= "<div style=\"padding: 10px 20px 10px 20px; border: 1px solid black;\">";
 	$message .= "<p style=\"font-size:16px; line-height: 20px;\"><strong>Brief reason/description: </strong><br>$comment</p>";
+	$message .= "</div>";
 	}
 	$headers = array();
 	$headers[] = "Content-Type: text/html; charset=UTF-8";
@@ -61,7 +65,12 @@ if (isset($_POST['send-comment'])) {
 	$headers[] = "Reply-To: $user_fname $user_lname <$from_email>";
 	
 	//debug($message);
+	if ($_SERVER[SERVER_ADMIN] == "home-laptop@localhost") {
+	$reject_email_sent = wp_mail( "kevwaddell@mac.com", $subject, $message, $headers );	
+	} else {
 	$reject_email_sent = wp_mail( "kwaddell@tlwsolicitors.co.uk", $subject, $message, $headers );	
+	}
+	
 	}
 }
 if ($_REQUEST['status'] == 'accepted') {
@@ -82,7 +91,7 @@ if ($_REQUEST['status'] == 'accepted') {
 	
 	update_field( $attendee_staff_key, $attendees_staff, $_REQUEST['meeting-id'] );
 	$status_updated = true;
-	
+	//debug($status_updated);
 	if ($status_updated) {	
 	$subject = "Meeting attendance request";
 	$message = "<div style=\"text-align: center;\">";
@@ -97,7 +106,11 @@ if ($_REQUEST['status'] == 'accepted') {
 	//$accept_email_sent = true;
 	
 	//debug($message);
-	$accepted_email_sent = wp_mail( "webmaster@tlwsolicitors.co.uk", $subject, $message, $headers );	
+		if ($_SERVER[SERVER_ADMIN] == "home-laptop@localhost") {
+			$accepted_email_sent = wp_mail( "kevwaddell@mac.com", $subject, $message, $headers );
+		} else {
+			$accepted_email_sent = wp_mail( "webmaster@tlwsolicitors.co.uk", $subject, $message, $headers );	
+		}	
 	}
 }
 //debug($meeting);	

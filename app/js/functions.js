@@ -7,7 +7,12 @@
 		
 		$('.selectpicker').selectpicker({
 		style: 'btn-default',
-		size: 4,
+		size: 5,
+		});
+		
+		$('.sml-selectpicker').selectpicker({
+		style: 'btn-default btn-sm',
+		size: 5,
 		});
 			
 		/* MAIN NAV BTN FUNCTION */

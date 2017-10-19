@@ -245,6 +245,12 @@
 		"oAP": "\/app\/functions\/post_row_actions.php",
 		"oF": 0
 		},
+	"\/app\/functions\/reminders-cpt.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/app\/functions\/reminders-cpt.php",
+		"oF": 0
+		},
 	"\/app\/functions\/rooms-tax.php": {
 		"ft": 8192,
 		"oA": 2,
@@ -347,6 +353,18 @@
 		"oAP": "\/app\/inc\/meetings-page-vars\/cancel-meeting.inc",
 		"oF": 0
 		},
+	"\/app\/inc\/meetings-page-vars\/delete-meeting.inc": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/app\/inc\/meetings-page-vars\/delete-meeting.inc",
+		"oF": 0
+		},
+	"\/app\/inc\/meetings-page-vars\/edit-meeting.inc": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/app\/inc\/meetings-page-vars\/edit-meeting.inc",
+		"oF": 0
+		},
 	"\/app\/inc\/meetings-page-vars\/meeting-booked-email.inc": {
 		"ft": 8192,
 		"oA": 2,
@@ -359,6 +377,18 @@
 		"oAP": "\/app\/inc\/meetings-page-vars\/meeting-notify-email.inc",
 		"oF": 0
 		},
+	"\/app\/inc\/meetings-page-vars\/remove-attendee.inc": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/app\/inc\/meetings-page-vars\/remove-attendee.inc",
+		"oF": 0
+		},
+	"\/app\/inc\/meetings-page-vars\/update-attendee.inc": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/app\/inc\/meetings-page-vars\/update-attendee.inc",
+		"oF": 0
+		},
 	"\/app\/inc\/notes-page-vars\/get-note.inc": {
 		"ft": 8192,
 		"oA": 2,
@@ -369,6 +399,24 @@
 		"ft": 8192,
 		"oA": 2,
 		"oAP": "\/app\/inc\/notes-page-vars\/post-note.inc",
+		"oF": 0
+		},
+	"\/app\/inc\/reminders-page-vars\/add-group.inc": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/app\/inc\/reminders-page-vars\/add-group.inc",
+		"oF": 0
+		},
+	"\/app\/inc\/reminders-page-vars\/add-reminder.inc": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/app\/inc\/reminders-page-vars\/add-reminder.inc",
+		"oF": 0
+		},
+	"\/app\/inc\/reminders-page-vars\/update-reminder.inc": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/app\/inc\/reminders-page-vars\/update-reminder.inc",
 		"oF": 0
 		},
 	"\/app\/js\/bootstrap-min.js": {
@@ -487,6 +535,26 @@
 		"mi": 1,
 		"oA": 0,
 		"oAP": "\/app\/js\/notes-functions-min.js",
+		"oF": 2,
+		"sC": 0,
+		"tS": 0
+		},
+	"\/app\/js\/reminders-functions-min.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/app\/js\/min\/reminders-functions-min-min.js",
+		"oF": 0,
+		"sC": 1,
+		"tS": 0
+		},
+	"\/app\/js\/reminders-functions.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/app\/js\/reminders-functions-min.js",
 		"oF": 2,
 		"sC": 0,
 		"tS": 0
@@ -1475,10 +1543,16 @@
 		"oAP": "\/parts\/meetings-page\/alerts\/meeting-alerts.php",
 		"oF": 0
 		},
+	"\/parts\/meetings-page\/edit-meeting.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/parts\/meetings-page\/edit-meeting.php",
+		"oF": 0
+		},
 	"\/parts\/meetings-page\/meetings-info.php": {
 		"ft": 8192,
 		"oA": 2,
-		"oAP": "\/parts\/meetings-page\/meetings-info.php",
+		"oAP": "\/parts\/meetings-page\/meetings-info.php.sb-5d0de468-xCTexH",
 		"oF": 0
 		},
 	"\/parts\/meetings-page\/meetings-list.php": {
@@ -1487,10 +1561,34 @@
 		"oAP": "\/parts\/meetings-page\/meetings-list.php",
 		"oF": 0
 		},
+	"\/parts\/meetings-page\/your-meetings.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/parts\/meetings-page\/your-meetings.php",
+		"oF": 0
+		},
 	"\/parts\/notes-page\/note-template.php": {
 		"ft": 8192,
 		"oA": 2,
 		"oAP": "\/parts\/notes-page\/note-template.php",
+		"oF": 0
+		},
+	"\/parts\/reminders-page\/reminders-group.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/parts\/reminders-page\/reminders-group.php",
+		"oF": 0
+		},
+	"\/parts\/reminders-page\/reminders-info.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/parts\/reminders-page\/reminders-info.php",
+		"oF": 0
+		},
+	"\/parts\/reminders-page\/reminders-scheduled.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/parts\/reminders-page\/reminders-scheduled.php",
 		"oF": 0
 		},
 	"\/parts\/rescources-page\/banner-imgs.php": {
