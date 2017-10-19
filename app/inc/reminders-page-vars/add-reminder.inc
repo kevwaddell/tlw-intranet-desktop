@@ -6,8 +6,7 @@ if ( $_GET['reminder-actions'] == 'add-reminder' ) {
 	$now = time();
 	$now_time = new DateTime(date(DATE_ATOM, $now + ((3600*2) - $now % 3600)), new DateTimeZone($timeZone));
 			
-	$counter = $_REQUEST['counter'] + 1;
-	$reminder_title = "New reminder $counter";
+	$reminder_title = "New reminder";
 	$reminder_group = $_REQUEST['group-id'];
 	$reminder_date =  $now_time->format('Ymd');
 	$reminder_time =  $now_time->format('G:i');

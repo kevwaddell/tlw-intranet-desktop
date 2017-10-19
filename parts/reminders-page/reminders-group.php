@@ -6,15 +6,22 @@ global $reminder_added;
 $current_completed = array();
 $exclude_completed = array();
 
+//debug($reminders_completed);
+
 if (!empty($reminders_completed)) {
 	foreach ($reminders_completed as $k => $comp) { 
+	$reminder_repeat = get_field('reminder_repeat', $comp['reminder-id']);
 		
 		if ($comp['group-id'] == $current_group) {
 		$current_completed[] = $reminders_completed[$k];
-		$exclude_completed[] = $comp['reminder-id'];
+		}
+		
+		if ($reminder_repeat == 'never') {
+		$exclude_completed[] = $comp['reminder-id'];	
 		}
 	}
 }
+//debug($current_completed);
 
 $group_key = in_array_key($current_group, $reminder_groups);
 $group_title = $reminder_groups[$group_key]['title'];
@@ -34,21 +41,12 @@ $reminders_args = array(
 		)
 	)
 );
-
 if (!empty($exclude_completed)) {
-$reminders_args['exclude'] = $exclude_completed;
-$completed_reminders_args = array(
-	'posts_per_page' => -1,
-	'post_type' => 'tlw_reminder',
-	'meta_key' => 'reminder_date',
-	'orderby' => 'meta_value_num',
-	'include'	=> $exclude_completed
-	);	
-$completed_reminders = get_posts($completed_reminders_args);
+$reminders_args['exclude'] = $exclude_completed;	
 }
 
 $reminders = get_posts($reminders_args);
-//debug($reminders);
+//debug($current_completed);
 ?>
 
 <div id="reminder-group-wrapper" class="group-col-<?php echo (empty($group_color)) ? 'red':$group_color;  ?>">
@@ -71,15 +69,15 @@ $reminders = get_posts($reminders_args);
 				</div>		
 				<?php } ?>
 			</div>
-			<?php if (!empty($completed_reminders)) { ?>
+			<?php if (!empty($current_completed)) { ?>
 			<div class="reminders completed">
-				<form action="<?php the_permalink(); ?>" method="post">
-				<?php foreach ($completed_reminders as $item) { ?>
-					<?php  
-					$reminder_date = get_field('reminder_date', $item->ID);	
-					$rem_time = get_field('reminder_time', $item->ID);	
-					$reminder_priority = get_field('reminder_priority', $item->ID);	
-					$rem_date = date('D jS Y', strtotime($reminder_date));
+				<form action="<?php the_permalink(); ?>?group-id=<?php echo $current_group; ?>" method="post">
+				<?php foreach ($current_completed as $item) { ?>
+					<?php 
+					$reminder_date = $item['reminder-date'];	
+					$rem_time = get_field('reminder_time', $item['reminder-id']);	
+					$reminder_priority = get_field('reminder_priority', $item['reminder-id']);	
+					$rem_date = date('D jS M Y', strtotime($reminder_date));
 					//echo '<pre>';print_r($reminder_date);echo '</pre>';
 					if ( date('Ymd') == $reminder_date ) {
 					$rem_date = "Today";	
@@ -97,17 +95,18 @@ $reminders = get_posts($reminders_args);
 					<div class="reminder">
 					<div class="reminder-inner">
 						<div class="change-status in-block">
-							<input name="change-status" value="<?php echo $item->ID; ?>" checked="checked" type="checkbox" onchange="this.form.submit()">	
+							<input name="change-status" value="<?php echo $item['reminder-id']; ?>" checked="checked" type="checkbox" onchange="this.form.submit()">	
 						</div>
 						<div class="details">
-							<h3><span><?php echo $priority; ?></span><?php echo get_the_title($item->ID); ?></h3>
+							<h3><span><?php echo $priority; ?></span><?php echo get_the_title($item['reminder-id']); ?></h3>
 							<time class="text-uppercase"><?php echo $rem_date; ?> @ <?php echo $rem_time; ?></time>
 						</div>
 					</div>
+					<input type="hidden" name="reminder-date" value="<?php echo $reminder_date; ?>">
 				</div>
 				<?php } ?>
 				<input type="hidden" name="group-id" value="<?php echo $group_id; ?>">
-				<input type="submit" name="uncomplete-reminder" style="display:none;">
+				<input type="submit" name="complete-rewind" style="display:none;">
 				</form>
 			</div>
 			<?php } ?>
@@ -123,7 +122,7 @@ $reminders = get_posts($reminders_args);
 				$reminder_priority = get_field('reminder_priority', $item->ID);	
 				$reminder_notes = get_field('reminder_notes', $item->ID);
 				$reminder_repeat = get_field('reminder_repeat', $item->ID);	
-				$rem_date = date('D jS Y', strtotime($reminder_date));
+				$rem_date = date('D jS M Y', strtotime($reminder_date));
 				//echo '<pre>';print_r($item->ID);echo '</pre>';
 				if ( date('Ymd') == $reminder_date ) {
 				$rem_date = "Today";	
@@ -253,7 +252,7 @@ $reminders = get_posts($reminders_args);
 			
 		</div>
 		<div class="reminder-footer">
-			<a href="?reminder-actions=add-reminder&group-id=<?php echo $current_group; ?>&counter=<?php echo count($reminders) + count($exclude_completed); ?>" class="btn btn-default">New item <i class="fa fa-plus"></i></a>
+			<a href="?reminder-actions=add-reminder&group-id=<?php echo $current_group; ?>" class="btn btn-default">New item <i class="fa fa-plus"></i></a>
 		</div>
 	</div>
 </div>

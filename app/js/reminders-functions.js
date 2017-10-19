@@ -14,8 +14,7 @@
 		
 		$('#reminder-timepicker').datetimepicker({
 			format: 'H:mm',
-			stepping: 15,
-			disabledTimeIntervals: [[moment({ h: 0 }), moment({ h: 8 })], [moment({ h: 18 }), moment({ h: 24 })]]
+			stepping: 15
 		});
 		
 		$('#show-completed').on(event_type, function(){
