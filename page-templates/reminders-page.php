@@ -52,12 +52,11 @@ $current_group = 'scheduled';
 	<aside class="scrollable sb-ex-wide">
 		<div class="sb-inner">
 			<ul class="reminder-types-list list-unstyled">
-				<li<?php echo ($current_group == 'scheduled') ? ' class="active"': ''; ?>><a href="?group-id=scheduled"><i class="fa fa-clock-o"></i> Scheduled</a></li>
+				<li<?php echo ($current_group == 'scheduled') ? ' class="active"': ''; ?>><a href="?group-id=scheduled"><i class="fa fa-clock-o fa-2x"></i> Scheduled</a></li>
 				<?php if (!empty($reminder_groups)) { ?>
 				<?php foreach ($reminder_groups as $group) { ?>
 				<li<?php echo ($current_group == $group['group-id']) ? ' class="active"': ''; ?>>
-					<a href="?group-id=<?php echo $group['group-id']; ?>"><i class="fa fa-bullseye col-red"></i> <?php echo $group['title']; ?></a>
-				</li>
+					<a href="?group-id=<?php echo $group['group-id']; ?>"><i class="fa fa-bullseye fa-2x"></i> <?php echo $group['title']; ?></a>
 				<?php } ?>			
 				<?php } ?>
 			</ul>
