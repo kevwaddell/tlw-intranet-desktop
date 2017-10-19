@@ -150,18 +150,25 @@ margin: auto;
 	}
 	.reminders {
 	//.border-top(@grayDk; 0.1);
-	overflow: hidden;
 	height: auto;	
 		&.completed {
 		.pad-bot(4);	
 		}
 		.reminder {
-		.rel;
-		.pad-right(10);
-		.pad-left(5);
 		.border-top(@grayDk; 0.1);
-		.h(5);
-		.over-hide;	
+		.rel;
+			.editing {
+			.opacity(0.5);
+			pointer-events: none;
+			overflow: visible;	
+			}
+			.reminder-inner {
+			.rel;
+			.h(5);
+			.over-hide;	
+			.pad-right(10);
+			.pad-left(5);	
+			}
 			&:last-child {
 			.no-border;	
 			}
@@ -225,6 +232,72 @@ margin: auto;
 			.top(0);
 			.right(0);
 			.line-h(5);	
+			.none;
+			.pad-right(1);
+				a {
+				.no-text-dec;	
+				}
+				a.view-reminder-details {
+				.pad-right(2);	
+				}
+			}
+			
+			.reminder-full-details {
+			.h(0);
+			.over-hide;	
+			.transition;
+			.pad-left(5);
+				
+				.notes {
+				.pad-top(1);
+				font-style: italic;	
+				}
+			}
+			
+			.edit-reminder {
+			.pad-all(1);	
+			
+				.form-left, .form-mid  {
+				.fleft;
+				}
+				.form-left {
+				width: 32%;
+				}
+				
+				.form-mid , .form-right {
+				width: 32%;
+				margin-left: 2%;
+				}
+				
+				.form-right {
+				.fright;	
+				}
+				
+				.btn {
+				.clear;	
+				}
+				
+			}
+			&:hover, &:active, &:focus {
+			.bg-col(@redLt);
+			cursor: pointer;
+				
+				.details-link {
+				display: block;	
+				}
+			}
+			
+			&.active-reminder {
+			.bg-col(@redLt);
+				.reminder-full-details {
+				height: auto;	
+				.pad(1;0;1;5);
+				.border-top(@grayLt; 0.4);	
+				}	
+			}
+			
+			&.editing {
+			.bg-col(@redLt);	
 			}
 		}
 	}

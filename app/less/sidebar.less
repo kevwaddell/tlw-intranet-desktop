@@ -230,6 +230,52 @@ overflow: hidden;
 		}
 	}
 	
+	.reminder-types-list {
+	.mag-bot(0);
+		li {
+		.border-bot(@grayDk; 0.1);
+		.rel;
+			a {
+			.block;
+			.pad-left(5);
+			//.pad-right(5);
+			.line-h(5);	
+			.caps;
+			.no-text-dec;
+				i {
+				.abs;
+				.left(0);
+				.top(0);
+				.w(5);
+				.h(5);
+				.line-h(5);
+				.text-center;
+				}
+				&:hover, &:active, &:focus {
+				.bg-col(@grayLt);
+				}
+			}	
+			button {
+			.abs;
+			.right(0);
+			.top(0);
+			.no-border;
+			.no-rounded;
+			.bg-col(@trans);
+			.w(5);
+			.h(5);
+			.col(@gray);	
+			}
+			&.active {
+				a {
+				.bg-col(@grayDk);
+				.col(@wht);
+				pointer-events: none;	
+				}
+			}
+		}
+	}
+	
 	.icon-list {
 	.over-hide;
 	.pad-bot(5);

@@ -25,7 +25,7 @@ global $room;
 			<td class="text-right<?php echo (array_key_exists ('location' , $add_meeting_errors )) ? ' text-danger':''; ?>"><label for="location-id">Location</label></td>
 			<td>
 				<div class="form-group<?php echo (array_key_exists ('location' , $add_meeting_errors )) ? ' has-error':''; ?>">
-				<select name="location-id" class="selectpicker" data-width="50%" title="Choose a location">
+				<select name="location-id" class="selectpicker show-tick" data-width="50%" title="Choose a location">
 					<?php foreach ($locations as $location) { ?>
 					<option value="<?php echo $location->term_id; ?>"<?php echo ($_REQUEST['location-id'] == $location->term_id ) ? ' selected':''; ?>><?php echo $location->name; ?></option>
 					<?php } ?>

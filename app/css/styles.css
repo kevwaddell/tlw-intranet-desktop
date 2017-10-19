@@ -13783,6 +13783,52 @@ aside.scrollable .contact-names .list-item.active a .date,
 aside.scrollable .meetings .list-item.active a .date {
   color: #AED45D;
 }
+aside.scrollable .reminder-types-list {
+  margin-bottom: 0px;
+}
+aside.scrollable .reminder-types-list li {
+  border-bottom: 1px solid #4b4b4b;
+  position: relative;
+}
+aside.scrollable .reminder-types-list li a {
+  display: block;
+  padding-left: 50px;
+  line-height: 50px;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+aside.scrollable .reminder-types-list li a i {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+}
+aside.scrollable .reminder-types-list li a:hover,
+aside.scrollable .reminder-types-list li a:active,
+aside.scrollable .reminder-types-list li a:focus {
+  background-color: #E9E9E9;
+}
+aside.scrollable .reminder-types-list li button {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  border: none;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
+  background-color: transparent;
+  width: 50px;
+  height: 50px;
+  color: #918F8F;
+}
+aside.scrollable .reminder-types-list li.active a {
+  background-color: #4b4b4b;
+  color: #fff;
+  pointer-events: none;
+}
 aside.scrollable .icon-list {
   overflow: hidden;
   padding-bottom: 50px;
@@ -14365,19 +14411,31 @@ aside.sb-sml {
   display: none;
 }
 #reminder-group-wrapper .reminders {
-  overflow: hidden;
   height: auto;
 }
 #reminder-group-wrapper .reminders.completed {
   padding-bottom: 40px;
 }
 #reminder-group-wrapper .reminders .reminder {
-  position: relative;
-  padding-right: 100px;
-  padding-left: 50px;
   border-top: 1px solid #4b4b4b;
+  position: relative;
+}
+#reminder-group-wrapper .reminders .reminder .editing {
+  -moz-opacity: 0.5;
+  -khtml-opacity: 0.5;
+  -webkit-opacity: 0.5;
+  opacity: 0.5;
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(opacity=50);
+  filter: alpha(opacity=50);
+  pointer-events: none;
+  overflow: visible;
+}
+#reminder-group-wrapper .reminders .reminder .reminder-inner {
+  position: relative;
   height: 50px;
   overflow: hidden;
+  padding-right: 100px;
+  padding-left: 50px;
 }
 #reminder-group-wrapper .reminders .reminder:last-child {
   border: none;
@@ -14443,6 +14501,70 @@ aside.sb-sml {
   top: 0px;
   right: 0px;
   line-height: 50px;
+  display: none;
+  padding-right: 10px;
+}
+#reminder-group-wrapper .reminders .reminder .details-link a {
+  text-decoration: none;
+}
+#reminder-group-wrapper .reminders .reminder .details-link a.view-reminder-details {
+  padding-right: 20px;
+}
+#reminder-group-wrapper .reminders .reminder .reminder-full-details {
+  height: 0px;
+  overflow: hidden;
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  -o-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+  padding-left: 50px;
+}
+#reminder-group-wrapper .reminders .reminder .reminder-full-details .notes {
+  padding-top: 10px;
+  font-style: italic;
+}
+#reminder-group-wrapper .reminders .reminder .edit-reminder {
+  padding: 10px;
+}
+#reminder-group-wrapper .reminders .reminder .edit-reminder .form-left,
+#reminder-group-wrapper .reminders .reminder .edit-reminder .form-mid {
+  float: left;
+}
+#reminder-group-wrapper .reminders .reminder .edit-reminder .form-left {
+  width: 32%;
+}
+#reminder-group-wrapper .reminders .reminder .edit-reminder .form-mid,
+#reminder-group-wrapper .reminders .reminder .edit-reminder .form-right {
+  width: 32%;
+  margin-left: 2%;
+}
+#reminder-group-wrapper .reminders .reminder .edit-reminder .form-right {
+  float: right;
+}
+#reminder-group-wrapper .reminders .reminder .edit-reminder .btn {
+  clear: both;
+}
+#reminder-group-wrapper .reminders .reminder:hover,
+#reminder-group-wrapper .reminders .reminder:active,
+#reminder-group-wrapper .reminders .reminder:focus {
+  background-color: #fdcfe1;
+  cursor: pointer;
+}
+#reminder-group-wrapper .reminders .reminder:hover .details-link,
+#reminder-group-wrapper .reminders .reminder:active .details-link,
+#reminder-group-wrapper .reminders .reminder:focus .details-link {
+  display: block;
+}
+#reminder-group-wrapper .reminders .reminder.active-reminder {
+  background-color: #fdcfe1;
+}
+#reminder-group-wrapper .reminders .reminder.active-reminder .reminder-full-details {
+  height: auto;
+  padding: 10px 0px 10px 50px;
+  border-top: 4px solid #E9E9E9;
+}
+#reminder-group-wrapper .reminders .reminder.editing {
+  background-color: #fdcfe1;
 }
 #reminder-group-wrapper .reminder-footer {
   border-top: 1px solid #4b4b4b;
