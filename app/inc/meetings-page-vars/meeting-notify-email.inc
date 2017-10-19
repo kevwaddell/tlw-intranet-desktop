@@ -42,9 +42,12 @@ $message .= "<tfoot><tr><td style=\"background-color: #CCC;\">Request sent on:</
 $message .= "<tr><td style=\"background-color: #CCC;\">Booked by:</td><td style=\"background-color: #EEE;\"><strong>". $fname ." ". $lname . "</strong></td></tr></tfoot>";
 $message .= "</table><br><br>";
 <<<<<<< HEAD
+<<<<<<< HEAD
 $message .= "<p style=\"font-size:16px; line-height: 20px;\">Please use the link below to view meeting details and accept or reject the booking request.<br><br>";
 $message .= "<a href=\"".get_permalink($meeting_approval_pg->ID)."?meeting-actions=attendee-approval&meeting-id=".$meeting->ID."&user-id=".$_REQUEST['user-id'].$request_params."\" target=\"_blank\" style=\"display: block; text-decoration: none; padding: 10px; background-color: red; color: white; text-align: center; text-transform: uppercase; \">View request >></a></p>";
 =======
+=======
+>>>>>>> 15174d34d57a1d4c0d13d118227a55cf4d324b53
 $message .= "<p style=\"font-size:16px; line-height: 20px;\">Please use the link below to view meeting details and accept or reject the meeting request.<br><br>";
 $message .= "<a href=\"".get_permalink($meeting_approval_pg->ID)."?meeting-actions=attendee-approval&meeting-id=".$meeting->ID."&user-id=".$_REQUEST['user-id'].$request_params."\" style=\"display: block; text-decoration: none; padding: 10px; background-color: red; color: white; text-align: center; text-transform: uppercase; \">View request >></a></p>";
 >>>>>>> 15174d34d57a1d4c0d13d118227a55cf4d324b53
@@ -57,7 +60,11 @@ if ($_SERVER[SERVER_ADMIN] == "home-laptop@localhost") {
 debug($message);
 } else {
 <<<<<<< HEAD
+<<<<<<< HEAD
 $notify_email_sent = wp_mail( "kevwaddell@mac.com", $subject, $message, $headers );	
+=======
+$notify_email_sent = wp_mail( $to_email, $subject, $message, $headers );	
+>>>>>>> 15174d34d57a1d4c0d13d118227a55cf4d324b53
 =======
 $notify_email_sent = wp_mail( $to_email, $subject, $message, $headers );	
 >>>>>>> 15174d34d57a1d4c0d13d118227a55cf4d324b53
