@@ -210,7 +210,11 @@ if ($_SERVER[SERVER_ADMIN] != "home-laptop@localhost") {
 add_action( 'phpmailer_init', 'mailer_config', 10, 1);
 function mailer_config(PHPMailer $mailer){
   $mailer->IsSMTP();
-  $mailer->Host = gethostbyname("tlwserv02.tlwsolicitors.local"); // your SMTP server 
+  if ($_SERVER[SERVER_ADMIN] == "home-laptop@localhost") {
+	  $mailer->Host = gethostbyname("nsgateway.tlwsolicitors.co.uk"); // your SMTP server 
+  } else {
+	$mailer->Host = gethostbyname("tlwserv02.tlwsolicitors.local"); // your SMTP server   
+}
   $mailer->SMTPDebug = 0;
   $mailer->Port = 25;
   $mailer->CharSet = "utf-8";
