@@ -38,6 +38,13 @@
 			
 			return false;
 		});
+		
+		$('#group-options-btn').on(event_type, function(){
+
+			$('.group-options').toggleClass('options-open options-closed');
+			
+			return false;
+		});
 
 			     
 	});

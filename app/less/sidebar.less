@@ -242,6 +242,7 @@ overflow: hidden;
 			.line-h(5);	
 			.caps;
 			.no-text-dec;
+			.col(@red);
 				i {
 				.abs;
 				.left(0);
@@ -250,6 +251,7 @@ overflow: hidden;
 				.h(5);
 				.line-h(5);
 				.text-center;
+				.col(@grayDk);
 				}
 				&:hover, &:active, &:focus {
 				.bg-col(@grayLt);
@@ -271,7 +273,77 @@ overflow: hidden;
 				.bg-col(@grayDk);
 				.col(@wht);
 				pointer-events: none;	
+					i {
+					.col(@gray);	
+					}
 				}
+			}
+		
+			&.col-red {
+				
+				&.active a {	
+				.bg-col(@redMid);
+				.col(@wht);
+					i {
+					.col(@red);		
+					}	
+				}
+				
+			}
+			
+			&.col-purple {
+
+				&.active a {	
+				.bg-col(@purple-dk);
+				.col(@wht);
+					i {
+					.col(@purple);		
+					}	
+				}	
+			}
+			
+			&.col-green {
+
+				&.active a {	
+				.bg-col(@green-dk);
+				.col(@wht);
+					i {
+					.col(@green);		
+					}	
+				}	
+			}
+			
+			&.col-pink {
+
+				&.active a {	
+				.bg-col(@pink-dk);
+				.col(@wht);
+					i {
+					.col(@pink);		
+					}	
+				}	
+			}
+			
+			&.col-orange {
+				&.active a {	
+				.bg-col(@orange-dk);
+				.col(@wht);
+					i {
+					.col(@orange);		
+					}	
+				}	
+			}
+					
+			&.col-blue {
+				
+				&.active a {	
+				.bg-col(@blue-dk);
+				.col(@wht);
+					i {
+					.col(@blue);		
+					}	
+				}
+				
 			}
 		}
 	}

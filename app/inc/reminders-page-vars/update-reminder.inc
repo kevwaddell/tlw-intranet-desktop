@@ -2,6 +2,7 @@
 global $current_user;
 global $reminders_completed_raw;
 global $reminders_completed;
+global $timeZone;
 //debug($reminders_completed);
 if ( isset($_POST['status']) && !isset($_POST['reminder-title'])) {
 	
@@ -11,8 +12,11 @@ if ( isset($_POST['status']) && !isset($_POST['reminder-title'])) {
 	$reminder_date = get_field('reminder_date', $reminder_id);
 	$reminder_time = get_field('reminder_time', $reminder_id);
 	$reminder_repeat = get_field('reminder_repeat', $reminder_id); 
-
-	$reminders_completed[] = array('reminder-id' => $reminder_id, 'group-id' => $_POST['group-id'], 'reminder-date' => $reminder_date, 'reminder-time' => $reminder_time, 'completed' => time());
+	$comp_dateTime = new DateTime("now", new DateTimeZone($timeZone));
+	$ts = $comp_dateTime->getTimestamp();
+	$comp_ts = strtotime($comp_dateTime->format($date_format.' '.$time_format));
+	
+	$reminders_completed[] = array('reminder-id' => $reminder_id, 'group-id' => $_POST['group-id'], 'reminder-date' => $reminder_date, 'reminder-time' => $reminder_time, 'completed' => $comp_ts);
 	
 	if ($reminder_repeat != 'never') {
 	$reminder_date_key = acf_get_field_key('reminder_date', $reminder_added);	
@@ -32,7 +36,7 @@ if ( isset($_POST['status']) && !isset($_POST['reminder-title'])) {
 		$next_date = date('Ymd', strtotime($reminder_date ." + 1 year"));	
 		}
 		
-		debug(date($date_format, strtotime($next_date)));
+		//debug(date($date_format, strtotime($next_date)));
 		
 		update_field($reminder_date_key,  $next_date, $reminder_id); 
 	}
@@ -43,6 +47,24 @@ if ( isset($_POST['status']) && !isset($_POST['reminder-title'])) {
 	$reminders_completed = unserialize($reminders_completed_raw);
 	
 	//debug($_POST);
+}
+//debug($_POST);
+if ( isset($_POST['change-status']) && !isset($_POST['reminder-title'])) {
+	debug($_POST);
+	
+	foreach ($reminders_completed as $k => $rc) { 
+		if ($rc['reminder-id'] == $_POST['change-status']) {
+		unset($reminders_completed[$k]);
+		$reminder_date_key = acf_get_field_key('reminder_date',  $rc['reminder-id']);
+		update_field($reminder_date_key, $rc['reminder-date'], $rc['reminder-id']); 	
+		}	
+	}
+	
+	//debug($reminders_completed);
+	$status_added = update_user_meta($current_user->ID, 'reminders_completed', serialize($reminders_completed), $reminders_completed_raw); 
+	$reminders_completed_raw = get_user_meta($current_user->ID, 'reminders_completed', true);
+	
+	$reminders_completed = unserialize($reminders_completed_raw);
 }
 if ( isset($_POST['reminder-title'])) {
 	
