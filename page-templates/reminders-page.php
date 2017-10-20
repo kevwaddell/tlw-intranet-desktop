@@ -37,8 +37,6 @@ $current_group = $_REQUEST['group-id'];
 } else {
 $current_group = 'scheduled';		
 }
-
-//debug($reminder_group);
 ?>
 	
 <?php if ( have_posts() ): while ( have_posts() ) : the_post(); ?>	
