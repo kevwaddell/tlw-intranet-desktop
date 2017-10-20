@@ -1,9 +1,25 @@
+
+This repository
+Pull requests
+Issues
+Marketplace
+Explore
+ @kevwaddell
+ Unwatch 1
+  Star 0
+  Fork 1 kevwaddell/tlw-intranet-desktop
+ Code  Issues 0  Pull requests 0  Projects 0  Wiki  Insights  Settings
+Tree: 75c20fef92 Find file Copy pathtlw-intranet-desktop/app/inc/meetings-page-vars/meeting-notify-email.inc
+d171fd0  2 days ago
+@kevwaddell kevwaddell Add your meetings to meetings page.
+2 contributors @kevwaddell @kevwadd
+RawBlameHistory      
+59 lines (53 sloc)  3.68 KB
 <?php 
 global $show_alert;
 $timeZone = 'Europe/London';
 $now_time = new DateTime(null, new DateTimeZone($timeZone));
 $meeting_approval_pg = get_page_by_path("meetings/meeting-approval");
-
 $meeting = get_post($_REQUEST['meeting-id']);
 $locations = wp_get_post_terms( $_REQUEST['meeting-id'], 'tlw_rooms_tax');
 $meeting_description = get_field('meeting_description', $meeting->ID);
@@ -24,10 +40,8 @@ $request_params .= '&meeting-day='.$_REQUEST['meeting-day'];
 if (isset($_REQUEST['meeting-day-to'])) {
 $request_params .= '&meeting-day-to='.$_REQUEST['meeting-day-to'];	
 }
-
 $from = get_user_by( 'id', $booked_by );
 $from_email = $from->data->user_email;
-
 $subject = "Meeting attendance request from $fname $lname";
 $message = "<h1 style=\"font-size:25px; line-height: 30px;text-align: center;\"><font style=\"color: red;\">$fname $lname</font><br>has requested you attend a meeting</h1>";
 $message .= "<table width=\"100%\" border=\"0\" cellspacing=\"2\" cellpadding=\"10\"><tbody><thead>";
@@ -47,7 +61,6 @@ $headers = array();
 $headers[] = "Content-Type: text/html; charset=UTF-8";
 $headers[] = "From: $fname $lname <$from_email>";
 $headers[] = "Reply-To: $fname $lname <$from_email>";
-
 if ($_SERVER[SERVER_ADMIN] == "home-laptop@localhost") {
 debug($message);
 } else {
@@ -55,5 +68,4 @@ $notify_email_sent = wp_mail( $to_email, $subject, $message, $headers );
 }
 	
 $show_alert = true;
-
 ?>

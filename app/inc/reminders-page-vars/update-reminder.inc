@@ -5,16 +5,44 @@ global $reminders_completed;
 //debug($reminders_completed);
 if ( isset($_POST['status']) && !isset($_POST['reminder-title'])) {
 	
-	$reminder = get_post($_POST['status']);
+	$date_format = get_option('date_format');
+	$reminder_id = $_POST['status'];
+	$reminder = get_post($reminder_id);
+	$reminder_date = get_field('reminder_date', $reminder_id);
+	$reminder_time = get_field('reminder_time', $reminder_id);
+	$reminder_repeat = get_field('reminder_repeat', $reminder_id); 
 
-	$reminders_completed[] = array('reminder-id' => $_POST['status'], 'group-id' => $_POST['group-id'], 'completed'	=> time());
+	$reminders_completed[] = array('reminder-id' => $reminder_id, 'group-id' => $_POST['group-id'], 'reminder-date' => $reminder_date, 'reminder-time' => $reminder_time, 'completed' => time());
 	
-	//$status_added = update_user_meta($current_user->ID, 'reminders_completed', serialize($reminders_completed), $reminders_completed_raw); 
-	//$reminders_completed_raw = get_user_meta($current_user->ID, 'reminders_completed', true);	
+	if ($reminder_repeat != 'never') {
+	$reminder_date_key = acf_get_field_key('reminder_date', $reminder_added);	
+		if ($reminder_repeat == 'day') {
+		$next_date = date('Ymd', strtotime("tomorrow"));	
+		}
+		if ($reminder_repeat == 'week') {
+		$next_date = date('Ymd', strtotime($reminder_date ." + 1 week"));	
+		}
+		if ($reminder_repeat == 'weeks') {
+		$next_date = date('Ymd', strtotime($reminder_date ." + 2 weeks"));	
+		}
+		if ($reminder_repeat == 'month') {
+		$next_date = date('Ymd', strtotime($reminder_date ." + 1 month"));	
+		}
+		if ($reminder_repeat == 'year') {
+		$next_date = date('Ymd', strtotime($reminder_date ." + 1 year"));	
+		}
+		
+		debug(date($date_format, strtotime($next_date)));
+		
+		update_field($reminder_date_key,  $next_date, $reminder_id); 
+	}
 	
-	//$reminders_completed = unserialize($reminders_completed_raw);
+	$status_added = update_user_meta($current_user->ID, 'reminders_completed', serialize($reminders_completed), $reminders_completed_raw); 
+	$reminders_completed_raw = get_user_meta($current_user->ID, 'reminders_completed', true);	
 	
-	debug($_POST);
+	$reminders_completed = unserialize($reminders_completed_raw);
+	
+	//debug($_POST);
 }
 if ( isset($_POST['reminder-title'])) {
 	

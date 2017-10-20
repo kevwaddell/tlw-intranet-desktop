@@ -40,7 +40,7 @@ $message .= "<tr><td style=\"background-color: #CCC;\">Meeting Date/time:</td><t
 $message .= "<tfoot><tr><td style=\"background-color: #CCC;\">Requested date/time:</td><td style=\"background-color: #EEE;\"><strong>". $now_time->format('D jS F Y @ H:i')  . "</strong></td></tr></tfoot>";
 $message .= "</table><br><br>";
 $message .= "Please use the link below to view your meeting details.<br><br>";
-$message .= "<a href=\"".get_permalink($meetings_pg->ID)."?meeting-id=".$meeting_added.$request_params."\" style=\"display: block; text-align: center; text-transform: uppercase; text-decoration: none; padding: 10px; background-color: red; color: white; \">View request >></a><br><br>";
+$message .= "<a href=\"".get_permalink($meetings_pg->ID)."?meeting-id=".$meeting_added.$request_params."\" target=\"_blank\" style=\"display: block; text-align: center; text-transform: uppercase; text-decoration: none; padding: 10px; background-color: red; color: white; \">View request >></a><br><br>";
 $headers = array();
 $headers[] = "Content-Type: text/html; charset=UTF-8";
 $headers[] = "From: $fname $lname <$from_email>";

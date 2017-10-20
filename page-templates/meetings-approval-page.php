@@ -65,7 +65,12 @@ if (isset($_POST['send-comment'])) {
 	$headers[] = "Reply-To: $user_fname $user_lname <$from_email>";
 	
 	//debug($message);
+	if ($_SERVER[SERVER_ADMIN] == "home-laptop@localhost") {
+	$reject_email_sent = wp_mail( "kevwaddell@mac.com", $subject, $message, $headers );	
+	} else {
 	$reject_email_sent = wp_mail( "kwaddell@tlwsolicitors.co.uk", $subject, $message, $headers );	
+	}
+	
 	}
 }
 if ($_REQUEST['status'] == 'accepted') {
@@ -86,7 +91,7 @@ if ($_REQUEST['status'] == 'accepted') {
 	
 	update_field( $attendee_staff_key, $attendees_staff, $_REQUEST['meeting-id'] );
 	$status_updated = true;
-	
+	//debug($status_updated);
 	if ($status_updated) {	
 	$subject = "Meeting attendance request";
 	$message = "<div style=\"text-align: center;\">";
@@ -101,7 +106,11 @@ if ($_REQUEST['status'] == 'accepted') {
 	//$accept_email_sent = true;
 	
 	//debug($message);
-	$accepted_email_sent = wp_mail( "webmaster@tlwsolicitors.co.uk", $subject, $message, $headers );	
+		if ($_SERVER[SERVER_ADMIN] == "home-laptop@localhost") {
+			$accepted_email_sent = wp_mail( "kevwaddell@mac.com", $subject, $message, $headers );
+		} else {
+			$accepted_email_sent = wp_mail( "webmaster@tlwsolicitors.co.uk", $subject, $message, $headers );	
+		}	
 	}
 }
 //debug($meeting);	
