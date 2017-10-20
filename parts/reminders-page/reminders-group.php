@@ -3,10 +3,15 @@ global $current_group;
 global $reminder_groups;
 global $reminders_completed;
 global $reminder_added;
+global $date_format;
+global $time_format;
+global $timeZone;
 $current_completed = array();
 $exclude_completed = array();
 
-//debug($reminders_completed);
+$now_dateTime = new DateTime("now", new DateTimeZone($timeZone));
+$ts = $now_dateTime->getTimestamp();
+$now_ts = strtotime($now_dateTime->format($date_format.' '.$time_format));
 
 if (!empty($reminders_completed)) {
 	foreach ($reminders_completed as $k => $comp) { 
@@ -52,8 +57,30 @@ $reminders = get_posts($reminders_args);
 <div id="reminder-group-wrapper" class="group-col-<?php echo (empty($group_color)) ? 'red':$group_color;  ?>">
 	<header class="reminder-header over-hide">
 		<h1><?php echo $group_title; ?></h1>
-		<a href="?reminder-actions=options">Options</a>
+		<a href="#" id="group-options-btn">Options</a>
 	</header>
+	<div class="group-options<?php echo ($_GET['reminder-actions'] == 'add-group') ? ' options-open':' options-closed'; ?>">
+		<form action="<?php the_permalink(); ?>?group-id=<?php echo $current_group; ?>" method="post">
+			<div class="form-group">
+				<input type="text" class="form-control input-lg" name="group-title" value="<?php echo $group_title; ?>" autofocus>
+				<input type="hidden" name="group-id" value="<?php echo $group_id ?>">
+			</div>
+			<div class="form-group">
+				<label for="group-col">List colour: </label>
+				<input value="red" name="group-color[]" type="radio"<?php echo ($group_color == 'red') ? ' checked="checked"':''; ?> class="bg-red">
+				<input value="purple" name="group-color[]" type="radio"<?php echo ($group_color == 'purple') ? ' checked="checked"':''; ?> class="bg-purple">
+				<input value="green" name="group-color[]" type="radio"<?php echo ($group_color == 'green') ? ' checked="checked"':''; ?> class="bg-green">
+				<input value="pink" name="group-color[]" type="radio"<?php echo ($group_color == 'pink') ? ' checked="checked"':''; ?> class="bg-pink">
+				<input value="orange" name="group-color[]" type="radio"<?php echo ($group_color == 'orange') ? ' checked="checked"':''; ?> class="bg-orange">
+				<input value="blue" name="group-color[]" type="radio"<?php echo ($group_color == 'blue') ? ' checked="checked"':''; ?> class="bg-blue">	
+			</div>
+			<div class="form-group option-actions">
+				<a href="?meeting-actions=delete-group&group-id=<?php echo $current_group; ?>" class="btn btn-default btn-lg no-border no-rounded delete-group">Delete</a>
+				<a href="?group-id=<?php echo $current_group; ?>" class="btn btn-default btn-lg no-border no-rounded pull-right">Cancel</a>
+				<button type="submit" name="update-group" class="btn btn-default btn-lg no-border no-rounded pull-right">Done</button>
+			</div>
+		</form>
+	</div>	
 	<div class="reminders-list">
 		<div class="completed-list">
 			<div class="list-header over-hide">
@@ -78,7 +105,8 @@ $reminders = get_posts($reminders_args);
 					$rem_time = get_field('reminder_time', $item['reminder-id']);	
 					$reminder_priority = get_field('reminder_priority', $item['reminder-id']);	
 					$rem_date = date('D jS M Y', strtotime($reminder_date));
-					//echo '<pre>';print_r($reminder_date);echo '</pre>';
+					$comp_dateTime = new DateTime( date('Ymd G:i', $item['completed']), new DateTimeZone($timeZone));
+					//echo '<pre>';print_r($comp_dateTime);echo '</pre>';
 					if ( date('Ymd') == $reminder_date ) {
 					$rem_date = "Today";	
 					}	
@@ -95,13 +123,15 @@ $reminders = get_posts($reminders_args);
 					<div class="reminder">
 					<div class="reminder-inner">
 						<div class="change-status in-block">
-							<input name="change-status" value="<?php echo $item['reminder-id']; ?>" checked="checked" type="checkbox" onchange="this.form.submit()">	
+							<input value="<?php echo $item['reminder-id']; ?>" checked="checked" type="checkbox" onchange="this.form.submit()">	
 						</div>
 						<div class="details">
 							<h3><span><?php echo $priority; ?></span><?php echo get_the_title($item['reminder-id']); ?></h3>
 							<time class="text-uppercase"><?php echo $rem_date; ?> @ <?php echo $rem_time; ?></time>
+							<time class="text-uppercase">&nbsp;&nbsp;|&nbsp;&nbsp;Completed on <?php echo $comp_dateTime->format("D jS M Y @".$time_format); ?></time>
 						</div>
 					</div>
+					<input type="hidden" name="change-status" value="<?php echo $item['reminder-id']; ?>">
 					<input type="hidden" name="reminder-date" value="<?php echo $reminder_date; ?>">
 				</div>
 				<?php } ?>
@@ -123,10 +153,32 @@ $reminders = get_posts($reminders_args);
 				$reminder_notes = get_field('reminder_notes', $item->ID);
 				$reminder_repeat = get_field('reminder_repeat', $item->ID);	
 				$rem_date = date('D jS M Y', strtotime($reminder_date));
+				$rem_dateTime = new DateTime($reminder_date." ".$rem_time, new DateTimeZone($timeZone));
 				//echo '<pre>';print_r($item->ID);echo '</pre>';
-				if ( date('Ymd') == $reminder_date ) {
+				if ( date('Ymd') == $rem_dateTime ) {
 				$rem_date = "Today";	
 				}	
+				if ( $now_ts > $rem_dateTime->getTimestamp() ) {
+				$rem_date = "";
+				$interval = $rem_dateTime->diff($now_dateTime);	
+				if ($interval->m != 0) {
+				$m = ($interval->m > 1) ? 'Months':'Month';
+				$rem_date .= $interval->format("%m $m ");	
+				}
+				if ($interval->d != 0) {
+				$d = ($interval->d > 1) ? 'Days':'Day';
+				$rem_date .= $interval->format("%d $d ");		
+				}
+				if ($interval->h != 0) {
+				$h = ($interval->h > 1) ? 'Hours':'Hour';
+				$rem_date .= $interval->format("%h $h ");		
+				}
+				if ($interval->i != 0) {
+				$rem_date .= $interval->format('and %i minutes ');		
+				}
+				$rem_date .= "ago";
+				//echo '<pre>';print_r($interval);echo '</pre>';
+				}
 				switch($reminder_priority){
 				case  "low": 
 				$priority_label = "! ";

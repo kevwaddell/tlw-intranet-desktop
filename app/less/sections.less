@@ -77,7 +77,6 @@ margin: auto;
 	.rel;
 	.pad-bot(1);
 		h1 {
-		.pad-left(5);
 		.pad-right(10);
 		.mag-top(0);
 		.mag-bot(0);
@@ -88,7 +87,153 @@ margin: auto;
 		.top(0);
 		.right(0);
 		.line-h(5);	
+		.no-text-dec;
 		}	
+	}
+	
+	.group-options {
+	.over-hide;
+	.transition;
+		&.options-closed {
+		.h(0);	
+		}	
+		&.options-open {
+		height: auto;
+		}
+		
+		.option-actions {
+		.border-top(@grayDk; 0.1);	
+		}
+		
+		input[type="radio"] {
+		.mag-top(-0.4);
+		.w(3);
+		.h(3);
+		-webkit-appearance: none;
+		appearance: none;
+		vertical-align: middle;
+		.rounded(100%);
+			&:before {
+			  content:'';
+			  display:block;
+			  width:60%;
+			  height:60%;
+			  margin: 20% auto;    
+			  border-radius:50%;    
+			}
+			&:hover { 
+			cursor: pointer;
+			}
+			
+			&.bg-red {
+			.bg-col(@red);
+			box-shadow:0 0 5px 0px @redMid inset; 
+				&:hover {
+					&:before {
+					background: @redMid;	
+					}
+				}	
+				&:checked {
+				box-shadow:0 0 5px 0px @redMid inset; 
+					&:before {
+					background: @redMid;		
+					}
+				}
+			}
+			&.bg-purple {
+			.bg-col(@purple);
+			box-shadow:0 0 5px 0px @purple-dk inset; 
+				&:hover {
+					&:before {
+					background: @purple-dk;	
+					}
+				}	
+				&:checked {
+				box-shadow:0 0 5px 0px @purple-dk inset; 
+					&:before {
+					background: @purple-dk;		
+					}
+				}	
+			}
+			&.bg-green {
+			.bg-col(@green);
+			box-shadow:0 0 5px 0px @green-dk inset; 
+				&:hover {
+					&:before {
+					background: @green-dk;	
+					}
+				}	
+				&:checked {
+				box-shadow:0 0 5px 0px @green-dk inset; 
+					&:before {
+					background: @green-dk;		
+					}
+				}		
+			}
+			&.bg-pink {
+			.bg-col(@pink);
+			box-shadow:0 0 5px 0px @pink-dk inset; 	
+				&:hover {
+					&:before {
+					background: @pink-dk;	
+					}
+				}	
+				&:checked {
+				box-shadow:0 0 5px 0px @pink-dk inset; 
+					&:before {
+					background: @pink-dk;		
+					}
+				}		
+			}
+			&.bg-orange {
+			.bg-col(@orange);
+			box-shadow:0 0 5px 0px @orange-dk inset; 	
+				&:hover {
+					&:before {
+					background: @orange-dk;	
+					}
+				}	
+				&:checked {
+				box-shadow:0 0 5px 0px @orange-dk inset; 
+					&:before {
+					background: @orange-dk;		
+					}
+				}		
+			}
+			&.bg-blue {
+			.bg-col(@blue);
+			box-shadow:0 0 5px 0px @blue-dk inset; 	
+				&:hover {
+					&:before {
+					background: @blue-dk;	
+					}
+				}	
+				&:checked {
+				box-shadow:0 0 5px 0px @blue-dk inset; 
+					&:before {
+					background: @blue-dk;		
+					}
+				}	
+			}
+
+		}
+		
+		.btn {
+		.pad-right(0);
+		.bg-col(@trans);
+		.shadow-inset-none;	
+			&:hover, &:active, &:focus {
+			.col(@gray);
+			}
+			
+			&.delete-group {
+			.pad-left(0);
+			.col(@red);
+				&:hover, &:active, &:focus {
+				.col(@redMid);
+				}
+			}
+		}
 	}
 	.completed-list {
 	.over-hide;
@@ -187,7 +332,7 @@ margin: auto;
 				-webkit-appearance: none;
 				appearance: none;
 				vertical-align: middle;
-				box-shadow:0 0 5px 0px @red inset; 
+				box-shadow:0 0 5px 0px @grayDk inset; 
 				.rounded(100%);
 					&:before {
 					  content:'';
@@ -200,14 +345,14 @@ margin: auto;
 					&:hover { 
 					cursor: pointer;	
 						&:before {
-						background: @red;	
+						background: @gray;	
 						}
 					}
 					
 					&:checked {
-					box-shadow:0 0 5px 0px @red inset; 
+					box-shadow:0 0 5px 0px @grayDk inset; 
 						&:before {
-						background: @red;	
+						background: @gray;	
 						}
   					}
 				}
@@ -279,7 +424,7 @@ margin: auto;
 				
 			}
 			&:hover, &:active, &:focus {
-			.bg-col(@redLt);
+			.bg-col(@grayLt);
 			cursor: pointer;
 				
 				.details-link {
@@ -288,16 +433,16 @@ margin: auto;
 			}
 			
 			&.active-reminder {
-			.bg-col(@redLt);
+			.bg-col(@grayLt);
 				.reminder-full-details {
 				height: auto;	
 				.pad(1;0;1;5);
-				.border-top(@grayLt; 0.4);	
+				.bg-col(@wht);	
 				}	
 			}
 			
 			&.editing {
-			.bg-col(@redLt);	
+			.bg-col(@grayLt);	
 			}
 		}
 	}
@@ -315,12 +460,51 @@ margin: auto;
 		.caps;
 		.font-size(2);
 		.col(@gray);
+			&:hover, &:active, &:focus {
+			.col(@grayDk);
+			}
 		}	
 	}
 	
 	&.group-col-red {
+
 		h1, h3 {
 		.col(@red);	
+		}
+		.reminders {
+			
+		}
+	}
+	
+	&.group-col-purple {
+
+		h1, h3 {
+		.col(@purple-dk);	
+		}
+	}
+	
+	&.group-col-green {
+
+		h1, h3 {
+		.col(@green-dk);	
+		}
+	}
+	
+	&.group-col-pink {
+		h1, h3 {
+		.col(@pink-dk);	
+		}
+	}
+	
+	&.group-col-orange {
+		h1, h3 {
+		.col(@orange-dk);	
+		}
+	}
+	
+	&.group-col-blue {
+		h1, h3 {
+		.col(@blue-dk);	
 		}
 	}
 }

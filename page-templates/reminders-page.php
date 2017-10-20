@@ -4,11 +4,11 @@ Template Name: Reminders page
 */
 ?>
 
-<?php get_header(); ?>
-
 <?php
 global $current_user;
-
+$timeZone = 'Europe/London';
+$date_format = get_option('date_format');
+$time_format = get_option('time_format');
 $reminder_groups_raw = get_user_meta($current_user->ID, 'reminder_groups', true);	
 $reminders_completed_raw = get_user_meta($current_user->ID, 'reminders_completed', true);
 
@@ -29,6 +29,7 @@ $reminders_completed_raw = get_user_meta($current_user->ID, 'reminders_completed
 $reminders_completed = unserialize($reminders_completed_raw);
 
 include (STYLESHEETPATH . '/app/inc/reminders-page-vars/add-group.inc');
+include (STYLESHEETPATH . '/app/inc/reminders-page-vars/update-group.inc');
 include (STYLESHEETPATH . '/app/inc/reminders-page-vars/add-reminder.inc');
 include (STYLESHEETPATH . '/app/inc/reminders-page-vars/update-reminder.inc');
 
@@ -38,6 +39,7 @@ $current_group = $_REQUEST['group-id'];
 $current_group = 'scheduled';		
 }
 ?>
+<?php get_header(); ?>
 	
 <?php if ( have_posts() ): while ( have_posts() ) : the_post(); ?>	
 	
@@ -53,8 +55,9 @@ $current_group = 'scheduled';
 				<li<?php echo ($current_group == 'scheduled') ? ' class="active"': ''; ?>><a href="?group-id=scheduled"><i class="fa fa-clock-o fa-2x"></i> Scheduled</a></li>
 				<?php if (!empty($reminder_groups)) { ?>
 				<?php foreach ($reminder_groups as $group) { ?>
-				<li<?php echo ($current_group == $group['group-id']) ? ' class="active"': ''; ?>>
+				<li class="col-<?php echo $group['color']; ?><?php echo ($current_group == $group['group-id']) ? ' active': ''; ?>">
 					<a href="?group-id=<?php echo $group['group-id']; ?>"><i class="fa fa-bullseye fa-2x"></i> <?php echo $group['title']; ?></a>
+				</li>
 				<?php } ?>			
 				<?php } ?>
 			</ul>
