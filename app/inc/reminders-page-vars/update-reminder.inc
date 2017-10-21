@@ -50,7 +50,7 @@ if ( isset($_POST['status']) && !isset($_POST['reminder-title'])) {
 }
 //debug($_POST);
 if ( isset($_POST['change-status']) && !isset($_POST['reminder-title'])) {
-	debug($_POST);
+	//debug($_POST);
 	
 	foreach ($reminders_completed as $k => $rc) { 
 		if ($rc['reminder-id'] == $_POST['change-status']) {

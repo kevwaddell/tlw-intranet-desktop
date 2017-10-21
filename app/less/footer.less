@@ -1,3 +1,89 @@
-footer[role="footer-info"] {
-
+footer#app-info {
+.abs;
+.left(0);
+.bottom (0);
+.right(0);
+.h(0);
+z-index: 100;
+	#reminders-alert-btn {
+	.abs;
+	.right(2);
+	.top(-7);
+	.w(5);
+	.h(5);
+	.rounded(100%);	
+	.no-border;
+	.bg-col(@red);
+	.col(@wht);
+	.pad-all(0);
+	.animated;
+	.bounce;
+	animation-delay: 3s;
+	animation-iteration-count: 2;
+		i {
+		.block;
+		.line-h(5);
+		.text-center;	
+		}
+		.badge {
+		.abs;
+		.top(-0.5);
+		.right(-0.5);	
+		}
+	}
+	.reminder-alerts {
+	.abs;
+	.right(9);
+	.bottom(0);
+	.w(25);
+	z-index: 100;	
+	transform: translateY(100%);
+	.transition(0.3s, ease-in);
+	.pad-bot(1);
+		&.reminders-open {
+		transform: translateY(0%);	
+		}
+		&.reminders-closed {
+		transform: translateY(0%);
+		transition-timing-function: ease-in-out;	
+		}
+	}
+	.reminder-alert {
+	.bg-col(@wht);
+	.drop-shadow(0, 0, 5px, 0.3);
+	.border(@grayDk; 0.1);
+	.col(@grayDk);
+	.pad-top(1.5);
+	.mag-bot(1);
+	.rounded(8px);
+	.animated;
+	.fadeInUp;
+		.title {
+		.mag-bot(1.5);
+		.pad-left(1.5);
+		.pad-right(1.5);
+		.text-center;	
+		}
+		.actions {
+		.over-hide;	
+		.border-top(@grayDk; 0.1);
+		}
+		.btn {
+		width: 50%;	
+		.no-border;
+		.no-rounded;
+		.caps;
+		.bg-col(@trans);
+		.col(@grayDk);
+		.fleft;
+		.pad-all(1);
+		.shadow-inset-none;
+			&:first-child {
+			.border-right(@grayDk; 0.1);	
+			}
+			&:hover, &:active, &:focus {
+			.col(@red);
+			}
+		}	
+	}
 }
