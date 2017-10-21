@@ -4,6 +4,7 @@ global $reminders_completed_raw;
 global $reminders_completed;
 global $timeZone;
 //debug($reminders_completed);
+//debug($_POST);
 if ( isset($_POST['status']) && !isset($_POST['reminder-title'])) {
 	
 	$date_format = get_option('date_format');
@@ -46,6 +47,10 @@ if ( isset($_POST['status']) && !isset($_POST['reminder-title'])) {
 	
 	$reminders_completed = unserialize($reminders_completed_raw);
 	
+	if ($status_added) {
+	wp_redirect( '?group-id='.$_POST['group-id']."&reminder-updated=1" );
+	exit;	
+	}
 	//debug($_POST);
 }
 //debug($_POST);
@@ -66,7 +71,9 @@ if ( isset($_POST['change-status']) && !isset($_POST['reminder-title'])) {
 	
 	$reminders_completed = unserialize($reminders_completed_raw);
 }
-if ( isset($_POST['reminder-title'])) {
+if ( isset($_POST['update-reminder'])) {
+	
+	//debug(strtotime($_POST['reminder-date'])." ------ ".strtotime($_POST['orig-date']));
 	
 	$orig_date = $_POST['orig-date'];
 	$orig_time = $_POST['orig-time']; 
@@ -97,42 +104,44 @@ if ( isset($_POST['reminder-title'])) {
 		$reminder_updated = wp_update_post($update_reminder_args);
 	
 	}
-	
-	if (date('Ymd', strtotime($_POST['reminder-date'])) != $orig_date) {
-	//debug($_POST['reminder-date']);	
-	$reminder_date_key = acf_get_field_key('reminder_date', $reminder_added);
+	//debug( date('Ymd', strtotime($_POST['reminder-date']) )." ----- ".$orig_date);
+	if (strtotime($_POST['reminder-date']) != strtotime($orig_date)) {	
+	$reminder_date_key = acf_get_field_key('reminder_date', $reminder_id);
 	update_field($reminder_date_key,  date('Ymd', strtotime($_POST['reminder-date'])), $reminder_id); 
 	}
 	
 	if ($_POST['reminder-time'] != $orig_time) {
 	//debug($_POST['reminder-time']);	
-	$reminder_time_key = acf_get_field_key('reminder_time', $reminder_added);
+	$reminder_time_key = acf_get_field_key('reminder_time', $reminder_id);
 	update_field($reminder_time_key,  $_POST['reminder-time'], $reminder_id); 
 	}
 	
 	if ($_POST['reminder-priority'] != $orig_priority) {
 	//debug($_POST['reminder-priority']);	
-	$reminder_priority_key = acf_get_field_key('reminder_priority', $reminder_added);
+	$reminder_priority_key = acf_get_field_key('reminder_priority', $reminder_id);
 	update_field($reminder_priority_key,  $_POST['reminder-priority'], $reminder_id); 
 	}
 	
 	if ($_POST['reminder-repeat'] != $orig_repeat) {
 	//debug($_POST['reminder-repeat']);	
-	$reminder_repeat_key = acf_get_field_key('reminder_repeat', $reminder_added);
+	$reminder_repeat_key = acf_get_field_key('reminder_repeat', $reminder_id);
 	update_field($reminder_repeat_key,  $_POST['reminder-repeat'], $reminder_id); 
 	}
 	
 	if (wp_strip_all_tags($_POST['reminder-notes']) != wp_strip_all_tags($orig_notes)) {
 	//debug(wp_strip_all_tags($_POST['reminder-notes']));
-	$reminder_notes_key = acf_get_field_key('reminder_notes', $reminder_added);	
+	$reminder_notes_key = acf_get_field_key('reminder_notes', $reminder_id);	
 	update_field($reminder_notes_key,  wp_strip_all_tags($_POST['reminder-notes']), $reminder_id); 	
 	}
 	
 	if ($_POST['change-group'] != $orig_group) {
 	//debug($_POST['change-group']);	
-	$group_title_key = acf_get_field_key('reminder_group', $reminder_added);
+	$group_title_key = acf_get_field_key('reminder_group', $reminder_id);
 	update_field($group_title_key,  $_POST['change-group'], $reminder_id); 
 	}
+		
+	wp_redirect( '?group-id='.$_POST['change-group']."&reminder-updated=1" );
+	exit;
 	
 	//debug($_POST);	
 }	

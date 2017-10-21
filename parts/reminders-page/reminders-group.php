@@ -59,7 +59,7 @@ $reminders = get_posts($reminders_args);
 		<h1><?php echo $group_title; ?></h1>
 		<a href="#" id="group-options-btn">Options</a>
 	</header>
-	<div class="group-options<?php echo ($_GET['reminder-actions'] == 'add-group') ? ' options-open':' options-closed'; ?>">
+	<div class="group-options<?php echo ($_GET['group-added']) ? ' options-open':' options-closed'; ?>">
 		<form action="<?php the_permalink(); ?>?group-id=<?php echo $current_group; ?>" method="post">
 			<div class="form-group">
 				<input type="text" class="form-control input-lg" name="group-title" value="<?php echo $group_title; ?>" autofocus>
@@ -161,6 +161,10 @@ $reminders = get_posts($reminders_args);
 				if ( $now_ts > $rem_dateTime->getTimestamp() ) {
 				$rem_date = "";
 				$interval = $rem_dateTime->diff($now_dateTime);	
+				if ($interval->y != 0) {
+				$y = ($interval->y > 1) ? 'Years':'Year';
+				$rem_date .= $interval->format("%y $y ");	
+				}
 				if ($interval->m != 0) {
 				$m = ($interval->m > 1) ? 'Months':'Month';
 				$rem_date .= $interval->format("%m $m ");	
@@ -233,7 +237,7 @@ $reminders = get_posts($reminders_args);
 						</div>
 					</div>
 					
-					<?php if (($_GET['reminder-actions'] == 'edit-reminder' && $_GET['reminder-id'] == $item->ID) || ($_GET['reminder-actions'] == 'add-reminder' && $item->ID == $reminder_added)) { ?>
+					<?php if (($_GET['reminder-actions'] == 'edit-reminder' || $_GET['reminder-added']) && $_GET['reminder-id'] == $item->ID) { ?>
 					<div class="edit-reminder">
 						<div class="form-group form-left">
 							<input name="reminder-title" value="<?php echo get_the_title($item->ID); ?>" class="form-control input-sm" autofocus>

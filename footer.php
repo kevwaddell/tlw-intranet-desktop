@@ -55,20 +55,24 @@
 					if ( $now_ts > $rem_dateTime->getTimestamp() ) {
 					$rem_date = "";
 					$interval = $rem_dateTime->diff($now_dateTime);	
+					if ($interval->y != 0) {
+					$y = ($interval->y > 1) ? 'Yrs':'Yr';
+					$rem_date .= $interval->format("%y $y ");	
+					}
 					if ($interval->m != 0) {
-					$m = ($interval->m > 1) ? 'Months':'Month';
+					$m = ($interval->m > 1) ? 'Mths':'Mth';
 					$rem_date .= $interval->format("%m $m ");	
 					}
 					if ($interval->d != 0) {
-					$d = ($interval->d > 1) ? 'Days':'Day';
+					$d = ($interval->d > 1) ? 'Dys':'Dy';
 					$rem_date .= $interval->format("%d $d ");		
 					}
 					if ($interval->h != 0) {
-					$h = ($interval->h > 1) ? 'Hours':'Hour';
+					$h = ($interval->h > 1) ? 'Hrs':'Hr';
 					$rem_date .= $interval->format("%h $h ");		
 					}
 					if ($interval->i != 0) {
-					$rem_date .= $interval->format('and %i minutes ');		
+					$rem_date .= $interval->format('and %i mins ');		
 					}
 					$rem_date .= "ago";
 					//echo '<pre>';print_r($interval);echo '</pre>';

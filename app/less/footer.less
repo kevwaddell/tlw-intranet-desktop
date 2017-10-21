@@ -58,7 +58,7 @@ z-index: 100;
 	.drop-shadow(0, 0, 5px, 0.3);
 	.border(@grayDk; 0.1);
 	.col(@grayDk);
-	.pad-top(1.5);
+	.pad-top(1);
 	.mag-bot(1.5);
 	.rounded(8px);
 	.animated;
@@ -66,16 +66,16 @@ z-index: 100;
 	background: linear-gradient(45deg, rgba(192,192,192,1) 0%, rgba(255,255,255,1) 50%, rgba(128,128,128,1) 100%);
 
 		.title {
-		.pad-left(1.5);
-		.pad-right(1.5);
+		.pad-left(1);
+		.pad-right(1);
 		.text-center;	
 		}
 		.time {
-		.font-size(1.2);
+		.font-size(1);
 		.caps;
-		.mag-bot(1.5);
-		.pad-left(1.5);
-		.pad-right(1.5);
+		.mag-bot(1);
+		.pad-left(1);
+		.pad-right(1);
 		.text-center;	
 		}
 		.actions {
@@ -90,8 +90,9 @@ z-index: 100;
 		.bg-col(@trans);
 		.col(@grayDk);
 		.fleft;
-		.pad-all(1);
+		.pad-all(0.5);
 		.shadow-inset-none;
+		.font-size(1.4);
 			&.complete-btn {
 			.border-right(@grayDk; 0.1);	
 			}

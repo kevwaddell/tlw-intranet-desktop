@@ -12403,12 +12403,12 @@ html {
   margin-top: 0px !important;
 }
 pre.debug {
-  top: 50px;
-  right: 0px;
+  bottom: 0px;
+  right: 20%;
+  left: 20%;
   position: fixed;
   z-index: 1000;
-  height: 100%;
-  width: 30%;
+  height: 30%;
   overflow: auto;
   background-color: black;
   color: white;
@@ -14594,11 +14594,19 @@ aside.sb-sml {
   height: 50px;
   display: none;
 }
+#reminder-group-wrapper .list-header .header-link a {
+  text-decoration: none;
+}
 #reminder-group-wrapper .reminders {
   height: auto;
 }
 #reminder-group-wrapper .reminders.completed {
   padding-bottom: 40px;
+}
+#reminder-group-wrapper .reminders .reminder-label {
+  padding-top: 10px;
+  border-top: 1px solid #4b4b4b;
+  color: #918F8F;
 }
 #reminder-group-wrapper .reminders .reminder {
   border-top: 1px solid #4b4b4b;
@@ -15212,7 +15220,7 @@ footer#app-info .reminder-alert {
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
   border: 1px solid #4b4b4b;
   color: #4b4b4b;
-  padding-top: 15px;
+  padding-top: 10px;
   margin-bottom: 15px;
   -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
@@ -15224,16 +15232,16 @@ footer#app-info .reminder-alert {
   background: linear-gradient(45deg, #c0c0c0 0%, #ffffff 50%, #808080 100%);
 }
 footer#app-info .reminder-alert .title {
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-left: 10px;
+  padding-right: 10px;
   text-align: center;
 }
 footer#app-info .reminder-alert .time {
-  font-size: 12px;
+  font-size: 10px;
   text-transform: uppercase;
-  margin-bottom: 15px;
-  padding-left: 15px;
-  padding-right: 15px;
+  margin-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
   text-align: center;
 }
 footer#app-info .reminder-alert .actions {
@@ -15250,10 +15258,11 @@ footer#app-info .reminder-alert .btn {
   background-color: transparent;
   color: #4b4b4b;
   float: left;
-  padding: 10px;
+  padding: 5px;
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
+  font-size: 14px;
 }
 footer#app-info .reminder-alert .btn.complete-btn {
   border-right: 1px solid #4b4b4b;

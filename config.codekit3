@@ -413,6 +413,12 @@
 		"oAP": "\/app\/inc\/reminders-page-vars\/add-reminder.inc",
 		"oF": 0
 		},
+	"\/app\/inc\/reminders-page-vars\/clear-completed.inc": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/app\/inc\/reminders-page-vars\/clear-completed.inc",
+		"oF": 0
+		},
 	"\/app\/inc\/reminders-page-vars\/remind-later.inc": {
 		"ft": 8192,
 		"oA": 2,

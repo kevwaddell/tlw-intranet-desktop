@@ -70,7 +70,7 @@
 	    // here we could return false to prevent the form from being submitted; 
 	    // returning anything other than false will allow the form submit to continue 
 	    return true; 
-	} 
+	};
 	 
 	// post-submit callback 
 	function showResponse(responseText, statusText, xhr, $form)  { 
@@ -91,6 +91,6 @@
 			$('#reminders-alert-btn').bind(event);
 		});
 	    console.log('status: ' + statusText + '\n\nThe output div should have already been updated with the responseText.'); 
-	} 
+	}; 
 		
 })(window.jQuery);

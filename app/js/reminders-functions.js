@@ -8,7 +8,6 @@
 		
 		$('#reminder-datepicker').datetimepicker({
 			format: 'dddd Do MMMM, YYYY',
-			daysOfWeekDisabled: [0, 6],
 			useCurrent: false
 		});
 		
