@@ -15157,6 +15157,8 @@ footer#app-info #reminders-alert-btn {
   background-color: #C60751;
   color: #fff;
   padding: 0px;
+}
+footer#app-info #reminders-alert-btn.closed {
   -webkit-animation-duration: 1s;
   animation-duration: 1s;
   -webkit-animation-fill-mode: both;
@@ -15166,7 +15168,7 @@ footer#app-info #reminders-alert-btn {
   -webkit-transform-origin: center bottom;
   -ms-transform-origin: center bottom;
   transform-origin: center bottom;
-  animation-delay: 3s;
+  animation-delay: 2s;
   animation-iteration-count: 2;
 }
 footer#app-info #reminders-alert-btn i {
@@ -15179,11 +15181,16 @@ footer#app-info #reminders-alert-btn .badge {
   top: -5px;
   right: -5px;
 }
+footer#app-info #reminders-alert-btn:hover,
+footer#app-info #reminders-alert-btn:active,
+footer#app-info #reminders-alert-btn:focus {
+  background-color: #7A1039;
+}
 footer#app-info .reminder-alerts {
   position: absolute;
   right: 90px;
   bottom: 0px;
-  width: 250px;
+  width: 280px;
   z-index: 100;
   transform: translateY(100%);
   -webkit-transition: all 0.3s ease-in;
@@ -15196,18 +15203,17 @@ footer#app-info .reminder-alerts.reminders-open {
   transform: translateY(0%);
 }
 footer#app-info .reminder-alerts.reminders-closed {
-  transform: translateY(0%);
+  transform: translateY(100%);
   transition-timing-function: ease-in-out;
 }
 footer#app-info .reminder-alert {
-  background-color: #fff;
   -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
   -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
   border: 1px solid #4b4b4b;
   color: #4b4b4b;
   padding-top: 15px;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
   border-radius: 8px;
@@ -15215,10 +15221,16 @@ footer#app-info .reminder-alert {
   animation-duration: 1s;
   -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
-  -webkit-animation-name: fadeInUp;
-  animation-name: fadeInUp;
+  background: linear-gradient(45deg, #c0c0c0 0%, #ffffff 50%, #808080 100%);
 }
 footer#app-info .reminder-alert .title {
+  padding-left: 15px;
+  padding-right: 15px;
+  text-align: center;
+}
+footer#app-info .reminder-alert .time {
+  font-size: 12px;
+  text-transform: uppercase;
   margin-bottom: 15px;
   padding-left: 15px;
   padding-right: 15px;
@@ -15243,7 +15255,7 @@ footer#app-info .reminder-alert .btn {
   -moz-box-shadow: none;
   box-shadow: none;
 }
-footer#app-info .reminder-alert .btn:first-child {
+footer#app-info .reminder-alert .btn.complete-btn {
   border-right: 1px solid #4b4b4b;
 }
 footer#app-info .reminder-alert .btn:hover,
