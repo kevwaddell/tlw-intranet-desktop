@@ -10,8 +10,8 @@ $current_completed = array();
 $exclude_completed = array();
 
 $now_dateTime = new DateTime("now", new DateTimeZone($timeZone));
-$ts = $now_dateTime->getTimestamp();
-$now_ts = strtotime($now_dateTime->format($date_format.' '.$time_format));
+//$ts = $now_dateTime->getTimestamp();
+$now_ts = $now_dateTime->getTimestamp();
 
 if (!empty($reminders_completed)) {
 	foreach ($reminders_completed as $k => $comp) { 
@@ -53,7 +53,11 @@ $reminders_args['exclude'] = $exclude_completed;
 $reminders = get_posts($reminders_args);
 //debug($current_completed);
 ?>
-
+<?php if ($_GET['reminder-actions'] == 'remove-group') { ?>
+<div class="alerts-pop animated fadeIn">
+	<?php  get_template_part( 'parts/reminders-page/delete', 'group-alert' ); ?>
+</div>
+<?php } ?>
 <div id="reminder-group-wrapper" class="group-col-<?php echo (empty($group_color)) ? 'red':$group_color;  ?>">
 	<header class="reminder-header over-hide">
 		<h1><?php echo $group_title; ?></h1>
@@ -75,7 +79,7 @@ $reminders = get_posts($reminders_args);
 				<input value="blue" name="group-color[]" type="radio"<?php echo ($group_color == 'blue') ? ' checked="checked"':''; ?> class="bg-blue">	
 			</div>
 			<div class="form-group option-actions">
-				<a href="?meeting-actions=delete-group&group-id=<?php echo $current_group; ?>" class="btn btn-default btn-lg no-border no-rounded delete-group">Delete</a>
+				<a href="?reminder-actions=remove-group&group-id=<?php echo $current_group; ?>" class="btn btn-default btn-lg no-border no-rounded delete-group">Delete</a>
 				<a href="?group-id=<?php echo $current_group; ?>" class="btn btn-default btn-lg no-border no-rounded pull-right">Cancel</a>
 				<button type="submit" name="update-group" class="btn btn-default btn-lg no-border no-rounded pull-right">Done</button>
 			</div>

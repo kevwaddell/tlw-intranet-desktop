@@ -30,6 +30,7 @@ $reminders_completed = unserialize($reminders_completed_raw);
 
 include (STYLESHEETPATH . '/app/inc/reminders-page-vars/add-group.inc');
 include (STYLESHEETPATH . '/app/inc/reminders-page-vars/update-group.inc');
+include (STYLESHEETPATH . '/app/inc/reminders-page-vars/delete-group.inc');
 include (STYLESHEETPATH . '/app/inc/reminders-page-vars/add-reminder.inc');
 include (STYLESHEETPATH . '/app/inc/reminders-page-vars/update-reminder.inc');
 include (STYLESHEETPATH . '/app/inc/reminders-page-vars/remind-later.inc');
@@ -69,7 +70,7 @@ $current_group = 'scheduled';
 				<i class="fa fa-plus fa-lg"></i>
 			</a>
 		</div>
-	</aside>
+	</aside>	
 		
 <?php endwhile; ?>
 <?php endif; ?>
