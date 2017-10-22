@@ -23,6 +23,8 @@ if (!is_admin()) {
 		wp_enqueue_script( 'bootstrap-select-min', 'https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.11.2/js/bootstrap-select.min.js', array('jquery'), '1.11.2', true );
 		wp_enqueue_script( 'moment', 'https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js', array('jquery', 'bootstrap-min'), '2.18.1', true );
 		wp_enqueue_script( 'bootstrap-datepicker', 'https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js', array('jquery', 'bootstrap-min'), '4.17.47', true );
+		
+		wp_enqueue_script( 'jquery-form', 'https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.min.js', array('jquery'), '4.2.2', true );
 		wp_enqueue_script( 'functions', get_stylesheet_directory_uri() . '/app/js/functions-min.js', $functions_dep, filemtime( get_stylesheet_directory().'/app/js/functions.js' ), true );
 		
 		if ($post->ID == 70) {

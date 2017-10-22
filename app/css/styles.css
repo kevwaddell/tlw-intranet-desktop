@@ -12403,12 +12403,12 @@ html {
   margin-top: 0px !important;
 }
 pre.debug {
-  top: 50px;
-  right: 0px;
+  bottom: 0px;
+  right: 20%;
+  left: 20%;
   position: fixed;
   z-index: 1000;
-  height: 100%;
-  width: 30%;
+  height: 30%;
   overflow: auto;
   background-color: black;
   color: white;
@@ -14594,11 +14594,19 @@ aside.sb-sml {
   height: 50px;
   display: none;
 }
+#reminder-group-wrapper .list-header .header-link a {
+  text-decoration: none;
+}
 #reminder-group-wrapper .reminders {
   height: auto;
 }
 #reminder-group-wrapper .reminders.completed {
   padding-bottom: 40px;
+}
+#reminder-group-wrapper .reminders .reminder-label {
+  padding-top: 10px;
+  border-top: 1px solid #4b4b4b;
+  color: #918F8F;
 }
 #reminder-group-wrapper .reminders .reminder {
   border-top: 1px solid #4b4b4b;
@@ -15136,4 +15144,132 @@ table#wp-calendar thead th[title="Sunday"] {
 /* --------------------------- */
 /* Footer styles */
 /* --------------------------- */
+footer#app-info {
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  right: 0px;
+  height: 0px;
+  z-index: 100;
+}
+footer#app-info #reminders-alert-btn {
+  position: absolute;
+  right: 20px;
+  top: -70px;
+  width: 50px;
+  height: 50px;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  border-radius: 100%;
+  border: none;
+  background-color: #C60751;
+  color: #fff;
+  padding: 0px;
+}
+footer#app-info #reminders-alert-btn.closed {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-name: bounce;
+  animation-name: bounce;
+  -webkit-transform-origin: center bottom;
+  -ms-transform-origin: center bottom;
+  transform-origin: center bottom;
+  animation-delay: 2s;
+  animation-iteration-count: 2;
+}
+footer#app-info #reminders-alert-btn i {
+  display: block;
+  line-height: 50px;
+  text-align: center;
+}
+footer#app-info #reminders-alert-btn .badge {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+}
+footer#app-info #reminders-alert-btn:hover,
+footer#app-info #reminders-alert-btn:active,
+footer#app-info #reminders-alert-btn:focus {
+  background-color: #7A1039;
+}
+footer#app-info .reminder-alerts {
+  position: absolute;
+  right: 90px;
+  bottom: 0px;
+  width: 280px;
+  z-index: 100;
+  transform: translateY(100%);
+  -webkit-transition: all 0.3s ease-in;
+  -moz-transition: all 0.3s ease-in;
+  -o-transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in;
+  padding-bottom: 10px;
+}
+footer#app-info .reminder-alerts.reminders-open {
+  transform: translateY(0%);
+}
+footer#app-info .reminder-alerts.reminders-closed {
+  transform: translateY(100%);
+  transition-timing-function: ease-in-out;
+}
+footer#app-info .reminder-alert {
+  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  border: 1px solid #4b4b4b;
+  color: #4b4b4b;
+  padding-top: 10px;
+  margin-bottom: 15px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  background: linear-gradient(45deg, #c0c0c0 0%, #ffffff 50%, #808080 100%);
+}
+footer#app-info .reminder-alert .title {
+  padding-left: 10px;
+  padding-right: 10px;
+  text-align: center;
+}
+footer#app-info .reminder-alert .time {
+  font-size: 10px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  text-align: center;
+}
+footer#app-info .reminder-alert .actions {
+  overflow: hidden;
+  border-top: 1px solid #4b4b4b;
+}
+footer#app-info .reminder-alert .btn {
+  width: 50%;
+  border: none;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
+  text-transform: uppercase;
+  background-color: transparent;
+  color: #4b4b4b;
+  float: left;
+  padding: 5px;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  font-size: 14px;
+}
+footer#app-info .reminder-alert .btn.complete-btn {
+  border-right: 1px solid #4b4b4b;
+}
+footer#app-info .reminder-alert .btn:hover,
+footer#app-info .reminder-alert .btn:active,
+footer#app-info .reminder-alert .btn:focus {
+  color: #C60751;
+}
 /*# sourceMappingURL=styles.css.map */

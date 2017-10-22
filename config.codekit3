@@ -134,7 +134,7 @@
 		},
 	"\/app\/css\/img\/logo.png": {
 		"ft": 32768,
-		"iS": 4592,
+		"iS": 7197,
 		"oA": 0,
 		"oAP": "\/app\/css\/img\/logo.png",
 		"oF": 0,
@@ -411,6 +411,18 @@
 		"ft": 8192,
 		"oA": 2,
 		"oAP": "\/app\/inc\/reminders-page-vars\/add-reminder.inc",
+		"oF": 0
+		},
+	"\/app\/inc\/reminders-page-vars\/clear-completed.inc": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/app\/inc\/reminders-page-vars\/clear-completed.inc",
+		"oF": 0
+		},
+	"\/app\/inc\/reminders-page-vars\/remind-later.inc": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/app\/inc\/reminders-page-vars\/remind-later.inc",
 		"oF": 0
 		},
 	"\/app\/inc\/reminders-page-vars\/update-group.inc": {
@@ -975,69 +987,69 @@
 		},
 	"\/author.php": {
 		"ft": 8192,
-		"oA": 2,
+		"oA": 1,
 		"oAP": "\/author.php",
-		"oF": 0
+		"oF": 1
 		},
 	"\/footer-user.php": {
 		"ft": 8192,
-		"oA": 2,
+		"oA": 1,
 		"oAP": "\/footer-user.php",
-		"oF": 0
+		"oF": 1
 		},
 	"\/footer.php": {
 		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/footer.php",
-		"oF": 0
+		"oA": 1,
+		"oAP": "\/footer.php.php",
+		"oF": 1
 		},
 	"\/front-page.php": {
 		"ft": 8192,
-		"oA": 2,
+		"oA": 1,
 		"oAP": "\/front-page.php",
-		"oF": 0
+		"oF": 1
 		},
 	"\/functions.php": {
 		"ft": 8192,
-		"oA": 2,
+		"oA": 1,
 		"oAP": "\/functions.php",
-		"oF": 0
+		"oF": 1
 		},
 	"\/header-user.php": {
 		"ft": 8192,
-		"oA": 2,
+		"oA": 1,
 		"oAP": "\/header-user.php",
-		"oF": 0
+		"oF": 1
 		},
 	"\/header.php": {
 		"ft": 8192,
-		"oA": 2,
+		"oA": 1,
 		"oAP": "\/header.php",
-		"oF": 0
+		"oF": 1
 		},
 	"\/hidden-searchform.php": {
 		"ft": 8192,
-		"oA": 2,
+		"oA": 1,
 		"oAP": "\/hidden-searchform.php",
-		"oF": 0
+		"oF": 1
 		},
 	"\/index.php": {
 		"ft": 8192,
-		"oA": 2,
+		"oA": 1,
 		"oAP": "\/index.php",
-		"oF": 0
+		"oF": 1
 		},
 	"\/login-form.php": {
 		"ft": 8192,
-		"oA": 2,
+		"oA": 1,
 		"oAP": "\/login-form.php",
-		"oF": 0
+		"oF": 1
 		},
 	"\/lostpassword-form.php": {
 		"ft": 8192,
-		"oA": 2,
+		"oA": 1,
 		"oAP": "\/lostpassword-form.php",
-		"oF": 0
+		"oF": 1
 		},
 	"\/page-templates\/add-article-page.php": {
 		"ft": 8192,
@@ -1137,9 +1149,9 @@
 		},
 	"\/page.php": {
 		"ft": 8192,
-		"oA": 2,
+		"oA": 1,
 		"oAP": "\/page.php",
-		"oF": 0
+		"oF": 1
 		},
 	"\/parts\/add-item\/add-event\/event-form.php": {
 		"ft": 8192,
@@ -1803,27 +1815,27 @@
 		},
 	"\/profile-form.php": {
 		"ft": 8192,
-		"oA": 2,
+		"oA": 1,
 		"oAP": "\/profile-form.php",
-		"oF": 0
+		"oF": 1
 		},
 	"\/README.txt": {
 		"ft": 8192,
-		"oA": 2,
+		"oA": 1,
 		"oAP": "\/README.txt",
-		"oF": 0
+		"oF": 1
 		},
 	"\/register-form.php": {
 		"ft": 8192,
-		"oA": 2,
+		"oA": 1,
 		"oAP": "\/register-form.php",
-		"oF": 0
+		"oF": 1
 		},
 	"\/resetpass-form.php": {
 		"ft": 8192,
-		"oA": 2,
+		"oA": 1,
 		"oAP": "\/resetpass-form.php",
-		"oF": 0
+		"oF": 1
 		},
 	"\/screenshot.png": {
 		"ft": 32768,
@@ -1838,39 +1850,39 @@
 		},
 	"\/search.php": {
 		"ft": 8192,
-		"oA": 2,
+		"oA": 1,
 		"oAP": "\/search.php",
-		"oF": 0
+		"oF": 1
 		},
 	"\/searchform.php": {
 		"ft": 8192,
-		"oA": 2,
+		"oA": 1,
 		"oAP": "\/searchform.php",
-		"oF": 0
+		"oF": 1
 		},
 	"\/sidebar-single.php": {
 		"ft": 8192,
-		"oA": 2,
+		"oA": 1,
 		"oAP": "\/sidebar-single.php",
-		"oF": 0
+		"oF": 1
 		},
 	"\/sidebar.php": {
 		"ft": 8192,
-		"oA": 2,
+		"oA": 1,
 		"oAP": "\/sidebar.php",
-		"oF": 0
+		"oF": 1
 		},
 	"\/single-tlw_meeting.php": {
 		"ft": 8192,
-		"oA": 2,
+		"oA": 1,
 		"oAP": "\/single-tlw_meeting.php",
-		"oF": 0
+		"oF": 1
 		},
 	"\/single.php": {
 		"ft": 8192,
-		"oA": 2,
+		"oA": 1,
 		"oAP": "\/single.php",
-		"oF": 0
+		"oF": 1
 		},
 	"\/style.css": {
 		"aP": 1,
@@ -1890,7 +1902,7 @@
 "projectAttributes": {
 	"creationDate": 527776870,
 	"displayValue": "tlw-intranet-desktop",
-	"displayValueWasSetByUser": 0,
+	"displayValueWasSetByUser": 1,
 	"iconImageName": "meme-owl"
 	},
 "projectSettings": {

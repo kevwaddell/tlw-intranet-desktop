@@ -1,5 +1,5 @@
 <?php  
-if ( $_GET['reminder-actions'] == 'add-reminder' ) {
+if ( $_GET['reminder-actions'] == 'add-reminder' && !empty($_REQUEST['group-id'])) {
 	global $current_user;
 	//debug($_POST);
 	$timeZone = 'Europe/London';
@@ -42,6 +42,9 @@ if ( $_GET['reminder-actions'] == 'add-reminder' ) {
 	add_post_meta($reminder_added, 'reminder_priority', 'none');
 	add_post_meta($reminder_added, '_reminder_notes', $reminder_notes_key); 
 	add_post_meta($reminder_added, 'reminder_notes', '');
+	
+		wp_redirect( '?group-id='.$reminder_group."&reminder-id=".$reminder_added."&reminder-added=1" );
+		exit;	
 	}
 	
 	//debug($reminder_added);	

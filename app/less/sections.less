@@ -291,6 +291,9 @@ margin: auto;
 		.top(0);
 		.h(5);	
 		.none;
+			a {
+			.no-text-dec;	
+			}
 		}
 	}
 	.reminders {
@@ -298,6 +301,11 @@ margin: auto;
 	height: auto;	
 		&.completed {
 		.pad-bot(4);	
+		}
+		.reminder-label {
+		.pad-top(1);
+		.border-top(@grayDk; 0.1);	
+		.col(@gray);
 		}
 		.reminder {
 		.border-top(@grayDk; 0.1);
