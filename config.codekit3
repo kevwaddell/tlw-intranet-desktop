@@ -134,7 +134,7 @@
 		},
 	"\/app\/css\/img\/logo.png": {
 		"ft": 32768,
-		"iS": 7197,
+		"iS": 4592,
 		"oA": 0,
 		"oAP": "\/app\/css\/img\/logo.png",
 		"oF": 0,
@@ -417,6 +417,12 @@
 		"ft": 8192,
 		"oA": 2,
 		"oAP": "\/app\/inc\/reminders-page-vars\/clear-completed.inc",
+		"oF": 0
+		},
+	"\/app\/inc\/reminders-page-vars\/delete-group.inc": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/app\/inc\/reminders-page-vars\/delete-group.inc",
 		"oF": 0
 		},
 	"\/app\/inc\/reminders-page-vars\/remind-later.inc": {
@@ -1591,6 +1597,12 @@
 		"oAP": "\/parts\/notes-page\/note-template.php",
 		"oF": 0
 		},
+	"\/parts\/reminders-page\/delete-group-alert.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/parts\/reminders-page\/delete-group-alert.php",
+		"oF": 0
+		},
 	"\/parts\/reminders-page\/reminders-group.php": {
 		"ft": 8192,
 		"oA": 2,
@@ -1607,6 +1619,24 @@
 		"ft": 8192,
 		"oA": 2,
 		"oAP": "\/parts\/reminders-page\/reminders-scheduled.php",
+		"oF": 0
+		},
+	"\/parts\/reminders-page\/schedules-later.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/parts\/reminders-page\/schedules-later.php",
+		"oF": 0
+		},
+	"\/parts\/reminders-page\/schedules-today.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/parts\/reminders-page\/schedules-today.php",
+		"oF": 0
+		},
+	"\/parts\/reminders-page\/schedules-tomorrow.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/parts\/reminders-page\/schedules-tomorrow.php",
 		"oF": 0
 		},
 	"\/parts\/rescources-page\/banner-imgs.php": {

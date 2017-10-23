@@ -153,7 +153,7 @@
 								<div class="actions">
 									<input type="hidden" name="group-id" value="<?php echo $np['group-id']; ?>">
 									<button type="submit" name="status" value="<?php echo $np['reminder-id']; ?>" class="complete-btn btn btn-default">Complete</button>
-									<button type="submit" class="btn btn-default" name="status-later" value="<?php echo $mp['reminder-id']; ?>">Later</button>
+									<button type="submit" class="btn btn-default" name="status-later" value="<?php echo $np['reminder-id']; ?>">Later</button>
 								</div>
 							</div>
 						<?php } ?>
