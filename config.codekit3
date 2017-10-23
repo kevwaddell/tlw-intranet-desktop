@@ -1582,8 +1582,8 @@
 	"\/parts\/meetings-page\/meetings-info.php": {
 		"ft": 8192,
 		"oA": 2,
-		"oAP": "\/parts\/meetings-page\/meetings-info.php.sb-5d0de468-xCTexH",
-		"oF": 0
+		"oAP": "\/parts\/meetings-page\/meetings-info.php.php",
+		"oF": 1
 		},
 	"\/parts\/meetings-page\/meetings-list.php": {
 		"ft": 8192,

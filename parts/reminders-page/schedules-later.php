@@ -1,10 +1,12 @@
 <?php
 global $timeZone;
 global $reminder_groups;
+global $current_user;
 $schedules_later = array();
 $tomorrow = new DateTime("tomorrow", new DateTimeZone($timeZone));
 $reminders_args = array(
 	'posts_per_page' => -1,
+	'author'	=> $current_user->ID,
 	'post_type' => 'tlw_reminder',
 	'meta_key' => 'reminder_date',
 	'orderby' => 'meta_value_num',
@@ -13,21 +15,23 @@ $reminders_args = array(
 $reminders = get_posts($reminders_args);
 foreach ($reminders as $rem) {
 $reminder_date = get_field('reminder_date', $rem->ID);	
-	if (date('Ymd', strtotime($reminder_date)) > date('Ymd', strtotime("tomorrow"))) {
-		if ( !in_array(date('l, F j, Y', strtotime($reminder_date)), $schedules_later) ) {
-		$schedules_later[] = date('l, F j, Y', strtotime($reminder_date));	
+	if ($reminder_date > date('Ymd', strtotime("tomorrow"))) {
+		if ( !in_array(date('Y-m-d', strtotime($reminder_date)), $schedules_later) ) {
+		$schedules_later[] = date('Y-m-d', strtotime($reminder_date));	
 		}
 	}
 }	
+//debug($reminders);
 ?>
 <?php if (!empty($schedules_later)) { ?>
 <?php foreach ($schedules_later as $sl) { ?>
-<div class="reminder-label bold"><?php echo $sl; ?></div>
+<div class="reminder-label bold"><?php echo date('D F jS, Y', strtotime($sl)); ?></div>
 	<?php foreach ($reminders as $rem) { ?>
 	<?php  
-	$rem_date = get_field('reminder_date', $rem->ID);		
+	$rem_date = get_field('reminder_date', $rem->ID);
+	//echo '<pre>';print_r($rem_date);echo '</pre>';		
 	?>
-	<?php if ($rem_date == date('Ymd', strtotime($sl))) { ?>
+	<?php if ( date('Y-m-d', strtotime($rem_date)) == $sl ) { ?>
 	<?php  
 	$rem_group = get_field('reminder_group', $rem->ID);	
 	$rem_group_title = "";
@@ -168,4 +172,8 @@ $reminder_date = get_field('reminder_date', $rem->ID);
 	
 	<?php } ?>
 <?php } ?>
+<div class="reminder-footer">
+		<a href="?reminder-actions=add-reminder&group-id=scheduled" class="btn btn-default">New item <i class="fa fa-plus"></i></a>
+	</div>
+</div>
 <?php } ?>

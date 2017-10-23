@@ -7,8 +7,11 @@
 
 		
 		$('#reminder-datepicker').datetimepicker({
-			format: 'dddd Do MMMM, YYYY',
+			format: 'dddd D MMMM YYYY',
+			extraFormats: [ 'YYYY-MM-DD' ],
 			useCurrent: false
+		}).change({
+			date: $(this).find('input').val()
 		});
 		
 		$('#reminder-timepicker').datetimepicker({

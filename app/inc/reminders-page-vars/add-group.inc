@@ -12,9 +12,6 @@ if (isset($_GET['reminder-actions']) && $_GET['reminder-actions'] == 'add-group'
 	$reminder_groups[] = $add_group_ar;
 	
 	$group_added = update_user_meta($current_user->ID, 'reminder_groups', serialize($reminder_groups), $reminder_groups_raw); 
-	$reminder_groups_raw = get_user_meta($current_user->ID, 'reminder_groups', true);	
-	
-	$reminder_groups = unserialize($reminder_groups_raw);
 	
 	if ($group_added) {
 	wp_redirect( '?group-id='.$_GET['group-id']."&group-added=1" );

@@ -159,14 +159,17 @@ $reminders = get_posts($reminders_args);
 				$reminder_priority = get_field('reminder_priority', $item->ID);	
 				$reminder_notes = get_field('reminder_notes', $item->ID);
 				$reminder_repeat = get_field('reminder_repeat', $item->ID);	
-				$rem_date = date('D jS M Y', strtotime($reminder_date));
 				$rem_dateTime = new DateTime($reminder_date." ".$rem_time, new DateTimeZone($timeZone));
-				//echo '<pre>';print_r($item->ID);echo '</pre>';
-				if ( date('Ymd') == $rem_dateTime ) {
-				$rem_date = "Today";	
+				$rem_date = $rem_dateTime->format('D jS M Y');
+				//echo '<pre>';print_r($rem_dateTime);echo '</pre>';
+				if ( date('Ymd') == $rem_dateTime->format('Ymd') ) {
+				$rem_date = "Today ";	
 				}	
 				if ( $now_ts > $rem_dateTime->getTimestamp() ) {
 				$rem_date = "";
+				if ( date('Ymd') == $rem_dateTime->format('Ymd') ) {
+				$rem_date = "Today ";	
+				}	
 				$interval = $rem_dateTime->diff($now_dateTime);	
 				if ($interval->y != 0) {
 				$y = ($interval->y > 1) ? 'Years':'Year';
@@ -252,7 +255,7 @@ $reminders = get_posts($reminders_args);
 						</div>
 						<div class="form-group form-mid">
 							<div class="input-group date" id="reminder-datepicker">
-								<input type="text" class="form-control input-sm" name="reminder-date" value="<?php echo date('l jS F, Y', strtotime($reminder_date)); ?>">
+								<input type="text" class="form-control input-sm" name="reminder-date" value="<?php echo $rem_dateTime->format('l jS F, Y'); ?>">
 								<span class="input-group-addon"><span class="fa fa-calendar"></span></span>
 							</div>
 						</div>
@@ -296,22 +299,16 @@ $reminders = get_posts($reminders_args);
 							<textarea name="reminder-notes" class="form-control" rows="3"><?php echo wp_strip_all_tags($reminder_notes); ?></textarea>	
 						</div>
 						
-						<input type="hidden" name="orig-title" value="<?php echo get_the_title($item->ID); ?>">
-						<input type="hidden" name="orig-date" value="<?php echo $reminder_date; ?>">
-						<input type="hidden" name="orig-time" value="<?php echo $rem_time; ?>">
-						<input type="hidden" name="orig-priority" value="<?php echo $reminder_priority; ?>">
-						<input type="hidden" name="orig-repeat" value="<?php echo $reminder_repeat; ?>">
-						<input type="hidden" name="orig-notes" value="<?php echo $reminder_notes; ?>">
-						<input type="hidden" name="orig-group" value="<?php echo $rem_group; ?>">
 						<input type="hidden" name="reminder-id" value="<?php echo $item->ID; ?>">
 						<div class="form-group clear">
-							<button type="submit" name="update-reminder" class="btn btn-default btn-sm" value="update-<?php echo $item->ID; ?>">Update</button>
-							<a href="?group-id=<?php echo $rem_group; ?>" class="btn btn-default btn-sm">Cancel</a>
+							<button type="submit" name="update-reminder" class="btn btn-default no-border no-rounded" value="update-<?php echo $item->ID; ?>">Update</button>
+							<a href="?group-id=<?php echo $rem_group; ?>" class="btn btn-default no-border no-rounded">Cancel</a>
+							<a href="?reminder-actions=delete-reminder&reminder-id=<?php echo $item->ID; ?>&group-id=<?php echo $rem_group; ?>" class="btn btn-default no-border no-rounded pull-right">Delete</a>
 						</div>
 					</div>
 					<?php } ?>
 					<input type="hidden" name="group-id" value="<?php echo $rem_group; ?>">
-					<input type="submit" name="update-reminder" style="display:none;">
+					<input type="submit" name="update-status" style="display:none;">
 					</form>	
 				</div>
 				<?php } ?>	

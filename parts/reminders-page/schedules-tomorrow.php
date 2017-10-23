@@ -1,8 +1,10 @@
 <?php
 global $timeZone;
 global $reminder_groups;
+global $current_user;
 $reminders_args = array(
 	'posts_per_page' => -1,
+	'author'	=> $current_user->ID,
 	'post_type' => 'tlw_reminder',
 	'meta_key' => 'reminder_date',
 	'orderby' => 'meta_value_num',
@@ -35,6 +37,7 @@ foreach($reminder_groups as $rg) {
 	}
 }
 ?>
+<div class="reminder-label bold">Tomorrow</div>
 <form action="<?php the_permalink(); ?>?group-id=scheduled" method="post">
 	<div class="reminder">
 		<div class="reminder-inner">
@@ -128,4 +131,7 @@ foreach($reminder_groups as $rg) {
 	</div>
 </form>
 <?php } ?>
+<div class="reminder-footer">
+	<a href="?reminder-actions=add-reminder&group-id=scheduled" class="btn btn-default">New item <i class="fa fa-plus"></i></a>
+</div>
 <?php } ?>
