@@ -39,9 +39,6 @@
 			
 			return false;
 		});
-		 
-    	// bind form using 'ajaxForm' 
-   		$('.reminder-alerts-form').ajaxForm(options); 
 		
 				
 		$('body').on(event_type, '#reminders-alert-btn', function(){
@@ -49,6 +46,12 @@
 			$('.reminder-alerts').toggleClass('reminders-closed reminders-open');
 			return false;
 		});
+		
+				 
+    	// bind form using 'ajaxForm' 
+   		$('.reminder-alerts-form').ajaxForm(options); 
+   		
+   		console.log(location.href);
 		     
 	});
 	
@@ -85,7 +88,7 @@
 	    // property set to 'json' then the first argument to the success callback 
 	    // is the json data object returned by the server 
 		$(".reminder-alerts").load(location.href + " .reminder-alerts-inner", function(){
-			$(this).find('form').ajaxForm(options);
+			$('.reminder-alerts-form').ajaxForm(options);
 		});
 		$(".reminder-alerts-btn").load(location.href + " #reminders-alert-btn", function(){
 			$('#reminders-alert-btn').bind(event);

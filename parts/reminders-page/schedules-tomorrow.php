@@ -1,8 +1,10 @@
 <?php
 global $timeZone;
 global $reminder_groups;
+global $current_user;
 $reminders_args = array(
 	'posts_per_page' => -1,
+	'author'	=> $current_user->ID,
 	'post_type' => 'tlw_reminder',
 	'meta_key' => 'reminder_date',
 	'orderby' => 'meta_value_num',
@@ -23,12 +25,19 @@ $reminder_date = get_field('reminder_date', $rem->ID);
 <?php  
 $rem = get_post($tom);	
 $rem_group = get_field('reminder_group', $rem->ID);	
+$rem_group_title = "";
 $rem_date = get_field('reminder_date', $rem->ID);
 $rem_time = get_field('reminder_time', $rem->ID);	
 $reminder_priority = get_field('reminder_priority', $rem->ID);	
 $reminder_notes = get_field('reminder_notes', $rem->ID);
 $reminder_repeat = get_field('reminder_repeat', $rem->ID);	
+foreach($reminder_groups as $rg) {
+	if ($rg['group-id'] == $rem_group){
+	$rem_group_title = $rg['title'];
+	}
+}
 ?>
+<div class="reminder-label bold">Tomorrow</div>
 <form action="<?php the_permalink(); ?>?group-id=scheduled" method="post">
 	<div class="reminder">
 		<div class="reminder-inner">
@@ -37,7 +46,10 @@ $reminder_repeat = get_field('reminder_repeat', $rem->ID);
 			</div>
 			<div class="details">
 				<h3><span><?php echo $priority_label; ?></span><?php echo get_the_title($rem->ID); ?></h3>
-				<time class="text-uppercase"><?php echo $rem_time; ?></time>
+				<time class="text-uppercase">@ <?php echo date('H:i a', strtotime($rem_time)); ?></time>
+				<?php if (!empty($rem_group_title)) { ?>
+				<span class="group-title text-uppercase"> | <?php echo $rem_group_title; ?></span>			
+				<?php } ?>
 			</div>
 			<div class="details-link">
 				<a href="#" class="view-reminder-details">Details</a>
@@ -87,15 +99,17 @@ $reminder_repeat = get_field('reminder_repeat', $rem->ID);
 					<option value="year"<?php echo ($reminder_repeat == 'year' ) ? ' selected':''; ?>>Every year</option>
 				</select>
 			</div>
-			<?php if (!empty($reminder_groups)) { ?>
+
 			<div class="form-group form-right">
 				<select name="change-group" class="sml-selectpicker show-tick" data-width="100%" title="Move reminder">
+					<option value="scheduled"<?php echo ($rem_group == 'scheduled') ? ' selected':''; ?>>Scheduled</option>
+					<?php if (!empty($reminder_groups)) { ?>
 					<?php foreach ($reminder_groups as $rg) { ?>
 					<option value="<?php echo $rg['group-id']; ?>"<?php echo ($rg['group-id'] == $rem_group ) ? ' selected':''; ?>><?php echo $rg['title']; ?></option>
 					<?php } ?>
+					<?php } ?>
 				</select>
 			</div>
-			<?php } ?>
 			<div class="form-group">
 				<textarea name="reminder-notes" class="form-control" rows="3"><?php echo wp_strip_all_tags($reminder_notes); ?></textarea>	
 			</div>
@@ -117,4 +131,7 @@ $reminder_repeat = get_field('reminder_repeat', $rem->ID);
 	</div>
 </form>
 <?php } ?>
+<div class="reminder-footer">
+	<a href="?reminder-actions=add-reminder&group-id=scheduled" class="btn btn-default">New item <i class="fa fa-plus"></i></a>
+</div>
 <?php } ?>

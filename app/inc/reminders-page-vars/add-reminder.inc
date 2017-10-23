@@ -3,14 +3,16 @@ if ( $_GET['reminder-actions'] == 'add-reminder' && !empty($_REQUEST['group-id']
 	global $current_user;
 	//debug($_POST);
 	$timeZone = 'Europe/London';
-	$now = time();
-	$now_time = new DateTime(date(DATE_ATOM, $now + ((3600*2) - $now % 3600)), new DateTimeZone($timeZone));
+	$now = strtotime("+1 hour");
+	$nextFullHour = date(DATE_ATOM, $now + (3600 - $now % 3600));
+	$now_time = new DateTime($nextFullHour, new DateTimeZone($timeZone));
+	//debug($now_time->format('D jS M Y'));
 			
 	$reminder_title = "New reminder";
 	$reminder_group = $_REQUEST['group-id'];
 	$reminder_date =  $now_time->format('Ymd');
 	$reminder_time =  $now_time->format('G:i');
-	$reminder_slug =  $current_user->ID."-".$reminder_group."-".time();
+	$reminder_slug =  $current_user->ID."-".$reminder_group."-".$now_time->getTimestamp();
 		
 	$add_reminder_args = array (
 	'post_name' => $reminder_slug,

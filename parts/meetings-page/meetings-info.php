@@ -48,8 +48,8 @@ if ($meeting_date_time < $now && !empty($current_attendees_staff)) {
 	$attendee_staff_key = acf_get_field_key('attendees_staff', $_REQUEST['meeting-id']);
 	update_field( $attendee_staff_key, $current_attendees_staff, $_REQUEST['meeting-id'] );
 }
-//debug($current_user->ID." - ".$booked_by);
-//debug($_SERVER[SERVER_ADMIN]);
+//debug($current_user);
+//debug(in_array_r($current_user->user_email, $current_attendees_staff));
 ?>
 <?php if ($_GET['meeting-actions'] == 'edit-meeting') { ?>
 	<form action="<?php the_permalink(); ?><?php echo (isset($_REQUEST['meeting-day'])) ? '?meeting-day='.$_REQUEST['meeting-day']:'' ?><?php echo (isset($_REQUEST['meeting-day-to'])) ? '&meeting-day-to='.$_REQUEST['meeting-day-to']:'' ?>" method="post">		
