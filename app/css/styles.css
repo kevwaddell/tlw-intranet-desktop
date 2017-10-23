@@ -13520,10 +13520,14 @@ article.page .alerts-pop .alert {
   -webkit-box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
   -moz-box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
+  background-color: #fff;
 }
 article.page .alerts-pop .alert a.btn {
   margin-top: 20px;
   text-transform: uppercase;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
 }
 article.page .alerts-pop .alert a.btn i {
   display: block;

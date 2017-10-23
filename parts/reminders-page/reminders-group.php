@@ -5,7 +5,7 @@ global $reminders_completed;
 global $reminder_added;
 global $date_format;
 global $time_format;
-global $timeZone;
+$timeZone = 'Europe/London';
 $current_completed = array();
 $exclude_completed = array();
 
@@ -111,8 +111,10 @@ $reminders = get_posts($reminders_args);
 					$rem_time = get_field('reminder_time', $rem_id);	
 					$reminder_priority = get_field('reminder_priority', $rem_id);	
 					$rem_date = date('D jS M Y', strtotime($reminder_date));
-					$comp_dateTime = new DateTime( date('Ymd G:i', $item['completed']), new DateTimeZone($timeZone));
-					//echo '<pre>';print_r($comp_dateTime);echo '</pre>';
+					$comp_dateTime = new DateTime( $item['completed'], new DateTimeZone($timeZone));
+					$offset = $comp_dateTime->getOffset();
+					$myInterval = DateInterval::createFromDateString((string)$offset . 'seconds');
+					$comp_dateTime->add($myInterval);
 					if ( date('Ymd') == $reminder_date ) {
 					$rem_date = "Today";	
 					}	
@@ -135,7 +137,7 @@ $reminders = get_posts($reminders_args);
 						<div class="details">
 							<h3><span><?php echo $priority; ?></span><?php echo get_the_title($rem_id); ?></h3>
 							<time class="text-uppercase"><?php echo $rem_date; ?> @ <?php echo $rem_time; ?></time>
-							<time class="text-uppercase">&nbsp;&nbsp;|&nbsp;&nbsp;Completed on <?php echo $comp_dateTime->format("D jS M Y @".$time_format); ?></time>
+							<time class="text-uppercase">&nbsp;&nbsp;|&nbsp;&nbsp;Completed on <?php echo $comp_dateTime->format("D jS M Y @ ".$time_format); ?></time>
 						</div>
 					</div>
 					<input type="hidden" name="change-status" value="<?php echo $rem_id; ?>">

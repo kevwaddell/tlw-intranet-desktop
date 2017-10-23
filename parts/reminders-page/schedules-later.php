@@ -15,7 +15,7 @@ $reminders_args = array(
 $reminders = get_posts($reminders_args);
 foreach ($reminders as $rem) {
 $reminder_date = get_field('reminder_date', $rem->ID);	
-	if ($reminder_date > date('Ymd', strtotime("tomorrow"))) {
+	if (date('Ymd', strtotime($reminder_date)) > date('Ymd', strtotime("tomorrow"))) {
 		if ( !in_array(date('Y-m-d', strtotime($reminder_date)), $schedules_later) ) {
 		$schedules_later[] = date('Y-m-d', strtotime($reminder_date));	
 		}

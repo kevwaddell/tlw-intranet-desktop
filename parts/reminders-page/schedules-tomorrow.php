@@ -21,6 +21,7 @@ $reminder_date = get_field('reminder_date', $rem->ID);
 }
 ?>
 <?php if (!empty($schedules_tomorrow)) { ?>
+<div class="reminder-label bold">Tomorrow</div>
 <?php foreach ($schedules_tomorrow as $tom) { ?>
 <?php  
 $rem = get_post($tom);	
@@ -37,7 +38,6 @@ foreach($reminder_groups as $rg) {
 	}
 }
 ?>
-<div class="reminder-label bold">Tomorrow</div>
 <form action="<?php the_permalink(); ?>?group-id=scheduled" method="post">
 	<div class="reminder">
 		<div class="reminder-inner">
