@@ -304,6 +304,7 @@ margin: auto;
 		}
 		.reminder-label {
 		.pad-top(1);
+		.pad-bot(0.5);
 		.border-top(@grayDk; 0.1);	
 		.col(@gray);
 		}
@@ -321,9 +322,6 @@ margin: auto;
 			.over-hide;	
 			.pad-right(10);
 			.pad-left(5);	
-			}
-			&:last-child {
-			.no-border;	
 			}
 			.change-status {
 			.abs;
@@ -374,7 +372,7 @@ margin: auto;
 				.font-size(2);
 				.line-h(2);	
 				}	
-				time {
+				time, span.group-title {
 				.font-size(1.2);
 				.line-h(1.2);
 				.col(@gray);	

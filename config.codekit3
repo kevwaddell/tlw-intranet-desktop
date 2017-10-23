@@ -1363,6 +1363,12 @@
 		"oAP": "\/parts\/departments-page\/departments-grid.php",
 		"oF": 0
 		},
+	"\/parts\/footer\/reminder-alerts.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/parts\/footer\/reminder-alerts.php",
+		"oF": 0
+		},
 	"\/parts\/global\/banner-imgs.php": {
 		"ft": 8192,
 		"oA": 2,

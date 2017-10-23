@@ -14605,6 +14605,7 @@ aside.sb-sml {
 }
 #reminder-group-wrapper .reminders .reminder-label {
   padding-top: 10px;
+  padding-bottom: 5px;
   border-top: 1px solid #4b4b4b;
   color: #918F8F;
 }
@@ -14628,9 +14629,6 @@ aside.sb-sml {
   overflow: hidden;
   padding-right: 100px;
   padding-left: 50px;
-}
-#reminder-group-wrapper .reminders .reminder:last-child {
-  border: none;
 }
 #reminder-group-wrapper .reminders .reminder .change-status {
   position: absolute;
@@ -14683,7 +14681,8 @@ aside.sb-sml {
   font-size: 20px;
   line-height: 20px;
 }
-#reminder-group-wrapper .reminders .reminder .details time {
+#reminder-group-wrapper .reminders .reminder .details time,
+#reminder-group-wrapper .reminders .reminder .details span.group-title {
   font-size: 12px;
   line-height: 12px;
   color: #918F8F;

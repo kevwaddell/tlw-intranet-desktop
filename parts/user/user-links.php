@@ -3,7 +3,6 @@ global $current_user;
 $firstname = get_user_meta($current_user->ID, 'first_name', true);
 $lastname = get_user_meta($current_user->ID, 'last_name', true);
 $settings_pg = get_page_by_path( 'settings' );
-$help_pg = get_page_by_path( 'intranet-help' );
 $notes_pg = get_page_by_path( 'notes' );
 $reminders_pg = get_page_by_path( 'reminders' );
 //echo '<pre>';print_r($edit_profile_pg);echo '</pre>';
@@ -24,7 +23,7 @@ $reminders_pg = get_page_by_path( 'reminders' );
 	    </ul>
 	 </div>
 	  
-	  <a target="_blank" href="<?php echo get_permalink($help_pg); ?>" class="user-link btn btn-default no-rounded"><i class="fa fa-question-circle fa-2x"></i></a>
+	  <a href="?global-actions=view-help" id="banner-help-btn" class="user-link btn btn-default no-rounded"><i class="fa fa-question-circle fa-2x"></i></a>
 	  <a href="<?php echo wp_logout_url(); ?>" class="user-link btn btn-defaul no-rounded"><i class="fa fa-power-off fa-2x"></i></a>
   
  </div>

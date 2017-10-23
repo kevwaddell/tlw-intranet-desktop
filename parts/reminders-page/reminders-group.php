@@ -102,12 +102,14 @@ $reminders = get_posts($reminders_args);
 			</div>
 			<?php if (!empty($current_completed)) { ?>
 			<div class="reminders completed">
-				<form action="<?php the_permalink(); ?>?group-id=<?php echo $current_group; ?>" method="post">
+				
 				<?php foreach ($current_completed as $item) { ?>
 					<?php 
+					$rem_id = $item['reminder-id'];
 					$reminder_date = $item['reminder-date'];	
-					$rem_time = get_field('reminder_time', $item['reminder-id']);	
-					$reminder_priority = get_field('reminder_priority', $item['reminder-id']);	
+					$reminder_group = $item['group-id'];
+					$rem_time = get_field('reminder_time', $rem_id);	
+					$reminder_priority = get_field('reminder_priority', $rem_id);	
 					$rem_date = date('D jS M Y', strtotime($reminder_date));
 					$comp_dateTime = new DateTime( date('Ymd G:i', $item['completed']), new DateTimeZone($timeZone));
 					//echo '<pre>';print_r($comp_dateTime);echo '</pre>';
@@ -125,32 +127,33 @@ $reminders = get_posts($reminders_args);
 					}
 					?>
 					<div class="reminder">
+					<form action="<?php the_permalink(); ?>?group-id=<?php echo $current_group; ?>" method="post">
 					<div class="reminder-inner">
 						<div class="change-status in-block">
 							<input value="<?php echo $item['reminder-id']; ?>" checked="checked" type="checkbox" onchange="this.form.submit()">	
 						</div>
 						<div class="details">
-							<h3><span><?php echo $priority; ?></span><?php echo get_the_title($item['reminder-id']); ?></h3>
+							<h3><span><?php echo $priority; ?></span><?php echo get_the_title($rem_id); ?></h3>
 							<time class="text-uppercase"><?php echo $rem_date; ?> @ <?php echo $rem_time; ?></time>
 							<time class="text-uppercase">&nbsp;&nbsp;|&nbsp;&nbsp;Completed on <?php echo $comp_dateTime->format("D jS M Y @".$time_format); ?></time>
 						</div>
 					</div>
-					<input type="hidden" name="change-status" value="<?php echo $item['reminder-id']; ?>">
+					<input type="hidden" name="change-status" value="<?php echo $rem_id; ?>">
 					<input type="hidden" name="reminder-date" value="<?php echo $reminder_date; ?>">
+					<input type="hidden" name="group-id" value="<?php echo $reminder_group; ?>">
+					<input type="submit" name="complete-rewind" style="display:none;">
+					</form>
 				</div>
 				<?php } ?>
-				<input type="hidden" name="group-id" value="<?php echo $group_id; ?>">
-				<input type="submit" name="complete-rewind" style="display:none;">
-				</form>
 			</div>
 			<?php } ?>
 		</div>
 		<div class="reminders">
 			
 			<?php if (!empty($reminders)) { ?>
-			<form action="<?php the_permalink(); ?>?group-id=<?php echo $current_group; ?>" method="post">
 				<?php foreach ($reminders as $item) { ?>
 				<?php  
+				$rem_group = get_field('reminder_group', $item->ID);	
 				$reminder_date = get_field('reminder_date', $item->ID);	
 				$rem_time = get_field('reminder_time', $item->ID);	
 				$reminder_priority = get_field('reminder_priority', $item->ID);	
@@ -218,7 +221,8 @@ $reminders = get_posts($reminders_args);
 				default: $repeat = "Never";
 				}
 				?>
-				<div class="reminder<?php echo ($_GET['reminder-actions'] == 'edit-reminder' && $_GET['reminder-id'] == $item->ID || ($_GET['reminder-actions'] == 'add-reminder' && $item->ID == $reminder_added)) ? ' editing':''; ?>">
+				<div class="reminder<?php echo (($_GET['reminder-actions'] == 'edit-reminder' || $_GET['reminder-added']) && $_GET['reminder-id'] == $item->ID) ? ' editing':''; ?>">
+					<form action="<?php the_permalink(); ?>?group-id=<?php echo $current_group; ?>" method="post">
 					<div class="reminder-inner">
 						<div class="change-status in-block">
 							<input name="status" value="<?php echo $item->ID; ?>" type="checkbox" onchange="this.form.submit()">	
@@ -276,15 +280,18 @@ $reminders = get_posts($reminders_args);
 								<option value="year"<?php echo ($reminder_repeat == 'year' ) ? ' selected':''; ?>>Every year</option>
 							</select>
 						</div>
-						<?php if (!empty($reminder_groups)) { ?>
+						
 						<div class="form-group form-right">
 							<select name="change-group" class="sml-selectpicker show-tick" data-width="100%" title="Move reminder">
+								<option value="scheduled"<?php echo ($rem_group == 'scheduled') ? ' selected':''; ?>>Scheduled</option>
+								<?php if (!empty($reminder_groups)) { ?>
 								<?php foreach ($reminder_groups as $rg) { ?>
-								<option value="<?php echo $rg['group-id']; ?>"<?php echo ($rg['group-id'] == $group_id ) ? ' selected':''; ?>><?php echo $rg['title']; ?></option>
+								<option value="<?php echo $rg['group-id']; ?>"<?php echo ($rg['group-id'] == $rem_group ) ? ' selected':''; ?>><?php echo $rg['title']; ?></option>
+								<?php } ?>
 								<?php } ?>
 							</select>
 						</div>
-						<?php } ?>
+						
 						<div class="form-group">
 							<textarea name="reminder-notes" class="form-control" rows="3"><?php echo wp_strip_all_tags($reminder_notes); ?></textarea>	
 						</div>
@@ -295,19 +302,19 @@ $reminders = get_posts($reminders_args);
 						<input type="hidden" name="orig-priority" value="<?php echo $reminder_priority; ?>">
 						<input type="hidden" name="orig-repeat" value="<?php echo $reminder_repeat; ?>">
 						<input type="hidden" name="orig-notes" value="<?php echo $reminder_notes; ?>">
-						<input type="hidden" name="orig-group" value="<?php echo $group_id; ?>">
+						<input type="hidden" name="orig-group" value="<?php echo $rem_group; ?>">
 						<input type="hidden" name="reminder-id" value="<?php echo $item->ID; ?>">
 						<div class="form-group clear">
 							<button type="submit" name="update-reminder" class="btn btn-default btn-sm" value="update-<?php echo $item->ID; ?>">Update</button>
-							<a href="?group-id=<?php echo $current_group; ?>" class="btn btn-default btn-sm">Cancel</a>
+							<a href="?group-id=<?php echo $rem_group; ?>" class="btn btn-default btn-sm">Cancel</a>
 						</div>
 					</div>
 					<?php } ?>
+					<input type="hidden" name="group-id" value="<?php echo $rem_group; ?>">
+					<input type="submit" name="update-reminder" style="display:none;">
+					</form>	
 				</div>
 				<?php } ?>	
-				<input type="hidden" name="group-id" value="<?php echo $group_id; ?>">
-				<input type="submit" name="update-reminder" style="display:none;">
-			</form>	
 			<?php } ?>
 			
 		</div>
