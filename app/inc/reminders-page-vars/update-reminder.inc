@@ -11,12 +11,13 @@ if ( isset($_POST['status']) && !isset($_POST['reminder-title'])) {
 	$reminder_id = $_POST['status'];
 	$reminder = get_post($reminder_id);
 	$reminder_date = get_field('reminder_date', $reminder_id);
+	$remind_later = get_field('remind_later', $reminder_id);
 	$reminder_time = get_field('reminder_time', $reminder_id);
 	$reminder_repeat = get_field('reminder_repeat', $reminder_id); 
 	$comp_dateTime = new DateTime("now", new DateTimeZone($timeZone));
 	$comp_ts = $comp_dateTime->getTimestamp();
 	
-	$reminders_completed[] = array('reminder-id' => $reminder_id, 'group-id' => $_POST['group-id'], 'reminder-date' => $reminder_date, 'reminder-time' => $reminder_time, 'completed' => $comp_ts);
+	$reminders_completed[] = array('reminder-id' => $reminder_id, 'group-id' => $_POST['group-id'], 'reminder-date' => date('Ymd', strtotime($reminder_date)), 'reminder-time' => $reminder_time, 'completed' => date('Ymd G:i', $comp_ts));
 	
 	if ($reminder_repeat != 'never') {
 	$reminder_date_key = acf_get_field_key('reminder_date', $reminder_added);	
@@ -41,6 +42,11 @@ if ( isset($_POST['status']) && !isset($_POST['reminder-title'])) {
 		update_field($reminder_date_key,  $next_date, $reminder_id); 
 	}
 	
+	if (!empty($remind_later)) {
+	$remind_later_key = acf_get_field_key('remind_later',  $reminder_id);
+	$remind_later_updated = update_field($remind_later_key, "", $reminder_id);	
+	}
+	
 	$status_added = update_user_meta($current_user->ID, 'reminders_completed', serialize($reminders_completed), $reminders_completed_raw); 
 	
 	if ($status_added) {
@@ -51,7 +57,7 @@ if ( isset($_POST['status']) && !isset($_POST['reminder-title'])) {
 }
 //debug($_POST);
 if ( isset($_POST['change-status']) && !isset($_POST['reminder-title'])) {
-	debug($_POST);
+	//debug($_POST);
 	
 	foreach ($reminders_completed as $k => $rc) { 
 		if ($rc['reminder-id'] == $_POST['change-status']) {
@@ -65,7 +71,7 @@ if ( isset($_POST['change-status']) && !isset($_POST['reminder-title'])) {
 	$status_added = update_user_meta($current_user->ID, 'reminders_completed', serialize($reminders_completed), $reminders_completed_raw); 
 	
 	if ($status_added) {
-	wp_redirect( '?group-id='.$_POST['change-group']."&reminder-updated=1" );
+	wp_redirect( '?group-id='.$_POST['group-id']."&reminder-updated=1" );
 	exit;	
 	}	
 }
