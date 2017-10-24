@@ -14702,7 +14702,8 @@ aside.sb-sml {
 #reminder-group-wrapper .reminders .reminder .details-link a {
   text-decoration: none;
 }
-#reminder-group-wrapper .reminders .reminder .details-link a.view-reminder-details {
+#reminder-group-wrapper .reminders .reminder .details-link a.view-reminder-details,
+#reminder-group-wrapper .reminders .reminder .details-link a.edit-reminder-details {
   padding-right: 20px;
 }
 #reminder-group-wrapper .reminders .reminder .reminder-full-details {
@@ -15275,4 +15276,3 @@ footer#app-info .reminder-alert .btn:active,
 footer#app-info .reminder-alert .btn:focus {
   color: #C60751;
 }
-/*# sourceMappingURL=styles.css.map */
