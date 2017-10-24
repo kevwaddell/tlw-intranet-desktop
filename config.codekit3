@@ -134,7 +134,7 @@
 		},
 	"\/app\/css\/img\/logo.png": {
 		"ft": 32768,
-		"iS": 7197,
+		"iS": 4592,
 		"oA": 0,
 		"oAP": "\/app\/css\/img\/logo.png",
 		"oF": 0,
@@ -345,6 +345,12 @@
 		"ft": 8192,
 		"oA": 2,
 		"oAP": "\/app\/inc\/meetings-page-vars\/add-meeting.inc",
+		"oF": 0
+		},
+	"\/app\/inc\/meetings-page-vars\/add-reminder.inc": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/app\/inc\/meetings-page-vars\/add-reminder.inc",
 		"oF": 0
 		},
 	"\/app\/inc\/meetings-page-vars\/cancel-meeting.inc": {
@@ -1033,12 +1039,6 @@
 		"oAP": "\/header.php",
 		"oF": 1
 		},
-	"\/hidden-searchform.php": {
-		"ft": 8192,
-		"oA": 1,
-		"oAP": "\/hidden-searchform.php",
-		"oF": 1
-		},
 	"\/index.php": {
 		"ft": 8192,
 		"oA": 1,
@@ -1057,16 +1057,10 @@
 		"oAP": "\/lostpassword-form.php",
 		"oF": 1
 		},
-	"\/page-templates\/add-article-page.php": {
+	"\/page-templates\/calendar-page.php": {
 		"ft": 8192,
 		"oA": 2,
-		"oAP": "\/page-templates\/add-article-page.php",
-		"oF": 0
-		},
-	"\/page-templates\/add-event-page.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/page-templates\/add-event-page.php",
+		"oAP": "\/page-templates\/calendar-page.php",
 		"oF": 0
 		},
 	"\/page-templates\/contacts-page.php": {
@@ -1085,24 +1079,6 @@
 		"ft": 8192,
 		"oA": 2,
 		"oAP": "\/page-templates\/departments-page.php",
-		"oF": 0
-		},
-	"\/page-templates\/holiday-request-page.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/page-templates\/holiday-request-page.php",
-		"oF": 0
-		},
-	"\/page-templates\/ical-holiday-template.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/page-templates\/ical-holiday-template.php",
-		"oF": 0
-		},
-	"\/page-templates\/ical-template.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/page-templates\/ical-template.php",
 		"oF": 0
 		},
 	"\/page-templates\/login-page.php": {
@@ -1158,144 +1134,6 @@
 		"oA": 1,
 		"oAP": "\/page.php",
 		"oF": 1
-		},
-	"\/parts\/add-item\/add-event\/event-form.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/parts\/add-item\/add-event\/event-form.php",
-		"oF": 0
-		},
-	"\/parts\/add-item\/add-event\/notifications\/event-add.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/parts\/add-item\/add-event\/notifications\/event-add.php",
-		"oF": 0
-		},
-	"\/parts\/add-item\/add-event\/notifications\/event-confirm.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/parts\/add-item\/add-event\/notifications\/event-confirm.php",
-		"oF": 0
-		},
-	"\/parts\/add-item\/add-event\/notifications\/event-email.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/parts\/add-item\/add-event\/notifications\/event-email.php",
-		"oF": 0
-		},
-	"\/parts\/add-item\/add-post\/notifications\/post-add.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/parts\/add-item\/add-post\/notifications\/post-add.php",
-		"oF": 0
-		},
-	"\/parts\/add-item\/add-post\/notifications\/post-confirm.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/parts\/add-item\/add-post\/notifications\/post-confirm.php",
-		"oF": 0
-		},
-	"\/parts\/add-item\/add-post\/notifications\/post-email.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/parts\/add-item\/add-post\/notifications\/post-email.php",
-		"oF": 0
-		},
-	"\/parts\/add-item\/add-post\/post-form.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/parts\/add-item\/add-post\/post-form.php",
-		"oF": 0
-		},
-	"\/parts\/add-item\/btn-actions.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/parts\/add-item\/btn-actions.php",
-		"oF": 0
-		},
-	"\/parts\/add-item\/help-video.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/parts\/add-item\/help-video.php",
-		"oF": 0
-		},
-	"\/parts\/add-post\/add-post-form.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/parts\/add-post\/add-post-form.php",
-		"oF": 0
-		},
-	"\/parts\/add-post\/btn-actions.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/parts\/add-post\/btn-actions.php",
-		"oF": 0
-		},
-	"\/parts\/add-post\/notifications\/add-post-action.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/parts\/add-post\/notifications\/add-post-action.php",
-		"oF": 0
-		},
-	"\/parts\/add-post\/notifications\/add-post-email.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/parts\/add-post\/notifications\/add-post-email.php",
-		"oF": 0
-		},
-	"\/parts\/add-post\/notifications\/confirm-post-action.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/parts\/add-post\/notifications\/confirm-post-action.php",
-		"oF": 0
-		},
-	"\/parts\/admin\/admin-links.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/parts\/admin\/admin-links.php",
-		"oF": 0
-		},
-	"\/parts\/admin\/notifications\/admin-holiday-approval-email.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/parts\/admin\/notifications\/admin-holiday-approval-email.php",
-		"oF": 0
-		},
-	"\/parts\/admin\/notifications\/admin-holiday-approval.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/parts\/admin\/notifications\/admin-holiday-approval.php",
-		"oF": 0
-		},
-	"\/parts\/admin\/notifications\/admin-holiday-reject-email.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/parts\/admin\/notifications\/admin-holiday-reject-email.php",
-		"oF": 0
-		},
-	"\/parts\/admin\/notifications\/admin-holiday-request.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/parts\/admin\/notifications\/admin-holiday-request.php",
-		"oF": 0
-		},
-	"\/parts\/admin\/notifications\/alerts.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/parts\/admin\/notifications\/alerts.php",
-		"oF": 0
-		},
-	"\/parts\/admin\/notifications\/holiday-alerts.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/parts\/admin\/notifications\/holiday-alerts.php",
-		"oF": 0
-		},
-	"\/parts\/admin\/notifications\/meeting-request.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/parts\/admin\/notifications\/meeting-request.php",
-		"oF": 0
 		},
 	"\/parts\/contacts-page\/add-contact.php": {
 		"ft": 8192,
@@ -1369,184 +1207,10 @@
 		"oAP": "\/parts\/footer\/reminder-alerts.php",
 		"oF": 0
 		},
-	"\/parts\/global\/banner-imgs.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/parts\/global\/banner-imgs.php",
-		"oF": 0
-		},
-	"\/parts\/global\/favourites-list.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/parts\/global\/favourites-list.php",
-		"oF": 0
-		},
-	"\/parts\/global\/notifications\/action-add-to-favourites.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/parts\/global\/notifications\/action-add-to-favourites.php",
-		"oF": 0
-		},
-	"\/parts\/global\/notifications\/action-remove-all-favourites.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/parts\/global\/notifications\/action-remove-all-favourites.php",
-		"oF": 0
-		},
-	"\/parts\/global\/notifications\/action-remove-favourite.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/parts\/global\/notifications\/action-remove-favourite.php",
-		"oF": 0
-		},
-	"\/parts\/global\/notifications\/add-favourite-alerts.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/parts\/global\/notifications\/add-favourite-alerts.php",
-		"oF": 0
-		},
-	"\/parts\/global\/notifications\/remove-all-favourite-alerts.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/parts\/global\/notifications\/remove-all-favourite-alerts.php",
-		"oF": 0
-		},
-	"\/parts\/global\/notifications\/remove-favourite-alerts.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/parts\/global\/notifications\/remove-favourite-alerts.php",
-		"oF": 0
-		},
-	"\/parts\/global\/notifications\/request-add-to-favourites.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/parts\/global\/notifications\/request-add-to-favourites.php",
-		"oF": 0
-		},
-	"\/parts\/global\/notifications\/request-remove-all-favourites.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/parts\/global\/notifications\/request-remove-all-favourites.php",
-		"oF": 0
-		},
-	"\/parts\/global\/notifications\/request-remove-favourite.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/parts\/global\/notifications\/request-remove-favourite.php",
-		"oF": 0
-		},
 	"\/parts\/global\/site-loader.php": {
 		"ft": 8192,
 		"oA": 2,
 		"oAP": "\/parts\/global\/site-loader.php",
-		"oF": 0
-		},
-	"\/parts\/global\/todays-date.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/parts\/global\/todays-date.php",
-		"oF": 0
-		},
-	"\/parts\/global\/user-actions.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/parts\/global\/user-actions.php",
-		"oF": 0
-		},
-	"\/parts\/global\/user-notifications-old.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/parts\/global\/user-notifications-old.php",
-		"oF": 0
-		},
-	"\/parts\/global\/user-notifications.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/parts\/global\/user-notifications.php",
-		"oF": 0
-		},
-	"\/parts\/holiday-request\/action-btns.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/parts\/holiday-request\/action-btns.php",
-		"oF": 0
-		},
-	"\/parts\/holiday-request\/banner-imgs.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/parts\/holiday-request\/banner-imgs.php",
-		"oF": 0
-		},
-	"\/parts\/holiday-request\/list-query.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/parts\/holiday-request\/list-query.php",
-		"oF": 0
-		},
-	"\/parts\/holiday-request\/notifications\/add-form.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/parts\/holiday-request\/notifications\/add-form.php",
-		"oF": 0
-		},
-	"\/parts\/holiday-request\/notifications\/add-holiday-action.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/parts\/holiday-request\/notifications\/add-holiday-action.php",
-		"oF": 0
-		},
-	"\/parts\/holiday-request\/notifications\/add-holiday-approval.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/parts\/holiday-request\/notifications\/add-holiday-approval.php",
-		"oF": 0
-		},
-	"\/parts\/holiday-request\/notifications\/add-holiday-confirm.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/parts\/holiday-request\/notifications\/add-holiday-confirm.php",
-		"oF": 0
-		},
-	"\/parts\/holiday-request\/notifications\/add-holiday-email.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/parts\/holiday-request\/notifications\/add-holiday-email.php",
-		"oF": 0
-		},
-	"\/parts\/holiday-request\/notifications\/add-holiday-request.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/parts\/holiday-request\/notifications\/add-holiday-request.php",
-		"oF": 0
-		},
-	"\/parts\/holiday-request\/notifications\/all-alerts.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/parts\/holiday-request\/notifications\/all-alerts.php",
-		"oF": 0
-		},
-	"\/parts\/holiday-request\/notifications\/cancel-holiday-action.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/parts\/holiday-request\/notifications\/cancel-holiday-action.php",
-		"oF": 0
-		},
-	"\/parts\/holiday-request\/notifications\/cancel-holiday-request.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/parts\/holiday-request\/notifications\/cancel-holiday-request.php",
-		"oF": 0
-		},
-	"\/parts\/holiday-request\/ooo-list.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/parts\/holiday-request\/ooo-list.php",
-		"oF": 0
-		},
-	"\/parts\/holiday-request\/pending-list.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/parts\/holiday-request\/pending-list.php",
 		"oF": 0
 		},
 	"\/parts\/meetings-page\/add-attendees-acf.php": {
@@ -1609,6 +1273,24 @@
 		"oAP": "\/parts\/reminders-page\/delete-group-alert.php",
 		"oF": 0
 		},
+	"\/parts\/reminders-page\/meetings-later.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/parts\/reminders-page\/meetings-later.php",
+		"oF": 0
+		},
+	"\/parts\/reminders-page\/meetings-today.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/parts\/reminders-page\/meetings-today.php",
+		"oF": 0
+		},
+	"\/parts\/reminders-page\/meetings-tomorrow.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/parts\/reminders-page\/meetings-tomorrow.php",
+		"oF": 0
+		},
 	"\/parts\/reminders-page\/reminders-group.php": {
 		"ft": 8192,
 		"oA": 2,
@@ -1619,6 +1301,12 @@
 		"ft": 8192,
 		"oA": 2,
 		"oAP": "\/parts\/reminders-page\/reminders-info.php",
+		"oF": 0
+		},
+	"\/parts\/reminders-page\/reminders-meetings.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/parts\/reminders-page\/reminders-meetings.php",
 		"oF": 0
 		},
 	"\/parts\/reminders-page\/reminders-scheduled.php": {
@@ -1643,192 +1331,6 @@
 		"ft": 8192,
 		"oA": 2,
 		"oAP": "\/parts\/reminders-page\/schedules-tomorrow.php",
-		"oF": 0
-		},
-	"\/parts\/rescources-page\/banner-imgs.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/parts\/rescources-page\/banner-imgs.php",
-		"oF": 0
-		},
-	"\/parts\/single-post\/btn-actions.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/parts\/single-post\/btn-actions.php",
-		"oF": 0
-		},
-	"\/parts\/single-post\/details-box.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/parts\/single-post\/details-box.php",
-		"oF": 0
-		},
-	"\/parts\/single-post\/event-details-box.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/parts\/single-post\/event-details-box.php",
-		"oF": 0
-		},
-	"\/parts\/single-post\/notifications\/action-add-to-favourites.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/parts\/single-post\/notifications\/action-add-to-favourites.php",
-		"oF": 0
-		},
-	"\/parts\/single-post\/notifications\/action-remove-favourite.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/parts\/single-post\/notifications\/action-remove-favourite.php",
-		"oF": 0
-		},
-	"\/parts\/single-post\/notifications\/add-post-request.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/parts\/single-post\/notifications\/add-post-request.php",
-		"oF": 0
-		},
-	"\/parts\/single-post\/notifications\/alerts.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/parts\/single-post\/notifications\/alerts.php",
-		"oF": 0
-		},
-	"\/parts\/single-post\/notifications\/edit-post-form.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/parts\/single-post\/notifications\/edit-post-form.php",
-		"oF": 0
-		},
-	"\/parts\/single-post\/notifications\/post-update.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/parts\/single-post\/notifications\/post-update.php",
-		"oF": 0
-		},
-	"\/parts\/single-post\/notifications\/post-updated.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/parts\/single-post\/notifications\/post-updated.php",
-		"oF": 0
-		},
-	"\/parts\/single-post\/notifications\/request-add-to-favourites.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/parts\/single-post\/notifications\/request-add-to-favourites.php",
-		"oF": 0
-		},
-	"\/parts\/single-post\/notifications\/request-remove-favourite.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/parts\/single-post\/notifications\/request-remove-favourite.php",
-		"oF": 0
-		},
-	"\/parts\/single-post\/vacancy-details-box.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/parts\/single-post\/vacancy-details-box.php",
-		"oF": 0
-		},
-	"\/parts\/user\/all-alerts.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/parts\/user\/all-alerts.php",
-		"oF": 0
-		},
-	"\/parts\/user\/announcements\/announcements-list.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/parts\/user\/announcements\/announcements-list.php",
-		"oF": 0
-		},
-	"\/parts\/user\/announcements\/announcements-query.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/parts\/user\/announcements\/announcements-query.php",
-		"oF": 0
-		},
-	"\/parts\/user\/data-query.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/parts\/user\/data-query.php",
-		"oF": 0
-		},
-	"\/parts\/user\/events\/events-list.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/parts\/user\/events\/events-list.php",
-		"oF": 0
-		},
-	"\/parts\/user\/events\/events-query.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/parts\/user\/events\/events-query.php",
-		"oF": 0
-		},
-	"\/parts\/user\/favourites\/favourites-list.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/parts\/user\/favourites\/favourites-list.php",
-		"oF": 0
-		},
-	"\/parts\/user\/favourites\/favourites-query.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/parts\/user\/favourites\/favourites-query.php",
-		"oF": 0
-		},
-	"\/parts\/user\/meetings\/meetings-list.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/parts\/user\/meetings\/meetings-list.php",
-		"oF": 0
-		},
-	"\/parts\/user\/meetings\/meetings-query.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/parts\/user\/meetings\/meetings-query.php",
-		"oF": 0
-		},
-	"\/parts\/user\/meetings\/user-message-form.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/parts\/user\/meetings\/user-message-form.php",
-		"oF": 0
-		},
-	"\/parts\/user\/news\/news-list.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/parts\/user\/news\/news-list.php",
-		"oF": 0
-		},
-	"\/parts\/user\/news\/news-query.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/parts\/user\/news\/news-query.php",
-		"oF": 0
-		},
-	"\/parts\/user\/notifications\/message-confirm.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/parts\/user\/notifications\/message-confirm.php",
-		"oF": 0
-		},
-	"\/parts\/user\/notifications\/message-email.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/parts\/user\/notifications\/message-email.php",
-		"oF": 0
-		},
-	"\/parts\/user\/notifications\/message-form.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/parts\/user\/notifications\/message-form.php",
-		"oF": 0
-		},
-	"\/parts\/user\/notifications\/message-send.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/parts\/user\/notifications\/message-send.php",
 		"oF": 0
 		},
 	"\/parts\/user\/profile-info.php": {

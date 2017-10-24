@@ -45,13 +45,13 @@
 					<?php } ?>
 				</div>
 				
-				<div class="col-xs-4">
+				<div class="col-xs-3">
 					<a href="<?php echo get_option('home'); ?>/" id="logo" class="text-hide">
 					<?php bloginfo('name'); ?> <?php bloginfo('description'); ?>
 					</a>
 				</div>
 				
-				<div class="col-xs-4">
+				<div class="col-xs-5">
 					<?php if (is_user_logged_in()) { ?>
 						<?php get_template_part( 'parts/user/user', 'links' ); ?>		
 					<?php } ?>

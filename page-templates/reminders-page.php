@@ -56,6 +56,7 @@ $current_group = 'scheduled';
 		<div class="sb-inner">
 			<ul class="reminder-types-list list-unstyled">
 				<li<?php echo ($current_group == 'scheduled') ? ' class="active"': ''; ?>><a href="?group-id=scheduled"><i class="fa fa-clock-o fa-2x"></i> Scheduled</a></li>
+				<li<?php echo ($current_group == 'meeting') ? ' class="active"': ''; ?>><a href="?group-id=meeting"><i class="fa fa-calendar-check-o fa-2x"></i> Meetings</a></li>
 				<?php if (!empty($reminder_groups)) { ?>
 				<?php foreach ($reminder_groups as $group) { ?>
 				<li class="col-<?php echo $group['color']; ?><?php echo ($current_group == $group['group-id']) ? ' active': ''; ?>">

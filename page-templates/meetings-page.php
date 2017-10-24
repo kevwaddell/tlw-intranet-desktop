@@ -3,9 +3,6 @@
 Template Name: Meetings page
 */
 ?>
-
-<?php get_header(); ?>
-
 <?php  
 global $current_user;
 $locations = get_terms('tlw_rooms_tax', 'hide_empty=0');
@@ -91,6 +88,7 @@ include (STYLESHEETPATH . '/app/inc/meetings-page-vars/delete-meeting.inc');
 include (STYLESHEETPATH . '/app/inc/meetings-page-vars/add-attendees.inc');
 include (STYLESHEETPATH . '/app/inc/meetings-page-vars/update-attendee.inc');
 include (STYLESHEETPATH . '/app/inc/meetings-page-vars/remove-attendee.inc');
+include (STYLESHEETPATH . '/app/inc/meetings-page-vars/add-reminder.inc');
 
 if ($meeting_added) {
 include (STYLESHEETPATH . '/app/inc/meetings-page-vars/meeting-booked-email.inc');	
@@ -102,6 +100,8 @@ include (STYLESHEETPATH . '/app/inc/meetings-page-vars/meeting-notify-email.inc'
 //$show_alert = true;
 //$meeting_deleted = true;
 ?>
+
+<?php get_header(); ?>
 
 <article <?php post_class('page'); ?>>
 	<div class="entry">

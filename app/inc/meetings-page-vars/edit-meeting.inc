@@ -1,8 +1,6 @@
 <?php
-
 if ( isset($_POST['edit-meeting']) ) {
 	global $edit_meeting_errors;
-	
 	global $meeting_updated;
 	global $show_alert;
 	

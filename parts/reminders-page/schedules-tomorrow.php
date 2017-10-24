@@ -37,6 +37,36 @@ foreach($reminder_groups as $rg) {
 	$rem_group_title = $rg['title'];
 	}
 }
+switch($reminder_priority){
+	case  "low": 
+	$priority_label = "! ";
+	$priority = "Low";
+	break;
+	case  "med": 
+	$priority_label = "!! ";
+	$priority = "Medium";
+	break;
+	case  "high":
+	$priority_label = "!!! ";
+	$priority = "High";
+	break;
+	default: 
+	$priority_label = "";
+	$priority = "None";
+	}
+switch($reminder_repeat){
+	case  "day": $repeat = "Every day";
+	break;
+	case  "week": $repeat = "Every week";
+	break;
+	case  "weeks": $repeat = "Every 2 weeks";
+	break;
+	case  "month": $repeat = "Every month";
+	break;
+	case  "year": $repeat = "Every year";
+	break;
+	default: $repeat = "Never";
+}
 ?>
 <form action="<?php the_permalink(); ?>?group-id=scheduled" method="post">
 	<div class="reminder">

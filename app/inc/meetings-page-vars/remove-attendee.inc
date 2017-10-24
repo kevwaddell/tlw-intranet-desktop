@@ -1,5 +1,5 @@
 <?php
-if ( isset($_GET['meeting-actions']) && $_GET['meeting-actions'] == 'remove-attendee') {
+if ( $_GET['meeting-actions'] == 'remove-attendee') {
 	global $attendee_removed;
 	global $show_alert;
 	$m_id = $_REQUEST['meeting-id'];

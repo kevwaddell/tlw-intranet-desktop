@@ -13522,6 +13522,9 @@ article.page .alerts-pop .alert {
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
   background-color: #fff;
 }
+article.page .alerts-pop .alert h3 {
+  margin-top: 0px;
+}
 article.page .alerts-pop .alert a.btn {
   margin-top: 20px;
   text-transform: uppercase;
@@ -13532,9 +13535,6 @@ article.page .alerts-pop .alert a.btn {
 article.page .alerts-pop .alert a.btn i {
   display: block;
   line-height: 20px;
-}
-article.page .alert h3 {
-  margin-top: 0px;
 }
 aside.scrollable {
   position: absolute;

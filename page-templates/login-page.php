@@ -22,4 +22,4 @@ Template Name: Login page
 <?php endwhile; ?>
 <?php endif; ?>
 
-<?php get_footer(); ?>
+<?php get_footer('user'); ?>

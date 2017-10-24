@@ -30,7 +30,7 @@ $profile_img = wp_get_attachment_image_src($profile_img_id, 'img-3-col-crop' );
 		<tr>
 			<td class="bold text-right">Department</td>
 			<td>
-				<?php echo $ac_department; ?>
+				<?php echo get_the_title($ac_department); ?>
 			</td>
 		</tr>
 		<tr>

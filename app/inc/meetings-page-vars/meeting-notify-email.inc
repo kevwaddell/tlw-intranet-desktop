@@ -1,20 +1,3 @@
-
-This repository
-Pull requests
-Issues
-Marketplace
-Explore
- @kevwaddell
- Unwatch 1
-  Star 0
-  Fork 1 kevwaddell/tlw-intranet-desktop
- Code  Issues 0  Pull requests 0  Projects 0  Wiki  Insights  Settings
-Tree: 75c20fef92 Find file Copy pathtlw-intranet-desktop/app/inc/meetings-page-vars/meeting-notify-email.inc
-d171fd0  2 days ago
-@kevwaddell kevwaddell Add your meetings to meetings page.
-2 contributors @kevwaddell @kevwadd
-RawBlameHistory      
-59 lines (53 sloc)  3.68 KB
 <?php 
 global $show_alert;
 $timeZone = 'Europe/London';
