@@ -289,6 +289,7 @@ $reminders = get_posts($reminders_args);
 						<div class="form-group form-right">
 							<select name="change-group" class="sml-selectpicker show-tick" data-width="100%" title="Move reminder">
 								<option value="scheduled"<?php echo ($rem_group == 'scheduled') ? ' selected':''; ?>>Scheduled</option>
+								<option value="meeting"<?php echo ($rem_group == 'meeting') ? ' selected':''; ?>>Meeting</option>
 								<?php if (!empty($reminder_groups)) { ?>
 								<?php foreach ($reminder_groups as $rg) { ?>
 								<option value="<?php echo $rg['group-id']; ?>"<?php echo ($rg['group-id'] == $rem_group ) ? ' selected':''; ?>><?php echo $rg['title']; ?></option>

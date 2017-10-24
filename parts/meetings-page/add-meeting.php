@@ -88,9 +88,24 @@ global $room;
 			</td>
 		</tr>
 		<tr>
+			<td class="text-right"><label for="end-time">Booked by</label></td>
+			<td>
+				<div class="form-group">
+					<select name="booked-by-id" class="selectpicker" data-live-search="true" data-width="100%" title="Choose a name">
+					<?php foreach ($all_users as $user) { 
+					$fname = get_user_meta( $user->ID, "first_name", true );
+					$lname = get_user_meta( $user->ID, "last_name", true );
+					?>
+					<option value="<?php echo $user->ID; ?>"<?php echo ($user->ID == $current_user->ID) ? ' selected="selected"':''; ?>><?php echo $fname; ?> <?php echo $lname; ?></option>
+					<?php } ?>
+					</select>
+				</div>
+			</td>
+		</tr>
+		<tr>
 			<td></td>
 			<td colspan="2">
-				<input type="hidden" name="booked-by-id" value="<?php echo $current_user->ID ?>">
+				<input type="hidden" name="current-user-id" value="<?php echo $current_user->ID; ?>">
 				<button type="submit" class="btn btn-default caps" name="add-meeting">Book room <i class="fa fa-check"></i></button>
 				<a href="<?php the_permalink(); ?><?php echo (isset($_REQUEST['meeting-day'])) ? '?meeting-day='.$_REQUEST['meeting-day']:'' ?><?php echo (isset($_REQUEST['meeting-day-to'])) ? '&meeting-day-to='.$_REQUEST['meeting-day-to']:'' ?>" class="btn btn-default caps">Cancel <i class="fa fa-times"></i></a>
 			</td>

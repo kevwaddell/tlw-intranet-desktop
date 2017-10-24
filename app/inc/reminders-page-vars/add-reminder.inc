@@ -28,6 +28,7 @@ if ( $_GET['reminder-actions'] == 'add-reminder' && !empty($_REQUEST['group-id']
 	$group_title_key = acf_get_field_key('reminder_group', $reminder_added);
 	$reminder_date_key = acf_get_field_key('reminder_date', $reminder_added);
 	$reminder_time_key = acf_get_field_key('reminder_time', $reminder_added);
+	$remind_later_key = acf_get_field_key('remind_later', $reminder_added);
 	$reminder_repeat_key = acf_get_field_key('reminder_repeat', $reminder_added);	
 	$reminder_priority_key = acf_get_field_key('reminder_priority', $reminder_added);	
 	$reminder_notes_key = acf_get_field_key('reminder_notes', $reminder_added);	
@@ -38,6 +39,8 @@ if ( $_GET['reminder-actions'] == 'add-reminder' && !empty($_REQUEST['group-id']
 	add_post_meta($reminder_added, 'reminder_date', $reminder_date); 
 	add_post_meta($reminder_added, '_reminder_time', $reminder_time_key); 
 	add_post_meta($reminder_added, 'reminder_time', $reminder_time); 
+	add_post_meta($reminder_added, '_remind_later', $remind_later_key); 
+	add_post_meta($reminder_added, 'remind_later', ""); 
 	add_post_meta($reminder_added, '_reminder_repeat', $reminder_repeat_key); 
 	add_post_meta($reminder_added, 'reminder_repeat', 'never');
 	add_post_meta($reminder_added, '_reminder_priority', $reminder_priority_key); 

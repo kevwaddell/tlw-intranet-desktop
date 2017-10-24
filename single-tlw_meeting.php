@@ -1,14 +1,9 @@
-<?php get_header(); ?>
+<?php 
+$meetings_pg = get_page_by_path( 'meetings' );
+$redirect = get_permalink($meetings_pg->ID);
+wp_redirect( $redirect );
+exit; 
 
-<?php if ( have_posts() ): while ( have_posts() ) : the_post(); ?>	
+//echo '<pre class="debug">';print_r($post);echo '</pre>';
 	
-		<article <?php post_class('page'); ?>>
-			
-		
-
-		</article>
-		
-<?php endwhile; ?>
-<?php endif; ?>
-
-<?php get_footer(); ?>
+?>

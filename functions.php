@@ -182,6 +182,12 @@ function debug($data) {
 	}
 }
 
+function console_log( $data ){
+  echo '<script>';
+  echo 'console.log('. json_encode( $data ) .')';
+  echo '</script>';
+}
+
 function acf_get_field_key($field_name, $post_id)
 {
     global $wpdb;

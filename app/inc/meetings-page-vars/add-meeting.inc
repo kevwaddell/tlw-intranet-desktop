@@ -9,7 +9,12 @@ if ( isset($_POST['add-meeting']) ) {
 	$meeting_year = date('Y', strtotime( trim($_POST['meeting-date']) ) );
 	$start_time = date('G:i', strtotime(trim($_POST['start-time'])));
 	$end_time = date('G:i', strtotime(trim($_POST['end-time'])));
-	$booked_by = $_POST['booked-by-id'];
+	
+	if (empty($_POST['booked-by-id'])) {
+	$booked_by = $_POST['current-user-id'];	
+	} else {
+	$booked_by = $_POST['booked-by-id'];	
+	}
 	
 	$p_name = $meeting_title." ".strtotime($meeting_date);
 	$timeZone = 'Europe/London';
