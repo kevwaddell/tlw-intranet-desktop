@@ -227,7 +227,7 @@ $reminders = get_posts($reminders_args);
 				}
 				?>
 				<div class="reminder<?php echo (($_GET['reminder-actions'] == 'edit-reminder' || $_GET['reminder-added']) && $_GET['reminder-id'] == $item->ID) ? ' editing':''; ?>">
-					<form action="<?php the_permalink(); ?>?group-id=<?php echo $current_group; ?>" method="post">
+					<form action="<?php the_permalink(); ?>?group-id=<?php echo $rem_group; ?>" method="post">
 					<div class="reminder-inner">
 						<div class="change-status in-block">
 							<input name="status" value="<?php echo $item->ID; ?>" type="checkbox" onchange="this.form.submit()">	
@@ -238,12 +238,13 @@ $reminders = get_posts($reminders_args);
 						</div>
 						<div class="details-link">
 							<a href="#" class="view-reminder-details">Details</a>
-							<a href="?reminder-actions=edit-reminder&group-id=<?php echo $group_id; ?>&reminder-id=<?php echo $item->ID; ?>">Edit</a>
+							<a href="?reminder-actions=edit-reminder&group-id=<?php echo $rem_group; ?>&reminder-id=<?php echo $item->ID; ?>" class="edit-reminder-details">Edit</a>
+							<a href="?reminder-actions=delete-reminder&group-id=<?php echo $rem_group; ?>&reminder-id=<?php echo $item->ID; ?>">Delete</a>
 						</div>
 					</div>
 					<div class="reminder-full-details">
 						<div class="full-details-inner">
-							<div class="reminder-info text-center">Priority:<strong><?php echo $priority; ?></strong>&nbsp;&nbsp;|&nbsp;&nbsp;Repeat:<strong><?php echo $repeat; ?></strong></div>
+							<div class="reminder-info text-center">Priority: <strong><?php echo $priority; ?></strong>&nbsp;&nbsp;|&nbsp;&nbsp;Repeat: <strong><?php echo $repeat; ?></strong></div>
 							<?php if (!empty($reminder_notes)) { ?>
 							<div class="notes text-center"><?php echo $reminder_notes; ?></div>
 							<?php } ?>
@@ -288,8 +289,8 @@ $reminders = get_posts($reminders_args);
 						
 						<div class="form-group form-right">
 							<select name="change-group" class="sml-selectpicker show-tick" data-width="100%" title="Move reminder">
-								<option value="scheduled"<?php echo ($rem_group == 'scheduled') ? ' selected':''; ?>>Scheduled</option>
-								<option value="meeting"<?php echo ($rem_group == 'meeting') ? ' selected':''; ?>>Meeting</option>
+								<option value="scheduled">Scheduled</option>
+								<option value="meeting">Meeting</option>
 								<?php if (!empty($reminder_groups)) { ?>
 								<?php foreach ($reminder_groups as $rg) { ?>
 								<option value="<?php echo $rg['group-id']; ?>"<?php echo ($rg['group-id'] == $rem_group ) ? ' selected':''; ?>><?php echo $rg['title']; ?></option>

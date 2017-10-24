@@ -95,7 +95,7 @@ $reminder_date = get_field('reminder_date', $rem->ID);
 			</div>
 			<div class="reminder-full-details">
 				<div class="full-details-inner">
-					<div class="reminder-info text-center">Priority:<strong><?php echo $priority; ?></strong>&nbsp;&nbsp;|&nbsp;&nbsp;Repeat:<strong><?php echo $repeat; ?></strong></div>
+					<div class="reminder-info text-center">Priority: <strong><?php echo $priority; ?></strong>&nbsp;&nbsp;|&nbsp;&nbsp;Repeat: <strong><?php echo $repeat; ?></strong></div>
 					<?php if (!empty($reminder_notes)) { ?>
 					<div class="notes text-center"><?php echo $reminder_notes; ?></div>
 					<?php } ?>

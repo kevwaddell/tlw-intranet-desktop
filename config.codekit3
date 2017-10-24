@@ -185,12 +185,6 @@
 		"oF": 0,
 		"oS": 3
 		},
-	"\/app\/css\/styles.css.map": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/app\/css\/styles.css.map",
-		"oF": 0
-		},
 	"\/app\/functions\/afc_options_functions.php": {
 		"ft": 8192,
 		"oA": 2,
@@ -429,6 +423,12 @@
 		"ft": 8192,
 		"oA": 2,
 		"oAP": "\/app\/inc\/reminders-page-vars\/delete-group.inc",
+		"oF": 0
+		},
+	"\/app\/inc\/reminders-page-vars\/delete-reminder.inc": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/app\/inc\/reminders-page-vars\/delete-reminder.inc",
 		"oF": 0
 		},
 	"\/app\/inc\/reminders-page-vars\/remind-later.inc": {
@@ -953,7 +953,7 @@
 		"ft": 1,
 		"ie": 1,
 		"iI": 0,
-		"ma": 1,
+		"ma": 0,
 		"oA": 0,
 		"oAP": "\/app\/css\/styles.css",
 		"oF": 0,

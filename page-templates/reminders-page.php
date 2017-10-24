@@ -33,6 +33,7 @@ include (STYLESHEETPATH . '/app/inc/reminders-page-vars/update-group.inc');
 include (STYLESHEETPATH . '/app/inc/reminders-page-vars/delete-group.inc');
 include (STYLESHEETPATH . '/app/inc/reminders-page-vars/add-reminder.inc');
 include (STYLESHEETPATH . '/app/inc/reminders-page-vars/update-reminder.inc');
+include (STYLESHEETPATH . '/app/inc/reminders-page-vars/delete-reminder.inc');
 include (STYLESHEETPATH . '/app/inc/reminders-page-vars/remind-later.inc');
 include (STYLESHEETPATH . '/app/inc/reminders-page-vars/clear-completed.inc');
 
