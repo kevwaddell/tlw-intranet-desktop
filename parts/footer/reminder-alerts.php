@@ -1,7 +1,8 @@
 <?php 
 $reminders_pg = get_page_by_path('reminders');
+$calendar_pg = get_page_by_path('calendar');
 $login_pg = get_page_by_path('login');	
-if ($post->ID != $reminders_pg->ID && $post->ID != $login_pg->ID) { ?>
+if ($post->ID != $reminders_pg->ID && $post->ID != $login_pg->ID && $post->ID != $calendar_pg->ID) { ?>
 <?php 
 global $current_user;
 global $post;

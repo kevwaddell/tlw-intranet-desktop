@@ -514,9 +514,9 @@
 		"ma": 0,
 		"mi": 1,
 		"oA": 0,
-		"oAP": "\/app\/js\/functions-min.js",
-		"oF": 2,
-		"sC": 0,
+		"oAP": "\/app\/js\/min\/functions-min.js",
+		"oF": 0,
+		"sC": 1,
 		"tS": 0
 		},
 	"\/app\/js\/meetings-functions-min.js": {
@@ -584,9 +584,9 @@
 		"ma": 0,
 		"mi": 1,
 		"oA": 0,
-		"oAP": "\/app\/js\/reminders-functions-min.js",
-		"oF": 2,
-		"sC": 0,
+		"oAP": "\/app\/js\/min\/reminders-functions-min.js",
+		"oF": 0,
+		"sC": 1,
 		"tS": 0
 		},
 	"\/app\/less\/alerts.less": {
@@ -999,9 +999,9 @@
 		},
 	"\/author.php": {
 		"ft": 8192,
-		"oA": 1,
+		"oA": 2,
 		"oAP": "\/author.php",
-		"oF": 1
+		"oF": 0
 		},
 	"\/footer-user.php": {
 		"ft": 8192,
@@ -1023,9 +1023,9 @@
 		},
 	"\/functions.php": {
 		"ft": 8192,
-		"oA": 1,
+		"oA": 2,
 		"oAP": "\/functions.php",
-		"oF": 1
+		"oF": 0
 		},
 	"\/header-user.php": {
 		"ft": 8192,
@@ -1258,8 +1258,8 @@
 	"\/parts\/meetings-page\/meetings-info.php": {
 		"ft": 8192,
 		"oA": 2,
-		"oAP": "\/parts\/meetings-page\/meetings-info.php.php",
-		"oF": 1
+		"oAP": "\/parts\/meetings-page\/meetings-info.php.sb-5d0de468-xCTexH",
+		"oF": 0
 		},
 	"\/parts\/meetings-page\/meetings-list.php": {
 		"ft": 8192,
