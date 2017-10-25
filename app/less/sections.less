@@ -514,3 +514,63 @@ margin: auto;
 		}
 	}
 }
+
+#calendar-wrapper {
+	
+	.calendar-header {
+	.abs;
+	.top(0);
+	.left(0);
+	.right(0);
+	.h(5);	
+	.bg-col(@grayDk);
+	z-index: 2;	
+	}
+	
+	.month-view {
+	.abs;
+	.top(5);
+	.left(0);
+	.right(0);
+	.bottom(0);
+	.min-h(60);
+	.min-w(117);
+	.border-top(@wht; 0.1);
+		
+		.day-col {
+		width: 16.8%;
+		height: 100%;
+		.border-right(@wht; 0.1);
+		.bg-col(@grayLt);
+			.day-label {
+			.pad-all(1);
+			.bg-col( @red );
+			.col(@wht);	
+			.border-bot(@wht; 0.1);
+			.caps;
+			height: 10%;
+			}
+			
+			.day {
+			height: 15%;
+			.pad-all(1);
+			.border-bot(@wht; 0.1);	
+			}
+		}
+		
+		.wk-end {
+		width: 8%;	
+		.bg-col(@gray);
+			.day-label {
+			.bg-col( @redMid );	
+			}
+			.day {
+				.day-number {
+				.col(@grayLt);	
+				}	
+			}
+		}	
+		
+		
+	}
+}
