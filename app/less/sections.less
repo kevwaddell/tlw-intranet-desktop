@@ -516,14 +516,22 @@ margin: auto;
 }
 
 #calendar-wrapper {
-	
+.abs;
+.top(0);
+.left(0);
+.right(0);
+.bottom(0);	
+.min-w(117);
+	.calendar-inner {
+	.over-hide;	
+	}
 	.calendar-header {
 	.abs;
 	.top(0);
 	.left(0);
 	.right(0);
 	.h(5);	
-	.bg-col(@grayDk);
+	.bg-col(@wht);
 	z-index: 2;	
 	}
 	
@@ -535,16 +543,19 @@ margin: auto;
 	.bottom(0);
 	.min-h(60);
 	.min-w(117);
-	.border-top(@wht; 0.1);
 		
 		.day-col {
 		width: 16.8%;
 		height: 100%;
 		.border-right(@wht; 0.1);
-		.bg-col(@grayLt);
+		.bg-col(@redLt);
+			
+			&:last-child {
+			.no-border;	
+			}
 			.day-label {
 			.pad-all(1);
-			.bg-col( @red );
+			.bg-col( @grayDk );
 			.col(@wht);	
 			.border-bot(@wht; 0.1);
 			.caps;
@@ -555,19 +566,58 @@ margin: auto;
 			height: 15%;
 			.pad-all(1);
 			.border-bot(@wht; 0.1);	
+			.rel;
+				&.last-child {
+				.no-border;	
+				}
+				.day-number {
+				.abs;
+				.top(1);
+				.left(1);
+				.w(2.5);
+				.h(2.5);
+				.font-size(1.2);
+				.text-center;
+				.line-h(2.5);	
+				.col(@grayDk);
+				.rounded(100%);		
+					&.today {
+					.bg-col(@red);
+					.col(@wht);	
+					.bold;	
+					}
+				}
+				&.dim-day {
+				.bg-col(lighten(@gray, 30%));
+					.day-number {
+					.col(@gray);
+					}	
+				}
+				.events {
+				.fleft;
+				width: 100%;
+				height: 100%;
+				.pad-left(3);	
+				}
 			}
 		}
 		
 		.wk-end {
 		width: 8%;	
-		.bg-col(@gray);
+		.bg-col(@redMidLt);
 			.day-label {
-			.bg-col( @redMid );	
+			.bg-col( @gray );	
 			}
 			.day {
 				.day-number {
-				.col(@grayLt);	
+				.col(@redLt);	
 				}	
+				&.dim-day {
+				.bg-col(lighten(@gray, 30%));
+					.day-number {
+					.col(@gray);	
+					}	
+				}
 			}
 		}	
 		
