@@ -62,12 +62,12 @@ $reminder_date = get_field('reminder_date', $r->ID);
 $reminder_repeat = get_field('reminder_repeat', $r->ID);
 //debug($meeting_date);
 	if (date("mY", strtotime($reminder_date)) == $now_dateTime->format('mY')) {
-		if ($reminder_repeat != 'never' && in_array_r($r->ID , $reminders_completed)) {
+		if ($reminder_repeat != 'never' && !in_array_r(date("Ymd", strtotime($reminder_date)) , $reminders_completed)) {
 		$calendar_reminders[] = array($r->ID, date('j', strtotime($reminder_date)));	
 		}
 	}
 }
-//debug($calendar_reminders);
+//debug($reminders_completed);
 ?>
 
 <div class="calendar-header">

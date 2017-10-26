@@ -533,11 +533,11 @@ margin: auto;
 	.h(5);	
 	.line-h(5);
 	.bg-col(@wht);
-	z-index: 2;	
+	z-index: 15;	
 	.over-hide;
 	.border-top(@grayDk; 0.1);
 		.calendar-key {
-		//.mag-top(-0.3);	
+		.mag-top(-0.3);	
 		.pad-left(1.5);
 		width: 30%;
 		.fleft;
@@ -574,7 +574,7 @@ margin: auto;
 			.day {	
 			height: 15%;
 			min-height: 15%;
-				&:hover {
+				&:hover:not(.dim-day) {
 				.trans-bg(@wht; 0.3);
 				overflow: visible;
 				z-index: 10;
@@ -587,7 +587,7 @@ margin: auto;
 			.day {	
 			height: 18%;
 			min-height: 18%;
-				&:hover {
+				&:hover:not(.dim-day) {
 				.trans-bg(@wht; 0.3);
 				overflow: visible;
 				z-index: 10;
@@ -644,6 +644,9 @@ margin: auto;
 					.day-number {
 					.col(@gray);
 					}	
+					&:hover {
+					pointer-events: none;
+					}
 				}
 				.events {
 				width: 100%;
@@ -720,6 +723,13 @@ margin: auto;
 				small {
 				.bold;	
 				}
+			}
+			
+			&.today {
+			.bg-col(lighten(@red, 40%));	
+				.day-label {
+				.bg-red;	
+				}
 			}						
 		}
 		
@@ -736,23 +746,16 @@ margin: auto;
 			.abs;
 			.top(1);
 			.left(1);
-			.h(2.5);
 			.font-size(1.2);
 			.text-center;
-			.line-h(2.5);	
-			.col(@grayDk);
-			.rounded(8px);		
-				&.now {
-				.bg-col(@red);
-				.col(@wht);	
-				.bold;	
-				}	
+			.line-h(1.2);	
+			.col(@grayDk);			
 			}
 			
 			.events {
 			width: 100%;
 			height: 100%;
-			.pad-left(5);	
+			.pad-left(3.5);	
 			}
 				
 			.label {
