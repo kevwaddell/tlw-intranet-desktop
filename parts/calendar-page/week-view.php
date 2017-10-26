@@ -54,14 +54,14 @@ $reminder_date = get_field('reminder_date', $r->ID);
 $reminder_time = get_field('reminder_time', $r->ID);
 $reminder_repeat = get_field('reminder_repeat', $r->ID);
 //debug($meeting_date);
-	if (date("mY", strtotime($reminder_date)) == $now_dateTime->format('mY')) {
-		if ($reminder_repeat != 'never' && in_array_r($r->ID , $reminders_completed)) {
+	if (date("W", strtotime($reminder_date)) == $now_dateTime->format('W')) {
+		if ($reminder_repeat != 'never' && !in_array_r(date("Ymd", strtotime($reminder_date)) , $reminders_completed)) {
 		$calendar_reminders[] = array($r->ID, date('j', strtotime($reminder_date)), date('G', strtotime($reminder_time)));	
 		}
 	}
 }
-//debug($calendar_meetings);
-//debug($calendar_reminders);
+//debug(date('j', strtotime($week_start->format("j M Y")." +2 day") ));
+//debug($week_start->format("j"));
 ?>
 
 <div class="calendar-header">
@@ -73,21 +73,21 @@ $reminder_repeat = get_field('reminder_repeat', $r->ID);
 </div>
 
 <div class="week-view">
-	<div class="day-col pull-left">
+	<div class="day-col pull-left<?php echo (date("j") == $week_start->format("j") && $current_week == 'this-week') ? ' today':''; ?>">
 		<div class="day-label">Monday<br><small><?php echo $week_start->format("j M Y"); ?></small></div>
 		<?php for ($t = $time_start; $t < $time_end; $t++) {?>
 		<div class="hour">
-			<span class="hour-number"><?php echo date("G:i", strtotime($t.":00")); ?></span>
+			<span class="hour-number"><?php echo date("ga", strtotime($t.":00")); ?></span>
 			<div class="events">
 			<?php foreach ($calendar_meetings as $cm) { ?>
-			<?php if ($cm[2] == $t && $cm[1] ==$week_start->format("j")) { ?>
+			<?php if ($cm[2] == $t && $cm[1] == $week_start->format("j")) { ?>
 			<div class="label label-info">
 				<span><i class="fa fa-clock-o"></i> <?php echo get_the_title($cm[0]); ?></span>
 			</div>					
 			<?php } ?>
 			<?php } ?>
 			<?php foreach ($calendar_reminders as $cr) { ?>
-			<?php if ($cr[2] == $t && $cm[1] ==$week_start->format("j")) { ?>
+			<?php if ($cr[2] == $t && $cr[1] == $week_start->format("j")) { ?>
 			<div class="label label-primary">
 				<span><i class="fa fa-bell"></i> <?php echo get_the_title($cr[0]); ?></span>
 			</div>
@@ -97,21 +97,21 @@ $reminder_repeat = get_field('reminder_repeat', $r->ID);
 		</div>
 		<?php } ?>
 	</div>
-	<div class="day-col pull-left">
+	<div class="day-col pull-left<?php echo (date("j") == ($week_start->format("j") + 1 ) && $current_week == 'this-week') ? ' today':''; ?>">
 		<div class="day-label">Tuesday<br><small><?php echo date('j M Y', strtotime($week_start->format("j M Y")." +1 day") ); ?></small></div>
 		<?php for ($t = $time_start; $t < $time_end; $t++) {?>
 		<div class="hour">
-			<span class="hour-number"><?php echo date("G:i", strtotime($t.":00")); ?></span>
+			<span class="hour-number"><?php echo date("ga", strtotime($t.":00")); ?></span>
 			<div class="events">
 			<?php foreach ($calendar_meetings as $cm) { ?>
-			<?php if ($cm[2] == $t && $cm[1] == date('j', strtotime($week_start->format("j M Y")." +1 day") )) { ?>
+			<?php if ($cm[2] == $t && $cm[1] == ($week_start->format("j") + 1)) { ?>
 			<div class="label label-info">
 				<span><i class="fa fa-clock-o"></i> <?php echo get_the_title($cm[0]); ?></span>
 			</div>					
 			<?php } ?>
 			<?php } ?>
 			<?php foreach ($calendar_reminders as $cr ) { ?>
-			<?php if ($cr[2] == $t && $cm[1] == date('j', strtotime($week_start->format("j M Y")." +1 day") ) ) { ?>
+			<?php if ($cr[2] == $t && $cr[1] == ($week_start->format("j") + 1) ) { ?>
 			<div class="label label-primary">
 				<span><i class="fa fa-bell"></i> <?php echo get_the_title($cr[0]); ?></span>
 			</div>
@@ -121,21 +121,21 @@ $reminder_repeat = get_field('reminder_repeat', $r->ID);
 		</div>
 		<?php } ?>
 	</div>
-	<div class="day-col pull-left">
-		<div class="day-label">Wednesday<br><small><?php echo date('j M Y', strtotime($week_start->format("j M Y")." +2 day") ); ?></small></div>
+	<div class="day-col pull-left<?php echo (date("j") == ($week_start->format("j") + 2) && $current_week == 'this-week') ? ' today':''; ?>">
+		<div class="day-label">Wednesday<br><small><?php echo date('j M Y', strtotime($week_start->format("j M Y")." +2 days") ); ?></small></div>
 		<?php for ($t = $time_start; $t < $time_end; $t++) {?>
 		<div class="hour">
-			<span class="hour-number"><?php echo date("G:i", strtotime($t.":00")); ?></span>
+			<span class="hour-number"><?php echo date("ga", strtotime($t.":00")); ?></span>
 			<div class="events">
 			<?php foreach ($calendar_meetings as $cm) { ?>
-			<?php if ($cm[2] == $t && $cm[1] == date('j', strtotime($week_start->format("j M Y")." +2 day") )) { ?>
+			<?php if ($cm[2] == $t && $cm[1] == ($week_start->format("j") + 2)) { ?>
 			<div class="label label-info">
 				<span><i class="fa fa-clock-o"></i> <?php echo get_the_title($cm[0]); ?></span>
 			</div>					
 			<?php } ?>
 			<?php } ?>
 			<?php foreach ($calendar_reminders as $cr) { ?>
-			<?php if ($cr[2] == $t && $cm[1] == date('j', strtotime($week_start->format("j M Y")." +2 day") )) { ?>
+			<?php if ($cr[2] == $t && $cr[1] == ($week_start->format("j") + 2)) { ?>
 			<div class="label label-primary">
 				<span><i class="fa fa-bell"></i> <?php echo get_the_title($cr[0]); ?></span>
 			</div>
@@ -145,21 +145,21 @@ $reminder_repeat = get_field('reminder_repeat', $r->ID);
 		</div>
 		<?php } ?>
 	</div>
-	<div class="day-col pull-left">
-		<div class="day-label">Thursday<br><small><?php echo date('j M Y', strtotime($week_start->format("j M Y")." +3 day") ); ?></small></div>
+	<div class="day-col pull-left<?php echo (date("j") == ($week_start->format("j") + 3) && $current_week == 'this-week') ? ' today':''; ?>">
+		<div class="day-label">Thursday<br><small><?php echo date('j M Y', strtotime($week_start->format("j M Y")." +3 days") ); ?></small></div>
 		<?php for ($t = $time_start; $t < $time_end; $t++) {?>
 		<div class="hour">
-			<span class="hour-number"><?php echo date("G:i", strtotime($t.":00")); ?></span>
+			<span class="hour-number"><?php echo date("ga", strtotime($t.":00")); ?></span>
 			<div class="events">
 			<?php foreach ($calendar_meetings as $cm) { ?>
-			<?php if ($cm[2] == $t && $cm[1] == date('j', strtotime($week_start->format("j M Y")." +3 day"))) { ?>
+			<?php if ($cm[2] == $t && $cm[1] == ($week_start->format("j") + 3)) { ?>
 			<div class="label label-info">
 				<span><i class="fa fa-clock-o"></i> <?php echo get_the_title($cm[0]); ?></span>
 			</div>					
 			<?php } ?>
 			<?php } ?>
 			<?php foreach ($calendar_reminders as $cr) { ?>
-			<?php if ($cr[2] == $t && $cm[1] ==date('j', strtotime($week_start->format("j M Y")." +3 day"))) { ?>
+			<?php if ($cr[2] == $t && $cr[1] == ($week_start->format("j") + 3)) { ?>
 			<div class="label label-primary">
 				<span><i class="fa fa-bell"></i> <?php echo get_the_title($cr[0]); ?></span>
 			</div>
@@ -169,11 +169,11 @@ $reminder_repeat = get_field('reminder_repeat', $r->ID);
 		</div>
 		<?php } ?>
 	</div>
-	<div class="day-col pull-left">
+	<div class="day-col pull-left<?php echo (date("j") == $week_end->format("j") && $current_week == 'this-week') ? ' today':''; ?>">
 		<div class="day-label">Friday<br><small><?php echo $week_end->format("j M Y"); ?></small></div>
 		<?php for ($t = $time_start; $t < $time_end; $t++) {?>
 		<div class="hour">
-			<span class="hour-number"><?php echo date("G:i", strtotime($t.":00")); ?></span>
+			<span class="hour-number"><?php echo date("ga", strtotime($t.":00")); ?></span>
 			<div class="events">
 			<?php foreach ($calendar_meetings as $cm) { ?>
 			<?php if ($cm[2] == $t && $cm[1] == $week_end->format("j")) { ?>
@@ -183,7 +183,7 @@ $reminder_repeat = get_field('reminder_repeat', $r->ID);
 			<?php } ?>
 			<?php } ?>
 			<?php foreach ($calendar_reminders as $cr) { ?>
-			<?php if ($cr[2] == $t && $cm[1] == $week_end->format("j")) { ?>
+			<?php if ($cr[2] == $t && $cr[1] == $week_end->format("j")) { ?>
 			<div class="label label-primary">
 				<span><i class="fa fa-bell"></i> <?php echo get_the_title($cr[0]); ?></span>
 			</div>
