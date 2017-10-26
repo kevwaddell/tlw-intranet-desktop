@@ -527,27 +527,79 @@ margin: auto;
 	}
 	.calendar-header {
 	.abs;
-	.top(0);
+	.bottom(0);
 	.left(0);
 	.right(0);
 	.h(5);	
+	.line-h(5);
 	.bg-col(@wht);
 	z-index: 2;	
+	.over-hide;
+	.border-top(@grayDk; 0.1);
+		.calendar-key {
+		//.mag-top(-0.3);	
+		.pad-left(1.5);
+		width: 30%;
+		.fleft;
+			.label {
+			.font-size(1);	
+			}
+		}
+		.calendar-actions {
+		.mag-top(-0.2);	
+		width: 30%;
+		.fright;
+		.pad-right(1.5);
+		}
+		.header-date-title {	
+		.bold;
+		.fleft;
+		.text-center;
+		.col(grayDk);
+		width: 40%;
+		margin: auto;
+		}
 	}
 	
 	.month-view {
 	.abs;
-	.top(5);
+	.top(0);
 	.left(0);
 	.right(0);
-	.bottom(0);
+	.bottom(5);
 	.min-h(60);
 	.min-w(117);
+	
+		&.weeks-count-5 {
+			.day {	
+			height: 15%;
+			min-height: 15%;
+				&:hover {
+				.trans-bg(@wht; 0.3);
+				overflow: visible;
+				z-index: 10;
+				height: auto;
+				}
+			}
+		}
+		
+		&.weeks-count-4 {
+			.day {	
+			height: 18%;
+			min-height: 18%;
+				&:hover {
+				.trans-bg(@wht; 0.3);
+				overflow: visible;
+				z-index: 10;
+				height: auto;
+				}
+			}
+		}
 		
 		.day-col {
 		width: 16.8%;
 		height: 100%;
-		.border-right(@wht; 0.1);
+		.border-right(@grayDk; 0.1);
 		.bg-col(@redLt);
 			
 			&:last-child {
@@ -555,19 +607,19 @@ margin: auto;
 			}
 			.day-label {
 			.pad-all(1);
-			.bg-col( @grayDk );
+			.bg-col( @gray );
 			.col(@wht);	
-			.border-bot(@wht; 0.1);
+			.border-bot(@grayDk; 0.1);
 			.caps;
 			height: 10%;
 			}
 			
 			.day {
-			height: 15%;
 			.pad-all(1);
-			.border-bot(@wht; 0.1);	
+			.border-bot(@grayDk; 0.1);	
 			.rel;
-				&.last-child {
+			.over-hide;
+				&:last-child {
 				.no-border;	
 				}
 				.day-number {
@@ -594,19 +646,36 @@ margin: auto;
 					}	
 				}
 				.events {
-				.fleft;
 				width: 100%;
 				height: 100%;
 				.pad-left(3);	
 				}
+				
+				.label {
+				.in-block;
+				.pad-all(0.5);
+				.mag-bot(0.5);
+				.mag-right(0.5);
+				overflow: hidden;
+				text-overflow: ellipsis;
+				max-width: 100%;
+					span {
+					white-space: nowrap;
+					overflow: hidden;
+					.pad-right(1);
+					}
+				}
+			
 			}
+						
 		}
 		
 		.wk-end {
 		width: 8%;	
 		.bg-col(@redMidLt);
 			.day-label {
-			.bg-col( @gray );	
+			.bg-col( lighten(@gray, 15%) );	
+			.col(@grayDk);	
 			}
 			.day {
 				.day-number {
@@ -621,6 +690,122 @@ margin: auto;
 			}
 		}	
 		
-		
 	}
+		
+	.week-view {
+	.abs;
+	.top(0);
+	.left(0);
+	.right(0);
+	.bottom(5);
+	.min-h(60);
+	.min-w(117);	
+	
+		.day-col {
+		width: 20%;
+		height: 100%;
+		.border-right(@grayDk; 0.1);
+		.bg-col(@redLt);
+			&:last-child {
+			.no-border;	
+			}
+			.day-label {
+			.pad-all(1);
+			.line-h(1.6);
+			.bg-col( @gray );
+			.col(@wht);	
+			.border-bot(@grayDk; 0.1);
+			.caps;
+			height: 10%;
+				small {
+				.bold;	
+				}
+			}						
+		}
+		
+		.hour {
+		.pad-all(1);
+		.border-bot(@grayDk; 0.1);	
+		.rel;
+		.over-hide;
+		height: (90%/9);	
+			&:last-child {
+			.no-border;	
+			}
+			.hour-number {
+			.abs;
+			.top(1);
+			.left(1);
+			.h(2.5);
+			.font-size(1.2);
+			.text-center;
+			.line-h(2.5);	
+			.col(@grayDk);
+			.rounded(8px);		
+				&.now {
+				.bg-col(@red);
+				.col(@wht);	
+				.bold;	
+				}	
+			}
+			
+			.events {
+			width: 100%;
+			height: 100%;
+			.pad-left(5);	
+			}
+				
+			.label {
+			.in-block;
+			.pad-all(0.5);
+			.mag-bot(0.5);
+			.mag-right(0.5);
+			overflow: hidden;
+			text-overflow: ellipsis;
+			max-width: 100%;
+				span {
+				.pad-right(1);
+				white-space: nowrap;
+				.over-hide;
+				}
+			}
+			&:nth-child(2) {
+			.trans-bg(@gray; 0.5);
+			}
+			&:nth-child(3) {
+			.trans-bg(@gray; 0.45);
+			}
+			&:nth-child(4) {
+			.trans-bg(@gray; 0.4);
+			}
+			&:nth-child(5) {
+			.trans-bg(@gray; 0.35);
+			}
+			&:nth-child(6) {
+			.trans-bg(@gray; 0.3);
+			}
+			&:nth-child(7) {
+			.trans-bg(@gray; 0.25);
+			}
+			&:nth-child(8) {
+			.trans-bg(@gray; 0.2);
+			}
+			&:nth-child(9) {
+			.trans-bg(@gray; 0.15);
+			}
+			&:nth-child(9) {
+			.trans-bg(@gray; 0.1);
+			}
+			
+			&:hover {
+			.trans-bg(@wht; 0.3);
+			overflow: visible;
+			z-index: 10;
+			height: auto;
+			min-height: (90%/9);
+			}
+		}
+
+	}
+		
 }

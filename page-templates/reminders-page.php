@@ -61,7 +61,7 @@ $current_group = 'scheduled';
 				<?php if (!empty($reminder_groups)) { ?>
 				<?php foreach ($reminder_groups as $group) { ?>
 				<li class="col-<?php echo $group['color']; ?><?php echo ($current_group == $group['group-id']) ? ' active': ''; ?>">
-					<a href="?group-id=<?php echo $group['group-id']; ?>"><i class="fa fa-bullseye fa-2x"></i> <?php echo $group['title']; ?></a>
+					<a href="?group-id=<?php echo $group['group-id']; ?>"><i class="fa fa-dot-circle-o fa-2x"></i> <?php echo $group['title']; ?></a>
 				</li>
 				<?php } ?>			
 				<?php } ?>

@@ -1135,16 +1135,40 @@
 		"oAP": "\/page.php",
 		"oF": 1
 		},
+	"\/parts\/calendar-page\/calendar-actions.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/parts\/calendar-page\/calendar-actions.php",
+		"oF": 0
+		},
+	"\/parts\/calendar-page\/calendar-key.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/parts\/calendar-page\/calendar-key.php",
+		"oF": 0
+		},
 	"\/parts\/calendar-page\/calendar-views.php": {
 		"ft": 8192,
 		"oA": 2,
 		"oAP": "\/parts\/calendar-page\/calendar-views.php",
 		"oF": 0
 		},
+	"\/parts\/calendar-page\/day-view.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/parts\/calendar-page\/day-view.php",
+		"oF": 0
+		},
 	"\/parts\/calendar-page\/month-view.php": {
 		"ft": 8192,
 		"oA": 2,
 		"oAP": "\/parts\/calendar-page\/month-view.php",
+		"oF": 0
+		},
+	"\/parts\/calendar-page\/week-view.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/parts\/calendar-page\/week-view.php",
 		"oF": 0
 		},
 	"\/parts\/contacts-page\/add-contact.php": {
