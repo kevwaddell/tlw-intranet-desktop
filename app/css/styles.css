@@ -14837,26 +14837,73 @@ aside.sb-sml {
 }
 #calendar-wrapper .calendar-header {
   position: absolute;
-  top: 0px;
+  bottom: 0px;
   left: 0px;
   right: 0px;
   height: 50px;
+  line-height: 50px;
   background-color: #fff;
   z-index: 2;
+  overflow: hidden;
+  border-top: 1px solid #4b4b4b;
+}
+#calendar-wrapper .calendar-header .calendar-key {
+  padding-left: 15px;
+  width: 30%;
+  float: left;
+}
+#calendar-wrapper .calendar-header .calendar-key .label {
+  font-size: 10px;
+}
+#calendar-wrapper .calendar-header .calendar-actions {
+  margin-top: -2px;
+  width: 30%;
+  float: right;
+  padding-right: 15px;
+}
+#calendar-wrapper .calendar-header .header-date-title {
+  font-weight: bold;
+  float: left;
+  text-align: center;
+  color: grayDk;
+  width: 40%;
+  margin: auto;
 }
 #calendar-wrapper .month-view {
   position: absolute;
-  top: 50px;
+  top: 0px;
   left: 0px;
   right: 0px;
-  bottom: 0px;
+  bottom: 50px;
   min-height: 600px;
   min-width: 1170px;
+}
+#calendar-wrapper .month-view.weeks-count-5 .day {
+  height: 15%;
+  min-height: 15%;
+}
+#calendar-wrapper .month-view.weeks-count-5 .day:hover {
+  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.3);
+  overflow: visible;
+  z-index: 10;
+  height: auto;
+}
+#calendar-wrapper .month-view.weeks-count-4 .day {
+  height: 18%;
+  min-height: 18%;
+}
+#calendar-wrapper .month-view.weeks-count-4 .day:hover {
+  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.3);
+  overflow: visible;
+  z-index: 10;
+  height: auto;
 }
 #calendar-wrapper .month-view .day-col {
   width: 16.8%;
   height: 100%;
-  border-right: 1px solid #fff;
+  border-right: 1px solid #4b4b4b;
   background-color: #fdcfe1;
 }
 #calendar-wrapper .month-view .day-col:last-child {
@@ -14864,19 +14911,19 @@ aside.sb-sml {
 }
 #calendar-wrapper .month-view .day-col .day-label {
   padding: 10px;
-  background-color: #4b4b4b;
+  background-color: #918F8F;
   color: #fff;
-  border-bottom: 1px solid #fff;
+  border-bottom: 1px solid #4b4b4b;
   text-transform: uppercase;
   height: 10%;
 }
 #calendar-wrapper .month-view .day-col .day {
-  height: 15%;
   padding: 10px;
-  border-bottom: 1px solid #fff;
+  border-bottom: 1px solid #4b4b4b;
   position: relative;
+  overflow: hidden;
 }
-#calendar-wrapper .month-view .day-col .day.last-child {
+#calendar-wrapper .month-view .day-col .day:last-child {
   border: none;
 }
 #calendar-wrapper .month-view .day-col .day .day-number {
@@ -14905,17 +14952,31 @@ aside.sb-sml {
   color: #918F8F;
 }
 #calendar-wrapper .month-view .day-col .day .events {
-  float: left;
   width: 100%;
   height: 100%;
   padding-left: 30px;
+}
+#calendar-wrapper .month-view .day-col .day .label {
+  display: inline-block;
+  padding: 5px;
+  margin-bottom: 5px;
+  margin-right: 5px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+#calendar-wrapper .month-view .day-col .day .label span {
+  white-space: nowrap;
+  overflow: hidden;
+  padding-right: 10px;
 }
 #calendar-wrapper .month-view .wk-end {
   width: 8%;
   background-color: #f198ba;
 }
 #calendar-wrapper .month-view .wk-end .day-label {
-  background-color: #918F8F;
+  background-color: #b7b6b6;
+  color: #4b4b4b;
 }
 #calendar-wrapper .month-view .wk-end .day .day-number {
   color: #fdcfe1;
@@ -14925,6 +14986,127 @@ aside.sb-sml {
 }
 #calendar-wrapper .month-view .wk-end .day.dim-day .day-number {
   color: #918F8F;
+}
+#calendar-wrapper .week-view {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 50px;
+  min-height: 600px;
+  min-width: 1170px;
+}
+#calendar-wrapper .week-view .day-col {
+  width: 20%;
+  height: 100%;
+  border-right: 1px solid #4b4b4b;
+  background-color: #fdcfe1;
+}
+#calendar-wrapper .week-view .day-col:last-child {
+  border: none;
+}
+#calendar-wrapper .week-view .day-col .day-label {
+  padding: 10px;
+  line-height: 16px;
+  background-color: #918F8F;
+  color: #fff;
+  border-bottom: 1px solid #4b4b4b;
+  text-transform: uppercase;
+  height: 10%;
+}
+#calendar-wrapper .week-view .day-col .day-label small {
+  font-weight: bold;
+}
+#calendar-wrapper .week-view .hour {
+  padding: 10px;
+  border-bottom: 1px solid #4b4b4b;
+  position: relative;
+  overflow: hidden;
+  height: 10%;
+}
+#calendar-wrapper .week-view .hour:last-child {
+  border: none;
+}
+#calendar-wrapper .week-view .hour .hour-number {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  height: 25px;
+  font-size: 12px;
+  text-align: center;
+  line-height: 25px;
+  color: #4b4b4b;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+}
+#calendar-wrapper .week-view .hour .hour-number.now {
+  background-color: #C60751;
+  color: #fff;
+  font-weight: bold;
+}
+#calendar-wrapper .week-view .hour .events {
+  width: 100%;
+  height: 100%;
+  padding-left: 50px;
+}
+#calendar-wrapper .week-view .hour .label {
+  display: inline-block;
+  padding: 5px;
+  margin-bottom: 5px;
+  margin-right: 5px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+#calendar-wrapper .week-view .hour .label span {
+  padding-right: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+#calendar-wrapper .week-view .hour:nth-child(2) {
+  background-color: #918F8F;
+  background-color: rgba(145, 143, 143, 0.5);
+}
+#calendar-wrapper .week-view .hour:nth-child(3) {
+  background-color: #918F8F;
+  background-color: rgba(145, 143, 143, 0.45);
+}
+#calendar-wrapper .week-view .hour:nth-child(4) {
+  background-color: #918F8F;
+  background-color: rgba(145, 143, 143, 0.4);
+}
+#calendar-wrapper .week-view .hour:nth-child(5) {
+  background-color: #918F8F;
+  background-color: rgba(145, 143, 143, 0.35);
+}
+#calendar-wrapper .week-view .hour:nth-child(6) {
+  background-color: #918F8F;
+  background-color: rgba(145, 143, 143, 0.3);
+}
+#calendar-wrapper .week-view .hour:nth-child(7) {
+  background-color: #918F8F;
+  background-color: rgba(145, 143, 143, 0.25);
+}
+#calendar-wrapper .week-view .hour:nth-child(8) {
+  background-color: #918F8F;
+  background-color: rgba(145, 143, 143, 0.2);
+}
+#calendar-wrapper .week-view .hour:nth-child(9) {
+  background-color: #918F8F;
+  background-color: rgba(145, 143, 143, 0.15);
+}
+#calendar-wrapper .week-view .hour:nth-child(9) {
+  background-color: #918F8F;
+  background-color: rgba(145, 143, 143, 0.1);
+}
+#calendar-wrapper .week-view .hour:hover {
+  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.3);
+  overflow: visible;
+  z-index: 10;
+  height: auto;
+  min-height: 10%;
 }
 .calendar-section .ics-calendar-header {
   font-size: 16px;
