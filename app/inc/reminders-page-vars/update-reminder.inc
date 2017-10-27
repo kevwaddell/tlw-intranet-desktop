@@ -5,10 +5,10 @@ global $reminders_completed;
 $timeZone = 'Europe/London';
 //debug($reminders_completed);
 //debug($_POST);
-if ( isset($_POST['status']) && !isset($_POST['reminder-title'])) {
+if ( isset($_POST['status']) || isset($_POST['alert-status']) && !isset($_POST['reminder-title'])) {
 	
 	$date_format = get_option('date_format');
-	$reminder_id = $_POST['status'];
+	$reminder_id = ( isset($_POST['alert-status'])) ? $_POST['alert-status'] : $_POST['status'];
 	$reminder = get_post($reminder_id);
 	$reminder_date = get_field('reminder_date', $reminder_id);
 	$remind_later = get_field('remind_later', $reminder_id);
@@ -20,9 +20,14 @@ if ( isset($_POST['status']) && !isset($_POST['reminder-title'])) {
 	$reminders_completed[] = array('reminder-id' => $reminder_id, 'group-id' => $_POST['group-id'], 'reminder-date' => date('Ymd', strtotime($reminder_date)), 'reminder-time' => $reminder_time, 'completed' => date('Ymd G:i', $comp_ts));
 	
 	if ($reminder_repeat != 'never') {
-	$reminder_date_key = acf_get_field_key('reminder_date', $reminder_added);	
+	$reminder_date_key = acf_get_field_key('reminder_date', $reminder_id);	
 		if ($reminder_repeat == 'day') {
-		$next_date = date('Ymd', strtotime("tomorrow"));	
+		
+		if ( date('w', strtotime("tomorrow")) == 5 || date('w', strtotime("tomorrow")) == 6 ) { 
+		$next_date = date('Ymd', strtotime("Monday next week"));	 
+		} else {
+		$next_date = date('Ymd', strtotime("tomorrow"));		 	 
+		}	
 		}
 		if ($reminder_repeat == 'week') {
 		$next_date = date('Ymd', strtotime($reminder_date ." + 1 week"));	
@@ -42,14 +47,14 @@ if ( isset($_POST['status']) && !isset($_POST['reminder-title'])) {
 		update_field($reminder_date_key,  $next_date, $reminder_id); 
 	}
 	
-	if (!empty($remind_later)) {
+	$status_added = update_user_meta($current_user->ID, 'reminders_completed', serialize($reminders_completed), $reminders_completed_raw);
+	
+	if(!empty($remind_later) && $status_added) {
 	$remind_later_key = acf_get_field_key('remind_later',  $reminder_id);
 	$remind_later_updated = update_field($remind_later_key, "", $reminder_id);	
 	}
-	
-	$status_added = update_user_meta($current_user->ID, 'reminders_completed', serialize($reminders_completed), $reminders_completed_raw); 
-	
-	if ($status_added) {
+
+	if ($status_added && isset($_POST['status'])) {
 	wp_redirect( '?group-id='.$_POST['group-id']."&reminder-updated=1" );
 	exit;	
 	}

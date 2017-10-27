@@ -514,9 +514,9 @@
 		"ma": 0,
 		"mi": 1,
 		"oA": 0,
-		"oAP": "\/app\/js\/min\/functions-min.js",
-		"oF": 0,
-		"sC": 1,
+		"oAP": "\/app\/js\/functions-min.js",
+		"oF": 2,
+		"sC": 0,
 		"tS": 0
 		},
 	"\/app\/js\/meetings-functions-min.js": {
@@ -1137,255 +1137,255 @@
 		},
 	"\/parts\/calendar-page\/calendar-actions.php": {
 		"ft": 8192,
-		"oA": 2,
+		"oA": 1,
 		"oAP": "\/parts\/calendar-page\/calendar-actions.php",
-		"oF": 0
+		"oF": 1
 		},
 	"\/parts\/calendar-page\/calendar-key.php": {
 		"ft": 8192,
-		"oA": 2,
+		"oA": 1,
 		"oAP": "\/parts\/calendar-page\/calendar-key.php",
-		"oF": 0
+		"oF": 1
 		},
 	"\/parts\/calendar-page\/calendar-views.php": {
 		"ft": 8192,
-		"oA": 2,
+		"oA": 1,
 		"oAP": "\/parts\/calendar-page\/calendar-views.php",
-		"oF": 0
+		"oF": 1
 		},
 	"\/parts\/calendar-page\/day-view.php": {
 		"ft": 8192,
-		"oA": 2,
+		"oA": 1,
 		"oAP": "\/parts\/calendar-page\/day-view.php",
-		"oF": 0
+		"oF": 1
 		},
 	"\/parts\/calendar-page\/month-view.php": {
 		"ft": 8192,
-		"oA": 2,
+		"oA": 1,
 		"oAP": "\/parts\/calendar-page\/month-view.php",
-		"oF": 0
+		"oF": 1
 		},
 	"\/parts\/calendar-page\/week-view.php": {
 		"ft": 8192,
-		"oA": 2,
+		"oA": 1,
 		"oAP": "\/parts\/calendar-page\/week-view.php",
-		"oF": 0
+		"oF": 1
 		},
 	"\/parts\/contacts-page\/add-contact.php": {
 		"ft": 8192,
-		"oA": 2,
+		"oA": 1,
 		"oAP": "\/parts\/contacts-page\/add-contact.php",
-		"oF": 0
+		"oF": 1
 		},
 	"\/parts\/contacts-page\/add-group.php": {
 		"ft": 8192,
-		"oA": 2,
+		"oA": 1,
 		"oAP": "\/parts\/contacts-page\/add-group.php",
-		"oF": 0
+		"oF": 1
 		},
 	"\/parts\/contacts-page\/contact-alerts.php": {
 		"ft": 8192,
-		"oA": 2,
+		"oA": 1,
 		"oAP": "\/parts\/contacts-page\/contact-alerts.php",
-		"oF": 0
+		"oF": 1
 		},
 	"\/parts\/contacts-page\/contact-info.php": {
 		"ft": 8192,
-		"oA": 2,
+		"oA": 1,
 		"oAP": "\/parts\/contacts-page\/contact-info.php",
-		"oF": 0
+		"oF": 1
 		},
 	"\/parts\/contacts-page\/contact-list.php": {
 		"ft": 8192,
-		"oA": 2,
+		"oA": 1,
 		"oAP": "\/parts\/contacts-page\/contact-list.php",
-		"oF": 0
+		"oF": 1
 		},
 	"\/parts\/contacts-page\/contact-vars.php": {
 		"ft": 8192,
-		"oA": 2,
+		"oA": 1,
 		"oAP": "\/parts\/contacts-page\/contact-vars.php",
-		"oF": 0
+		"oF": 1
 		},
 	"\/parts\/contacts-page\/edit-group.php": {
 		"ft": 8192,
-		"oA": 2,
+		"oA": 1,
 		"oAP": "\/parts\/contacts-page\/edit-group.php",
-		"oF": 0
+		"oF": 1
 		},
 	"\/parts\/contacts-page\/private-info.php": {
 		"ft": 8192,
-		"oA": 2,
+		"oA": 1,
 		"oAP": "\/parts\/contacts-page\/private-info.php",
-		"oF": 0
+		"oF": 1
 		},
 	"\/parts\/contacts-page\/private-list.php": {
 		"ft": 8192,
-		"oA": 2,
+		"oA": 1,
 		"oAP": "\/parts\/contacts-page\/private-list.php",
-		"oF": 0
+		"oF": 1
 		},
 	"\/parts\/departments-page\/department-info.php": {
 		"ft": 8192,
-		"oA": 2,
+		"oA": 1,
 		"oAP": "\/parts\/departments-page\/department-info.php",
-		"oF": 0
+		"oF": 1
 		},
 	"\/parts\/departments-page\/departments-grid.php": {
 		"ft": 8192,
-		"oA": 2,
+		"oA": 1,
 		"oAP": "\/parts\/departments-page\/departments-grid.php",
-		"oF": 0
+		"oF": 1
 		},
 	"\/parts\/footer\/reminder-alerts.php": {
 		"ft": 8192,
-		"oA": 2,
+		"oA": 1,
 		"oAP": "\/parts\/footer\/reminder-alerts.php",
-		"oF": 0
+		"oF": 1
 		},
 	"\/parts\/global\/site-loader.php": {
 		"ft": 8192,
-		"oA": 2,
+		"oA": 1,
 		"oAP": "\/parts\/global\/site-loader.php",
-		"oF": 0
+		"oF": 1
 		},
 	"\/parts\/meetings-page\/add-attendees-acf.php": {
 		"ft": 8192,
-		"oA": 2,
+		"oA": 1,
 		"oAP": "\/parts\/meetings-page\/add-attendees-acf.php",
-		"oF": 0
+		"oF": 1
 		},
 	"\/parts\/meetings-page\/add-attendees.php": {
 		"ft": 8192,
-		"oA": 2,
+		"oA": 1,
 		"oAP": "\/parts\/meetings-page\/add-attendees.php",
-		"oF": 0
+		"oF": 1
 		},
 	"\/parts\/meetings-page\/add-meeting.php": {
 		"ft": 8192,
-		"oA": 2,
+		"oA": 1,
 		"oAP": "\/parts\/meetings-page\/add-meeting.php",
-		"oF": 0
+		"oF": 1
 		},
 	"\/parts\/meetings-page\/alerts\/meeting-alerts.php": {
 		"ft": 8192,
-		"oA": 2,
+		"oA": 1,
 		"oAP": "\/parts\/meetings-page\/alerts\/meeting-alerts.php",
-		"oF": 0
+		"oF": 1
 		},
 	"\/parts\/meetings-page\/edit-meeting.php": {
 		"ft": 8192,
-		"oA": 2,
+		"oA": 1,
 		"oAP": "\/parts\/meetings-page\/edit-meeting.php",
-		"oF": 0
+		"oF": 1
 		},
 	"\/parts\/meetings-page\/meetings-info.php": {
 		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/parts\/meetings-page\/meetings-info.php.sb-5d0de468-xCTexH",
-		"oF": 0
+		"oA": 1,
+		"oAP": "\/parts\/meetings-page\/meetings-info.php.php",
+		"oF": 1
 		},
 	"\/parts\/meetings-page\/meetings-list.php": {
 		"ft": 8192,
-		"oA": 2,
+		"oA": 1,
 		"oAP": "\/parts\/meetings-page\/meetings-list.php",
-		"oF": 0
+		"oF": 1
 		},
 	"\/parts\/meetings-page\/your-meetings.php": {
 		"ft": 8192,
-		"oA": 2,
+		"oA": 1,
 		"oAP": "\/parts\/meetings-page\/your-meetings.php",
-		"oF": 0
+		"oF": 1
 		},
 	"\/parts\/notes-page\/note-template.php": {
 		"ft": 8192,
-		"oA": 2,
+		"oA": 1,
 		"oAP": "\/parts\/notes-page\/note-template.php",
-		"oF": 0
+		"oF": 1
 		},
 	"\/parts\/reminders-page\/delete-group-alert.php": {
 		"ft": 8192,
-		"oA": 2,
+		"oA": 1,
 		"oAP": "\/parts\/reminders-page\/delete-group-alert.php",
-		"oF": 0
+		"oF": 1
 		},
 	"\/parts\/reminders-page\/meetings-later.php": {
 		"ft": 8192,
-		"oA": 2,
+		"oA": 1,
 		"oAP": "\/parts\/reminders-page\/meetings-later.php",
-		"oF": 0
+		"oF": 1
 		},
 	"\/parts\/reminders-page\/meetings-today.php": {
 		"ft": 8192,
-		"oA": 2,
+		"oA": 1,
 		"oAP": "\/parts\/reminders-page\/meetings-today.php",
-		"oF": 0
+		"oF": 1
 		},
 	"\/parts\/reminders-page\/meetings-tomorrow.php": {
 		"ft": 8192,
-		"oA": 2,
+		"oA": 1,
 		"oAP": "\/parts\/reminders-page\/meetings-tomorrow.php",
-		"oF": 0
+		"oF": 1
 		},
 	"\/parts\/reminders-page\/reminders-group.php": {
 		"ft": 8192,
-		"oA": 2,
+		"oA": 1,
 		"oAP": "\/parts\/reminders-page\/reminders-group.php",
-		"oF": 0
+		"oF": 1
 		},
 	"\/parts\/reminders-page\/reminders-info.php": {
 		"ft": 8192,
-		"oA": 2,
+		"oA": 1,
 		"oAP": "\/parts\/reminders-page\/reminders-info.php",
-		"oF": 0
+		"oF": 1
 		},
 	"\/parts\/reminders-page\/reminders-meetings.php": {
 		"ft": 8192,
-		"oA": 2,
+		"oA": 1,
 		"oAP": "\/parts\/reminders-page\/reminders-meetings.php",
-		"oF": 0
+		"oF": 1
 		},
 	"\/parts\/reminders-page\/reminders-scheduled.php": {
 		"ft": 8192,
-		"oA": 2,
+		"oA": 1,
 		"oAP": "\/parts\/reminders-page\/reminders-scheduled.php",
-		"oF": 0
+		"oF": 1
 		},
 	"\/parts\/reminders-page\/schedules-later.php": {
 		"ft": 8192,
-		"oA": 2,
+		"oA": 1,
 		"oAP": "\/parts\/reminders-page\/schedules-later.php",
-		"oF": 0
+		"oF": 1
 		},
 	"\/parts\/reminders-page\/schedules-today.php": {
 		"ft": 8192,
-		"oA": 2,
+		"oA": 1,
 		"oAP": "\/parts\/reminders-page\/schedules-today.php",
-		"oF": 0
+		"oF": 1
 		},
 	"\/parts\/reminders-page\/schedules-tomorrow.php": {
 		"ft": 8192,
-		"oA": 2,
+		"oA": 1,
 		"oAP": "\/parts\/reminders-page\/schedules-tomorrow.php",
-		"oF": 0
+		"oF": 1
 		},
 	"\/parts\/user\/profile-info.php": {
 		"ft": 8192,
-		"oA": 2,
+		"oA": 1,
 		"oAP": "\/parts\/user\/profile-info.php",
-		"oF": 0
+		"oF": 1
 		},
 	"\/parts\/user\/user-links.php": {
 		"ft": 8192,
-		"oA": 2,
+		"oA": 1,
 		"oAP": "\/parts\/user\/user-links.php",
-		"oF": 0
+		"oF": 1
 		},
 	"\/parts\/user\/user-vars.php": {
 		"ft": 8192,
-		"oA": 2,
+		"oA": 1,
 		"oAP": "\/parts\/user\/user-vars.php",
-		"oF": 0
+		"oF": 1
 		},
 	"\/profile-form.php": {
 		"ft": 8192,

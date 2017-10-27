@@ -17,17 +17,20 @@ $low_p = array();
 $med_p = array();
 $high_p = array();
 $no_p = array();
+//debug($now_dateTime->format('Ymd'));
 $reminders_args = array(
 'posts_per_page' => -1,
 'post_type' => 'tlw_reminder',
 'meta_key' => 'reminder_date',
-'meta_value'	=> date('Ymd'),
-'meta_compare'	=> "<=",
+'meta_query'	=> array(
+	'value'	=> 	array(date('Ymd', strtotime("yesterday")), date('Ymd', strtotime("tomorrow"))),
+	'compare'	=> 'BETWEEN',
+),
 'orderby' => 'meta_value_num',
 'order'	=> 'ASC'
 );
 $reminders = get_posts($reminders_args);	
-//debug($reminders_completed);
+//debug($reminders);
 foreach ($reminders as $k => $rem) {
 $rem_later = get_field('remind_later', $rem->ID);
 $rem_time = get_field('reminder_time', $rem->ID);
@@ -35,12 +38,10 @@ $rem_date = get_field('reminder_date', $rem->ID);
 $rem_dateTime = new DateTime($rem_date." ".$rem_time, new DateTimeZone($timeZone));
 $priority = get_field('reminder_priority', $rem->ID);
 
-	if (in_array_r($rem->ID, $reminders_completed) && $priority == 'never') {
+	if (in_array_r($rem->ID, $reminders_completed)) {
 	unset($reminders[$k]);	
 	}
-	if ($rem_dateTime->getTimestamp() > $now_ts) {
-	unset($reminders[$k]);	
-	}
+
 	if (!empty($rem_later)) {
 	$rem_later_dateTime = new DateTime($rem_later, new DateTimeZone($timeZone));
 	//debug($rem_later_dateTime->getTimestamp()." -- ".$now_ts);
@@ -84,7 +85,7 @@ $rem_dateTime = new DateTime($rem_date." ".$rem_time, new DateTimeZone($timeZone
 	$rem_date .= "ago";
 	//echo '<pre>';print_r($interval);echo '</pre>';
 	} else {
-	$rem_date = $rem_dateTime->format("");	
+	$rem_date = $rem_dateTime->format("g:i a");	
 	}
 	
 	if ($priority == 'low') {
@@ -116,8 +117,8 @@ $rem_dateTime = new DateTime($rem_date." ".$rem_time, new DateTimeZone($timeZone
 				<div class="time"><?php echo $hp['rem-date']; ?></div>
 				<div class="actions">
 					<input type="hidden" name="group-id" value="<?php echo $hp['group-id']; ?>">
-					<button type="submit" name="status" value="<?php echo $hp['reminder-id']; ?>" class="complete-btn btn btn-default">Complete</button>
-					<button type="submit" class="btn btn-default" name="status-later" value="<?php echo $hp['reminder-id']; ?>">Later</button>
+					<button type="submit" name="alert-status" value="<?php echo $hp['reminder-id']; ?>" class="complete-btn btn btn-default">Complete</button>
+					<button type="submit" class="btn btn-default" name="remind-later" value="<?php echo $hp['reminder-id']; ?>">Later</button>
 				</div>
 			</div>
 		<?php } ?>
@@ -131,8 +132,8 @@ $rem_dateTime = new DateTime($rem_date." ".$rem_time, new DateTimeZone($timeZone
 				<div class="time"><?php echo $mp['rem-date']; ?></div>
 				<div class="actions">
 					<input type="hidden" name="group-id" value="<?php echo $mp['group-id']; ?>">
-					<button type="submit" name="status" value="<?php echo $mp['reminder-id']; ?>" class="complete-btn btn btn-default">Complete</button>
-					<button type="submit" class="btn btn-default" name="status-later" value="<?php echo $mp['reminder-id']; ?>">Later</button>
+					<button type="submit" name="alert-status" value="<?php echo $mp['reminder-id']; ?>" class="complete-btn btn btn-default">Complete</button>
+					<button type="submit" class="btn btn-default" name="remind-later" value="<?php echo $mp['reminder-id']; ?>">Later</button>
 				</div>
 			</div>
 		<?php } ?>
@@ -146,8 +147,8 @@ $rem_dateTime = new DateTime($rem_date." ".$rem_time, new DateTimeZone($timeZone
 				<div class="time"><?php echo $lp['rem-date']; ?></div>
 				<div class="actions">
 					<input type="hidden" name="group-id" value="<?php echo $lp['group-id']; ?>">
-					<button type="submit" name="status" value="<?php echo $lp['reminder-id']; ?>" class="complete-btn btn btn-default">Complete</button>
-					<button type="submit" class="btn btn-default" name="status-later" value="<?php echo $mp['reminder-id']; ?>">Later</button>
+					<button type="submit" name="alert-status" value="<?php echo $lp['reminder-id']; ?>" class="complete-btn btn btn-default">Complete</button>
+					<button type="submit" class="btn btn-default" name="remind-later" value="<?php echo $mp['reminder-id']; ?>">Later</button>
 				</div>
 			</div>
 		<?php } ?>
@@ -161,8 +162,8 @@ $rem_dateTime = new DateTime($rem_date." ".$rem_time, new DateTimeZone($timeZone
 				<div class="time"><?php echo $np['rem-date']; ?></div>
 				<div class="actions">
 					<input type="hidden" name="group-id" value="<?php echo $np['group-id']; ?>">
-					<button type="submit" name="status" value="<?php echo $np['reminder-id']; ?>" class="complete-btn btn btn-default">Complete</button>
-					<button type="submit" class="btn btn-default" name="status-later" value="<?php echo $np['reminder-id']; ?>">Later</button>
+					<button type="submit" name="alert-status" value="<?php echo $np['reminder-id']; ?>" class="complete-btn btn btn-default">Complete</button>
+					<button type="submit" class="btn btn-default" name="remind-later" value="<?php echo $np['reminder-id']; ?>">Later</button>
 				</div>
 			</div>
 		<?php } ?>
