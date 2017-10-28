@@ -4,9 +4,8 @@ article.page {
 .bottom(0);
 .right(0);
 .left(50);
-.min-w(70);
-.pad(2;5;4;6);
-overflow: auto;
+.min-w(50);
+overflow: hidden;
 .transition();
 
 	&.no-sbs {
@@ -20,7 +19,7 @@ overflow: auto;
 	
 	&.sb-wide {
 	.left(35);	
-	.min-w(60);
+	.min-w(50);
 	}
 	
 	&.sb-in {
@@ -60,7 +59,31 @@ overflow: auto;
 	.left(0);
 	width: 100%;
 	height: 100%;
-	.over-hide;	
+	overflow: auto;	
+	.pad(2;5;6;6);
+		&::-webkit-scrollbar {
+		    width: 10px;
+		    border-left: 1px solid @grayDk;
+		}
+		 
+		/* Track */
+		&::-webkit-scrollbar-track {
+		    -webkit-box-shadow: none; 
+		    -webkit-border-radius: 0px;
+		    border-radius: 0px;
+		}
+		 
+		/* Handle */
+		&::-webkit-scrollbar-thumb {
+		    -webkit-border-radius: 0px;
+		    border-radius: 0px;
+		    background: @grayDk; 
+		    -webkit-box-shadow: none; 
+		}
+		&::-webkit-scrollbar-thumb:window-inactive {
+			background: @grayDk; 
+		}
+
 	}
 
 	.profile-img {
@@ -81,6 +104,9 @@ overflow: auto;
 	
 	.table {
 	.border-bot(@grayDk; 0.1);	
+	.max-w(90);
+	.min-w(75);
+	margin: auto;
 		span.name {
 		.in-block;
 		.line-h(3.4);
@@ -88,7 +114,7 @@ overflow: auto;
 		}
 		a.notify-btn {
 		text-align: left;
-		.min-w(20);	
+		.min-w(15);	
 		.rel;
 			i {
 			.abs;

@@ -36,28 +36,45 @@ $start_time = get_field('start_time', $m->ID);
 	$calendar_meetings[] = array($m->ID, date('j', strtotime($meeting_date)), date('G', strtotime($start_time)));	
 }
 
+$reminders_completed_raw = get_user_meta($current_user->ID, 'reminders_completed', true);
+$reminders_completed = unserialize($reminders_completed_raw);
+$excluded_rems = array();
+
+foreach ($reminders_completed as $key => $rc) { 
+$rem_id = $rc['reminder-id'];
+$reminder_group = get_field('reminder_group', $rem_id);	
+$reminder_repeat = get_field('reminder_repeat', $rem_id);	
+$reminder_date = date("Ymd", strtotime(get_field('reminder_date', $rem_id)));
+	if (!in_array($rem_id, $excluded_rems) && $reminder_repeat == "never") {
+	$excluded_rems[] = $rem_id;
+	}
+	if (!in_array($rem_id, $excluded_rems) && $reminder_date < $now_dateTime->format('Ymd')) {
+	$excluded_rems[] = $rem_id;
+	}
+	if (!in_array($rem_id, $excluded_rems) && $rc['reminder-date'] == $reminder_date) {
+	$excluded_rems[] = $rem_id;
+	}
+}
+
 $reminders_args = array(
 'posts_per_page' => -1,
 'post_type' => 'tlw_reminder',
 'author'	=> $current_user->ID,
+'exclude'	=> $excluded_rems,
 'meta_key'	=> 'reminder_date',
 'meta_value' => array($week_start->format('Ymd'), $week_end->format('Ymd')),
 'meta_compare'	=> 'BETWEEN'
 );
 $reminders = get_posts($reminders_args);
 //debug($meetings);
-$reminders_completed_raw = get_user_meta($current_user->ID, 'reminders_completed', true);
-$reminders_completed = unserialize($reminders_completed_raw);
 
 foreach ($reminders as $r) {
 $reminder_date = get_field('reminder_date', $r->ID);
 $reminder_time = get_field('reminder_time', $r->ID);
-$reminder_repeat = get_field('reminder_repeat', $r->ID);
+$reminder_group = get_field('reminder_group', $r->ID);	
 //debug($meeting_date);
-	if (date("W", strtotime($reminder_date)) == $now_dateTime->format('W')) {
-		if ($reminder_repeat != 'never' && !in_array_r(date("Ymd", strtotime($reminder_date)) , $reminders_completed)) {
-		$calendar_reminders[] = array($r->ID, date('j', strtotime($reminder_date)), date('G', strtotime($reminder_time)));	
-		}
+	if ($reminder_group != "meeting") {
+	$calendar_reminders[] = array($r->ID, date('j', strtotime($reminder_date)), date('G', strtotime($reminder_time)));	
 	}
 }
 //debug(date('j', strtotime($week_start->format("j M Y")." +2 day") ));
@@ -79,17 +96,21 @@ $reminder_repeat = get_field('reminder_repeat', $r->ID);
 		<div class="hour">
 			<span class="hour-number"><?php echo date("ga", strtotime($t.":00")); ?></span>
 			<div class="events">
-			<?php foreach ($calendar_meetings as $cm) { ?>
+			<?php foreach ($calendar_meetings as $cm) { 
+			$start_time = get_field('start_time', $cm[0]);
+			?>
 			<?php if ($cm[2] == $t && $cm[1] == $week_start->format("j")) { ?>
 			<div class="label label-info">
-				<span><i class="fa fa-clock-o"></i> <?php echo get_the_title($cm[0]); ?></span>
+				<span><i class="fa fa-clock-o"></i> <?php echo $start_time; ?>: <?php echo get_the_title($cm[0]); ?></span>
 			</div>					
 			<?php } ?>
 			<?php } ?>
-			<?php foreach ($calendar_reminders as $cr) { ?>
+			<?php foreach ($calendar_reminders as $cr) { 
+			$rem_time = get_field('reminder_time', $cr[0]);	
+			?>
 			<?php if ($cr[2] == $t && $cr[1] == $week_start->format("j")) { ?>
 			<div class="label label-primary">
-				<span><i class="fa fa-bell"></i> <?php echo get_the_title($cr[0]); ?></span>
+				<span><i class="fa fa-bell"></i> <?php echo $rem_time; ?>: <?php echo get_the_title($cr[0]); ?></span>
 			</div>
 			<?php } ?>
 			<?php } ?>
@@ -103,17 +124,21 @@ $reminder_repeat = get_field('reminder_repeat', $r->ID);
 		<div class="hour">
 			<span class="hour-number"><?php echo date("ga", strtotime($t.":00")); ?></span>
 			<div class="events">
-			<?php foreach ($calendar_meetings as $cm) { ?>
+			<?php foreach ($calendar_meetings as $cm) { 
+			$start_time = get_field('start_time', $cm[0]);	
+			?>
 			<?php if ($cm[2] == $t && $cm[1] == ($week_start->format("j") + 1)) { ?>
 			<div class="label label-info">
-				<span><i class="fa fa-clock-o"></i> <?php echo get_the_title($cm[0]); ?></span>
+				<span><i class="fa fa-clock-o"></i> <?php echo $start_time; ?>: <?php echo get_the_title($cm[0]); ?></span>
 			</div>					
 			<?php } ?>
 			<?php } ?>
-			<?php foreach ($calendar_reminders as $cr ) { ?>
+			<?php foreach ($calendar_reminders as $cr ) { 
+			$rem_time = get_field('reminder_time', $cr[0]);
+			?>
 			<?php if ($cr[2] == $t && $cr[1] == ($week_start->format("j") + 1) ) { ?>
 			<div class="label label-primary">
-				<span><i class="fa fa-bell"></i> <?php echo get_the_title($cr[0]); ?></span>
+				<span><i class="fa fa-bell"></i> <?php echo $rem_time; ?>: <?php echo get_the_title($cr[0]); ?></span>
 			</div>
 			<?php } ?>
 			<?php } ?>
@@ -127,17 +152,21 @@ $reminder_repeat = get_field('reminder_repeat', $r->ID);
 		<div class="hour">
 			<span class="hour-number"><?php echo date("ga", strtotime($t.":00")); ?></span>
 			<div class="events">
-			<?php foreach ($calendar_meetings as $cm) { ?>
+			<?php foreach ($calendar_meetings as $cm) { 
+			$start_time = get_field('start_time', $cm[0]);	
+			?>
 			<?php if ($cm[2] == $t && $cm[1] == ($week_start->format("j") + 2)) { ?>
 			<div class="label label-info">
-				<span><i class="fa fa-clock-o"></i> <?php echo get_the_title($cm[0]); ?></span>
+				<span><i class="fa fa-clock-o"></i> <?php echo $start_time; ?>: <?php echo get_the_title($cm[0]); ?></span>
 			</div>					
 			<?php } ?>
 			<?php } ?>
-			<?php foreach ($calendar_reminders as $cr) { ?>
+			<?php foreach ($calendar_reminders as $cr) { 
+			$rem_time = get_field('reminder_time', $cr[0]);
+			?>
 			<?php if ($cr[2] == $t && $cr[1] == ($week_start->format("j") + 2)) { ?>
 			<div class="label label-primary">
-				<span><i class="fa fa-bell"></i> <?php echo get_the_title($cr[0]); ?></span>
+				<span><i class="fa fa-bell"></i> <?php echo $rem_time; ?>: <?php echo get_the_title($cr[0]); ?></span>
 			</div>
 			<?php } ?>
 			<?php } ?>
@@ -151,17 +180,21 @@ $reminder_repeat = get_field('reminder_repeat', $r->ID);
 		<div class="hour">
 			<span class="hour-number"><?php echo date("ga", strtotime($t.":00")); ?></span>
 			<div class="events">
-			<?php foreach ($calendar_meetings as $cm) { ?>
+			<?php foreach ($calendar_meetings as $cm) { 
+			$start_time = get_field('start_time', $cm[0]);		
+			?>
 			<?php if ($cm[2] == $t && $cm[1] == ($week_start->format("j") + 3)) { ?>
 			<div class="label label-info">
-				<span><i class="fa fa-clock-o"></i> <?php echo get_the_title($cm[0]); ?></span>
+				<span><i class="fa fa-clock-o"></i> <?php echo $start_time; ?>: <?php echo get_the_title($cm[0]); ?></span>
 			</div>					
 			<?php } ?>
 			<?php } ?>
-			<?php foreach ($calendar_reminders as $cr) { ?>
+			<?php foreach ($calendar_reminders as $cr) { 
+			$rem_time = get_field('reminder_time', $cr[0]);	
+			?>
 			<?php if ($cr[2] == $t && $cr[1] == ($week_start->format("j") + 3)) { ?>
 			<div class="label label-primary">
-				<span><i class="fa fa-bell"></i> <?php echo get_the_title($cr[0]); ?></span>
+				<span><i class="fa fa-bell"></i> <?php echo $rem_time; ?>: <?php echo get_the_title($cr[0]); ?></span>
 			</div>
 			<?php } ?>
 			<?php } ?>
@@ -175,17 +208,21 @@ $reminder_repeat = get_field('reminder_repeat', $r->ID);
 		<div class="hour">
 			<span class="hour-number"><?php echo date("ga", strtotime($t.":00")); ?></span>
 			<div class="events">
-			<?php foreach ($calendar_meetings as $cm) { ?>
+			<?php foreach ($calendar_meetings as $cm) { 
+			$start_time = get_field('start_time', $cm[0]);	
+			?>
 			<?php if ($cm[2] == $t && $cm[1] == $week_end->format("j")) { ?>
 			<div class="label label-info">
-				<span><i class="fa fa-clock-o"></i> <?php echo get_the_title($cm[0]); ?></span>
+				<span><i class="fa fa-clock-o"></i> <?php echo $start_time; ?>: <?php echo get_the_title($cm[0]); ?></span>
 			</div>					
 			<?php } ?>
 			<?php } ?>
-			<?php foreach ($calendar_reminders as $cr) { ?>
+			<?php foreach ($calendar_reminders as $cr) { 
+			$rem_time = get_field('reminder_time', $cr[0]);	
+			?>
 			<?php if ($cr[2] == $t && $cr[1] == $week_end->format("j")) { ?>
 			<div class="label label-primary">
-				<span><i class="fa fa-bell"></i> <?php echo get_the_title($cr[0]); ?></span>
+				<span><i class="fa fa-bell"></i> <?php echo $rem_time; ?>: <?php echo get_the_title($cr[0]); ?></span>
 			</div>
 			<?php } ?>
 			<?php } ?>

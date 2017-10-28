@@ -257,7 +257,7 @@ if ($meeting_date_time < $now && !empty($current_attendees_staff)) {
 		<tr>
 			<td></td>
 			<td>
-				<div class="dropdown">
+				<div class="dropdown dropup">
 					<button class="btn btn-default dropdown-toggle" type="button" id="meeting-actions-menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
 	   				<span class="caps" style="padding-right: 10px;">User actions</span>
 	   				<i class="fa fa-cogs"></i>

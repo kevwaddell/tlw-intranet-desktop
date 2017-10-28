@@ -51,7 +51,7 @@
     	// bind form using 'ajaxForm' 
    		$('.reminder-alerts-form').ajaxForm(options); 
    		
-   		console.log(location.href);
+   		//console.log(location.href);
 		     
 	});
 	

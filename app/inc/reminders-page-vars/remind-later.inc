@@ -2,9 +2,9 @@
 global $current_user;
 global $timeZone;
 //debug($reminders_completed);
-if ( isset($_POST['status-later'])) {
+if ( isset($_POST['remind-later'])) {
 	//debug($_POST);
-	$rem_id = $_POST['status-later'];
+	$rem_id = $_POST['remind-later'];
 	$reminder = get_post($rem_id);
 	$dateTime = new DateTime("+1 hour", new DateTimeZone($timeZone));
 	$rem_later = $dateTime->format('Y-m-d G:i:s');

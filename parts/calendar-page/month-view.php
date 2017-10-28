@@ -47,27 +47,44 @@ $meeting_date = get_field('meeting_date', $m->ID);
 	$calendar_meetings[] = array($m->ID, date('j', strtotime($meeting_date)));	
 	}
 }
+
+$reminders_completed_raw = get_user_meta($current_user->ID, 'reminders_completed', true);
+$reminders_completed = unserialize($reminders_completed_raw);
+$excluded_rems = array();
+
+foreach ($reminders_completed as $key => $rc) { 
+$rem_id = $rc['reminder-id'];
+$reminder_group = get_field('reminder_group', $rem_id);	
+$reminder_repeat = get_field('reminder_repeat', $rem_id);	
+$reminder_date = date("Ymd", strtotime(get_field('reminder_date', $rem_id)));
+	if (!in_array($rem_id, $excluded_rems) && $reminder_repeat == "never") {
+	$excluded_rems[] = $rem_id;
+	}
+	if (!in_array($rem_id, $excluded_rems) && $reminder_group == "meeting") {
+	$excluded_rems[] = $rem_id;
+	}
+}
 $reminders_args = array(
 'posts_per_page' => -1,
 'post_type' => 'tlw_reminder',
-'author'	=> $current_user->ID
+'author'	=> $current_user->ID,
+'exclude'	=> $excluded_rems,
+'meta_key'	=> 'reminder_date',
+'meta_value' => array($month_start->format('Ymd'), $month_end->format('Ymd')),
+'meta_compare'	=> 'BETWEEN'
 );
 $reminders = get_posts($reminders_args);
 //debug($meetings);
-$reminders_completed_raw = get_user_meta($current_user->ID, 'reminders_completed', true);
-$reminders_completed = unserialize($reminders_completed_raw);
 
 foreach ($reminders as $r) {
 $reminder_date = get_field('reminder_date', $r->ID);
-$reminder_repeat = get_field('reminder_repeat', $r->ID);
+$reminder_group = get_field('reminder_group', $r->ID);	
 //debug($meeting_date);
-	if (date("mY", strtotime($reminder_date)) == $now_dateTime->format('mY')) {
-		if ($reminder_repeat != 'never' && !in_array_r(date("Ymd", strtotime($reminder_date)) , $reminders_completed)) {
-		$calendar_reminders[] = array($r->ID, date('j', strtotime($reminder_date)));	
-		}
-	}
+	if ($reminder_group != "meeting") {
+	$calendar_reminders[] = array($r->ID, date('j', strtotime($reminder_date)));	
+	}		
 }
-//debug($reminders_completed);
+//debug($calendar_reminders);
 ?>
 
 <div class="calendar-header">
@@ -95,21 +112,25 @@ $reminder_repeat = get_field('reminder_repeat', $r->ID);
 			<?php if (date("N",strtotime($now_dateTime->format("F")." ".$i."S" ) ) == 1) { 
 			$mons_counter++;	
 			?>
-				<div class="day">
-					<span class="day-number<?php echo ($i == $now_dateTime->format('j') && $current_month == 'this-month') ? ' today': ''; ?>"><?php echo $i; ?></span>
+				<div class="day<?php echo ($i == $now_dateTime->format('j') && $current_month == 'this-month') ? ' today': ''; ?>">
+					<span class="day-number"><?php echo $i; ?></span>
 					<?php// echo '<pre>';print_r($last_weekNum_of_this_month ." -----". $first_weekNum_of_next_month);echo '</pre>'; ?>
 					<div class="events">
-						<?php foreach ($calendar_meetings as $cm) { ?>
+						<?php foreach ($calendar_meetings as $cm) { 
+						$start_time = get_field('start_time', $cm[0]); 	
+						?>
 						<?php if ($cm[1] == $i) { ?>
 						<div class="label label-info">
-							<span><i class="fa fa-clock-o"></i> <?php echo get_the_title($cm[0]); ?></span>
+							<span><i class="fa fa-clock-o"></i> <?php echo $start_time; ?>: <?php echo get_the_title($cm[0]); ?></span>
 						</div>					
 						<?php } ?>
 						<?php } ?>
-						<?php foreach ($calendar_reminders as $cr) { ?>
+						<?php foreach ($calendar_reminders as $cr) { 
+						$rem_time = get_field('reminder_time', $cr[0]); 
+						?>
 						<?php if ($cr[1] == $i) { ?>
 						<div class="label label-primary">
-							<span><i class="fa fa-bell"></i> <?php echo get_the_title($cr[0]); ?></span>
+							<span><i class="fa fa-bell"></i> <?php echo $rem_time; ?>: <?php echo get_the_title($cr[0]); ?></span>
 						</div>
 						<?php } ?>
 						<?php } ?>
@@ -139,20 +160,24 @@ $reminder_repeat = get_field('reminder_repeat', $r->ID);
 			<?php if (date("N",strtotime($now_dateTime->format("F")." ".$i."S" ) ) == 2) { 
 			$tues_counter++;	
 			?>
-				<div class="day">
-					<span class="day-number<?php echo ($i == $now_dateTime->format('j') && $current_month == 'this-month') ? ' today': ''; ?>"><?php echo $i; ?></span>
+				<div class="day<?php echo ($i == $now_dateTime->format('j') && $current_month == 'this-month') ? ' today': ''; ?>">
+					<span class="day-number"><?php echo $i; ?></span>
 					<div class="events">
-						<?php foreach ($calendar_meetings as $cm) { ?>
+						<?php foreach ($calendar_meetings as $cm) { 
+						$start_time = get_field('start_time', $cm[0]); 	
+						?>
 						<?php if ($cm[1] == $i) { ?>
 						<div class="label label-info">
-							<span><i class="fa fa-clock-o"></i> <?php echo get_the_title($cm[0]); ?></span>
+							<span><i class="fa fa-clock-o"></i> <?php echo $start_time; ?>: <?php echo get_the_title($cm[0]); ?></span>
 						</div>					
 						<?php } ?>
 						<?php } ?>
-						<?php foreach ($calendar_reminders as $cr) { ?>
+						<?php foreach ($calendar_reminders as $cr) { 
+						$rem_time = get_field('reminder_time', $cr[0]); 	
+						?>
 						<?php if ($cr[1] == $i) { ?>
 						<div class="label label-primary">
-							<span><i class="fa fa-bell"></i> <?php echo get_the_title($cr[0]); ?></span>
+							<span><i class="fa fa-bell"></i> <?php echo $rem_time; ?>: <?php echo get_the_title($cr[0]); ?></span>
 						</div>
 						<?php } ?>
 						<?php } ?>
@@ -182,20 +207,24 @@ $reminder_repeat = get_field('reminder_repeat', $r->ID);
 			<?php if (date("N",strtotime($now_dateTime->format("F")." ".$i."S" ) ) == 3) { 
 			$weds_counter++;	
 			?>
-				<div class="day">
-					<span class="day-number<?php echo ($i == $now_dateTime->format('j') && $current_month == 'this-month') ? ' today': ''; ?>"><?php echo $i; ?></span>
+				<div class="day<?php echo ($i == $now_dateTime->format('j') && $current_month == 'this-month') ? ' today': ''; ?>">
+					<span class="day-number"><?php echo $i; ?></span>
 					<div class="events">
-						<?php foreach ($calendar_meetings as $cm) { ?>
+						<?php foreach ($calendar_meetings as $cm) { 
+						$start_time = get_field('start_time', $cm[0]); 	
+						?>
 						<?php if ($cm[1] == $i) { ?>
 						<div class="label label-info">
-							<span><i class="fa fa-clock-o"></i> <?php echo get_the_title($cm[0]); ?></span>
+							<span><i class="fa fa-clock-o"></i> <?php echo $start_time; ?>: <?php echo get_the_title($cm[0]); ?></span>
 						</div>					
 						<?php } ?>
 						<?php } ?>
-						<?php foreach ($calendar_reminders as $cr) { ?>
+						<?php foreach ($calendar_reminders as $cr) { 
+						$rem_time = get_field('reminder_time', $cr[0]); 	
+						?>
 						<?php if ($cr[1] == $i) { ?>
 						<div class="label label-primary">
-							<span><i class="fa fa-bell"></i> <?php echo get_the_title($cr[0]); ?></span>
+							<span><i class="fa fa-bell"></i> <?php echo $rem_time; ?>: <?php echo get_the_title($cr[0]); ?></span>
 						</div>
 						<?php } ?>
 						<?php } ?>
@@ -226,20 +255,24 @@ $reminder_repeat = get_field('reminder_repeat', $r->ID);
 			<?php if (date("N",strtotime($now_dateTime->format("F")." ".$i."S" ) ) == 4) { 
 			$thurs_counter++;	
 			?>
-				<div class="day">
-					<span class="day-number<?php echo ($i == $now_dateTime->format('j') && $current_month == 'this-month') ? ' today': ''; ?>"><?php echo $i; ?></span>
+				<div class="day<?php echo ($i == $now_dateTime->format('j') && $current_month == 'this-month') ? ' today': ''; ?>">
+					<span class="day-number"><?php echo $i; ?></span>
 					<div class="events">
-						<?php foreach ($calendar_meetings as $cm) { ?>
+						<?php foreach ($calendar_meetings as $cm) { 
+						$start_time = get_field('start_time', $cm[0]); 	
+						?>
 						<?php if ($cm[1] == $i) { ?>
 						<div class="label label-info">
-							<span><i class="fa fa-clock-o"></i> <?php echo get_the_title($cm[0]); ?></span>
+							<span><i class="fa fa-clock-o"></i> <?php echo $start_time; ?>:  <?php echo get_the_title($cm[0]); ?></span>
 						</div>					
 						<?php } ?>
 						<?php } ?>
-						<?php foreach ($calendar_reminders as $cr) { ?>
+						<?php foreach ($calendar_reminders as $cr) { 
+						$rem_time = get_field('reminder_time', $cr[0]); 	
+						?>
 						<?php if ($cr[1] == $i) { ?>
 						<div class="label label-primary">
-							<span><i class="fa fa-bell"></i> <?php echo get_the_title($cr[0]); ?></span>
+							<span><i class="fa fa-bell"></i> <?php echo $rem_time; ?>: <?php echo get_the_title($cr[0]); ?></span>
 						</div>
 						<?php } ?>
 						<?php } ?>
@@ -269,20 +302,24 @@ $reminder_repeat = get_field('reminder_repeat', $r->ID);
 			<?php if (date("N",strtotime($now_dateTime->format("F")." ".$i."S" ) ) == 5) { 
 			$fris_counter++;	
 			?>
-				<div class="day">
-					<span class="day-number<?php echo ($i == $now_dateTime->format('j') && $current_month == 'this-month') ? ' today': ''; ?>"><?php echo $i; ?></span>
+				<div class="day<?php echo ($i == $now_dateTime->format('j') && $current_month == 'this-month') ? ' today': ''; ?>">
+					<span class="day-number"><?php echo $i; ?></span>
 					<div class="events">
-						<?php foreach ($calendar_meetings as $cm) { ?>
+						<?php foreach ($calendar_meetings as $cm) { 
+						$start_time = get_field('start_time', $cm[0]); 	
+						?>
 						<?php if ($cm[1] == $i) { ?>
 						<div class="label label-info">
-							<span><i class="fa fa-clock-o"></i> <?php echo get_the_title($cm[0]); ?></span>
+							<span><i class="fa fa-clock-o"></i> <?php echo $start_time; ?>:   <?php echo get_the_title($cm[0]); ?></span>
 						</div>					
 						<?php } ?>
 						<?php } ?>
-						<?php foreach ($calendar_reminders as $cr) { ?>
+						<?php foreach ($calendar_reminders as $cr) {
+						$rem_time = get_field('reminder_time', $cr[0]); 	
+						?>
 						<?php if ($cr[1] == $i) { ?>
 						<div class="label label-primary">
-							<span><i class="fa fa-bell"></i> <?php echo get_the_title($cr[0]); ?></span>
+							<span><i class="fa fa-bell"></i> <?php echo $rem_time; ?>: <?php echo get_the_title($cr[0]); ?></span>
 						</div>
 						<?php } ?>
 						<?php } ?>
@@ -297,57 +334,5 @@ $reminder_repeat = get_field('reminder_repeat', $r->ID);
 
 			<?php } ?>
 		</div>	
-		<div class="day-col wk-end pull-left">
-			<div class="day-label">Sat</div>
-			<?php for ($i = 1; $i <= $month_end->format("j"); $i++) {?>
-			<?php 
-			$weekNum_of_this_day = date('W', strtotime($now_dateTime->format("F")." ".$i."S"));	
-			if ($last_week_of_last_month < $weekNum_of_this_day && $sats_counter == 0) { 
-			$sats_counter++;
-			?>
-			<div class="day dim-day">
-				<span class="day-number"><?php echo date("j", strtotime('last sat of '.$month_before->format("F"))); ?></span>
-			</div>	
-			<?php } ?>
-			<?php if (date("N",strtotime($now_dateTime->format("F")." ".$i."S" ) ) == 6) { 
-			$sats_counter++;	
-			?>
-				<div class="day">
-					<span class="day-number<?php echo ($i == $now_dateTime->format('j') && $current_month == 'this-month') ? ' today': ''; ?>"><?php echo $i; ?></span>
-				</div>	
-				<?php if ($i == date('j',strtotime('last sat of '.$now_dateTime->format("F"))) && $sats_counter == $number_of_week_days) { ?>
-				<div class="day dim-day">
-				<span class="day-number"><?php echo date("j", strtotime('first sat of '.$next_month->format("F"))); ?></span>
-				</div>	
-				<?php } ?>
-			<?php } ?>
-
-			<?php } ?>
-		</div>	
-		<div class="day-col wk-end pull-left">
-			<div class="day-label">Sun</div>
-			<?php for ($i = 1; $i <= $month_end->format("j"); $i++) {?>
-			<?php 
-			$weekNum_of_this_day = date('W', strtotime($now_dateTime->format("F")." ".$i."S"));	
-			if ($last_week_of_last_month < $weekNum_of_this_day && $suns_counter == 0) { 
-			$suns_counter++;
-			?>
-			<div class="day dim-day">
-				<span class="day-number"><?php echo date("j", strtotime('last sun of '.$month_before->format("F"))); ?></span>
-			</div>	
-			<?php } ?>
-			<?php if (date("N",strtotime($now_dateTime->format("F")." ".$i."S" ) ) == 7) {
-			$suns_counter++;	
-			?>
-				<div class="day">
-					<span class="day-number<?php echo ($i == $now_dateTime->format('j') && $current_month == 'this-month') ? ' today': ''; ?>"><?php echo $i; ?></span>
-				</div>
-				<?php if ($i == date('j',strtotime('last sun of '.$now_dateTime->format("F"))) && $suns_counter == $number_of_week_days) { ?>
-				<div class="day dim-day">
-				<span class="day-number"><?php echo date("j", strtotime('first sun of '.$next_month->format("F"))); ?></span>
-				</div>	
-				<?php } ?>	
-			<?php } ?>
-			<?php } ?>
-		</div>			
+		 		
 </div>
