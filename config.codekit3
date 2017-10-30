@@ -1081,6 +1081,12 @@
 		"oAP": "\/page-templates\/departments-page.php",
 		"oF": 0
 		},
+	"\/page-templates\/holidays-page.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/page-templates\/holidays-page.php",
+		"oF": 0
+		},
 	"\/page-templates\/login-page.php": {
 		"ft": 8192,
 		"oA": 2,

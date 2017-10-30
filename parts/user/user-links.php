@@ -6,6 +6,7 @@ $settings_pg = get_page_by_path( 'settings' );
 $notes_pg = get_page_by_path( 'notes' );
 $reminders_pg = get_page_by_path( 'reminders' );
 $calendar_pg = get_page_by_path( 'calendar' );
+$holidays_pg = get_page_by_path( 'holidays' );
 //echo '<pre>';print_r($edit_profile_pg);echo '</pre>';
 ?>
 <div class="user-banner-links btn-group pull-right" role="group">
@@ -19,6 +20,9 @@ $calendar_pg = get_page_by_path( 'calendar' );
 	      <li><a href="<?php echo get_permalink( $notes_pg); ?>"><i class="fa fa-pencil"></i> <?php echo get_the_title( $notes_pg ); ?></a></li>
 	      <li><a href="<?php echo get_permalink( $reminders_pg); ?>"><i class="fa fa-bell"></i> <?php echo get_the_title( $reminders_pg ); ?></a></li>
 	      <li><a href="<?php echo get_permalink( $calendar_pg); ?>"><i class="fa fa-calendar"></i> <?php echo get_the_title( $calendar_pg ); ?></a></li>
+	      <?php if (!current_user_can("administrator")) { ?>
+	      	<li><a href="<?php echo get_permalink( $holidays_pg); ?>" target="_blank"><i class="fa fa-plane"></i> <?php echo get_the_title( $holidays_pg ); ?></a></li>		
+	      <?php } ?>
 	      <?php if (current_user_can("administrator")) { ?>
 	      	<li><a href="<?php echo admin_url(); ?>" target="_blank"><i class="fa fa-dashboard"></i> Admin</a></li>		
 	      <?php } ?>
