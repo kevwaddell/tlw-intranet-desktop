@@ -45,9 +45,19 @@ $meetings = get_posts($meetings_args);
 //debug($meetings);
 foreach ($meetings as $m) {
 $meeting_date = get_field('meeting_date', $m->ID);
+$attendees_staff = get_field('attendees_staff', $m->ID);
 //debug($meeting_date);
 	if (date("mY", strtotime($meeting_date)) == $now_dateTime->format('mY')){
-	$calendar_meetings[] = array($m->ID, date('j', strtotime($meeting_date)));	
+		
+		if ($m->post_author == $current_user->ID) {
+		$calendar_meetings[] = array($m->ID, date('j', strtotime($meeting_date)));	
+		}
+		
+		foreach ($attendees_staff as $staff) { 
+			if ($staff['attendee']['ID'] == $current_user->ID) {
+			$calendar_meetings[] = array($m->ID, date('j', strtotime($meeting_date)));	
+			}	
+		}
 	}
 }
 

@@ -23,17 +23,26 @@ $meetings_args = array(
 'post_type'	=> 'tlw_meeting',
 'posts_per_page' => -1,	
 'meta_key'	=> 'meeting_date',
-'meta_query'	=> array(
-	'value'	=> 	array($week_start->format('Ymd'), $week_end->format('Ymd')),
-	'compare'	=> 'BETWEEN',
-)
+'meta_value' => array($week_start->format('Ymd'), $week_end->format('Ymd')),
+'meta_compare'	=> 'BETWEEN'
 );
 $meetings = get_posts($meetings_args);
 foreach ($meetings as $m) {
 $meeting_date = get_field('meeting_date', $m->ID);
-$start_time = get_field('start_time', $m->ID);
+$attendees_staff = get_field('attendees_staff', $m->ID);
 //debug($meeting_date);
-	$calendar_meetings[] = array($m->ID, date('j', strtotime($meeting_date)), date('G', strtotime($start_time)));	
+	if (date("mY", strtotime($meeting_date)) == $now_dateTime->format('mY')){
+		
+		if ($m->post_author == $current_user->ID) {
+		$calendar_meetings[] = array($m->ID, date('j', strtotime($meeting_date)));	
+		}
+		
+		foreach ($attendees_staff as $staff) { 
+			if ($staff['attendee']['ID'] == $current_user->ID) {
+			$calendar_meetings[] = array($m->ID, date('j', strtotime($meeting_date)));	
+			}	
+		}
+	}
 }
 
 $reminders_completed_raw = get_user_meta($current_user->ID, 'reminders_completed', true);
@@ -48,10 +57,7 @@ $reminder_date = date("Ymd", strtotime(get_field('reminder_date', $rem_id)));
 	if (!in_array($rem_id, $excluded_rems) && $reminder_repeat == "never") {
 	$excluded_rems[] = $rem_id;
 	}
-	if (!in_array($rem_id, $excluded_rems) && $reminder_date < $now_dateTime->format('Ymd')) {
-	$excluded_rems[] = $rem_id;
-	}
-	if (!in_array($rem_id, $excluded_rems) && $rc['reminder-date'] == $reminder_date) {
+	if (!in_array($rem_id, $excluded_rems) && $reminder_group == "meeting") {
 	$excluded_rems[] = $rem_id;
 	}
 }

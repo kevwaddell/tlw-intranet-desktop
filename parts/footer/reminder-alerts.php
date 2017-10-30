@@ -30,6 +30,7 @@ $reminders_args = array(
 'meta_key' => 'reminder_date',
 'meta_value' => date('Ymd'),
 'orderby' => 'meta_value_num',
+'author'	=> $current_user->ID,
 'order'	=> 'ASC'
 );
 if (!empty($exclude_rems)) {
