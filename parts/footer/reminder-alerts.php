@@ -13,34 +13,37 @@ $now_dateTime = new DateTime("now", new DateTimeZone($timeZone));
 $now_ts = $now_dateTime->getTimestamp();
 $reminders_completed_raw = get_user_meta($current_user->ID, 'reminders_completed', true);
 $reminders_completed = unserialize($reminders_completed_raw);
+$exclude_rems = array();
 $low_p = array();
 $med_p = array();
 $high_p = array();
 $no_p = array();
-//debug($now_dateTime->format('Ymd'));
+foreach ($reminders_completed as $k => $rc) {
+	if ($rc['reminder-date'] == date('Ymd')) {
+	$exclude_rems[] = $rc['reminder-id'];	
+	}
+}
+//debug($exclude_rems);
 $reminders_args = array(
 'posts_per_page' => -1,
 'post_type' => 'tlw_reminder',
 'meta_key' => 'reminder_date',
-'meta_query'	=> array(
-	'value'	=> 	array(date('Ymd', strtotime("yesterday")), date('Ymd', strtotime("tomorrow"))),
-	'compare'	=> 'BETWEEN',
-),
+'meta_value' => date('Ymd'),
 'orderby' => 'meta_value_num',
 'order'	=> 'ASC'
 );
+if (!empty($exclude_rems)) {
+$reminders_args['exclude'] = $exclude_rems;	
+}
 $reminders = get_posts($reminders_args);	
-//debug($reminders);
+//debug($reminders_completed);
 foreach ($reminders as $k => $rem) {
 $rem_later = get_field('remind_later', $rem->ID);
 $rem_time = get_field('reminder_time', $rem->ID);
 $rem_date = get_field('reminder_date', $rem->ID);
 $rem_dateTime = new DateTime($rem_date." ".$rem_time, new DateTimeZone($timeZone));
-$priority = get_field('reminder_priority', $rem->ID);
 
-	if (in_array_r($rem->ID, $reminders_completed)) {
-	unset($reminders[$k]);	
-	}
+//debug($now_dateTime->format('Ymd') ." --- ". $rem_dateTime->format('Ymd') ." ------ ". $rem->ID);
 
 	if (!empty($rem_later)) {
 	$rem_later_dateTime = new DateTime($rem_later, new DateTimeZone($timeZone));
@@ -51,7 +54,7 @@ $priority = get_field('reminder_priority', $rem->ID);
 	}
 }	
 sort($reminders);
-//debug($now_dateTime->format('d-m-Y G:i'));
+//debug($reminders);
 foreach ($reminders as $k => $rem) {
 $priority = get_field('reminder_priority', $rem->ID);
 $group_id = get_field('reminder_group', $rem->ID);

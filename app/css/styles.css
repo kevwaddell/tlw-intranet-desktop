@@ -14995,17 +14995,42 @@ aside.sb-sml {
   padding: 5px;
   margin-bottom: 5px;
   margin-right: 5px;
-  overflow: hidden;
-  text-overflow: ellipsis;
   max-width: 100%;
 }
 #calendar-wrapper .month-view .day-col .day .label:last-child {
   margin-bottom: 0px;
 }
-#calendar-wrapper .month-view .day-col .day .label span {
-  white-space: nowrap;
-  overflow: hidden;
-  padding-right: 10px;
+#calendar-wrapper .month-view .day-col .day .label a {
+  color: #fff;
+  text-decoration: none;
+  position: relative;
+}
+#calendar-wrapper .month-view .day-col .day .label a span {
+  display: none;
+  position: absolute;
+  left: -10px;
+  bottom: -35px;
+  background-color: #fff;
+  border: 1px solid #4b4b4b;
+  padding: 5px;
+  color: #4b4b4b;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  z-index: 2;
+}
+#calendar-wrapper .month-view .day-col .day .label a span:after {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 10px;
+  margin-left: -5px;
+  border-bottom: 10px solid #4b4b4b;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+}
+#calendar-wrapper .month-view .day-col .day .label a:hover span {
+  display: block;
 }
 #calendar-wrapper .month-view .wk-end {
   width: 8%;
@@ -15092,18 +15117,39 @@ aside.sb-sml {
   padding: 5px;
   margin-bottom: 5px;
   margin-right: 5px;
-  width: 40px;
-  overflow: hidden;
-  text-overflow: ellipsis;
   max-width: 100%;
 }
-#calendar-wrapper .week-view .hour .label span {
-  padding-right: 10px;
-  white-space: nowrap;
-  overflow: hidden;
+#calendar-wrapper .week-view .hour .label a {
+  color: #fff;
+  text-decoration: none;
+  position: relative;
 }
-#calendar-wrapper .week-view .hour .label:hover {
-  width: auto;
+#calendar-wrapper .week-view .hour .label a span {
+  display: none;
+  position: absolute;
+  left: -10px;
+  bottom: -35px;
+  background-color: #fff;
+  border: 1px solid #4b4b4b;
+  padding: 5px;
+  color: #4b4b4b;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  z-index: 2;
+}
+#calendar-wrapper .week-view .hour .label a span:after {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 10px;
+  margin-left: -5px;
+  border-bottom: 10px solid #4b4b4b;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+}
+#calendar-wrapper .week-view .hour .label a:hover span {
+  display: block;
 }
 #calendar-wrapper .week-view .hour:nth-child(2) {
   background-color: #918F8F;
@@ -15216,14 +15262,39 @@ aside.sb-sml {
   padding: 5px;
   margin-bottom: 5px;
   margin-right: 5px;
-  overflow: hidden;
-  text-overflow: ellipsis;
   max-width: 100%;
 }
-#calendar-wrapper .day-view .hour-col .mins .label span {
-  padding-right: 10px;
-  white-space: nowrap;
-  overflow: hidden;
+#calendar-wrapper .day-view .hour-col .mins .label a {
+  color: #fff;
+  text-decoration: none;
+  position: relative;
+}
+#calendar-wrapper .day-view .hour-col .mins .label a span {
+  display: none;
+  position: absolute;
+  left: -10px;
+  bottom: -35px;
+  background-color: #fff;
+  border: 1px solid #4b4b4b;
+  padding: 5px;
+  color: #4b4b4b;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  z-index: 2;
+}
+#calendar-wrapper .day-view .hour-col .mins .label a span:after {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 10px;
+  margin-left: -5px;
+  border-bottom: 10px solid #4b4b4b;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+}
+#calendar-wrapper .day-view .hour-col .mins .label a:hover span {
+  display: block;
 }
 #calendar-wrapper .day-view .hour-col.now {
   background-color: #fdcfe1;
