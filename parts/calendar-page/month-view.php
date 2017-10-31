@@ -121,7 +121,7 @@ $reminder_group = get_field('reminder_group', $r->ID);
 						?>
 						<?php if ($cm[1] == $i) { ?>
 						<div class="label label-info">
-							<span><i class="fa fa-clock-o"></i> <?php echo $start_time; ?>: <?php echo get_the_title($cm[0]); ?></span>
+							<span><i class="fa fa-clock-o"></i> <?php echo $start_time; ?>:</span> <a href=""><?php echo get_the_title($cm[0]); ?></a>
 						</div>					
 						<?php } ?>
 						<?php } ?>
@@ -130,7 +130,7 @@ $reminder_group = get_field('reminder_group', $r->ID);
 						?>
 						<?php if ($cr[1] == $i) { ?>
 						<div class="label label-primary">
-							<span><i class="fa fa-bell"></i> <?php echo $rem_time; ?>: <?php echo get_the_title($cr[0]); ?></span>
+							<span><i class="fa fa-bell"></i> <?php echo $rem_time; ?>:</span> <a href=""><?php echo get_the_title($cr[0]); ?></a>
 						</div>
 						<?php } ?>
 						<?php } ?>
@@ -168,7 +168,7 @@ $reminder_group = get_field('reminder_group', $r->ID);
 						?>
 						<?php if ($cm[1] == $i) { ?>
 						<div class="label label-info">
-							<span><i class="fa fa-clock-o"></i> <?php echo $start_time; ?>: <?php echo get_the_title($cm[0]); ?></span>
+							<span><i class="fa fa-clock-o"></i> <?php echo $start_time; ?>:</span> <a href=""><?php echo get_the_title($cm[0]); ?></a>
 						</div>					
 						<?php } ?>
 						<?php } ?>
@@ -177,7 +177,7 @@ $reminder_group = get_field('reminder_group', $r->ID);
 						?>
 						<?php if ($cr[1] == $i) { ?>
 						<div class="label label-primary">
-							<span><i class="fa fa-bell"></i> <?php echo $rem_time; ?>: <?php echo get_the_title($cr[0]); ?></span>
+							<span><i class="fa fa-bell"></i> <?php echo $rem_time; ?>:</span> <a href=""><?php echo get_the_title($cr[0]); ?></a>
 						</div>
 						<?php } ?>
 						<?php } ?>
@@ -215,7 +215,7 @@ $reminder_group = get_field('reminder_group', $r->ID);
 						?>
 						<?php if ($cm[1] == $i) { ?>
 						<div class="label label-info">
-							<span><i class="fa fa-clock-o"></i> <?php echo $start_time; ?>: <?php echo get_the_title($cm[0]); ?></span>
+							<span><i class="fa fa-clock-o"></i> <?php echo $start_time; ?>:</span> <a href=""><?php echo get_the_title($cm[0]); ?></a>
 						</div>					
 						<?php } ?>
 						<?php } ?>
@@ -224,7 +224,7 @@ $reminder_group = get_field('reminder_group', $r->ID);
 						?>
 						<?php if ($cr[1] == $i) { ?>
 						<div class="label label-primary">
-							<span><i class="fa fa-bell"></i> <?php echo $rem_time; ?>: <?php echo get_the_title($cr[0]); ?></span>
+							<span><i class="fa fa-bell"></i> <?php echo $rem_time; ?>:</span> <a href=""><?php echo get_the_title($cr[0]); ?></a>
 						</div>
 						<?php } ?>
 						<?php } ?>
@@ -263,7 +263,7 @@ $reminder_group = get_field('reminder_group', $r->ID);
 						?>
 						<?php if ($cm[1] == $i) { ?>
 						<div class="label label-info">
-							<span><i class="fa fa-clock-o"></i> <?php echo $start_time; ?>:  <?php echo get_the_title($cm[0]); ?></span>
+							<span><i class="fa fa-clock-o"></i> <?php echo $start_time; ?>:</span> <a href=""><?php echo get_the_title($cm[0]); ?></a>
 						</div>					
 						<?php } ?>
 						<?php } ?>
@@ -272,7 +272,7 @@ $reminder_group = get_field('reminder_group', $r->ID);
 						?>
 						<?php if ($cr[1] == $i) { ?>
 						<div class="label label-primary">
-							<span><i class="fa fa-bell"></i> <?php echo $rem_time; ?>: <?php echo get_the_title($cr[0]); ?></span>
+							<span><i class="fa fa-bell"></i> <?php echo $rem_time; ?>:</span> <a href=""><?php echo get_the_title($cr[0]); ?></a>
 						</div>
 						<?php } ?>
 						<?php } ?>
@@ -310,7 +310,7 @@ $reminder_group = get_field('reminder_group', $r->ID);
 						?>
 						<?php if ($cm[1] == $i) { ?>
 						<div class="label label-info">
-							<span><i class="fa fa-clock-o"></i> <?php echo $start_time; ?>:   <?php echo get_the_title($cm[0]); ?></span>
+							<span><i class="fa fa-clock-o"></i> <?php echo $start_time; ?>:</span> <a href=""><?php echo get_the_title($cm[0]); ?></a>
 						</div>					
 						<?php } ?>
 						<?php } ?>
@@ -319,7 +319,7 @@ $reminder_group = get_field('reminder_group', $r->ID);
 						?>
 						<?php if ($cr[1] == $i) { ?>
 						<div class="label label-primary">
-							<span><i class="fa fa-bell"></i> <?php echo $rem_time; ?>: <?php echo get_the_title($cr[0]); ?></span>
+							<span><i class="fa fa-bell"></i> <?php echo $rem_time; ?>:</span> <a href=""><?php echo get_the_title($cr[0]); ?></a>
 						</div>
 						<?php } ?>
 						<?php } ?>

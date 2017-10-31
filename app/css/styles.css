@@ -14996,16 +14996,18 @@ aside.sb-sml {
   margin-bottom: 5px;
   margin-right: 5px;
   overflow: hidden;
+  white-space: nowrap;
   text-overflow: ellipsis;
   max-width: 100%;
 }
 #calendar-wrapper .month-view .day-col .day .label:last-child {
   margin-bottom: 0px;
 }
-#calendar-wrapper .month-view .day-col .day .label span {
-  white-space: nowrap;
-  overflow: hidden;
-  padding-right: 10px;
+#calendar-wrapper .month-view .day-col .day .label a {
+  display: none;
+}
+#calendar-wrapper .month-view .day-col .day .label:hover a {
+  display: inherit;
 }
 #calendar-wrapper .month-view .wk-end {
   width: 8%;

@@ -665,15 +665,20 @@ margin: auto;
 				.mag-bot(0.5);
 				.mag-right(0.5);
 				overflow: hidden;
+				white-space: nowrap;
 				text-overflow: ellipsis;
 				max-width: 100%;
 					&:last-child{
 					.mag-bot(0);	
 					}
-					span {
-					white-space: nowrap;
-					overflow: hidden;
-					.pad-right(1);
+					a {
+					.none;	
+					}
+					
+					&:hover {
+						a {
+						display: inherit;	
+						}
 					}
 				}
 			
