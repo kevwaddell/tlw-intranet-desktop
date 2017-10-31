@@ -134,7 +134,7 @@
 		},
 	"\/app\/css\/img\/logo.png": {
 		"ft": 32768,
-		"iS": 7197,
+		"iS": 4592,
 		"oA": 0,
 		"oAP": "\/app\/css\/img\/logo.png",
 		"oF": 0,
@@ -983,7 +983,7 @@
 		"oA": 0,
 		"oAP": "\/app\/css\/styles.css",
 		"oF": 0,
-		"oS": 0,
+		"oS": 1,
 		"rU": 0,
 		"sI": 0,
 		"sM": 0,
@@ -1280,6 +1280,12 @@
 		"oA": 1,
 		"oAP": "\/parts\/global\/site-loader.php",
 		"oF": 1
+		},
+	"\/parts\/holidays-page\/holiday-alerts.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/parts\/holidays-page\/holiday-alerts.php",
+		"oF": 0
 		},
 	"\/parts\/holidays-page\/holidays-list.php": {
 		"ft": 8192,

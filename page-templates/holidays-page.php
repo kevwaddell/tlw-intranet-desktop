@@ -44,6 +44,8 @@ if (!empty($user_holidays)) {
 					Please add any previously approved holidays.</p>
 				</div>
 				<?php } ?>
+				
+			<?php get_template_part( 'parts/holidays-page/holiday', 'alerts' ); ?>
 			
 			<?php get_template_part( 'parts/holidays-page/request', 'form' ); ?>
 			
