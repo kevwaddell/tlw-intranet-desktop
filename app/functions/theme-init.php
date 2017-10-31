@@ -3,6 +3,13 @@ if (!is_admin()) {
 
 	function tlw_scripts() {
 		
+		$holidays_pg = get_page_by_path('holidays');
+		$reminders_pg = get_page_by_path('reminders');
+		$meetings_pg = get_page_by_path('meetings');
+		$departments_pg = get_page_by_path('departments');
+		$notes_pg = get_page_by_path('notes');
+		$contacts_pg = get_page_by_path('contacts');
+		
 		global $post;
 		// Load stylesheets.
 		wp_enqueue_style( 'bootstrap-select', 'https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css', null, '1.12.4', 'screen' );
@@ -29,28 +36,28 @@ if (!is_admin()) {
 		wp_enqueue_script( 'jquery-form', 'https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.min.js', array('jquery'), '4.2.2', true );
 		wp_enqueue_script( 'functions', get_stylesheet_directory_uri() . '/app/js/functions-min.js', $functions_dep, filemtime( get_stylesheet_directory().'/app/js/functions.js' ), true );
 		
-		if ($post->ID == 70) {
+		if ($post->ID == $contacts_pg->ID) {
 		wp_enqueue_script( 'contact-functions', get_stylesheet_directory_uri() . '/app/js/contact-functions-min.js', $functions_dep, filemtime( get_stylesheet_directory().'/app/js/contact-functions.js' ), true );	
 		}
 		
-		if ($post->ID == 1211) {
+		if ($post->ID == $notes_pg->ID) {
 		wp_enqueue_script( 'drag-functions', 'https://cdnjs.cloudflare.com/ajax/libs/interact.js/1.2.9/interact.min.js', $functions_dep, '1.2.9', true);
 		wp_enqueue_script( 'notes-functions', get_stylesheet_directory_uri() . '/app/js/notes-functions-min.js', array('drag-functions'), filemtime( get_stylesheet_directory().'/app/js/notes-functions.js' ), true );	
 		}
 		
-		if ($post->ID == 119) {
+		if ($post->ID == $departments_pg->ID) {
 		wp_enqueue_script( 'departments-functions', get_stylesheet_directory_uri() . '/app/js/departments-functions-min.js', $functions_dep, filemtime( get_stylesheet_directory().'/app/js/departments-functions.js' ), true );	
 		}
 		
-		if ($post->ID == 100) {
+		if ($post->ID == $meetings_pg->ID) {
 		wp_enqueue_script( 'meetings-functions', get_stylesheet_directory_uri() . '/app/js/meetings-functions-min.js', $functions_dep, filemtime( get_stylesheet_directory().'/app/js/meetings-functions.js' ), true );	
 		}
 		
-		if ($post->ID == 1208) {
+		if ($post->ID == $reminders_pg->ID) {
 		wp_enqueue_script( 'reminders-functions', get_stylesheet_directory_uri() . '/app/js/reminders-functions-min.js', $functions_dep, filemtime( get_stylesheet_directory().'/app/js/reminders-functions.js' ), true );	
 		}
 		
-		if ($post->ID == 1395) {
+		if ($post->ID == $holidays_pg->ID) {
 		wp_enqueue_script( 'holiday-functions', get_stylesheet_directory_uri() . '/app/js/holiday-functions-min.js', $functions_dep, filemtime( get_stylesheet_directory().'/app/js/holiday-functions.js' ), true );	
 		}
 		

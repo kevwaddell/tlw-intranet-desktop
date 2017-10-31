@@ -15013,24 +15013,12 @@ aside.sb-sml {
   padding: 5px;
   margin-bottom: 5px;
   margin-right: 5px;
-<<<<<<< HEAD
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-=======
->>>>>>> 1fe5d76f35c07dd3e574e9449ed99ffcf00e1c23
   max-width: 100%;
 }
 #calendar-wrapper .month-view .day-col .day .label:last-child {
   margin-bottom: 0px;
 }
 #calendar-wrapper .month-view .day-col .day .label a {
-<<<<<<< HEAD
-  display: none;
-}
-#calendar-wrapper .month-view .day-col .day .label:hover a {
-  display: inherit;
-=======
   color: #fff;
   text-decoration: none;
   position: relative;
@@ -15061,7 +15049,6 @@ aside.sb-sml {
 }
 #calendar-wrapper .month-view .day-col .day .label a:hover span {
   display: block;
->>>>>>> 1fe5d76f35c07dd3e574e9449ed99ffcf00e1c23
 }
 #calendar-wrapper .month-view .wk-end {
   width: 8%;

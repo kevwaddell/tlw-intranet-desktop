@@ -5,6 +5,7 @@ Template Name: Meetings page
 ?>
 <?php  
 global $current_user;
+$timeZone = 'Europe/London';
 $locations = get_terms('tlw_rooms_tax', 'hide_empty=0');
 $meeting_years = get_posts(array('posts_per_page' => -1, 'post_type' => 'tlw_meeting', 'meta_key' => 'meeting_year','orderby' => 'meta_value', 'order' => 'ASC')); 
 $attending_meetings = array(); 
@@ -96,7 +97,7 @@ include (STYLESHEETPATH . '/app/inc/meetings-page-vars/meeting-booked-email.inc'
 if ($_REQUEST['meeting-actions'] == 'notify-user') {
 include (STYLESHEETPATH . '/app/inc/meetings-page-vars/meeting-notify-email.inc');	
 }
-//debug($attending_meetings);
+//debug($your_months);
 //$show_alert = true;
 //$meeting_deleted = true;
 ?>
@@ -130,9 +131,9 @@ include (STYLESHEETPATH . '/app/inc/meetings-page-vars/meeting-notify-email.inc'
 		  <?php if (!empty($your_months)) { ?>
 		  <h3>Your Meetings</h3>
 		  	<?php foreach ($your_months as $m) { 
-			$m_int = date('m', strtotime($m[0]));	
+			$dt_month = new DateTime($m[0]." ".$m[1], new DateTimeZone($timeZone));
 		  	?>
-		  	<a href="?meeting-month=<?php echo $m_int; ?>&meeting-year=<?php echo $m[1]; ?>" class="<?php echo ($_REQUEST['meeting-month'] == $m_int) ? ' active':'' ?>"><?php echo $m[0]; ?></a>
+		  	<a href="?meeting-month=<?php echo $dt_month->format('m'); ?>&meeting-year=<?php echo $dt_month->format('Y'); ?>" class="<?php echo ($_REQUEST['meeting-month'] == $dt_month->format('m')) ? ' active':'' ?>"><?php echo $dt_month->format('F'); ?></a>
 		  	<?php } ?>		
 		  <?php } ?>
 		  
