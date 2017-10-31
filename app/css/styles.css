@@ -13508,6 +13508,15 @@ article.page .table td small {
 article.page .table td .form-group {
   margin-bottom: 0px;
 }
+article.page .table td .toggle-group label {
+  line-height: inherit;
+}
+article.page .table td .radio-inline {
+  line-height: inherit;
+}
+article.page .table td .radio-inline input {
+  margin-top: 8px;
+}
 article.page .table .attendee-client-input input[type='text'] {
   width: 280px;
   margin-right: 5px;
@@ -15311,8 +15320,16 @@ aside.sb-sml {
 #calendar-wrapper .day-view .hour-col.now .day-label {
   background-color: #C60751;
 }
-.request-form table {
+.request-form table,
+.holidays-list table {
   max-width: none !important;
+}
+.request-form .lg-number,
+.holidays-list .lg-number {
+  display: block;
+  text-align: center;
+  font-size: 50px;
+  line-height: 50px;
 }
 .calendar-section .ics-calendar-header {
   font-size: 16px;

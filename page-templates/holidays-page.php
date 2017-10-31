@@ -6,7 +6,9 @@ Template Name: Holidays page
 <?php
 $timeZone = 'Europe/London';
 global $current_user;
-$number_of_days = get_field('number_of_days', $current_user->ID);
+$add_holiday_errors = array();
+$number_of_holidays = get_user_meta($current_user->ID, 'number_of_days', true);
+$days_remaining = $number_of_holidays;
 $user_holidays_raw = get_user_meta($current_user->ID, 'holidays_'.date('Y'), true);
 
 if (empty($user_holdays_raw)) {
@@ -18,7 +20,14 @@ $user_holidays_raw = get_user_meta($current_user->ID, 'holidays_'.date('Y'), tru
 $user_holidays = unserialize($user_holidays_raw);
 $now_dateTime = new DateTime("now", new DateTimeZone($timeZone));
 
-debug($user_holidays);
+//debug($number_of_days);
+
+include (STYLESHEETPATH . '/app/inc/holidays-page-vars/add-holiday.inc');
+if (!empty($user_holidays)) {
+	foreach ($user_holidays as $u_hol) {
+	$days_remaining = $days_remaining - $u_hol['no-days'];
+	}			
+}
 ?>
 
 <?php get_header(); ?>
@@ -35,59 +44,11 @@ debug($user_holidays);
 					Please add any previously approved holidays.</p>
 				</div>
 				<?php } ?>
-				<div class="request-form">
-				<form action="<?php the_permalink(); ?>" method="post">
-					<table class="table table-striped">
-						<thead>
-							<tr>
-								<th colspan="3"><h3>Add/request a holiday</h3></th>
-							</tr>	
-						</thead>
-						<tbody>
-							<tr>
-								<th>Date booked</th>
-								<th>From</th>
-								<th>To</th>
-							</tr>	
-							<tr>
-								<td>
-									<div class="input-group date" id="h-date-bookded-datepicker">
-										<input type="text" class="form-control input-sm" name="date-booked" value="<?php echo $now_dateTime->format('l jS F, Y'); ?>">
-										<span class="input-group-addon"><span class="fa fa-calendar"></span></span>
-									</div>
-								</td>
-								<td>
-									<div class="input-group date" id="h-date-from-datepicker">
-										<input type="text" class="form-control input-sm" name="date-from" value="<?php echo $now_dateTime->format('l jS F, Y'); ?>">
-										<span class="input-group-addon"><span class="fa fa-calendar"></span></span>
-									</div>
-								</td>
-								<td>
-									<div class="input-group date" id="h-date-to-datepicker">
-										<input type="text" class="form-control input-sm" name="date-to" value="<?php echo $now_dateTime->format('l jS F, Y'); ?>">
-										<span class="input-group-addon"><span class="fa fa-calendar"></span></span>
-									</div>
-								</td>
-							</tr>
-							<tr>
-								<th>No of days requested</th>
-								<th>No of days remaining</th>
-								<th>Approval needed</th>
-							</tr>	
-							<tr>
-								<td></td>
-								<td></td>
-								<td>
-									<div class="form-group">
-										<input id="approval-toggle" type="checkbox" data-toggle="toggle" data-onstyle="success" data-width="100" data-size="mini" data-on="Yes" data-off="No" name="approval" value="yes">
-									</div>
-								</td>
-							</tr>
-						</tbody>
-					</table>									
-				</form>
-				
-				</div>
+			
+			<?php get_template_part( 'parts/holidays-page/request', 'form' ); ?>
+			
+			<?php get_template_part( 'parts/holidays-page/holidays', 'list' ); ?>
+			
 			</div>
 		</div>
 	</article>

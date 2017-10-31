@@ -1,0 +1,1 @@
+!function($){var e="click";$(document).ready(function(){$(".holiday-datepicker").datetimepicker({format:"dddd D MMMM YYYY",extraFormats:["YYYY-MM-DD"],useCurrent:!1}).change({date:$(this).find("input").val()})})}(window.jQuery);
