@@ -23,17 +23,26 @@ $meetings_args = array(
 'post_type'	=> 'tlw_meeting',
 'posts_per_page' => -1,	
 'meta_key'	=> 'meeting_date',
-'meta_query'	=> array(
-	'value'	=> 	array($week_start->format('Ymd'), $week_end->format('Ymd')),
-	'compare'	=> 'BETWEEN',
-)
+'meta_value' => array($week_start->format('Ymd'), $week_end->format('Ymd')),
+'meta_compare'	=> 'BETWEEN'
 );
 $meetings = get_posts($meetings_args);
 foreach ($meetings as $m) {
 $meeting_date = get_field('meeting_date', $m->ID);
-$start_time = get_field('start_time', $m->ID);
+$attendees_staff = get_field('attendees_staff', $m->ID);
 //debug($meeting_date);
-	$calendar_meetings[] = array($m->ID, date('j', strtotime($meeting_date)), date('G', strtotime($start_time)));	
+	if (date("mY", strtotime($meeting_date)) == $now_dateTime->format('mY')){
+		
+		if ($m->post_author == $current_user->ID) {
+		$calendar_meetings[] = array($m->ID, date('j', strtotime($meeting_date)));	
+		}
+		
+		foreach ($attendees_staff as $staff) { 
+			if ($staff['attendee']['ID'] == $current_user->ID) {
+			$calendar_meetings[] = array($m->ID, date('j', strtotime($meeting_date)));	
+			}	
+		}
+	}
 }
 
 $reminders_completed_raw = get_user_meta($current_user->ID, 'reminders_completed', true);
@@ -48,10 +57,7 @@ $reminder_date = date("Ymd", strtotime(get_field('reminder_date', $rem_id)));
 	if (!in_array($rem_id, $excluded_rems) && $reminder_repeat == "never") {
 	$excluded_rems[] = $rem_id;
 	}
-	if (!in_array($rem_id, $excluded_rems) && $reminder_date < $now_dateTime->format('Ymd')) {
-	$excluded_rems[] = $rem_id;
-	}
-	if (!in_array($rem_id, $excluded_rems) && $rc['reminder-date'] == $reminder_date) {
+	if (!in_array($rem_id, $excluded_rems) && $reminder_group == "meeting") {
 	$excluded_rems[] = $rem_id;
 	}
 }
@@ -101,16 +107,17 @@ $reminder_group = get_field('reminder_group', $r->ID);
 			?>
 			<?php if ($cm[2] == $t && $cm[1] == $week_start->format("j")) { ?>
 			<div class="label label-info">
-				<span><i class="fa fa-clock-o"></i> <?php echo $start_time; ?>: <?php echo get_the_title($cm[0]); ?></span>
+				<a href="<?php echo get_permalink($meetings_pg->ID); ?>?meeting-id=<?php echo $cm[0]; ?>&meeting-day=<?php echo $month_start->format('Ymd'); ?>&meeting-day-to=<?php echo $month_end->format('Ymd');; ?>"><time><i class="fa fa-clock-o"></i> <?php echo $start_time; ?></time><span><?php echo get_the_title($cm[0]); ?></span></a>
 			</div>					
 			<?php } ?>
 			<?php } ?>
-			<?php foreach ($calendar_reminders as $cr) { 
+			<?php foreach ($calendar_reminders as $cr) {
+			$group = get_field('reminder_group', $cr[0]);  
 			$rem_time = get_field('reminder_time', $cr[0]);	
 			?>
 			<?php if ($cr[2] == $t && $cr[1] == $week_start->format("j")) { ?>
 			<div class="label label-primary">
-				<span><i class="fa fa-bell"></i> <?php echo $rem_time; ?>: <?php echo get_the_title($cr[0]); ?></span>
+				<a href="<?php echo get_permalink($reminders_pg->ID); ?>?group-id=<?php echo $group; ?>"><time><i class="fa fa-bell"></i> <?php echo $rem_time; ?></time><span><?php echo get_the_title($cr[0]); ?></span></a>
 			</div>
 			<?php } ?>
 			<?php } ?>
@@ -129,16 +136,17 @@ $reminder_group = get_field('reminder_group', $r->ID);
 			?>
 			<?php if ($cm[2] == $t && $cm[1] == ($week_start->format("j") + 1)) { ?>
 			<div class="label label-info">
-				<span><i class="fa fa-clock-o"></i> <?php echo $start_time; ?>: <?php echo get_the_title($cm[0]); ?></span>
+				<a href="<?php echo get_permalink($meetings_pg->ID); ?>?meeting-id=<?php echo $cm[0]; ?>&meeting-day=<?php echo $month_start->format('Ymd'); ?>&meeting-day-to=<?php echo $month_end->format('Ymd');; ?>"><time><i class="fa fa-clock-o"></i> <?php echo $start_time; ?></time><span><?php echo get_the_title($cm[0]); ?></span></a>
 			</div>					
 			<?php } ?>
 			<?php } ?>
-			<?php foreach ($calendar_reminders as $cr ) { 
+			<?php foreach ($calendar_reminders as $cr ) {
+			$group = get_field('reminder_group', $cr[0]);  
 			$rem_time = get_field('reminder_time', $cr[0]);
 			?>
 			<?php if ($cr[2] == $t && $cr[1] == ($week_start->format("j") + 1) ) { ?>
 			<div class="label label-primary">
-				<span><i class="fa fa-bell"></i> <?php echo $rem_time; ?>: <?php echo get_the_title($cr[0]); ?></span>
+				<a href="<?php echo get_permalink($reminders_pg->ID); ?>?group-id=<?php echo $group; ?>"><time><i class="fa fa-bell"></i> <?php echo $rem_time; ?></time><span><?php echo get_the_title($cr[0]); ?></span></a>
 			</div>
 			<?php } ?>
 			<?php } ?>
@@ -157,16 +165,17 @@ $reminder_group = get_field('reminder_group', $r->ID);
 			?>
 			<?php if ($cm[2] == $t && $cm[1] == ($week_start->format("j") + 2)) { ?>
 			<div class="label label-info">
-				<span><i class="fa fa-clock-o"></i> <?php echo $start_time; ?>: <?php echo get_the_title($cm[0]); ?></span>
+				<a href="<?php echo get_permalink($meetings_pg->ID); ?>?meeting-id=<?php echo $cm[0]; ?>&meeting-day=<?php echo $month_start->format('Ymd'); ?>&meeting-day-to=<?php echo $month_end->format('Ymd');; ?>"><time><i class="fa fa-clock-o"></i> <?php echo $start_time; ?></time><span><?php echo get_the_title($cm[0]); ?></span></a>
 			</div>					
 			<?php } ?>
 			<?php } ?>
-			<?php foreach ($calendar_reminders as $cr) { 
+			<?php foreach ($calendar_reminders as $cr) {
+			$group = get_field('reminder_group', $cr[0]);  
 			$rem_time = get_field('reminder_time', $cr[0]);
 			?>
 			<?php if ($cr[2] == $t && $cr[1] == ($week_start->format("j") + 2)) { ?>
 			<div class="label label-primary">
-				<span><i class="fa fa-bell"></i> <?php echo $rem_time; ?>: <?php echo get_the_title($cr[0]); ?></span>
+				<a href="<?php echo get_permalink($reminders_pg->ID); ?>?group-id=<?php echo $group; ?>"><time><i class="fa fa-bell"></i> <?php echo $rem_time; ?></time><span><?php echo get_the_title($cr[0]); ?></span></a>
 			</div>
 			<?php } ?>
 			<?php } ?>
@@ -185,16 +194,17 @@ $reminder_group = get_field('reminder_group', $r->ID);
 			?>
 			<?php if ($cm[2] == $t && $cm[1] == ($week_start->format("j") + 3)) { ?>
 			<div class="label label-info">
-				<span><i class="fa fa-clock-o"></i> <?php echo $start_time; ?>: <?php echo get_the_title($cm[0]); ?></span>
+				<a href="<?php echo get_permalink($meetings_pg->ID); ?>?meeting-id=<?php echo $cm[0]; ?>&meeting-day=<?php echo $month_start->format('Ymd'); ?>&meeting-day-to=<?php echo $month_end->format('Ymd');; ?>"><time><i class="fa fa-clock-o"></i> <?php echo $start_time; ?></time><span><?php echo get_the_title($cm[0]); ?></span></a>
 			</div>					
 			<?php } ?>
 			<?php } ?>
-			<?php foreach ($calendar_reminders as $cr) { 
+			<?php foreach ($calendar_reminders as $cr) {
+			$group = get_field('reminder_group', $cr[0]);
 			$rem_time = get_field('reminder_time', $cr[0]);	
 			?>
 			<?php if ($cr[2] == $t && $cr[1] == ($week_start->format("j") + 3)) { ?>
 			<div class="label label-primary">
-				<span><i class="fa fa-bell"></i> <?php echo $rem_time; ?>: <?php echo get_the_title($cr[0]); ?></span>
+				<a href="<?php echo get_permalink($reminders_pg->ID); ?>?group-id=<?php echo $group; ?>"><time><i class="fa fa-bell"></i> <?php echo $rem_time; ?></time><span><?php echo get_the_title($cr[0]); ?></span></a>
 			</div>
 			<?php } ?>
 			<?php } ?>
@@ -213,16 +223,17 @@ $reminder_group = get_field('reminder_group', $r->ID);
 			?>
 			<?php if ($cm[2] == $t && $cm[1] == $week_end->format("j")) { ?>
 			<div class="label label-info">
-				<span><i class="fa fa-clock-o"></i> <?php echo $start_time; ?>: <?php echo get_the_title($cm[0]); ?></span>
+				<a href="<?php echo get_permalink($meetings_pg->ID); ?>?meeting-id=<?php echo $cm[0]; ?>&meeting-day=<?php echo $month_start->format('Ymd'); ?>&meeting-day-to=<?php echo $month_end->format('Ymd');; ?>"><time><i class="fa fa-clock-o"></i> <?php echo $start_time; ?></time><span><?php echo get_the_title($cm[0]); ?></span></a>
 			</div>					
 			<?php } ?>
 			<?php } ?>
-			<?php foreach ($calendar_reminders as $cr) { 
+			<?php foreach ($calendar_reminders as $cr) {
+			$group = get_field('reminder_group', $cr[0]); 
 			$rem_time = get_field('reminder_time', $cr[0]);	
 			?>
 			<?php if ($cr[2] == $t && $cr[1] == $week_end->format("j")) { ?>
 			<div class="label label-primary">
-				<span><i class="fa fa-bell"></i> <?php echo $rem_time; ?>: <?php echo get_the_title($cr[0]); ?></span>
+				<a href="<?php echo get_permalink($reminders_pg->ID); ?>?group-id=<?php echo $group; ?>"><time><i class="fa fa-bell"></i> <?php echo $rem_time; ?></time><span><?php echo get_the_title($cr[0]); ?></span></a>
 			</div>
 			<?php } ?>
 			<?php } ?>

@@ -329,6 +329,12 @@
 		"oAP": "\/app\/inc\/contact-page-vars\/internal-users.inc",
 		"oF": 0
 		},
+	"\/app\/inc\/holidays-page-vars\/add-holiday.inc": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/app\/inc\/holidays-page-vars\/add-holiday.inc",
+		"oF": 0
+		},
 	"\/app\/inc\/meetings-page-vars\/add-attendees.inc": {
 		"ft": 8192,
 		"oA": 2,
@@ -517,6 +523,26 @@
 		"oAP": "\/app\/js\/functions-min.js",
 		"oF": 2,
 		"sC": 0,
+		"tS": 0
+		},
+	"\/app\/js\/holiday-functions-min.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/app\/js\/min\/holiday-functions-min-min.js",
+		"oF": 0,
+		"sC": 1,
+		"tS": 0
+		},
+	"\/app\/js\/holiday-functions.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/app\/js\/min\/holiday-functions-min.js",
+		"oF": 0,
+		"sC": 1,
 		"tS": 0
 		},
 	"\/app\/js\/meetings-functions-min.js": {
@@ -1081,6 +1107,12 @@
 		"oAP": "\/page-templates\/departments-page.php",
 		"oF": 0
 		},
+	"\/page-templates\/holidays-page.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/page-templates\/holidays-page.php",
+		"oF": 0
+		},
 	"\/page-templates\/login-page.php": {
 		"ft": 8192,
 		"oA": 2,
@@ -1155,21 +1187,21 @@
 		},
 	"\/parts\/calendar-page\/day-view.php": {
 		"ft": 8192,
-		"oA": 1,
+		"oA": 2,
 		"oAP": "\/parts\/calendar-page\/day-view.php",
-		"oF": 1
+		"oF": 0
 		},
 	"\/parts\/calendar-page\/month-view.php": {
 		"ft": 8192,
-		"oA": 1,
+		"oA": 2,
 		"oAP": "\/parts\/calendar-page\/month-view.php",
-		"oF": 1
+		"oF": 0
 		},
 	"\/parts\/calendar-page\/week-view.php": {
 		"ft": 8192,
-		"oA": 1,
+		"oA": 2,
 		"oAP": "\/parts\/calendar-page\/week-view.php",
-		"oF": 1
+		"oF": 0
 		},
 	"\/parts\/contacts-page\/add-contact.php": {
 		"ft": 8192,
@@ -1239,15 +1271,27 @@
 		},
 	"\/parts\/footer\/reminder-alerts.php": {
 		"ft": 8192,
-		"oA": 1,
+		"oA": 2,
 		"oAP": "\/parts\/footer\/reminder-alerts.php",
-		"oF": 1
+		"oF": 0
 		},
 	"\/parts\/global\/site-loader.php": {
 		"ft": 8192,
 		"oA": 1,
 		"oAP": "\/parts\/global\/site-loader.php",
 		"oF": 1
+		},
+	"\/parts\/holidays-page\/holidays-list.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/parts\/holidays-page\/holidays-list.php",
+		"oF": 0
+		},
+	"\/parts\/holidays-page\/request-form.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/parts\/holidays-page\/request-form.php",
+		"oF": 0
 		},
 	"\/parts\/meetings-page\/add-attendees-acf.php": {
 		"ft": 8192,
@@ -1377,9 +1421,9 @@
 		},
 	"\/parts\/user\/user-links.php": {
 		"ft": 8192,
-		"oA": 1,
+		"oA": 2,
 		"oAP": "\/parts\/user\/user-links.php",
-		"oF": 1
+		"oF": 0
 		},
 	"\/parts\/user\/user-vars.php": {
 		"ft": 8192,

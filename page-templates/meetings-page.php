@@ -124,7 +124,7 @@ include (STYLESHEETPATH . '/app/inc/meetings-page-vars/meeting-notify-email.inc'
 		<div class="dates">
 			<a href="?meeting-day=<?php echo date('Ymd'); ?>" class="lg-link<?php echo ($_REQUEST['meeting-day'] == date('Ymd') && !isset($_REQUEST['meeting-day-to'])) ? ' active':'' ?>">Today</a>
 			<a href="?meeting-day=<?php echo date('Ymd'); ?>&meeting-day-to=<?php echo date('Ymd', strtotime("Friday this week")); ?>" class="lg-link<?php echo ($_REQUEST['meeting-day-to'] == date('Ymd', strtotime("Friday this week"))) ? ' active':'' ?>">This week</a>
-			<a href="?meeting-day=<?php echo date('Ymd'); ?>&meeting-day-to=<?php echo date('Ymd', strtotime("last day of this month")); ?>" class="lg-link<?php echo ($_REQUEST['meeting-day-to'] == date('Ymd', strtotime("last day of this month"))) ? ' active':'' ?>">This month</a>
+			<a href="?meeting-day=<?php echo date('Ymd', strtotime("first day of this month")); ?>&meeting-day-to=<?php echo date('Ymd', strtotime("last day of this month")); ?>" class="lg-link<?php echo ($_REQUEST['meeting-day-to'] == date('Ymd', strtotime("last day of this month"))) ? ' active':'' ?>">This month</a>
 			<a href="?meeting-day=<?php echo date('Ymd', strtotime("first day of next month")); ?>&meeting-day-to=<?php echo date('Ymd', strtotime("last day of next month")); ?>" class="lg-link<?php echo ($_REQUEST['meeting-day'] == date('Ymd', strtotime("first day of next month"))) ? ' active':'' ?>">Next month</a>
 		  
 		  <?php if (!empty($your_months)) { ?>
