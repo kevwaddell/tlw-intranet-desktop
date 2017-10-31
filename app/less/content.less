@@ -61,6 +61,12 @@ overflow: hidden;
 	height: 100%;
 	overflow: auto;	
 	.pad(2;5;6;6);
+		&.no-side-pad {
+		.pad(4;0;6;0);	
+			.container {
+			min-height: 100%;	
+			}
+		}
 		&::-webkit-scrollbar {
 		    width: 10px;
 		    border-left: 1px solid @grayDk;
@@ -146,6 +152,17 @@ overflow: hidden;
 			.form-group {
 			.mag-bot(0);	
 			}
+			.toggle-group {
+				label {
+				line-height: inherit;	
+				}
+			}
+			.radio-inline {
+			line-height: inherit;	
+				input {
+				.mag-top(0.8);
+				}
+			}
 		}
 		.attendee-client-input {
 			input[type='text'] {
@@ -189,6 +206,12 @@ overflow: hidden;
 		}
 	}
 	
+	.alert {
+		h3 {
+		.mag-top(0);	
+		}
+	}
+	
 	.alerts-pop {
 	.abs;
 	.left(0);
@@ -206,9 +229,6 @@ overflow: hidden;
 		transform: translate(-50%; -50%);
 		.drop-shadow(0, 3px, 10px, 0.5);	
 		.bg-col(@wht);
-			h3 {
-			.mag-top(0);	
-			}
 			a.btn {
 			.mag-top(2);
 			.caps;
