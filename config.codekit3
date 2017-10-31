@@ -540,9 +540,9 @@
 		"ma": 0,
 		"mi": 1,
 		"oA": 0,
-		"oAP": "\/app\/js\/holiday-functions-min.js",
-		"oF": 2,
-		"sC": 0,
+		"oAP": "\/app\/js\/min\/holiday-functions-min.js",
+		"oF": 0,
+		"sC": 1,
 		"tS": 0
 		},
 	"\/app\/js\/meetings-functions-min.js": {
@@ -983,7 +983,7 @@
 		"oA": 0,
 		"oAP": "\/app\/css\/styles.css",
 		"oF": 0,
-		"oS": 0,
+		"oS": 1,
 		"rU": 0,
 		"sI": 0,
 		"sM": 0,
@@ -1187,21 +1187,21 @@
 		},
 	"\/parts\/calendar-page\/day-view.php": {
 		"ft": 8192,
-		"oA": 1,
+		"oA": 2,
 		"oAP": "\/parts\/calendar-page\/day-view.php",
-		"oF": 1
+		"oF": 0
 		},
 	"\/parts\/calendar-page\/month-view.php": {
 		"ft": 8192,
-		"oA": 1,
+		"oA": 2,
 		"oAP": "\/parts\/calendar-page\/month-view.php",
-		"oF": 1
+		"oF": 0
 		},
 	"\/parts\/calendar-page\/week-view.php": {
 		"ft": 8192,
-		"oA": 1,
+		"oA": 2,
 		"oAP": "\/parts\/calendar-page\/week-view.php",
-		"oF": 1
+		"oF": 0
 		},
 	"\/parts\/contacts-page\/add-contact.php": {
 		"ft": 8192,
@@ -1271,15 +1271,21 @@
 		},
 	"\/parts\/footer\/reminder-alerts.php": {
 		"ft": 8192,
-		"oA": 1,
+		"oA": 2,
 		"oAP": "\/parts\/footer\/reminder-alerts.php",
-		"oF": 1
+		"oF": 0
 		},
 	"\/parts\/global\/site-loader.php": {
 		"ft": 8192,
 		"oA": 1,
 		"oAP": "\/parts\/global\/site-loader.php",
 		"oF": 1
+		},
+	"\/parts\/holidays-page\/holiday-alerts.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/parts\/holidays-page\/holiday-alerts.php",
+		"oF": 0
 		},
 	"\/parts\/holidays-page\/holidays-list.php": {
 		"ft": 8192,
@@ -1421,9 +1427,9 @@
 		},
 	"\/parts\/user\/user-links.php": {
 		"ft": 8192,
-		"oA": 1,
+		"oA": 2,
 		"oAP": "\/parts\/user\/user-links.php",
-		"oF": 1
+		"oF": 0
 		},
 	"\/parts\/user\/user-vars.php": {
 		"ft": 8192,

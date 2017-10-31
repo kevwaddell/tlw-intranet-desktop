@@ -18,10 +18,12 @@ $low_p = array();
 $med_p = array();
 $high_p = array();
 $no_p = array();
-foreach ($reminders_completed as $k => $rc) {
-	if ($rc['reminder-date'] == date('Ymd')) {
-	$exclude_rems[] = $rc['reminder-id'];	
-	}
+if (!empty($reminders_completed)) {
+	foreach ($reminders_completed as $k => $rc) {
+		if ($rc['reminder-date'] == date('Ymd')) {
+		$exclude_rems[] = $rc['reminder-id'];	
+		}
+	}	
 }
 //debug($exclude_rems);
 $reminders_args = array(

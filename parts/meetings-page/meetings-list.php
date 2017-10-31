@@ -39,7 +39,7 @@ $month = date('F', strtotime(get_field( 'meeting_date', $m->ID )));
 	$meeting_months[] = $month;
 	}
 }
-//echo '<pre class="debug">';print_r($meeting_months);echo '</pre>';
+//debug($meetings);
 ?>
 <?php if (!empty($meetings)) { ?>
 

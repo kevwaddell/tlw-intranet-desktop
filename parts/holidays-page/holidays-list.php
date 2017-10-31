@@ -41,13 +41,13 @@ global $user_holidays;
 			<tr>
 				<td class="text-center">
 					<?php if ($uh['approval'] == 'yes') { ?>
-						<i class="fa fa-check fa-2x text-success"></i>		
+						<i class="fa fa-check fa-lg text-success"></i>		
 					<?php } ?>
 					<?php if ($uh['approval'] == 'no') { ?>
-						<i class="fa fa-times fa-2x text-danger"></i>		
+						<i class="fa fa-times fa-lg text-danger"></i>		
 					<?php } ?>
 					<?php if ($uh['approval'] == 'pending') { ?>
-						<i class="fa fa-refresh fa-2x text-warning"></i>		
+						<i class="fa fa-refresh fa-lg text-warning"></i>		
 					<?php } ?>
 				</td>
 				<td class="text-center"><?php echo $date_booked; ?></td>
@@ -56,7 +56,9 @@ global $user_holidays;
 				<td class="text-center"><?php echo $no_days; ?></td>
 				<td class="text-center">
 					<a href="?holiday-actions=edit-holiday" class="btn btn-default btn-sm"><i class="fa fa-pencil fa-lg"></i> Change</a>
+					<?php if (date('Ymd') < date("Ymd", strtotime($uh['date-from']))) { ?>
 					<a href="?holiday-actions=cancel-holiday" class="btn btn-default btn-sm"><i class="fa fa-times fa-lg"></i> Cancel</a>
+					<?php } ?>
 					<?php if ($uh['approval'] == 'no') { ?>
 					<a href="?holiday-actions=delete-holiday" class="btn btn-default btn-sm"><i class="fa fa-trash fa-lg"></i> Delete</a>		
 					<?php } ?>

@@ -994,6 +994,10 @@ margin: auto;
 .request-form, .holidays-list {
 	table {
 	max-width: none !important;	
+		th h2 {
+		.mag-top(0);
+		.mag-bot(1);	
+		}
 	}	
 	
 	.lg-number {
@@ -1001,5 +1005,14 @@ margin: auto;
 	text-align: center;
 	.font-size(5);	
 	.line-h(5);
+	}
+}
+
+.request-form {
+.pad-all(2);
+.border(@grayDk; 0.1);
+.mag-bot(4);	
+	.btn {
+	vertical-align: top;	
 	}
 }

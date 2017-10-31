@@ -7,7 +7,7 @@ global $now_dateTime;
 	<table class="table table-striped">
 		<thead>
 			<tr>
-				<th colspan="4"><h1>Add or request a holiday</h1></th>
+				<th colspan="4"><h2><i class="fa fa-calendar-plus-o"></i> Add or request a holiday</h2></th>
 			</tr>
 		</thead>
 		</thead>
@@ -61,6 +61,13 @@ global $now_dateTime;
 	</table>
 	<br>	
 	<input type="hidden" class="form-control input-sm" name="days-remaining" value="<?php echo $number_of_holidays; ?>">
+	<div class="row">
+		<div class="col-xs-6">
 	<button type="submit" class="btn btn-default btn-block caps" name="add-holiday">Submit <i class="fa fa-plus"></i></button>
+		</div>
+		<div class="col-xs-6">
+			<a href="<?php get_permalink() ?>" class="btn btn-default btn-block caps">Cancel <i class="fa fa-times"></i></a>
+		</div>
+	</div>
 </form>
 </div>
