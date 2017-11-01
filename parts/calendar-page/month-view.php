@@ -64,19 +64,21 @@ $attendees_staff = get_field('attendees_staff', $m->ID);
 $reminders_completed_raw = get_user_meta($current_user->ID, 'reminders_completed', true);
 $reminders_completed = unserialize($reminders_completed_raw);
 $excluded_rems = array();
-
-foreach ($reminders_completed as $key => $rc) { 
-$rem_id = $rc['reminder-id'];
-$reminder_group = get_field('reminder_group', $rem_id);	
-$reminder_repeat = get_field('reminder_repeat', $rem_id);	
-$reminder_date = date("Ymd", strtotime(get_field('reminder_date', $rem_id)));
-	if (!in_array($rem_id, $excluded_rems) && $reminder_repeat == "never") {
-	$excluded_rems[] = $rem_id;
-	}
-	if (!in_array($rem_id, $excluded_rems) && $reminder_group == "meeting") {
-	$excluded_rems[] = $rem_id;
+if (!empty($reminders_completed)) {
+	foreach ($reminders_completed as $key => $rc) { 
+	$rem_id = $rc['reminder-id'];
+	$reminder_group = get_field('reminder_group', $rem_id);	
+	$reminder_repeat = get_field('reminder_repeat', $rem_id);	
+	$reminder_date = date("Ymd", strtotime(get_field('reminder_date', $rem_id)));
+		if (!in_array($rem_id, $excluded_rems) && $reminder_repeat == "never") {
+		$excluded_rems[] = $rem_id;
+		}
+		if (!in_array($rem_id, $excluded_rems) && $reminder_group == "meeting") {
+		$excluded_rems[] = $rem_id;
+		}
 	}
 }
+
 $reminders_args = array(
 'posts_per_page' => -1,
 'post_type' => 'tlw_reminder',
