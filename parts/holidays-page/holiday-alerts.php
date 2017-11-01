@@ -15,3 +15,10 @@ global $user_holidays;
 	<a href="<?php the_permalink() ?>" class="btn btn-success btn-sm">Continue <i class="fa fa-chevron-right"></i></a>
 </div>
 <?php } ?>
+<?php if ($_REQUEST['holiday-updated'] == 1) { ?>
+<div class="alert alert-success text-center">
+	<h3>Holiday updated successfuly</h3>
+	<p>Your holiday has been changed, please check it is correct.</p><br>
+	<a href="<?php the_permalink() ?>" class="btn btn-success btn-sm">Continue <i class="fa fa-chevron-right"></i></a>
+</div>
+<?php } ?>
