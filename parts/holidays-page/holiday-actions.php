@@ -5,10 +5,10 @@ global $current_year;
 <div class="holiday-actions">
 	<div class="row">
 		<div class="col-xs-4">
-			<a href="?holiday-actions=add-holiday" class="btn btn-default btn-sm btn-block caps icon-btn<?php echo ($_REQUEST['holiday-actions'] == 'add-holiday') ? ' active':'' ?>"><i class="fa fa-plus"></i> Add approved holiday</a>
+			<a href="?holiday-actions=add-holiday&approved=yes" class="btn btn-default btn-sm btn-block caps icon-btn<?php echo ($_REQUEST['holiday-actions'] == 'add-holiday') ? ' active':'' ?>"><i class="fa fa-plus"></i> Add approved holiday</a>
 		</div>
 		<div class="col-xs-4">
-			<a href="?holiday-actions=request-holiday" class="btn btn-default btn-sm btn-block caps icon-btn<?php echo ($_REQUEST['holiday-actions'] == 'request-holiday') ? ' active':'' ?>"><i class="fa fa-paper-plane"></i> Create Holiday Request</a>
+			<a href="?holiday-actions=request-holiday&approved=no" class="btn btn-default btn-sm btn-block caps icon-btn<?php echo ($_REQUEST['holiday-actions'] == 'request-holiday') ? ' active':'' ?>"><i class="fa fa-paper-plane"></i> Create Holiday Request</a>
 		</div>
 		<div class="col-xs-4">
 			<button type="button" class="btn btn-default btn-sm btn-block caps icon-btn" onclick="printPage()"><i class="fa fa-print"></i> Print holidays list</a>

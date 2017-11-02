@@ -51,7 +51,7 @@ $lname = get_user_meta( $current_user->ID, 'last_name', true );
 				<td></td>
 			</tr>			
 			<?php } else { 
-			rsort($user_holidays);
+			krsort($user_holidays);
 			?>
 			<?php foreach ($user_holidays as $uh) { 
 			$date_booked = date("d/m/Y", strtotime($uh['date-booked']));
@@ -81,8 +81,8 @@ $lname = get_user_meta( $current_user->ID, 'last_name', true );
 					<?php } ?>
 				</td>
 				<td class="text-center"><?php echo $date_booked; ?></td>
-				<td class="text-center"><?php echo $date_from; ?><?php echo ($date_from_length == 'am') ? ' @ 9am - 12:30pm':'' ?><?php echo ($date_from_length == 'pm') ? ' @ 12:30pm':'' ?></td>
-				<td class="text-center"><?php echo $date_to; ?><?php echo ($date_to_length == 'am') ? ' @ 1:30pm':'' ?><?php echo ($date_to_length == 'pm') ? ' @ 12:30pm':'' ?></td>
+				<td class="text-center"><?php echo $date_from; ?><?php echo ($date_from_length == 'am') ? ' - AM':'' ?><?php echo ($date_from_length == 'pm') ? ' - PM':'' ?></td>
+				<td class="text-center"><?php echo $date_to; ?><?php echo ($date_to_length == 'am') ? ' - AM':'' ?><?php echo ($date_to_length == 'pm') ? '- PM':'' ?></td>
 				<td class="text-center"><?php echo $no_days; ?></td>
 				<td class="text-center">
 					<a href="?holiday-actions=edit-holiday<?php echo $edit_params; ?>" class="btn btn-default btn-sm"><i class="fa fa-pencil fa-lg"></i> Change</a>

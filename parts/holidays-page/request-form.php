@@ -105,7 +105,7 @@ global $now_dateTime;
 		<?php } ?>
 		</div>
 		<div class="col-xs-6">
-			<a href="<?php get_permalink() ?>" class="btn btn-default btn-block caps">Cancel <i class="fa fa-times"></i></a>
+			<a href="<?php the_permalink() ?>" class="btn btn-default btn-block caps">Cancel <i class="fa fa-times"></i></a>
 		</div>
 	</div>
 </form>

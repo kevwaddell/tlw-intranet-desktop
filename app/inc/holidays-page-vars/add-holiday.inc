@@ -7,7 +7,7 @@ if (isset($_POST['add-holiday']) || isset($_POST['update-holiday'])) {
 	global $timeZone;
 	global $current_year;
 	
-	//debug($_POST);	
+	debug($_POST);	
 	$booked_date = new DateTime($_POST['date-booked'], new DateTimeZone($timeZone));
 	$date_from = new DateTime($_POST['date-from'], new DateTimeZone($timeZone));
 	$date_to = new DateTime($_POST['date-to'], new DateTimeZone($timeZone));
