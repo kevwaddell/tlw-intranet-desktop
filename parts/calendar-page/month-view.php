@@ -112,11 +112,12 @@ debug($last_week_of_last_month);
 </div>
 		
 <div class="month-view weeks-count-<?php echo $number_of_week_days;?>">
-		<div class="day-col pull-left">
+	<div class="day-col pull-left">
 			<div class="day-label">Monday</div>
 			<?php for ($m = 1; $m <= $month_end->format("j"); $m++) {?>
 			<?php 
 			$weekNum_of_this_day = date('W', strtotime($now_dateTime->format("F")." ".$m."S"));	
+			echo '<pre>';print_r(date("N",strtotime($now_dateTime->format("F")." ".$m."S" ) ));echo '</pre>';
 			if ($last_week_of_last_month < $weekNum_of_this_day && $mons_counter == 0) { 
 			$mons_counter++;
 			?>
@@ -161,7 +162,7 @@ debug($last_week_of_last_month);
 
 			<?php } ?>
 		</div>	
-		<div class="day-col pull-left">
+	<div class="day-col pull-left">
 			<div class="day-label">Tuesday</div>
 			<?php for ($t = 1; $t <= $month_end->format("j"); $t++) {?>
 			<?php 
@@ -209,7 +210,7 @@ debug($last_week_of_last_month);
 
 			<?php } ?>
 		</div>	
-		<div class="day-col pull-left">
+	<div class="day-col pull-left">
 			<div class="day-label">Wednesday</div>
 			<?php for ($w = 1; $w <= $month_end->format("j"); $w++) {?>
 			<?php 
@@ -257,12 +258,11 @@ debug($last_week_of_last_month);
 
 			<?php } ?>
 		</div>	
-		<div class="day-col pull-left">
+	<div class="day-col pull-left">
 			<div class="day-label">Thursday</div>
 			<?php for ($th = 1; $th <= $month_end->format("j"); $th++) {?>
 			<?php 
 			$weekNum_of_this_day = date('W', strtotime($now_dateTime->format("F")." ".$th."S"));	
-			echo '<pre>';print_r(date("N",strtotime($now_dateTime->format("F")." ".$th."S" ) ));echo '</pre>';
 			if ($last_week_of_last_month < $weekNum_of_this_day && $thurs_counter == 0) { 
 			$thurs_counter++;
 			?>
@@ -307,7 +307,7 @@ debug($last_week_of_last_month);
 
 			<?php } ?>
 		</div>	
-		<div class="day-col pull-left">
+	<div class="day-col pull-left">
 			<div class="day-label">Friday</div>
 			<?php for ($f = 1; $f <= $month_end->format("j"); $f++) {?>
 			<?php 
@@ -354,6 +354,5 @@ debug($last_week_of_last_month);
 			<?php } ?>
 
 			<?php } ?>
-		</div>	
-		 		
+		</div>	 		
 </div>
