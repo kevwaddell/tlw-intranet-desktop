@@ -125,7 +125,7 @@ $reminder_group = get_field('reminder_group', $r->ID);
 				<span class="day-number"><?php echo date("j", strtotime('last mon of '.$month_before->format("F"))); ?></span>
 			</div>	
 			<?php } ?>
-			<?php if (date("N",strtotime($now_dateTime->format("F")." ".$m."S" ) ) == 1) { 
+			<?php if (date("N",strtotime($now_dateTime->format("F")." ".$m) ) == 1) { 
 			$mons_counter++;	
 			?>
 				<div class="day<?php echo ($m == $now_dateTime->format('j') && $current_month == 'this-month') ? ' today': ''; ?>">
@@ -174,7 +174,7 @@ $reminder_group = get_field('reminder_group', $r->ID);
 				<span class="day-number"><?php echo date("j", strtotime('last tue of '.$month_before->format("F"))); ?></span>
 			</div>	
 			<?php } ?>
-			<?php if (date("N",strtotime($now_dateTime->format("F")." ".$t."S" ) ) == 2) { 
+			<?php if (date("N",strtotime($now_dateTime->format("F")." ".$t) ) == 2) { 
 			$tues_counter++;	
 			?>
 				<div class="day<?php echo ($t == $now_dateTime->format('j') && $current_month == 'this-month') ? ' today': ''; ?>">
@@ -222,7 +222,7 @@ $reminder_group = get_field('reminder_group', $r->ID);
 				<span class="day-number"><?php echo date("j", strtotime('last wed of '.$month_before->format("F"))); ?></span>
 			</div>	
 			<?php } ?>
-			<?php if (date("N",strtotime($now_dateTime->format("F")." ".$w."S" ) ) == 3) { 
+			<?php if (date("N",strtotime($now_dateTime->format("F")." ".$w) ) == 3) { 
 			$weds_counter++;	
 			?>
 				<div class="day<?php echo ($w == $now_dateTime->format('j') && $current_month == 'this-month') ? ' today': ''; ?>">
@@ -271,7 +271,7 @@ $reminder_group = get_field('reminder_group', $r->ID);
 				
 			</div>	
 			<?php } ?>
-			<?php if (date("N",strtotime($now_dateTime->format("F")." ".$th."S" ) ) == 4) { 
+			<?php if (date("N",strtotime($now_dateTime->format("F")." ".$th) ) == 4) { 
 			$thurs_counter++;	
 			?>
 				<div class="day<?php echo ($th == $now_dateTime->format('j') && $current_month == 'this-month') ? ' today': ''; ?>">
@@ -319,7 +319,7 @@ $reminder_group = get_field('reminder_group', $r->ID);
 				<span class="day-number"><?php echo date("j", strtotime('last fri of '.$month_before->format("F"))); ?></span>
 			</div>	
 			<?php } ?>
-			<?php if (date("N",strtotime($now_dateTime->format("F")." ".$f."S" ) ) == 5) { 
+			<?php if (date("N",strtotime($now_dateTime->format("F")." ".$f ) ) == 5) { 
 			$fris_counter++;	
 			?>
 				<div class="day<?php echo ($f == $now_dateTime->format('j') && $current_month == 'this-month') ? ' today': ''; ?>">
