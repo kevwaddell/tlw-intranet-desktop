@@ -99,7 +99,7 @@ $reminder_group = get_field('reminder_group', $r->ID);
 	$calendar_reminders[] = array($r->ID, date('j', strtotime($reminder_date)));	
 	}		
 }
-debug($last_week_of_last_month);
+//debug($last_week_of_last_month);
 ?>
 
 <div class="calendar-header">
@@ -117,7 +117,7 @@ debug($last_week_of_last_month);
 			<?php for ($m = 1; $m <= $month_end->format("j"); $m++) {?>
 			<?php 
 			$weekNum_of_this_day = date('W', strtotime($now_dateTime->format("F")." ".$m));	
-			echo '<pre>';print_r($now_dateTime->format("F")." ".$m);echo '</pre>';
+			//echo '<pre>';print_r($now_dateTime->format("F")." ".$m);echo '</pre>';
 			if ($last_week_of_last_month < $weekNum_of_this_day && $mons_counter == 0) { 
 			$mons_counter++;
 			?>
@@ -166,7 +166,7 @@ debug($last_week_of_last_month);
 			<div class="day-label">Tuesday</div>
 			<?php for ($t = 1; $t <= $month_end->format("j"); $t++) {?>
 			<?php 
-			$weekNum_of_this_day = date('W', strtotime($now_dateTime->format("F")." ".$t."S"));	
+			$weekNum_of_this_day = date('W', strtotime($now_dateTime->format("F")." ".$t));	
 			if ($last_week_of_last_month < $weekNum_of_this_day && $tues_counter == 0) { 
 			$tues_counter++;
 			?>
@@ -214,7 +214,7 @@ debug($last_week_of_last_month);
 			<div class="day-label">Wednesday</div>
 			<?php for ($w = 1; $w <= $month_end->format("j"); $w++) {?>
 			<?php 
-			$weekNum_of_this_day = date('W', strtotime($now_dateTime->format("F")." ".$w."S"));	
+			$weekNum_of_this_day = date('W', strtotime($now_dateTime->format("F")." ".$w));	
 			if ($last_week_of_last_month < $weekNum_of_this_day && $weds_counter == 0) {
 			$weds_counter++;
 			?>
@@ -262,7 +262,7 @@ debug($last_week_of_last_month);
 			<div class="day-label">Thursday</div>
 			<?php for ($th = 1; $th <= $month_end->format("j"); $th++) {?>
 			<?php 
-			$weekNum_of_this_day = date('W', strtotime($now_dateTime->format("F")." ".$th."S"));	
+			$weekNum_of_this_day = date('W', strtotime($now_dateTime->format("F")." ".$th));	
 			if ($last_week_of_last_month < $weekNum_of_this_day && $thurs_counter == 0) { 
 			$thurs_counter++;
 			?>
@@ -311,7 +311,7 @@ debug($last_week_of_last_month);
 			<div class="day-label">Friday</div>
 			<?php for ($f = 1; $f <= $month_end->format("j"); $f++) {?>
 			<?php 
-			$weekNum_of_this_day = date('W', strtotime($now_dateTime->format("F")." ".$f."S"));	
+			$weekNum_of_this_day = date('W', strtotime($now_dateTime->format("F")." ".$f));	
 			if ($last_week_of_last_month < $weekNum_of_this_day && $fris_counter == 0) { 
 			$fris_counter++;
 			?>
