@@ -99,7 +99,7 @@ $reminder_group = get_field('reminder_group', $r->ID);
 	$calendar_reminders[] = array($r->ID, date('j', strtotime($reminder_date)));	
 	}		
 }
-debug($month_end->format("j"));
+debug($last_week_of_last_month);
 ?>
 
 <div class="calendar-header">
@@ -262,6 +262,7 @@ debug($month_end->format("j"));
 			<?php for ($th = 1; $th <= $month_end->format("j"); $th++) {?>
 			<?php 
 			$weekNum_of_this_day = date('W', strtotime($now_dateTime->format("F")." ".$th."S"));	
+			echo '<pre>';print_r(date("N",strtotime($now_dateTime->format("F")." ".$th."S" ) ));echo '</pre>';
 			if ($last_week_of_last_month < $weekNum_of_this_day && $thurs_counter == 0) { 
 			$thurs_counter++;
 			?>
