@@ -99,7 +99,7 @@ $reminder_group = get_field('reminder_group', $r->ID);
 	$calendar_reminders[] = array($r->ID, date('j', strtotime($reminder_date)));	
 	}		
 }
-//debug($calendar_reminders);
+debug($month_end->format("j"));
 ?>
 
 <div class="calendar-header">
@@ -114,9 +114,9 @@ $reminder_group = get_field('reminder_group', $r->ID);
 <div class="month-view weeks-count-<?php echo $number_of_week_days;?>">
 		<div class="day-col pull-left">
 			<div class="day-label">Monday</div>
-			<?php for ($i = 1; $i <= $month_end->format("j"); $i++) {?>
+			<?php for ($m = 1; $m <= $month_end->format("j"); $m++) {?>
 			<?php 
-			$weekNum_of_this_day = date('W', strtotime($now_dateTime->format("F")." ".$i."S"));	
+			$weekNum_of_this_day = date('W', strtotime($now_dateTime->format("F")." ".$m."S"));	
 			if ($last_week_of_last_month < $weekNum_of_this_day && $mons_counter == 0) { 
 			$mons_counter++;
 			?>
@@ -124,17 +124,17 @@ $reminder_group = get_field('reminder_group', $r->ID);
 				<span class="day-number"><?php echo date("j", strtotime('last mon of '.$month_before->format("F"))); ?></span>
 			</div>	
 			<?php } ?>
-			<?php if (date("N",strtotime($now_dateTime->format("F")." ".$i."S" ) ) == 1) { 
+			<?php if (date("N",strtotime($now_dateTime->format("F")." ".$m."S" ) ) == 1) { 
 			$mons_counter++;	
 			?>
-				<div class="day<?php echo ($i == $now_dateTime->format('j') && $current_month == 'this-month') ? ' today': ''; ?>">
-					<span class="day-number"><?php echo $i; ?></span>
+				<div class="day<?php echo ($m == $now_dateTime->format('j') && $current_month == 'this-month') ? ' today': ''; ?>">
+					<span class="day-number"><?php echo $m; ?></span>
 					<?php// echo '<pre>';print_r($last_weekNum_of_this_month ." -----". $first_weekNum_of_next_month);echo '</pre>'; ?>
 					<div class="events">
 						<?php foreach ($calendar_meetings as $cm) { 
 						$start_time = get_field('start_time', $cm[0]); 	
 						?>
-						<?php if ($cm[1] == $i) { ?>
+						<?php if ($cm[1] == $m) { ?>
 						<div class="label label-info">
 							<a href="<?php echo get_permalink($meetings_pg->ID); ?>?meeting-id=<?php echo $cm[0]; ?>&meeting-day=<?php echo $month_start->format('Ymd'); ?>&meeting-day-to=<?php echo $month_end->format('Ymd');; ?>"><time><i class="fa fa-clock-o"></i> <?php echo $start_time; ?></time><span><?php echo get_the_title($cm[0]); ?></span></a>
 						</div>					
@@ -144,7 +144,7 @@ $reminder_group = get_field('reminder_group', $r->ID);
 						$group = get_field('reminder_group', $cr[0]); 
 						$rem_time = get_field('reminder_time', $cr[0]); 
 						?>
-						<?php if ($cr[1] == $i) { ?>
+						<?php if ($cr[1] == $m) { ?>
 						<div class="label label-primary">
 							<a href="<?php echo get_permalink($reminders_pg->ID); ?>?group-id=<?php echo $group; ?>"><time><i class="fa fa-bell"></i> <?php echo $rem_time; ?></time><span><?php echo get_the_title($cr[0]); ?></span></a>
 						</div>
@@ -152,7 +152,7 @@ $reminder_group = get_field('reminder_group', $r->ID);
 						<?php } ?>
 					</div>
 				</div>	
-				<?php if ($i == date('j',strtotime('last mon of '.$now_dateTime->format("F"))) && $mons_counter == $number_of_week_days) { ?>
+				<?php if ($m == date('j',strtotime('last mon of '.$now_dateTime->format("F"))) && $mons_counter == $number_of_week_days) { ?>
 				<div class="day dim-day">
 				<span class="day-number"><?php echo date("j", strtotime('first mon of '.$next_month->format("F"))); ?></span>
 				</div>	
@@ -163,9 +163,9 @@ $reminder_group = get_field('reminder_group', $r->ID);
 		</div>	
 		<div class="day-col pull-left">
 			<div class="day-label">Tuesday</div>
-			<?php for ($i = 1; $i <= $month_end->format("j"); $i++) {?>
+			<?php for ($t = 1; $t <= $month_end->format("j"); $t++) {?>
 			<?php 
-			$weekNum_of_this_day = date('W', strtotime($now_dateTime->format("F")." ".$i."S"));	
+			$weekNum_of_this_day = date('W', strtotime($now_dateTime->format("F")." ".$t."S"));	
 			if ($last_week_of_last_month < $weekNum_of_this_day && $tues_counter == 0) { 
 			$tues_counter++;
 			?>
@@ -173,16 +173,16 @@ $reminder_group = get_field('reminder_group', $r->ID);
 				<span class="day-number"><?php echo date("j", strtotime('last tue of '.$month_before->format("F"))); ?></span>
 			</div>	
 			<?php } ?>
-			<?php if (date("N",strtotime($now_dateTime->format("F")." ".$i."S" ) ) == 2) { 
+			<?php if (date("N",strtotime($now_dateTime->format("F")." ".$t."S" ) ) == 2) { 
 			$tues_counter++;	
 			?>
-				<div class="day<?php echo ($i == $now_dateTime->format('j') && $current_month == 'this-month') ? ' today': ''; ?>">
-					<span class="day-number"><?php echo $i; ?></span>
+				<div class="day<?php echo ($t == $now_dateTime->format('j') && $current_month == 'this-month') ? ' today': ''; ?>">
+					<span class="day-number"><?php echo $t; ?></span>
 					<div class="events">
 						<?php foreach ($calendar_meetings as $cm) { 
 						$start_time = get_field('start_time', $cm[0]); 	
 						?>
-						<?php if ($cm[1] == $i) { ?>
+						<?php if ($cm[1] == $t) { ?>
 						<div class="label label-info">
 							<a href="<?php echo get_permalink($meetings_pg->ID); ?>?meeting-id=<?php echo $cm[0]; ?>&meeting-day=<?php echo $month_start->format('Ymd'); ?>&meeting-day-to=<?php echo $month_end->format('Ymd');; ?>"><time><i class="fa fa-clock-o"></i> <?php echo $start_time; ?></time><span><?php echo get_the_title($cm[0]); ?></span></a>
 						</div>					
@@ -192,7 +192,7 @@ $reminder_group = get_field('reminder_group', $r->ID);
 						$group = get_field('reminder_group', $cr[0]); 
 						$rem_time = get_field('reminder_time', $cr[0]); 	
 						?>
-						<?php if ($cr[1] == $i) { ?>
+						<?php if ($cr[1] == $t) { ?>
 						<div class="label label-primary">
 							<a href="<?php echo get_permalink($reminders_pg->ID); ?>?group-id=<?php echo $group; ?>"><time><i class="fa fa-bell"></i> <?php echo $rem_time; ?></time><span><?php echo get_the_title($cr[0]); ?></span></a>
 						</div>
@@ -200,7 +200,7 @@ $reminder_group = get_field('reminder_group', $r->ID);
 						<?php } ?>
 					</div>
 				</div>	
-				<?php if ($i == date('j',strtotime('last tue of '.$now_dateTime->format("F"))) && $tues_counter == $number_of_week_days) { ?>
+				<?php if ($t == date('j',strtotime('last tue of '.$now_dateTime->format("F"))) && $tues_counter == $number_of_week_days) { ?>
 				<div class="day dim-day">
 				<span class="day-number"><?php echo date("j", strtotime('first tue of '.$next_month->format("F"))); ?></span>
 				</div>	
@@ -211,9 +211,9 @@ $reminder_group = get_field('reminder_group', $r->ID);
 		</div>	
 		<div class="day-col pull-left">
 			<div class="day-label">Wednesday</div>
-			<?php for ($i = 1; $i <= $month_end->format("j"); $i++) {?>
+			<?php for ($w = 1; $w <= $month_end->format("j"); $w++) {?>
 			<?php 
-			$weekNum_of_this_day = date('W', strtotime($now_dateTime->format("F")." ".$i."S"));	
+			$weekNum_of_this_day = date('W', strtotime($now_dateTime->format("F")." ".$w."S"));	
 			if ($last_week_of_last_month < $weekNum_of_this_day && $weds_counter == 0) {
 			$weds_counter++;
 			?>
@@ -221,16 +221,16 @@ $reminder_group = get_field('reminder_group', $r->ID);
 				<span class="day-number"><?php echo date("j", strtotime('last wed of '.$month_before->format("F"))); ?></span>
 			</div>	
 			<?php } ?>
-			<?php if (date("N",strtotime($now_dateTime->format("F")." ".$i."S" ) ) == 3) { 
+			<?php if (date("N",strtotime($now_dateTime->format("F")." ".$w."S" ) ) == 3) { 
 			$weds_counter++;	
 			?>
-				<div class="day<?php echo ($i == $now_dateTime->format('j') && $current_month == 'this-month') ? ' today': ''; ?>">
-					<span class="day-number"><?php echo $i; ?></span>
+				<div class="day<?php echo ($w == $now_dateTime->format('j') && $current_month == 'this-month') ? ' today': ''; ?>">
+					<span class="day-number"><?php echo $w; ?></span>
 					<div class="events">
 						<?php foreach ($calendar_meetings as $cm) { 
 						$start_time = get_field('start_time', $cm[0]); 	
 						?>
-						<?php if ($cm[1] == $i) { ?>
+						<?php if ($cm[1] == $w) { ?>
 						<div class="label label-info">
 							<a href="<?php echo get_permalink($meetings_pg->ID); ?>?meeting-id=<?php echo $cm[0]; ?>&meeting-day=<?php echo $month_start->format('Ymd'); ?>&meeting-day-to=<?php echo $month_end->format('Ymd');; ?>"><time><i class="fa fa-clock-o"></i> <?php echo $start_time; ?></time><span><?php echo get_the_title($cm[0]); ?></span></a>
 						</div>					
@@ -240,7 +240,7 @@ $reminder_group = get_field('reminder_group', $r->ID);
 						$group = get_field('reminder_group', $cr[0]); 
 						$rem_time = get_field('reminder_time', $cr[0]); 	
 						?>
-						<?php if ($cr[1] == $i) { ?>
+						<?php if ($cr[1] == $w) { ?>
 						<div class="label label-primary">
 							<a href="<?php echo get_permalink($reminders_pg->ID); ?>?group-id=<?php echo $group; ?>"><time><i class="fa fa-bell"></i> <?php echo $rem_time; ?></time><span><?php echo get_the_title($cr[0]); ?></span></a>
 						</div>
@@ -248,7 +248,7 @@ $reminder_group = get_field('reminder_group', $r->ID);
 						<?php } ?>
 					</div>
 				</div>	
-				<?php if ($i == date('j',strtotime('last wed of '.$now_dateTime->format("F"))) && $weds_counter == $number_of_week_days) { ?>
+				<?php if ($w == date('j',strtotime('last wed of '.$now_dateTime->format("F"))) && $weds_counter == $number_of_week_days) { ?>
 				<div class="day dim-day">
 				<span class="day-number"><?php echo date("j", strtotime('first wed of '.$next_month->format("F"))); ?></span>
 				</div>	
@@ -259,9 +259,9 @@ $reminder_group = get_field('reminder_group', $r->ID);
 		</div>	
 		<div class="day-col pull-left">
 			<div class="day-label">Thursday</div>
-			<?php for ($i = 1; $i <= $month_end->format("j"); $i++) {?>
+			<?php for ($th = 1; $th <= $month_end->format("j"); $th++) {?>
 			<?php 
-			$weekNum_of_this_day = date('W', strtotime($now_dateTime->format("F")." ".$i."S"));	
+			$weekNum_of_this_day = date('W', strtotime($now_dateTime->format("F")." ".$th."S"));	
 			if ($last_week_of_last_month < $weekNum_of_this_day && $thurs_counter == 0) { 
 			$thurs_counter++;
 			?>
@@ -270,16 +270,16 @@ $reminder_group = get_field('reminder_group', $r->ID);
 				
 			</div>	
 			<?php } ?>
-			<?php if (date("N",strtotime($now_dateTime->format("F")." ".$i."S" ) ) == 4) { 
+			<?php if (date("N",strtotime($now_dateTime->format("F")." ".$th."S" ) ) == 4) { 
 			$thurs_counter++;	
 			?>
-				<div class="day<?php echo ($i == $now_dateTime->format('j') && $current_month == 'this-month') ? ' today': ''; ?>">
-					<span class="day-number"><?php echo $i; ?></span>
+				<div class="day<?php echo ($th == $now_dateTime->format('j') && $current_month == 'this-month') ? ' today': ''; ?>">
+					<span class="day-number"><?php echo $th; ?></span>
 					<div class="events">
 						<?php foreach ($calendar_meetings as $cm) { 
 						$start_time = get_field('start_time', $cm[0]); 	
 						?>
-						<?php if ($cm[1] == $i) { ?>
+						<?php if ($cm[1] == $th) { ?>
 						<div class="label label-info">
 							<a href="<?php echo get_permalink($meetings_pg->ID); ?>?meeting-id=<?php echo $cm[0]; ?>&meeting-day=<?php echo $month_start->format('Ymd'); ?>&meeting-day-to=<?php echo $month_end->format('Ymd');; ?>"><time><i class="fa fa-clock-o"></i> <?php echo $start_time; ?></time><span><?php echo get_the_title($cm[0]); ?></span></a>
 						</div>					
@@ -289,7 +289,7 @@ $reminder_group = get_field('reminder_group', $r->ID);
 						$group = get_field('reminder_group', $cr[0]);
 						$rem_time = get_field('reminder_time', $cr[0]); 	
 						?>
-						<?php if ($cr[1] == $i) { ?>
+						<?php if ($cr[1] == $th) { ?>
 						<div class="label label-primary">
 							<a href="<?php echo get_permalink($reminders_pg->ID); ?>?group-id=<?php echo $group; ?>"><time><i class="fa fa-bell"></i> <?php echo $rem_time; ?></time><span><?php echo get_the_title($cr[0]); ?></span></a>
 						</div>
@@ -297,7 +297,7 @@ $reminder_group = get_field('reminder_group', $r->ID);
 						<?php } ?>
 					</div>
 				</div>	
-				<?php if ($i == date('j',strtotime('last thu of '.$now_dateTime->format("F"))) && $thurs_counter == $number_of_week_days) { ?>
+				<?php if ($th == date('j',strtotime('last thu of '.$now_dateTime->format("F"))) && $thurs_counter == $number_of_week_days) { ?>
 				<div class="day dim-day">
 				<span class="day-number"><?php echo date("j", strtotime('first thu of '.$next_month->format("F"))); ?></span>
 				</div>	
@@ -308,9 +308,9 @@ $reminder_group = get_field('reminder_group', $r->ID);
 		</div>	
 		<div class="day-col pull-left">
 			<div class="day-label">Friday</div>
-			<?php for ($i = 1; $i <= $month_end->format("j"); $i++) {?>
+			<?php for ($f = 1; $f <= $month_end->format("j"); $f++) {?>
 			<?php 
-			$weekNum_of_this_day = date('W', strtotime($now_dateTime->format("F")." ".$i."S"));	
+			$weekNum_of_this_day = date('W', strtotime($now_dateTime->format("F")." ".$f."S"));	
 			if ($last_week_of_last_month < $weekNum_of_this_day && $fris_counter == 0) { 
 			$fris_counter++;
 			?>
@@ -318,16 +318,16 @@ $reminder_group = get_field('reminder_group', $r->ID);
 				<span class="day-number"><?php echo date("j", strtotime('last fri of '.$month_before->format("F"))); ?></span>
 			</div>	
 			<?php } ?>
-			<?php if (date("N",strtotime($now_dateTime->format("F")." ".$i."S" ) ) == 5) { 
+			<?php if (date("N",strtotime($now_dateTime->format("F")." ".$f."S" ) ) == 5) { 
 			$fris_counter++;	
 			?>
-				<div class="day<?php echo ($i == $now_dateTime->format('j') && $current_month == 'this-month') ? ' today': ''; ?>">
-					<span class="day-number"><?php echo $i; ?></span>
+				<div class="day<?php echo ($f == $now_dateTime->format('j') && $current_month == 'this-month') ? ' today': ''; ?>">
+					<span class="day-number"><?php echo $f; ?></span>
 					<div class="events">
 						<?php foreach ($calendar_meetings as $cm) { 
 						$start_time = get_field('start_time', $cm[0]); 	
 						?>
-						<?php if ($cm[1] == $i) { ?>
+						<?php if ($cm[1] == $f) { ?>
 						<div class="label label-info">
 							<a href="<?php echo get_permalink($meetings_pg->ID); ?>?meeting-id=<?php echo $cm[0]; ?>&meeting-day=<?php echo $month_start->format('Ymd'); ?>&meeting-day-to=<?php echo $month_end->format('Ymd');; ?>"><time><i class="fa fa-clock-o"></i> <?php echo $start_time; ?></time><span><?php echo get_the_title($cm[0]); ?></span></a>
 						</div>					
@@ -337,7 +337,7 @@ $reminder_group = get_field('reminder_group', $r->ID);
 						$group = get_field('reminder_group', $cr[0]);
 						$rem_time = get_field('reminder_time', $cr[0]); 	
 						?>
-						<?php if ($cr[1] == $i) { ?>
+						<?php if ($cr[1] == $f) { ?>
 						<div class="label label-primary">
 							<a href="<?php echo get_permalink($reminders_pg->ID); ?>?group-id=<?php echo $group; ?>"><time><i class="fa fa-bell"></i> <?php echo $rem_time; ?></time><span><?php echo get_the_title($cr[0]); ?></span></a>
 						</div>
@@ -345,7 +345,7 @@ $reminder_group = get_field('reminder_group', $r->ID);
 						<?php } ?>
 					</div>
 				</div>	
-				<?php if ($i == date('j',strtotime('last fri of '.$now_dateTime->format("F"))) && $fris_counter == $number_of_week_days) { ?>
+				<?php if ($f == date('j',strtotime('last fri of '.$now_dateTime->format("F"))) && $fris_counter == $number_of_week_days) { ?>
 				<div class="day dim-day">
 				<span class="day-number"><?php echo date("j", strtotime('first fri of '.$next_month->format("F"))); ?></span>
 				</div>	
