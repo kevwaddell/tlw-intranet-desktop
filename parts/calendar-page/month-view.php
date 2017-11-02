@@ -116,7 +116,7 @@ debug($last_week_of_last_month);
 			<div class="day-label">Monday</div>
 			<?php for ($m = 1; $m <= $month_end->format("j"); $m++) {?>
 			<?php 
-			$weekNum_of_this_day = date('W', strtotime($now_dateTime->format("F")." ".$m."S"));	
+			$weekNum_of_this_day = date('W', strtotime($now_dateTime->format("F")." ".$m));	
 			echo '<pre>';print_r($now_dateTime->format("F")." ".$m);echo '</pre>';
 			if ($last_week_of_last_month < $weekNum_of_this_day && $mons_counter == 0) { 
 			$mons_counter++;
